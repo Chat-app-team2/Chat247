@@ -42,15 +42,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
             panel1 = new Panel();
+            label4 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            label3 = new Label();
             btnCancel = new Guna.UI2.WinForms.Guna2Button();
             btnReset = new Guna.UI2.WinForms.Guna2Button();
             txtconfirmpassword = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtnewpassword = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -69,20 +69,60 @@
             // panel1
             // 
             panel1.BackColor = Color.MidnightBlue;
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(btnCancel);
             panel1.Controls.Add(btnReset);
             panel1.Controls.Add(txtconfirmpassword);
-            panel1.Controls.Add(guna2HtmlLabel3);
             panel1.Controls.Add(txtnewpassword);
-            panel1.Controls.Add(guna2HtmlLabel2);
             panel1.Controls.Add(txtEmail);
-            panel1.Controls.Add(guna2HtmlLabel1);
-            panel1.Controls.Add(lblTitle);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(700, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(476, 636);
             panel1.TabIndex = 3;
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(0, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(464, 83);
+            label4.TabIndex = 32;
+            label4.Text = "Quên Mật Khẩu ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.LightGray;
+            label2.Location = new Point(51, 300);
+            label2.Name = "label2";
+            label2.Size = new Size(233, 30);
+            label2.TabIndex = 30;
+            label2.Text = "Xác nhận Password mới";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.LightGray;
+            label1.Location = new Point(51, 112);
+            label1.Name = "label1";
+            label1.Size = new Size(310, 30);
+            label1.TabIndex = 31;
+            label1.Text = "Nhập email để đặt lại mật khẩu.";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.LightGray;
+            label3.Location = new Point(51, 206);
+            label3.Name = "label3";
+            label3.Size = new Size(198, 30);
+            label3.TabIndex = 30;
+            label3.Text = "Nhập Password mới";
             // 
             // btnCancel
             // 
@@ -154,16 +194,6 @@
             txtconfirmpassword.Size = new Size(360, 44);
             txtconfirmpassword.TabIndex = 12;
             // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.ForeColor = Color.White;
-            guna2HtmlLabel3.Location = new Point(51, 295);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(224, 32);
-            guna2HtmlLabel3.TabIndex = 11;
-            guna2HtmlLabel3.Text = "Xác nhận Password mới";
-            // 
             // txtnewpassword
             // 
             txtnewpassword.BorderColor = Color.FromArgb(90, 90, 90);
@@ -190,16 +220,6 @@
             txtnewpassword.Size = new Size(360, 44);
             txtnewpassword.TabIndex = 10;
             // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.ForeColor = Color.White;
-            guna2HtmlLabel2.Location = new Point(51, 201);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(189, 32);
-            guna2HtmlLabel2.TabIndex = 9;
-            guna2HtmlLabel2.Text = "Nhập Password mới";
-            // 
             // txtEmail
             // 
             txtEmail.BorderColor = Color.FromArgb(90, 90, 90);
@@ -225,28 +245,6 @@
             txtEmail.Size = new Size(360, 44);
             txtEmail.TabIndex = 8;
             // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(51, 105);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(300, 32);
-            guna2HtmlLabel1.TabIndex = 2;
-            guna2HtmlLabel1.Text = "Nhập email để đặt lại mật khẩu.";
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = false;
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 26.1428585F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(6, 12);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(467, 87);
-            lblTitle.TabIndex = 1;
-            lblTitle.Text = "Quên Mật Khẩu ";
-            // 
             // Quen_Mat_Khau
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
@@ -254,7 +252,6 @@
             ClientSize = new Size(1176, 636);
             Controls.Add(panel1);
             Controls.Add(guna2PanelLeft);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Quen_Mat_Khau";
             Text = "Quen_Mat_Khau";
             Load += Quen_Mat_Khau_Load;
@@ -276,5 +273,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnReset;
+        private Label label2;
+        private Label label1;
+        private Label label3;
+        private Label label4;
     }
 }

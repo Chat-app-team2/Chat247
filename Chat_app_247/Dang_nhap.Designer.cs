@@ -30,8 +30,8 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -40,26 +40,22 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
             guna2PanelRight = new Guna.UI2.WinForms.Guna2Panel();
+            label6 = new Label();
+            label5 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            label4 = new Label();
             linkLabel2 = new LinkLabel();
-            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnLogin = new Guna.UI2.WinForms.Guna2Button();
             linkLabel1 = new LinkLabel();
             chkRemember = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            btnGoogle = new Guna.UI2.WinForms.Guna2Button();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblSubtitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2PanelRight.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,54 +74,101 @@
             // guna2PanelRight
             // 
             guna2PanelRight.BackColor = Color.MidnightBlue;
+            guna2PanelRight.Controls.Add(label6);
+            guna2PanelRight.Controls.Add(label5);
+            guna2PanelRight.Controls.Add(label3);
+            guna2PanelRight.Controls.Add(label2);
+            guna2PanelRight.Controls.Add(label1);
+            guna2PanelRight.Controls.Add(label4);
             guna2PanelRight.Controls.Add(linkLabel2);
-            guna2PanelRight.Controls.Add(guna2HtmlLabel5);
             guna2PanelRight.Controls.Add(btnLogin);
             guna2PanelRight.Controls.Add(linkLabel1);
             guna2PanelRight.Controls.Add(chkRemember);
             guna2PanelRight.Controls.Add(guna2Button1);
             guna2PanelRight.Controls.Add(txtPassword);
-            guna2PanelRight.Controls.Add(guna2HtmlLabel4);
             guna2PanelRight.Controls.Add(txtEmail);
-            guna2PanelRight.Controls.Add(guna2HtmlLabel3);
             guna2PanelRight.Controls.Add(guna2Separator1);
-            guna2PanelRight.Controls.Add(guna2HtmlLabel2);
-            guna2PanelRight.Controls.Add(btnGoogle);
-            guna2PanelRight.Controls.Add(guna2HtmlLabel1);
-            guna2PanelRight.Controls.Add(lblSubtitle);
-            guna2PanelRight.Controls.Add(lblTitle);
-            guna2PanelRight.CustomizableEdges = customizableEdges13;
+            guna2PanelRight.CustomizableEdges = customizableEdges11;
             guna2PanelRight.Dock = DockStyle.Fill;
             guna2PanelRight.FillColor = Color.MidnightBlue;
             guna2PanelRight.Location = new Point(700, 0);
             guna2PanelRight.Name = "guna2PanelRight";
-            guna2PanelRight.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2PanelRight.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2PanelRight.Size = new Size(500, 700);
             guna2PanelRight.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(61, 164);
+            label6.Name = "label6";
+            label6.Size = new Size(427, 47);
+            label6.TabIndex = 32;
+            label6.Text = "Please login to your account.";
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(61, 108);
+            label5.Name = "label5";
+            label5.Size = new Size(258, 56);
+            label5.TabIndex = 31;
+            label5.Text = "Welcome back! ";
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(56, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(258, 88);
+            label3.TabIndex = 30;
+            label3.Text = "Login";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.LightGray;
+            label2.Location = new Point(56, 608);
+            label2.Name = "label2";
+            label2.Size = new Size(238, 30);
+            label2.TabIndex = 29;
+            label2.Text = "Don’t have an account ?";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.LightGray;
+            label1.Location = new Point(56, 363);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 30);
+            label1.TabIndex = 28;
+            label1.Text = "Password";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.ForeColor = Color.LightGray;
+            label4.Location = new Point(56, 268);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 30);
+            label4.TabIndex = 27;
+            label4.Text = "Email";
             // 
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
             linkLabel2.Font = new Font("Segoe UI", 8.142858F, FontStyle.Regular, GraphicsUnit.Point, 0);
             linkLabel2.LinkColor = Color.SkyBlue;
-            linkLabel2.Location = new Point(297, 612);
+            linkLabel2.Location = new Point(313, 612);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(79, 28);
             linkLabel2.TabIndex = 15;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Sign up";
             linkLabel2.LinkClicked += linkLabel2_LinkClicked;
-            // 
-            // guna2HtmlLabel5
-            // 
-            guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Font = new Font("Segoe UI", 8.142858F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.ForeColor = Color.LightGray;
-            guna2HtmlLabel5.Location = new Point(56, 613);
-            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(205, 27);
-            guna2HtmlLabel5.TabIndex = 14;
-            guna2HtmlLabel5.Text = "Don’t have an account ?";
             // 
             // btnLogin
             // 
@@ -140,7 +183,7 @@
             btnLogin.FillColor = Color.FromArgb(29, 155, 240);
             btnLogin.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(56, 561);
+            btnLogin.Location = new Point(56, 545);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnLogin.ShadowDecoration.Enabled = true;
@@ -154,7 +197,7 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Cursor = Cursors.Hand;
             linkLabel1.LinkColor = Color.SkyBlue;
-            linkLabel1.Location = new Point(242, 509);
+            linkLabel1.Location = new Point(254, 478);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(174, 30);
             linkLabel1.TabIndex = 12;
@@ -170,7 +213,7 @@
             chkRemember.CheckedState.BorderThickness = 0;
             chkRemember.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             chkRemember.ForeColor = Color.White;
-            chkRemember.Location = new Point(56, 509);
+            chkRemember.Location = new Point(61, 478);
             chkRemember.Name = "chkRemember";
             chkRemember.Size = new Size(175, 34);
             chkRemember.TabIndex = 11;
@@ -192,7 +235,7 @@
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Image = Properties.Resources.istockphoto_845329690_612x612;
             guna2Button1.ImageSize = new Size(35, 35);
-            guna2Button1.Location = new Point(424, 468);
+            guna2Button1.Location = new Point(442, 423);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Button1.Size = new Size(36, 35);
@@ -214,7 +257,7 @@
             txtPassword.Font = new Font("Segoe UI", 9F);
             txtPassword.ForeColor = Color.White;
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(56, 459);
+            txtPassword.Location = new Point(56, 414);
             txtPassword.Margin = new Padding(5, 6, 5, 6);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '•';
@@ -223,17 +266,6 @@
             txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtPassword.Size = new Size(360, 44);
             txtPassword.TabIndex = 9;
-            // 
-            // guna2HtmlLabel4
-            // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.ForeColor = Color.LightGray;
-            guna2HtmlLabel4.Location = new Point(56, 426);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(90, 32);
-            guna2HtmlLabel4.TabIndex = 8;
-            guna2HtmlLabel4.Text = "Password";
-            guna2HtmlLabel4.Click += guna2HtmlLabel4_Click;
             // 
             // txtEmail
             // 
@@ -251,7 +283,7 @@
             txtEmail.Font = new Font("Segoe UI", 9F);
             txtEmail.ForeColor = Color.White;
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(56, 373);
+            txtEmail.Location = new Point(56, 304);
             txtEmail.Margin = new Padding(5, 6, 5, 6);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Enter your email";
@@ -260,92 +292,12 @@
             txtEmail.Size = new Size(360, 44);
             txtEmail.TabIndex = 7;
             // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.ForeColor = Color.LightGray;
-            guna2HtmlLabel3.Location = new Point(56, 332);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(53, 32);
-            guna2HtmlLabel3.TabIndex = 6;
-            guna2HtmlLabel3.Text = "Email";
-            // 
             // guna2Separator1
             // 
-            guna2Separator1.Location = new Point(56, 308);
+            guna2Separator1.Location = new Point(56, 232);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(350, 18);
             guna2Separator1.TabIndex = 5;
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.ForeColor = Color.Gray;
-            guna2HtmlLabel2.Location = new Point(186, 270);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(33, 32);
-            guna2HtmlLabel2.TabIndex = 4;
-            guna2HtmlLabel2.Text = "OR";
-            // 
-            // btnGoogle
-            // 
-            btnGoogle.BorderColor = Color.Gray;
-            btnGoogle.BorderThickness = 1;
-            btnGoogle.Cursor = Cursors.Hand;
-            btnGoogle.CustomizableEdges = customizableEdges11;
-            btnGoogle.DisabledState.BorderColor = Color.DarkGray;
-            btnGoogle.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnGoogle.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnGoogle.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnGoogle.FillColor = Color.Transparent;
-            btnGoogle.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGoogle.ForeColor = Color.White;
-            btnGoogle.Image = Properties.Resources.images;
-            btnGoogle.ImageSize = new Size(24, 24);
-            btnGoogle.Location = new Point(56, 218);
-            btnGoogle.Name = "btnGoogle";
-            btnGoogle.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnGoogle.Size = new Size(360, 46);
-            btnGoogle.TabIndex = 3;
-            btnGoogle.Text = "Sign in with Google";
-            // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.AutoSize = false;
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(56, 152);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(390, 44);
-            guna2HtmlLabel1.TabIndex = 2;
-            guna2HtmlLabel1.Text = "Please login to your account.";
-            // 
-            // lblSubtitle
-            // 
-            lblSubtitle.AutoSize = false;
-            lblSubtitle.BackColor = Color.Transparent;
-            lblSubtitle.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSubtitle.ForeColor = Color.White;
-            lblSubtitle.Location = new Point(56, 118);
-            lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(242, 44);
-            lblSubtitle.TabIndex = 1;
-            lblSubtitle.Text = "Welcome back! \r\n";
-            lblSubtitle.Click += lblSubtitle_Click;
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = false;
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 26.1428585F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(56, 25);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(163, 87);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Login";
             // 
             // Dang_nhap
             // 
@@ -355,7 +307,6 @@
             ClientSize = new Size(1200, 700);
             Controls.Add(guna2PanelRight);
             Controls.Add(guna2PanelLeft);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Dang_nhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dang_nhap";
@@ -371,9 +322,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2PanelRight;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblSubtitle;
-        private Guna.UI2.WinForms.Guna2Button btnGoogle;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
@@ -385,5 +334,11 @@
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private LinkLabel linkLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Label label1;
+        private Label label4;
+        private Label label2;
+        private Label label3;
+        private Label label6;
+        private Label label5;
     }
 }
