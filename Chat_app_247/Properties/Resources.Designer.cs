@@ -69,5 +69,25 @@ namespace Chat_app_247.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2025_10_23_212945 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2025-10-23 212945", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2025_10_23_2129451 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2025-10-23 2129451", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
