@@ -12,6 +12,8 @@ namespace Chat_app_247
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Dang_nhap());
+            f_Dashboard dashboard = new f_Dashboard();
+            Application.Run(dashboard);
         }
     }
 }
