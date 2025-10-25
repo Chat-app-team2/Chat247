@@ -145,23 +145,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NTuyen\\.nuget\\packages\\": {},
+    "C:\\Users\\makid\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\chatapp247\\Chat247\\Chat_app_247\\Chat_app_247.csproj",
+      "projectUniqueName": "C:\\Users\\makid\\source\\repos\\Chat247\\Chat_app_247\\Chat_app_247.csproj",
       "projectName": "Chat_app_247",
-      "projectPath": "D:\\chatapp247\\Chat247\\Chat_app_247\\Chat_app_247.csproj",
-      "packagesPath": "C:\\Users\\NTuyen\\.nuget\\packages\\",
-      "outputPath": "D:\\chatapp247\\Chat247\\Chat_app_247\\obj\\",
+      "projectPath": "C:\\Users\\makid\\source\\repos\\Chat247\\Chat_app_247\\Chat_app_247.csproj",
+      "packagesPath": "C:\\Users\\makid\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\makid\\source\\repos\\Chat247\\Chat_app_247\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\NTuyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\makid\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

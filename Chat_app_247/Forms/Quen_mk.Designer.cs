@@ -67,28 +67,32 @@
             panel1.Controls.Add(txtnewpassword);
             panel1.Controls.Add(txtEmail);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(700, 0);
+            panel1.Location = new Point(467, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(453, 651);
+            panel1.Size = new Size(302, 434);
             panel1.TabIndex = 5;
             // 
             // label4
             // 
-            label4.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(0, 9);
+            label4.Location = new Point(0, 6);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(464, 83);
+            label4.Size = new Size(309, 55);
             label4.TabIndex = 32;
             label4.Text = "Quên Mật Khẩu ";
+            label4.Click += label4_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.LightGray;
-            label2.Location = new Point(51, 300);
+            label2.Location = new Point(34, 200);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(233, 30);
+            label2.Size = new Size(164, 20);
             label2.TabIndex = 30;
             label2.Text = "Xác nhận Password mới";
             // 
@@ -96,9 +100,10 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.LightGray;
-            label1.Location = new Point(51, 112);
+            label1.Location = new Point(34, 75);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(310, 30);
+            label1.Size = new Size(221, 20);
             label1.TabIndex = 31;
             label1.Text = "Nhập email để đặt lại mật khẩu.";
             // 
@@ -106,9 +111,10 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.LightGray;
-            label3.Location = new Point(51, 206);
+            label3.Location = new Point(34, 137);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(198, 30);
+            label3.Size = new Size(140, 20);
             label3.TabIndex = 30;
             label3.Text = "Nhập Password mới";
             // 
@@ -125,11 +131,12 @@
             btnCancel.FillColor = Color.FromArgb(29, 155, 240);
             btnCancel.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(51, 483);
+            btnCancel.Location = new Point(34, 322);
+            btnCancel.Margin = new Padding(2, 2, 2, 2);
             btnCancel.Name = "btnCancel";
             btnCancel.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnCancel.ShadowDecoration.Enabled = true;
-            btnCancel.Size = new Size(360, 46);
+            btnCancel.Size = new Size(240, 31);
             btnCancel.TabIndex = 15;
             btnCancel.Text = "Hủy";
             btnCancel.Click += btnCancel_Click;
@@ -147,11 +154,12 @@
             btnReset.FillColor = Color.FromArgb(29, 155, 240);
             btnReset.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReset.ForeColor = Color.White;
-            btnReset.Location = new Point(51, 407);
+            btnReset.Location = new Point(34, 271);
+            btnReset.Margin = new Padding(2, 2, 2, 2);
             btnReset.Name = "btnReset";
             btnReset.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnReset.ShadowDecoration.Enabled = true;
-            btnReset.Size = new Size(360, 46);
+            btnReset.Size = new Size(240, 31);
             btnReset.TabIndex = 14;
             btnReset.Text = "Đặt lại mật khẩu";
             // 
@@ -171,14 +179,14 @@
             txtconfirmpassword.Font = new Font("Segoe UI", 9F);
             txtconfirmpassword.ForeColor = Color.White;
             txtconfirmpassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtconfirmpassword.Location = new Point(51, 336);
-            txtconfirmpassword.Margin = new Padding(5, 6, 5, 6);
+            txtconfirmpassword.Location = new Point(34, 224);
+            txtconfirmpassword.Margin = new Padding(3, 4, 3, 4);
             txtconfirmpassword.Name = "txtconfirmpassword";
             txtconfirmpassword.PasswordChar = '•';
             txtconfirmpassword.PlaceholderText = "Enter new password";
             txtconfirmpassword.SelectedText = "";
             txtconfirmpassword.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtconfirmpassword.Size = new Size(360, 44);
+            txtconfirmpassword.Size = new Size(240, 29);
             txtconfirmpassword.TabIndex = 12;
             // 
             // txtnewpassword
@@ -197,14 +205,14 @@
             txtnewpassword.Font = new Font("Segoe UI", 9F);
             txtnewpassword.ForeColor = Color.White;
             txtnewpassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtnewpassword.Location = new Point(51, 242);
-            txtnewpassword.Margin = new Padding(5, 6, 5, 6);
+            txtnewpassword.Location = new Point(34, 161);
+            txtnewpassword.Margin = new Padding(3, 4, 3, 4);
             txtnewpassword.Name = "txtnewpassword";
             txtnewpassword.PasswordChar = '•';
             txtnewpassword.PlaceholderText = "Enter new password";
             txtnewpassword.SelectedText = "";
             txtnewpassword.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            txtnewpassword.Size = new Size(360, 44);
+            txtnewpassword.Size = new Size(240, 29);
             txtnewpassword.TabIndex = 10;
             // 
             // txtEmail
@@ -223,13 +231,13 @@
             txtEmail.Font = new Font("Segoe UI", 9F);
             txtEmail.ForeColor = Color.White;
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(51, 148);
-            txtEmail.Margin = new Padding(5, 6, 5, 6);
+            txtEmail.Location = new Point(34, 99);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Enter your email";
             txtEmail.SelectedText = "";
             txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            txtEmail.Size = new Size(360, 44);
+            txtEmail.Size = new Size(240, 29);
             txtEmail.TabIndex = 8;
             // 
             // guna2PanelLeft
@@ -239,19 +247,21 @@
             guna2PanelLeft.CustomizableEdges = customizableEdges23;
             guna2PanelLeft.Dock = DockStyle.Left;
             guna2PanelLeft.Location = new Point(0, 0);
+            guna2PanelLeft.Margin = new Padding(2, 2, 2, 2);
             guna2PanelLeft.Name = "guna2PanelLeft";
             guna2PanelLeft.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2PanelLeft.Size = new Size(700, 651);
+            guna2PanelLeft.Size = new Size(467, 434);
             guna2PanelLeft.TabIndex = 4;
             // 
             // Quen_mk
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1153, 651);
+            ClientSize = new Size(769, 434);
             Controls.Add(panel1);
             Controls.Add(guna2PanelLeft);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Quen_mk";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quen_mk";
