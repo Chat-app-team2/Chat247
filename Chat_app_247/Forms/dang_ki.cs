@@ -24,9 +24,7 @@ namespace Chat_app_247
         // chức năng  khi ấn vào  chữ đăng nhập ngay 
         private void linkdang_nhap_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide(); // ẩn form hiện tại 
-            Dang_nhap dang_nhap = new Dang_nhap(); // tạo đối tượng đăng nhập mới 
-            dang_nhap.Show();// show form đăng nhập 
+            this.Close();// đóng form hiện tại
         }
     }
 }
