@@ -16,20 +16,20 @@ namespace Chat_app_247
         {
             InitializeComponent();
         }
-
+        // ấn vào link fogot password 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            Quen_mk quen_mk = new Quen_mk();
-            quen_mk.Show();
+            this.Hide();// ẩn form hiện tại 
+            Quen_mk quen_mk = new Quen_mk();// tạo đối tượng form mới quên mật khẩu 
+            quen_mk.Show();// show form quên mật khẩu 
 
         }
-
+        // chức năng khi ấn vào sign up
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            dang_ki dang_ki = new dang_ki();
-            dang_ki.Show();
+            this.Hide(); // ẩn form hiện tại 
+            dang_ki dang_ki = new dang_ki();// tạo đối tượng form đăng kí mới 
+            dang_ki.Show();// show form đăng kí 
         }
     }
 }

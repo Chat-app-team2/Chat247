@@ -16,12 +16,12 @@ namespace Chat_app_247
         {
             InitializeComponent();
         }
-
+        // chức năng khi ấn vào nút hủy 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Dang_nhap dang_nhap = new Dang_nhap();
-            dang_nhap.Show();
+            this.Hide(); // ânr form hiện tại 
+            Dang_nhap dang_nhap = new Dang_nhap();// khởi tạo đối tượng đăng nhập mới 
+            dang_nhap.Show();// show form đăng nhập mới 
         }
     }
 }
