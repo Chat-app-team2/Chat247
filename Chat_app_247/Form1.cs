@@ -6,5 +6,11 @@ namespace Chat_app_247
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            f_Dashboard dashboard = new f_Dashboard();
+            dashboard.Show();
+        }
     }
 }
