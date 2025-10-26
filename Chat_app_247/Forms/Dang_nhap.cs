@@ -21,15 +21,17 @@ namespace Chat_app_247
         {
             this.Hide();// ẩn form hiện tại 
             Quen_mk quen_mk = new Quen_mk();// tạo đối tượng form mới quên mật khẩu 
-            quen_mk.Show();// show form quên mật khẩu 
+            quen_mk.ShowDialog();// show form quên mật khẩu 
 
+            this.Show();// hiện lại form đăng nhập
         }
         // chức năng khi ấn vào sign up
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide(); // ẩn form hiện tại 
             dang_ki dang_ki = new dang_ki();// tạo đối tượng form đăng kí mới 
-            dang_ki.Show();// show form đăng kí 
+            dang_ki.ShowDialog();// show form đăng kí 
+            this.Show();// hiện lại form đăng nhập
         }
     }
 }
