@@ -6,5 +6,6 @@ namespace Chat_app_247
         {
             InitializeComponent();
         }
+
     }
 }
