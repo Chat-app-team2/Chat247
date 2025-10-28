@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Panel_menu = new Panel();
             sub_Setting_panel = new Panel();
             Logout_button = new FontAwesome.Sharp.IconButton();
@@ -40,26 +41,26 @@
             List_Friends_button = new FontAwesome.Sharp.IconButton();
             Introduction_button = new FontAwesome.Sharp.IconButton();
             panel_logo = new Panel();
+            Logo_picture = new PictureBox();
             panel1 = new Panel();
             Icon_Status = new FontAwesome.Sharp.IconPictureBox();
             Bell_button = new FontAwesome.Sharp.IconButton();
-            Avatar_Picture = new FontAwesome.Sharp.IconPictureBox();
             Label_Name = new Label();
             Label_Small_Form = new Label();
             Icon_Small_Form = new FontAwesome.Sharp.IconPictureBox();
             Small_Form_panel = new Panel();
             helloToolStripMenuItem = new ToolStripMenuItem();
             List_Thong_Bao = new ContextMenuStrip(components);
-            Logo_picture = new PictureBox();
+            Avartar_Picture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             Panel_menu.SuspendLayout();
             sub_Setting_panel.SuspendLayout();
             panel_logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Logo_picture).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Icon_Status).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Avatar_Picture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Icon_Small_Form).BeginInit();
             List_Thong_Bao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)Logo_picture).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Avartar_Picture).BeginInit();
             SuspendLayout();
             // 
             // Panel_menu
@@ -277,12 +278,22 @@
             panel_logo.Size = new Size(250, 126);
             panel_logo.TabIndex = 0;
             // 
+            // Logo_picture
+            // 
+            Logo_picture.Image = Properties.Resources.Logo_Real;
+            Logo_picture.Location = new Point(-210, -63);
+            Logo_picture.Name = "Logo_picture";
+            Logo_picture.Size = new Size(651, 237);
+            Logo_picture.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo_picture.TabIndex = 0;
+            Logo_picture.TabStop = false;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(37, 36, 80);
+            panel1.Controls.Add(Avartar_Picture);
             panel1.Controls.Add(Icon_Status);
             panel1.Controls.Add(Bell_button);
-            panel1.Controls.Add(Avatar_Picture);
             panel1.Controls.Add(Label_Name);
             panel1.Controls.Add(Label_Small_Form);
             panel1.Controls.Add(Icon_Small_Form);
@@ -314,33 +325,18 @@
             Bell_button.IconColor = SystemColors.ButtonHighlight;
             Bell_button.IconFont = FontAwesome.Sharp.IconFont.Solid;
             Bell_button.IconSize = 30;
-            Bell_button.Location = new Point(659, 13);
+            Bell_button.Location = new Point(647, 13);
             Bell_button.Name = "Bell_button";
             Bell_button.Size = new Size(43, 48);
             Bell_button.TabIndex = 4;
             Bell_button.UseVisualStyleBackColor = true;
             Bell_button.Click += Bell_button_Click;
             // 
-            // Avatar_Picture
-            // 
-            Avatar_Picture.BackColor = Color.White;
-            Avatar_Picture.ForeColor = Color.Gainsboro;
-            Avatar_Picture.IconChar = FontAwesome.Sharp.IconChar.None;
-            Avatar_Picture.IconColor = Color.Gainsboro;
-            Avatar_Picture.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            Avatar_Picture.IconSize = 40;
-            Avatar_Picture.Location = new Point(713, 15);
-            Avatar_Picture.Name = "Avatar_Picture";
-            Avatar_Picture.Size = new Size(40, 40);
-            Avatar_Picture.SizeMode = PictureBoxSizeMode.Zoom;
-            Avatar_Picture.TabIndex = 3;
-            Avatar_Picture.TabStop = false;
-            // 
             // Label_Name
             // 
             Label_Name.AutoSize = true;
             Label_Name.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Label_Name.Location = new Point(761, 13);
+            Label_Name.Location = new Point(761, 11);
             Label_Name.Name = "Label_Name";
             Label_Name.Size = new Size(64, 28);
             Label_Name.TabIndex = 2;
@@ -392,15 +388,16 @@
             List_Thong_Bao.Name = "List_Thong_Bao";
             List_Thong_Bao.Size = new Size(112, 28);
             // 
-            // Logo_picture
+            // Avartar_Picture
             // 
-            Logo_picture.Image = Properties.Resources.Logo_Real;
-            Logo_picture.Location = new Point(-210, -63);
-            Logo_picture.Name = "Logo_picture";
-            Logo_picture.Size = new Size(651, 237);
-            Logo_picture.SizeMode = PictureBoxSizeMode.Zoom;
-            Logo_picture.TabIndex = 0;
-            Logo_picture.TabStop = false;
+            Avartar_Picture.ImageRotate = 0F;
+            Avartar_Picture.Location = new Point(698, 11);
+            Avartar_Picture.Name = "Avartar_Picture";
+            Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            Avartar_Picture.Size = new Size(50, 50);
+            Avartar_Picture.TabIndex = 6;
+            Avartar_Picture.TabStop = false;
             // 
             // f_Dashboard
             // 
@@ -417,13 +414,13 @@
             Panel_menu.ResumeLayout(false);
             sub_Setting_panel.ResumeLayout(false);
             panel_logo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Logo_picture).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Icon_Status).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Avatar_Picture).EndInit();
             ((System.ComponentModel.ISupportInitialize)Icon_Small_Form).EndInit();
             List_Thong_Bao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)Logo_picture).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Avartar_Picture).EndInit();
             ResumeLayout(false);
         }
 
@@ -444,12 +441,12 @@
         private Label Label_Small_Form;
         private FontAwesome.Sharp.IconPictureBox Icon_Small_Form;
         private Panel Small_Form_panel;
-        private FontAwesome.Sharp.IconPictureBox Avatar_Picture;
         private Label Label_Name;
         private FontAwesome.Sharp.IconButton Bell_button;
         private FontAwesome.Sharp.IconPictureBox Icon_Status;
         private ToolStripMenuItem helloToolStripMenuItem;
         private ContextMenuStrip List_Thong_Bao;
         private PictureBox Logo_picture;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox Avartar_Picture;
     }
 }
