@@ -28,5 +28,8 @@ namespace Chat_app_247.Models
 
         // Tên file gốc để hiển thị cho người nhận
         public string FileName { get; set; }
+
+        // Key: UserId của người đã đọc, Value: Timestamp lúc đọc
+        public Dictionary<string, long> ReadBy { get; set; }
     }
 }

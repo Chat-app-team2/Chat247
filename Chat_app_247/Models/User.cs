@@ -20,6 +20,12 @@ namespace Chat_app_247.Class
         // URL đến ảnh đại diện, lưu trên Firebase Storage
         public string ProfilePictureUrl { get; set; }
 
+        // Trạng thái trực tuyến của người dùng
+        public bool IsOnline { get; set; }
+
+        // Timestamp của lần hoạt động cuối cùng
+        public long LastSeenTimestamp { get; set; }
+
         // Danh sách ID của những người đã là bạn bè
         public List<string> FriendIds { get; set; }
 
