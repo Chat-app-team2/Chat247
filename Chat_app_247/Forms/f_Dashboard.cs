@@ -183,14 +183,14 @@ namespace Chat_app_247
             OpenSmallForm(f_security);
         }
 
-        // Sự kiện khi nhấn nút Logout_button
+        // Sự kiện khi nhấn nút Logout_button (Đăng xuất)
         private void Logout_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color8);
             Label_Small_Form.Text = "Đăng Xuất";
         }
 
-        // Sự kiện khi nhấn nút Bell_button
+        // Sự kiện khi nhấn nút Bell_button (Xử lý thông báo)
         private void Bell_button_Click(object sender, EventArgs e)
         {
             List_Thong_Bao.Show(Bell_button, new Point(0, Bell_button.Height));
