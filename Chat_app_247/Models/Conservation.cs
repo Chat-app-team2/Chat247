@@ -28,5 +28,8 @@ namespace Chat_app_247.Models
 
         // Nội dung tin nhắn cuối cùng (dùng để hiển thị preview ngoài danh sách chat)
         public Message LastMessage { get; set; }
+
+        // Key: UserId, Value: luôn là true. Dùng Dictionary cho phép thêm/xóa nhanh hơn List.
+        public Dictionary<string, bool> TypingIndicator { get; set; }
     }
 }
