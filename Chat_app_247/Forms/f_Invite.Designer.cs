@@ -53,9 +53,10 @@
             guna2TabControl1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             guna2TabControl1.ItemSize = new Size(180, 40);
             guna2TabControl1.Location = new Point(0, 0);
+            guna2TabControl1.Margin = new Padding(4, 4, 4, 4);
             guna2TabControl1.Name = "guna2TabControl1";
             guna2TabControl1.SelectedIndex = 0;
-            guna2TabControl1.Size = new Size(1103, 535);
+            guna2TabControl1.Size = new Size(1654, 802);
             guna2TabControl1.TabButtonHoverState.BorderColor = Color.Empty;
             guna2TabControl1.TabButtonHoverState.FillColor = Color.FromArgb(40, 52, 70);
             guna2TabControl1.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 10F);
@@ -81,9 +82,10 @@
             Received_tab.Controls.Add(Received_Panel);
             Received_tab.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             Received_tab.Location = new Point(184, 4);
+            Received_tab.Margin = new Padding(4, 4, 4, 4);
             Received_tab.Name = "Received_tab";
-            Received_tab.Padding = new Padding(3);
-            Received_tab.Size = new Size(915, 527);
+            Received_tab.Padding = new Padding(4, 4, 4, 4);
+            Received_tab.Size = new Size(1466, 794);
             Received_tab.TabIndex = 0;
             Received_tab.Text = "Lời Mời Đến";
             Received_tab.UseVisualStyleBackColor = true;
@@ -94,10 +96,11 @@
             Received_Panel.BackColor = Color.DimGray;
             Received_Panel.Dock = DockStyle.Fill;
             Received_Panel.FillColor = Color.LightCyan;
-            Received_Panel.Location = new Point(3, 3);
+            Received_Panel.Location = new Point(4, 4);
+            Received_Panel.Margin = new Padding(4, 4, 4, 4);
             Received_Panel.Name = "Received_Panel";
             Received_Panel.ShadowColor = Color.Black;
-            Received_Panel.Size = new Size(907, 519);
+            Received_Panel.Size = new Size(1456, 784);
             Received_Panel.TabIndex = 3;
             // 
             // Sent_tab
@@ -106,9 +109,10 @@
             Sent_tab.Controls.Add(Sent_Panel);
             Sent_tab.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             Sent_tab.Location = new Point(184, 4);
+            Sent_tab.Margin = new Padding(4, 4, 4, 4);
             Sent_tab.Name = "Sent_tab";
-            Sent_tab.Padding = new Padding(3);
-            Sent_tab.Size = new Size(915, 527);
+            Sent_tab.Padding = new Padding(4, 4, 4, 4);
+            Sent_tab.Size = new Size(1466, 794);
             Sent_tab.TabIndex = 1;
             Sent_tab.Text = "Lời Mời Đã Gửi";
             Sent_tab.UseVisualStyleBackColor = true;
@@ -119,10 +123,11 @@
             Sent_Panel.BackColor = Color.DimGray;
             Sent_Panel.Dock = DockStyle.Fill;
             Sent_Panel.FillColor = Color.LightCyan;
-            Sent_Panel.Location = new Point(3, 3);
+            Sent_Panel.Location = new Point(4, 4);
+            Sent_Panel.Margin = new Padding(4, 4, 4, 4);
             Sent_Panel.Name = "Sent_Panel";
             Sent_Panel.ShadowColor = Color.Black;
-            Sent_Panel.Size = new Size(907, 519);
+            Sent_Panel.Size = new Size(1456, 784);
             Sent_Panel.TabIndex = 4;
             // 
             // Notification_tab
@@ -131,8 +136,9 @@
             Notification_tab.Controls.Add(Nofi_Panel);
             Notification_tab.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             Notification_tab.Location = new Point(184, 4);
+            Notification_tab.Margin = new Padding(4, 4, 4, 4);
             Notification_tab.Name = "Notification_tab";
-            Notification_tab.Size = new Size(915, 527);
+            Notification_tab.Size = new Size(1466, 794);
             Notification_tab.TabIndex = 2;
             Notification_tab.Text = "Thông Báo";
             Notification_tab.UseVisualStyleBackColor = true;
@@ -144,9 +150,10 @@
             Nofi_Panel.Dock = DockStyle.Fill;
             Nofi_Panel.FillColor = Color.White;
             Nofi_Panel.Location = new Point(0, 0);
+            Nofi_Panel.Margin = new Padding(4, 4, 4, 4);
             Nofi_Panel.Name = "Nofi_Panel";
             Nofi_Panel.ShadowColor = Color.Black;
-            Nofi_Panel.Size = new Size(913, 525);
+            Nofi_Panel.Size = new Size(1464, 792);
             Nofi_Panel.TabIndex = 1;
             // 
             // Notification_Panel
@@ -157,17 +164,19 @@
             Notification_Panel.Dock = DockStyle.Fill;
             Notification_Panel.FillColor = Color.LightCyan;
             Notification_Panel.Location = new Point(0, 0);
+            Notification_Panel.Margin = new Padding(4, 4, 4, 4);
             Notification_Panel.Name = "Notification_Panel";
             Notification_Panel.ShadowColor = Color.Black;
-            Notification_Panel.Size = new Size(913, 525);
+            Notification_Panel.Size = new Size(1464, 792);
             Notification_Panel.TabIndex = 2;
             // 
             // f_Invite
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 535);
+            ClientSize = new Size(1654, 802);
             Controls.Add(guna2TabControl1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "f_Invite";
             Text = "Invited";
             guna2TabControl1.ResumeLayout(false);
