@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -37,14 +37,11 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBase = new Guna.UI2.WinForms.Guna2Panel();
             pnlDot = new Guna.UI2.WinForms.Guna2Panel();
             lblName = new Label();
             btnMore = new Guna.UI2.WinForms.Guna2Button();
             btnChat = new Guna.UI2.WinForms.Guna2Button();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             picAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             menuMore = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
@@ -62,18 +59,18 @@
             pnlBase.Controls.Add(lblName);
             pnlBase.Controls.Add(btnMore);
             pnlBase.Controls.Add(btnChat);
-            pnlBase.Controls.Add(guna2Panel1);
             pnlBase.Controls.Add(picAvatar);
-            pnlBase.CustomizableEdges = customizableEdges10;
+            pnlBase.CustomizableEdges = customizableEdges8;
             pnlBase.Dock = DockStyle.Fill;
             pnlBase.FillColor = Color.White;
             pnlBase.Location = new Point(0, 0);
             pnlBase.Margin = new Padding(0, 0, 0, 10);
             pnlBase.Name = "pnlBase";
-            pnlBase.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            pnlBase.Padding = new Padding(10, 8, 10, 8);
+            pnlBase.ShadowDecoration.CustomizableEdges = customizableEdges9;
             pnlBase.ShadowDecoration.Depth = 5;
             pnlBase.ShadowDecoration.Enabled = true;
-            pnlBase.Size = new Size(800, 70);
+            pnlBase.Size = new Size(800, 90);
             pnlBase.TabIndex = 0;
             // 
             // pnlDot
@@ -81,7 +78,7 @@
             pnlDot.BorderRadius = 5;
             pnlDot.CustomizableEdges = customizableEdges1;
             pnlDot.FillColor = Color.LimeGreen;
-            pnlDot.Location = new Point(80, 38);
+            pnlDot.Location = new Point(89, 65);
             pnlDot.Name = "pnlDot";
             pnlDot.RightToLeft = RightToLeft.Yes;
             pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -93,7 +90,7 @@
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.FromArgb(30, 30, 30);
-            lblName.Location = new Point(80, 12);
+            lblName.Location = new Point(125, 24);
             lblName.MaximumSize = new Size(500, 0);
             lblName.Name = "lblName";
             lblName.Size = new Size(86, 37);
@@ -115,10 +112,11 @@
             btnMore.ForeColor = Color.Gray;
             btnMore.HoverState.FillColor = SystemColors.ButtonFace;
             btnMore.Image = Properties.Resources._3_cham;
-            btnMore.Location = new Point(750, 18);
+            btnMore.ImageSize = new Size(30, 30);
+            btnMore.Location = new Point(730, 19);
             btnMore.Name = "btnMore";
             btnMore.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnMore.Size = new Size(35, 35);
+            btnMore.Size = new Size(57, 50);
             btnMore.TabIndex = 5;
             btnMore.Click += btnMore_Click;
             // 
@@ -134,23 +132,12 @@
             btnChat.FillColor = Color.FromArgb(104, 33, 122);
             btnChat.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChat.ForeColor = Color.White;
-            btnChat.Location = new Point(654, 18);
+            btnChat.Location = new Point(602, 19);
             btnChat.Name = "btnChat";
             btnChat.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnChat.Size = new Size(90, 35);
+            btnChat.Size = new Size(122, 56);
             btnChat.TabIndex = 4;
             btnChat.Text = "Chat";
-            // 
-            // guna2Panel1
-            // 
-            guna2Panel1.BorderRadius = 5;
-            guna2Panel1.CustomizableEdges = customizableEdges7;
-            guna2Panel1.FillColor = Color.Lime;
-            guna2Panel1.Location = new Point(80, 38);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(10, 10);
-            guna2Panel1.TabIndex = 2;
             // 
             // picAvatar
             // 
@@ -158,9 +145,9 @@
             picAvatar.ImageRotate = 0F;
             picAvatar.Location = new Point(15, 10);
             picAvatar.Name = "picAvatar";
-            picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges7;
             picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            picAvatar.Size = new Size(50, 50);
+            picAvatar.Size = new Size(70, 70);
             picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
             picAvatar.TabIndex = 0;
             picAvatar.TabStop = false;
@@ -200,7 +187,7 @@
             BackColor = Color.LightGray;
             Controls.Add(pnlBase);
             Name = "FriendItem";
-            Size = new Size(800, 70);
+            Size = new Size(800, 90);
             pnlBase.ResumeLayout(false);
             pnlBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
@@ -213,7 +200,6 @@
         private Guna.UI2.WinForms.Guna2Panel pnlBase;
         private Label lblName;
         private Guna.UI2.WinForms.Guna2CirclePictureBox picAvatar;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button btnChat;
         private Guna.UI2.WinForms.Guna2Button btnMore;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip menuMore;
