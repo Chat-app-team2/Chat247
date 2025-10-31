@@ -61,9 +61,10 @@
             uc_Request_Panel.CustomizableEdges = customizableEdges8;
             uc_Request_Panel.Dock = DockStyle.Fill;
             uc_Request_Panel.Location = new Point(0, 0);
+            uc_Request_Panel.Margin = new Padding(4, 4, 4, 4);
             uc_Request_Panel.Name = "uc_Request_Panel";
             uc_Request_Panel.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            uc_Request_Panel.Size = new Size(818, 127);
+            uc_Request_Panel.Size = new Size(1227, 190);
             uc_Request_Panel.TabIndex = 0;
             // 
             // guna2Button1
@@ -79,12 +80,11 @@
             guna2Button1.FillColor = SystemColors.MenuBar;
             guna2Button1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.DimGray;
-            guna2Button1.Location = new Point(607, 32);
-            guna2Button1.Margin = new Padding(2);
+            guna2Button1.Location = new Point(910, 48);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.ShadowDecoration.Enabled = true;
-            guna2Button1.Size = new Size(82, 56);
+            guna2Button1.Size = new Size(123, 84);
             guna2Button1.TabIndex = 16;
             guna2Button1.Text = "Xem Thêm";
             // 
@@ -101,12 +101,11 @@
             Refuse_button.FillColor = Color.FromArgb(231, 76, 80);
             Refuse_button.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Refuse_button.ForeColor = Color.White;
-            Refuse_button.Location = new Point(449, 32);
-            Refuse_button.Margin = new Padding(2);
+            Refuse_button.Location = new Point(674, 48);
             Refuse_button.Name = "Refuse_button";
             Refuse_button.ShadowDecoration.CustomizableEdges = customizableEdges4;
             Refuse_button.ShadowDecoration.Enabled = true;
-            Refuse_button.Size = new Size(122, 56);
+            Refuse_button.Size = new Size(183, 84);
             Refuse_button.TabIndex = 15;
             Refuse_button.Text = "Chấp Nhận";
             // 
@@ -123,12 +122,11 @@
             Accept_button.FillColor = Color.FromArgb(26, 188, 156);
             Accept_button.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Accept_button.ForeColor = Color.White;
-            Accept_button.Location = new Point(305, 31);
-            Accept_button.Margin = new Padding(2);
+            Accept_button.Location = new Point(458, 46);
             Accept_button.Name = "Accept_button";
             Accept_button.ShadowDecoration.CustomizableEdges = customizableEdges6;
             Accept_button.ShadowDecoration.Enabled = true;
-            Accept_button.Size = new Size(122, 56);
+            Accept_button.Size = new Size(183, 84);
             Accept_button.TabIndex = 14;
             Accept_button.Text = "Chấp Nhận";
             // 
@@ -137,30 +135,33 @@
             Name_Label.BackColor = Color.Transparent;
             Name_Label.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name_Label.ForeColor = SystemColors.Info;
-            Name_Label.Location = new Point(98, 41);
+            Name_Label.Location = new Point(147, 62);
+            Name_Label.Margin = new Padding(4, 4, 4, 4);
             Name_Label.Name = "Name_Label";
-            Name_Label.Size = new Size(75, 33);
+            Name_Label.Size = new Size(105, 46);
             Name_Label.TabIndex = 1;
             Name_Label.Text = "Name";
             // 
             // Avartar_Picture
             // 
             Avartar_Picture.ImageRotate = 0F;
-            Avartar_Picture.Location = new Point(22, 27);
+            Avartar_Picture.Location = new Point(33, 40);
+            Avartar_Picture.Margin = new Padding(4, 4, 4, 4);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges7;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            Avartar_Picture.Size = new Size(60, 60);
+            Avartar_Picture.Size = new Size(90, 90);
             Avartar_Picture.TabIndex = 0;
             Avartar_Picture.TabStop = false;
             // 
             // uc_FriendRequest
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(uc_Request_Panel);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "uc_FriendRequest";
-            Size = new Size(818, 127);
+            Size = new Size(1227, 190);
             uc_Request_Panel.ResumeLayout(false);
             uc_Request_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Avartar_Picture).EndInit();

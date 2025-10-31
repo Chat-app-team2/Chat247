@@ -63,6 +63,16 @@ namespace Chat_app_247.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3_cham {
+            get {
+                object obj = ResourceManager.GetObject("3_cham", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_Real {
             get {
                 object obj = ResourceManager.GetObject("Logo_Real", resourceCulture);
@@ -86,6 +96,16 @@ namespace Chat_app_247.Properties {
         internal static System.Drawing.Bitmap Screenshot_2025_10_23_2129451 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2025-10-23 2129451", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2025_10_29_233643 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2025-10-29 233643", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

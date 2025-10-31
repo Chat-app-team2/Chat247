@@ -21,5 +21,5 @@ namespace Chat_app_247.Forms
             Name_Label.Text = name;
         }
     }
-    
+
 }
