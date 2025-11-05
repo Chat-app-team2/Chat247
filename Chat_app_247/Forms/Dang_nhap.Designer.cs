@@ -81,7 +81,7 @@
             guna2PanelRight.Dock = DockStyle.Fill;
             guna2PanelRight.FillColor = Color.MidnightBlue;
             guna2PanelRight.Location = new Point(467, 0);
-            guna2PanelRight.Margin = new Padding(2, 2, 2, 2);
+            guna2PanelRight.Margin = new Padding(2);
             guna2PanelRight.Name = "guna2PanelRight";
             guna2PanelRight.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2PanelRight.Size = new Size(302, 434);
@@ -181,13 +181,14 @@
             btnLogin.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(41, 345);
-            btnLogin.Margin = new Padding(2, 2, 2, 2);
+            btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
             btnLogin.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnLogin.ShadowDecoration.Enabled = true;
             btnLogin.Size = new Size(240, 31);
             btnLogin.TabIndex = 13;
             btnLogin.Text = "Login";
+            btnLogin.Click += btnLogin_Click;
             // 
             // linkLabel1
             // 
@@ -212,7 +213,7 @@
             chkRemember.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             chkRemember.ForeColor = Color.White;
             chkRemember.Location = new Point(41, 319);
-            chkRemember.Margin = new Padding(2, 2, 2, 2);
+            chkRemember.Margin = new Padding(2);
             chkRemember.Name = "chkRemember";
             chkRemember.Size = new Size(129, 24);
             chkRemember.TabIndex = 11;
@@ -234,7 +235,7 @@
             guna2Button1.ForeColor = Color.White;
             guna2Button1.ImageSize = new Size(35, 35);
             guna2Button1.Location = new Point(295, 282);
-            guna2Button1.Margin = new Padding(2, 2, 2, 2);
+            guna2Button1.Margin = new Padding(2);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button1.Size = new Size(24, 23);
@@ -294,7 +295,7 @@
             // guna2Separator1
             // 
             guna2Separator1.Location = new Point(37, 143);
-            guna2Separator1.Margin = new Padding(2, 2, 2, 2);
+            guna2Separator1.Margin = new Padding(2);
             guna2Separator1.Name = "guna2Separator1";
             guna2Separator1.Size = new Size(233, 12);
             guna2Separator1.TabIndex = 5;
@@ -306,7 +307,7 @@
             guna2PanelLeft.CustomizableEdges = customizableEdges11;
             guna2PanelLeft.Dock = DockStyle.Left;
             guna2PanelLeft.Location = new Point(0, 0);
-            guna2PanelLeft.Margin = new Padding(2, 2, 2, 2);
+            guna2PanelLeft.Margin = new Padding(2);
             guna2PanelLeft.Name = "guna2PanelLeft";
             guna2PanelLeft.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2PanelLeft.Size = new Size(467, 434);
@@ -319,7 +320,7 @@
             ClientSize = new Size(769, 434);
             Controls.Add(guna2PanelRight);
             Controls.Add(guna2PanelLeft);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Dang_nhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dang_nhap";
