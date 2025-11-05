@@ -43,6 +43,7 @@
             panel_logo = new Panel();
             Logo_picture = new PictureBox();
             panel1 = new Panel();
+            Avartar_Picture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             Icon_Status = new FontAwesome.Sharp.IconPictureBox();
             Bell_button = new FontAwesome.Sharp.IconButton();
             Label_Name = new Label();
@@ -51,16 +52,15 @@
             Small_Form_panel = new Panel();
             helloToolStripMenuItem = new ToolStripMenuItem();
             List_Thong_Bao = new ContextMenuStrip(components);
-            Avartar_Picture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             Panel_menu.SuspendLayout();
             sub_Setting_panel.SuspendLayout();
             panel_logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo_picture).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Avartar_Picture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Icon_Status).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Icon_Small_Form).BeginInit();
             List_Thong_Bao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)Avartar_Picture).BeginInit();
             SuspendLayout();
             // 
             // Panel_menu
@@ -303,6 +303,17 @@
             panel1.Size = new Size(922, 78);
             panel1.TabIndex = 1;
             // 
+            // Avartar_Picture
+            // 
+            Avartar_Picture.ImageRotate = 0F;
+            Avartar_Picture.Location = new Point(698, 11);
+            Avartar_Picture.Name = "Avartar_Picture";
+            Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            Avartar_Picture.Size = new Size(50, 50);
+            Avartar_Picture.TabIndex = 6;
+            Avartar_Picture.TabStop = false;
+            // 
             // Icon_Status
             // 
             Icon_Status.BackColor = Color.FromArgb(37, 36, 80);
@@ -388,17 +399,6 @@
             List_Thong_Bao.Name = "List_Thong_Bao";
             List_Thong_Bao.Size = new Size(112, 28);
             // 
-            // Avartar_Picture
-            // 
-            Avartar_Picture.ImageRotate = 0F;
-            Avartar_Picture.Location = new Point(698, 11);
-            Avartar_Picture.Name = "Avartar_Picture";
-            Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            Avartar_Picture.Size = new Size(50, 50);
-            Avartar_Picture.TabIndex = 6;
-            Avartar_Picture.TabStop = false;
-            // 
             // f_Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -417,10 +417,10 @@
             ((System.ComponentModel.ISupportInitialize)Logo_picture).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Avartar_Picture).EndInit();
             ((System.ComponentModel.ISupportInitialize)Icon_Status).EndInit();
             ((System.ComponentModel.ISupportInitialize)Icon_Small_Form).EndInit();
             List_Thong_Bao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)Avartar_Picture).EndInit();
             ResumeLayout(false);
         }
 
