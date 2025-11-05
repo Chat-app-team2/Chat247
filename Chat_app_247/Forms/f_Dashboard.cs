@@ -1,4 +1,10 @@
-﻿using System;
+﻿using Chat_app_247.Class;
+using Chat_app_247.Config;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,19 +12,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
-using FontAwesome.Sharp;
-
 namespace Chat_app_247
 {
 
     public partial class f_Dashboard : Form
     {
+        // cho User hiện tại và FirebaseClient
+        private User currentUser;
+        private IFirebaseClient firebaseClient;
         // CurrentBtn để lưu trữ nút hiện tại được chọn
         // LeftBorderBtn để tạo viền bên trái cho nút hiện tại
         private IconButton CurrentBtn;
         private Panel LeftBorderBtn;
-        public f_Dashboard()
+
+        public f_Dashboard(Firebase.Auth.User user, string idToken)
         {
             InitializeComponent();
             sub_Setting_panel.Visible = false;
@@ -26,6 +35,75 @@ namespace Chat_app_247
             LeftBorderBtn = new Panel();
             LeftBorderBtn.Size = new Size(7, 60);
             Panel_menu.Controls.Add(LeftBorderBtn);
+
+
+            // Gán thông tin người dùng hiện tại
+            InitializeFirebase();
+            // Tạo đối tượng User từ thông tin Firebase Auth
+            LoadUserDataFromDatabase(user);
+        }
+        // Mục đích hàm InitializeFirebase để khởi tạo kết nối Firebase
+        private void InitializeFirebase()
+        {
+            IFirebaseConfig config = new FirebaseConfig
+            {
+                BasePath = FirebaseConfigFile.DatabaseURL // URL Realtime Database
+            };
+
+            firebaseClient = new FireSharp.FirebaseClient(config);
+        }
+        private async void LoadUserDataFromDatabase(Firebase.Auth.User user)
+        {
+            try
+            {
+                if (firebaseClient != null)
+                {
+                    string userId = user.Uid;
+                    // Lấy dữ liệu người dùng từ Firebase Realtime Database tại UID cụ thể
+                    FirebaseResponse response = await firebaseClient.GetAsync($"Users/{userId}");
+                    // Gán dữ liệu người dùng vào đối tượng UserData
+                    var userData = response.ResultAs<User>();
+                    currentUser = userData;
+                    // Cập nhật trạng thái trực tuyến của người dùng và thời gian lần hoạt động cuối cùng
+                    bool isOnline = true;
+                    var updates = new Dictionary<string, object>
+                    {
+                        { "IsOnline", isOnline },
+                        { "LastSeenTimestamp", DateTimeOffset.UtcNow.ToUnixTimeSeconds() }
+                    };
+
+                    await firebaseClient.UpdateAsync($"Users/{userId}", updates);
+                    // Cập nhật dữ liệu người dùng lên giao diện Dashboard
+                    UpDateDataToDashBoard(currentUser);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Có thể bỏ qua lỗi nếu chỉ là không có quyền truy cập
+                Console.WriteLine($"Không thể load data: {ex.Message}");
+            }
+        }
+        // Mục đích hàm UpDateDataToDashBoard để cập nhật dữ liệu người dùng lên giao diện Dashboard
+        private void UpDateDataToDashBoard(User user)
+        {
+            Label_Name.Text = user.DisplayName;
+            // Tải ảnh đại diện từ URL (nếu có)
+            if (!string.IsNullOrEmpty(user.ProfilePictureUrl))
+            {
+                try
+                {
+                    System.Net.WebRequest request = System.Net.WebRequest.Create(user.ProfilePictureUrl);
+                    System.Net.WebResponse response = request.GetResponse();
+                    System.IO.Stream responseStream = response.GetResponseStream();
+                    Bitmap bitmap = new Bitmap(responseStream);
+                    Avartar_Picture.Image = bitmap;
+                    responseStream.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Không thể tải ảnh đại diện: {ex.Message}");
+                }
+            }
         }
         // Mục đích hàm HideSubSetting để ẩn sub menu Setting
         private void HideSubSetting()

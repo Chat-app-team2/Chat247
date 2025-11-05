@@ -66,13 +66,15 @@ namespace Chat_app_247
                 // Tạo FirebaseAuthClient và đăng nhập
                 var authProvider = new FirebaseAuthClient(config);
                 var authResult = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
+                var idToken = await authResult.User.GetIdTokenAsync();
 
                 if (authResult != null || authResult.User != null)
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Sau khi đăng nhập thành công, chuyển sang form chính
+                    var user = authResult.User;
                     this.Hide();
-                    f_Dashboard dashboard = new f_Dashboard();
+                    f_Dashboard dashboard = new f_Dashboard(user, idToken);
                     dashboard.ShowDialog();
                 }
             }
