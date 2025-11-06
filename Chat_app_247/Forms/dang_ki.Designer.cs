@@ -275,6 +275,7 @@
             btnLogin.Size = new Size(360, 46);
             btnLogin.TabIndex = 13;
             btnLogin.Text = "Sign Up";
+            btnLogin.Click += btnLogin_Click;
             // 
             // guna2Button1
             // 
