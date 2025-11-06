@@ -22,6 +22,7 @@ namespace Chat_app_247
         // cho User hiện tại và FirebaseClient
         private User currentUser;
         private IFirebaseClient firebaseClient;
+        private string userId = "";
         // CurrentBtn để lưu trữ nút hiện tại được chọn
         // LeftBorderBtn để tạo viền bên trái cho nút hiện tại
         private IconButton CurrentBtn;
@@ -36,11 +37,34 @@ namespace Chat_app_247
             LeftBorderBtn.Size = new Size(7, 60);
             Panel_menu.Controls.Add(LeftBorderBtn);
 
-
+            userId = user.Uid;
             // Gán thông tin người dùng hiện tại
             InitializeFirebase();
             // Tạo đối tượng User từ thông tin Firebase Auth
             LoadUserDataFromDatabase(user);
+        }
+        // Mục đích hàm f_Dashboard_FormClosing để cập nhật trạng thái ngoại tuyến khi đóng form Dashboard
+        private async void f_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất và đóng ứng dụng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (firebaseClient != null && currentUser != null)
+                {
+                    // Cập nhật trạng thái ngoại tuyến của người dùng và thời gian lần hoạt động cuối cùng
+                    bool isOnline = false;
+                    var updates = new Dictionary<string, object>
+                    {
+                        { "IsOnline", isOnline },
+                        { "LastSeenTimestamp", DateTimeOffset.UtcNow.ToUnixTimeSeconds() }
+                    };
+                    await firebaseClient.UpdateAsync($"Users/{userId}", updates);
+                }
+                Application.Exit(); // Đóng ứng dụng
+            }
+            else
+            {
+                e.Cancel = true; // Hủy đóng form nếu người dùng chọn "No"
+            }
         }
         // Mục đích hàm InitializeFirebase để khởi tạo kết nối Firebase
         private void InitializeFirebase()
@@ -52,13 +76,13 @@ namespace Chat_app_247
 
             firebaseClient = new FireSharp.FirebaseClient(config);
         }
+        // Mục đích hàm LoadUserDataFromDatabase để tải dữ liệu người dùng từ Firebase Realtime Database
         private async void LoadUserDataFromDatabase(Firebase.Auth.User user)
         {
             try
             {
                 if (firebaseClient != null)
                 {
-                    string userId = user.Uid;
                     // Lấy dữ liệu người dùng từ Firebase Realtime Database tại UID cụ thể
                     FirebaseResponse response = await firebaseClient.GetAsync($"Users/{userId}");
                     // Gán dữ liệu người dùng vào đối tượng UserData
