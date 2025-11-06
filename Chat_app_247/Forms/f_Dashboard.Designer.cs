@@ -411,6 +411,7 @@
             ForeColor = Color.Gainsboro;
             Name = "f_Dashboard";
             Text = "f_Dashboard";
+            FormClosing += f_Dashboard_FormClosing;
             Panel_menu.ResumeLayout(false);
             sub_Setting_panel.ResumeLayout(false);
             panel_logo.ResumeLayout(false);
