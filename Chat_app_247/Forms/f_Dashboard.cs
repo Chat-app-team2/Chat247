@@ -282,10 +282,13 @@ namespace Chat_app_247
         }
 
         // Sự kiện khi nhấn nút Logout_button (Đăng xuất)
-        private void Logout_button_Click(object sender, EventArgs e)
+        private async void Logout_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color8);
             Label_Small_Form.Text = "Đăng Xuất";
+          
+            Application.Exit();
+            
         }
 
         // Sự kiện khi nhấn nút Bell_button (Xử lý thông báo)
