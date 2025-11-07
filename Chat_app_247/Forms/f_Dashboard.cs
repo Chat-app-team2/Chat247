@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using Chat_app_247.Services;
 namespace Chat_app_247
 {
 
@@ -66,15 +67,11 @@ namespace Chat_app_247
                 e.Cancel = true; // Hủy đóng form nếu người dùng chọn "No"
             }
         }
-        // Mục đích hàm InitializeFirebase để khởi tạo kết nối Firebase
+        // Mục đích hàm InitializeFirebase để khởi tạo kết nối FirebaseDatabase
         private void InitializeFirebase()
         {
-            IFirebaseConfig config = new FirebaseConfig
-            {
-                BasePath = FirebaseConfigFile.DatabaseURL // URL Realtime Database
-            };
-
-            firebaseClient = new FireSharp.FirebaseClient(config);
+            var fireclient = new CreateObjectConnectDatabase();
+            firebaseClient = fireclient.InitializeFirebase();
         }
         // Mục đích hàm LoadUserDataFromDatabase để tải dữ liệu người dùng từ Firebase Realtime Database
         private async void LoadUserDataFromDatabase(Firebase.Auth.User user)
@@ -103,8 +100,7 @@ namespace Chat_app_247
             }
             catch (Exception ex)
             {
-                // Có thể bỏ qua lỗi nếu chỉ là không có quyền truy cập
-                Console.WriteLine($"Không thể load data: {ex.Message}");
+                MessageBox.Show("Xuất hiện lỗi ở trong f_Dashboard");
             }
         }
         // Mục đích hàm UpDateDataToDashBoard để cập nhật dữ liệu người dùng lên giao diện Dashboard
@@ -125,7 +121,7 @@ namespace Chat_app_247
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Không thể tải ảnh đại diện: {ex.Message}");
+                    MessageBox.Show("Xuất hiện lỗi ở trong f_Dashboard");
                 }
             }
         }
@@ -254,7 +250,7 @@ namespace Chat_app_247
         private void Invite_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            f_Invite f_invite = new f_Invite();
+            f_Invite f_invite = new f_Invite(firebaseClient, userId);
             f_invite.Text = "Lời Mời Kết Bạn";
             OpenSmallForm(f_invite);
         }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Chat_app_247.Class;
+using Firebase;
+using FireSharp;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,50 +11,87 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Chat_app_247.Services;
 namespace Chat_app_247
 {
     public partial class f_Invite : Form
     {
-        public f_Invite()
+        private User currentUser;
+        public f_Invite(IFirebaseClient firebaseClient,string userid)
         {
             InitializeComponent();
-            LoadInviteList();
-            LoadSentRequestList();
-            LoadNotifyList();
+            // Hiện ra các bạn bè đã gửi lời mời kết bạn
+            LoadInviteList(firebaseClient, userid);
+            // Hiện ra các lời mời mà bạn đã gửi
+            LoadSentRequestList(firebaseClient, userid);
+            // Hiện ra thông báo sau khi được chấp nhận hoặc từ chối kết bạn
+            LoadNotifyList(firebaseClient, userid);
         }
-        private void LoadInviteList()
+        // Lấy FriendRequestReceivedIds trong User
+        private async Task<List<string>> GetFriendReceivedIDList(IFirebaseClient firebaseClient, string userid)
         {
-            List<string> inviteNames = new List<string>
+            try
             {
-                "Nguyen Van A",
-                "Tran Thi B",
-                "Le Van C",
-                "Pham Thi D",
-                "Nguyen Van A",
-                "Tran Thi B",
-                "Le Van C",
-                "Pham Thi D"
-            };
-            Received_Panel.Controls.Clear();
-            foreach (var name in inviteNames)
+                var database = await firebaseClient.GetAsync($"Users/{userid}");
+                var userdata = database.ResultAs<User>();
+                currentUser = userdata;
+                if (currentUser?.FriendRequestReceivedIds == null)
+                {
+                    return new List<string>();
+                }
+
+                return currentUser.FriendRequestReceivedIds.ToList();
+            }
+            catch (Exception ex)
             {
-                Forms.uc_FriendRequest friendRequestControl = new Forms.uc_FriendRequest();
-                friendRequestControl.SetName(name);
-                friendRequestControl.Dock = DockStyle.Top;
-                Received_Panel.Controls.Add(friendRequestControl);
+                return new List<string>();
             }
         }
-        private void LoadSentRequestList()
+
+        // Lấy FriendRequestSentIds trong User
+        private async Task<List<string>> GetFriendRequestSentIdsList(IFirebaseClient firebaseClient, string userid)
         {
-            List<string> sentRequestNames = new List<string>
+            try
             {
-                "Le Thi E",
-                "Hoang Van F",
-                "Vu Thi G",
-                "Do Van H"
-            };
+                var database = await firebaseClient.GetAsync($"Users/{userid}");
+                var userdata = database.ResultAs<User>();
+                currentUser = userdata;
+                if (currentUser?.FriendRequestSentIds == null)
+                {
+                    return new List<string>();
+                }
+
+                return currentUser.FriendRequestSentIds.ToList();
+            }
+            catch (Exception ex)
+            {
+                return new List<string>();
+            }
+        }
+
+        // Lấy FriendRequestReceivedIds và load ra
+        private async void LoadInviteList(IFirebaseClient firebaseClient, string userid)
+        {
+            List<string>  FriendID = await GetFriendReceivedIDList(firebaseClient, userid);
+
+            Received_Panel.Controls.Clear();
+            if (FriendID.Count > 0) 
+                foreach (var id in FriendID)
+                {
+                    Forms.uc_FriendRequest friendRequestControl = new Forms.uc_FriendRequest(currentUser.UserId);
+                    friendRequestControl.SetData(id);
+                    friendRequestControl.Dock = DockStyle.Top;
+                    Received_Panel.Controls.Add(friendRequestControl);
+                }
+        }
+
+        // Lấy FriendRequestSentIds và load ra
+        private async void LoadSentRequestList(IFirebaseClient firebaseClient, string userid)
+        {
+            List<string> sentRequestNames = await GetFriendRequestSentIdsList(firebaseClient, userid);
+
             Sent_Panel.Controls.Clear();
+            if (sentRequestNames.Count > 0)
             foreach (var name in sentRequestNames)
             {
                 Forms.uc_SentRequest sentRequestControl = new Forms.uc_SentRequest();
@@ -59,7 +100,7 @@ namespace Chat_app_247
                 Sent_Panel.Controls.Add(sentRequestControl);
             }
         }
-        private void LoadNotifyList()
+        private void LoadNotifyList(IFirebaseClient firebaseClient, string userid)
         {
             List<string> notifyNames = new List<string>
             {
