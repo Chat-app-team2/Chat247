@@ -1,5 +1,7 @@
 ﻿using Chat_app_247.Class;
 using Chat_app_247.Config;
+using Chat_app_247.Forms;
+using Chat_app_247.Services;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
@@ -264,21 +266,49 @@ namespace Chat_app_247
         }
 
         // Sự kiện khi nhấn nút Information_button
+        private UcProfile _ucProfile;
         private void Information_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            f_Information f_info = new f_Information();
-            f_info.Text = "Thông Tin Cá Nhân";
-            OpenSmallForm(f_info);
+            if (_ucProfile == null)
+            {
+                _ucProfile = new UcProfile();
+                _ucProfile.Dock = DockStyle.Fill;
+                Small_Form_panel.Controls.Add(_ucProfile);
+            }
+
+            foreach (Control c in Small_Form_panel.Controls) c.Visible = false; // ẩn màn khác
+            _ucProfile.Visible = true;
+            _ucProfile.BringToFront();
         }
 
         // Sự kiện khi nhấn nút Security_button
+        private SecuritySettingsControl _securitySettingsControl;
         private void Security_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
-            f_Security f_security = new f_Security();
-            f_security.Text = "Bảo Mật";
-            OpenSmallForm(f_security);
+
+            // Tạo một lần duy nhất
+            if (_securitySettingsControl == null)
+            {
+                _securitySettingsControl = new SecuritySettingsControl
+                {
+                    Dock = DockStyle.Fill
+                };
+
+                Small_Form_panel.SuspendLayout();
+                Small_Form_panel.Controls.Add(_securitySettingsControl);
+                Small_Form_panel.ResumeLayout();
+            }
+
+            // Ẩn các màn khác, chỉ hiện Bảo mật
+            Small_Form_panel.SuspendLayout();
+            foreach (Control c in Small_Form_panel.Controls) c.Visible = false;
+
+            _securitySettingsControl.Visible = true;
+            _securitySettingsControl.BringToFront();
+            Small_Form_panel.ResumeLayout();
+
         }
 
         // Sự kiện khi nhấn nút Logout_button (Đăng xuất)

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Chat_app_247
+namespace Chat_app_247.Forms
 {
-    public partial class f_Security : Form
+    public partial class SecuritySettingsControl : UserControl
     {
-        public f_Security()
+        public SecuritySettingsControl()
         {
             InitializeComponent();
         }
