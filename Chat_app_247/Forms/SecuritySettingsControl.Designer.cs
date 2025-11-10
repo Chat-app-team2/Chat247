@@ -53,9 +53,10 @@
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             txtCurrentPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             cbShowPassword = new Guna.UI2.WinForms.Guna2CheckBox();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             btnSave = new Guna.UI2.WinForms.Guna2Button();
             tableLayoutPanel1.SuspendLayout();
@@ -78,9 +79,10 @@
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel3, 0, 3);
             tableLayoutPanel1.Controls.Add(txtEmail, 1, 1);
             tableLayoutPanel1.Controls.Add(txtCurrentPassword, 1, 3);
-            tableLayoutPanel1.Controls.Add(guna2HtmlLabel4, 1, 0);
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel6, 0, 4);
             tableLayoutPanel1.Controls.Add(cbShowPassword, 1, 6);
+            tableLayoutPanel1.Controls.Add(guna2HtmlLabel4, 0, 6);
+            tableLayoutPanel1.Controls.Add(lblStatus, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -130,7 +132,6 @@
             txtConfirmPassword.Location = new Point(279, 230);
             txtConfirmPassword.Margin = new Padding(5, 6, 5, 6);
             txtConfirmPassword.Name = "txtConfirmPassword";
-            txtConfirmPassword.PasswordChar = '•';
             txtConfirmPassword.PlaceholderText = "";
             txtConfirmPassword.SelectedText = "";
             txtConfirmPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -162,7 +163,6 @@
             txtNewPassword.Location = new Point(279, 190);
             txtNewPassword.Margin = new Padding(5, 6, 5, 6);
             txtNewPassword.Name = "txtNewPassword";
-            txtNewPassword.PasswordChar = '•';
             txtNewPassword.PlaceholderText = "";
             txtNewPassword.SelectedText = "";
             txtNewPassword.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -249,23 +249,11 @@
             txtCurrentPassword.Location = new Point(279, 150);
             txtCurrentPassword.Margin = new Padding(5, 6, 5, 6);
             txtCurrentPassword.Name = "txtCurrentPassword";
-            txtCurrentPassword.PasswordChar = '•';
             txtCurrentPassword.PlaceholderText = "";
             txtCurrentPassword.SelectedText = "";
             txtCurrentPassword.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtCurrentPassword.Size = new Size(520, 28);
             txtCurrentPassword.TabIndex = 6;
-            // 
-            // guna2HtmlLabel4
-            // 
-            guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.ForeColor = Color.WhiteSmoke;
-            guna2HtmlLabel4.Location = new Point(277, 27);
-            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(3, 2);
-            guna2HtmlLabel4.TabIndex = 3;
-            guna2HtmlLabel4.Text = null;
             // 
             // guna2HtmlLabel6
             // 
@@ -295,6 +283,27 @@
             cbShowPassword.UncheckedState.BorderRadius = 0;
             cbShowPassword.UncheckedState.BorderThickness = 0;
             cbShowPassword.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            cbShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
+            // 
+            // guna2HtmlLabel4
+            // 
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel4.ForeColor = Color.WhiteSmoke;
+            guna2HtmlLabel4.Location = new Point(27, 267);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(3, 2);
+            guna2HtmlLabel4.TabIndex = 3;
+            guna2HtmlLabel4.Text = null;
+            // 
+            // lblStatus
+            // 
+            lblStatus.BackColor = Color.Transparent;
+            lblStatus.Location = new Point(277, 27);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(3, 2);
+            lblStatus.TabIndex = 14;
+            lblStatus.Text = null;
             // 
             // guna2Panel1
             // 
@@ -323,6 +332,7 @@
             btnSave.Size = new Size(315, 79);
             btnSave.TabIndex = 0;
             btnSave.Text = "Lưu thay đổi";
+            btnSave.Click += btnSave_Click;
             // 
             // SecuritySettingsControl
             // 
@@ -357,5 +367,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox cbShowPassword;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2TextBox txtname;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblStatus;
     }
 }

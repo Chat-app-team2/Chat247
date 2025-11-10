@@ -292,26 +292,24 @@ namespace Chat_app_247
         {
             ActivateButton(sender, RGBColors.color7);
 
-            // Tạo một lần duy nhất
             if (_securitySettingsControl == null)
             {
-                _securitySettingsControl = new SecuritySettingsControl
+                _securitySettingsControl = new SecuritySettingsControl();
+                _securitySettingsControl.Dock = DockStyle.Fill;
+                _securitySettingsControl.OnProfileUpdated += (newName) =>
                 {
-                    Dock = DockStyle.Fill
+                    // cập nhật tên góc trên phải nếu có
+                    Label_Name.Text = newName;
                 };
-
-                Small_Form_panel.SuspendLayout();
                 Small_Form_panel.Controls.Add(_securitySettingsControl);
-                Small_Form_panel.ResumeLayout();
+
+                // Prefill thông tin người dùng hiện tại
+                _securitySettingsControl.LoadUser(currentUser.Email, currentUser.DisplayName);
             }
 
-            // Ẩn các màn khác, chỉ hiện Bảo mật
-            Small_Form_panel.SuspendLayout();
             foreach (Control c in Small_Form_panel.Controls) c.Visible = false;
-
             _securitySettingsControl.Visible = true;
             _securitySettingsControl.BringToFront();
-            Small_Form_panel.ResumeLayout();
 
         }
 
