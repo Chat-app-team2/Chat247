@@ -20,6 +20,13 @@ namespace Chat_app_247.Class
         // URL đến ảnh đại diện, lưu trên Firebase Storage
         public string ProfilePictureUrl { get; set; }
 
+        // giới tính của người dùng
+        public string Gender { get; set; }
+        // ngày sinh của người dùng
+        public DateTime? DateOfBirth { get; set; }
+        // Tiểu sử hoặc mô tả ngắn về người dùng
+        public string Bio { get; set; }
+      
         // Trạng thái trực tuyến của người dùng
         public bool IsOnline { get; set; }
 
