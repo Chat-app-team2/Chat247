@@ -270,16 +270,20 @@ namespace Chat_app_247
         private void Information_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+
             if (_ucProfile == null)
             {
-                _ucProfile = new UcProfile();
-                _ucProfile.Dock = DockStyle.Fill;
+                _ucProfile = new UcProfile(firebaseClient, userId)  
+                {
+                    Dock = DockStyle.Fill
+                };
                 Small_Form_panel.Controls.Add(_ucProfile);
             }
 
-            foreach (Control c in Small_Form_panel.Controls) c.Visible = false; // ẩn màn khác
+            foreach (Control c in Small_Form_panel.Controls) c.Visible = false;
             _ucProfile.Visible = true;
             _ucProfile.BringToFront();
+            Label_Small_Form.Text = "Thông Tin Cá Nhân"; ;
         }
 
         // Sự kiện khi nhấn nút Security_button
