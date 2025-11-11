@@ -324,6 +324,7 @@
             Name = "Dang_nhap";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dang_nhap";
+            Load += Dang_nhap_Load;
             guna2PanelRight.ResumeLayout(false);
             guna2PanelRight.PerformLayout();
             ResumeLayout(false);
