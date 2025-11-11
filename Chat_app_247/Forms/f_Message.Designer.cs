@@ -43,7 +43,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Message_panel = new Panel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             pnlHeader = new Guna.UI2.WinForms.Guna2Panel();
             pnlStatusDot = new Guna.UI2.WinForms.Guna2Panel();
@@ -54,20 +53,12 @@
             btnAttach = new Guna.UI2.WinForms.Guna2Button();
             txtInput = new Guna.UI2.WinForms.Guna2TextBox();
             flpMessages = new FlowLayoutPanel();
+            Message_panel = new Panel();
             guna2Panel1.SuspendLayout();
             pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
             pnlComposer.SuspendLayout();
             SuspendLayout();
-            // 
-            // Message_panel
-            // 
-            Message_panel.BorderStyle = BorderStyle.FixedSingle;
-            Message_panel.Dock = DockStyle.Left;
-            Message_panel.Location = new Point(0, 0);
-            Message_panel.Name = "Message_panel";
-            Message_panel.Size = new Size(246, 450);
-            Message_panel.TabIndex = 0;
             // 
             // guna2Panel1
             // 
@@ -77,11 +68,11 @@
             guna2Panel1.CustomizableEdges = customizableEdges14;
             guna2Panel1.Dock = DockStyle.Fill;
             guna2Panel1.FillColor = Color.White;
-            guna2Panel1.Location = new Point(246, 0);
+            guna2Panel1.Location = new Point(347, 0);
             guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2Panel1.Size = new Size(554, 450);
+            guna2Panel1.Size = new Size(453, 450);
             guna2Panel1.TabIndex = 1;
             // 
             // pnlHeader
@@ -98,7 +89,7 @@
             pnlHeader.Name = "pnlHeader";
             pnlHeader.Padding = new Padding(11, 7, 11, 7);
             pnlHeader.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            pnlHeader.Size = new Size(554, 51);
+            pnlHeader.Size = new Size(453, 69);
             pnlHeader.TabIndex = 0;
             // 
             // pnlStatusDot
@@ -125,7 +116,7 @@
             picAvatar.Name = "picAvatar";
             picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges3;
             picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            picAvatar.Size = new Size(27, 37);
+            picAvatar.Size = new Size(27, 55);
             picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
             picAvatar.TabIndex = 1;
             picAvatar.TabStop = false;
@@ -149,12 +140,12 @@
             pnlComposer.CustomizableEdges = customizableEdges12;
             pnlComposer.Dock = DockStyle.Bottom;
             pnlComposer.FillColor = Color.White;
-            pnlComposer.Location = new Point(0, 403);
+            pnlComposer.Location = new Point(0, 387);
             pnlComposer.Margin = new Padding(2);
             pnlComposer.Name = "pnlComposer";
             pnlComposer.Padding = new Padding(8);
             pnlComposer.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            pnlComposer.Size = new Size(554, 47);
+            pnlComposer.Size = new Size(453, 63);
             pnlComposer.TabIndex = 2;
             // 
             // btnSend
@@ -169,11 +160,11 @@
             btnSend.FillColor = Color.FromArgb(0, 120, 212);
             btnSend.Font = new Font("Segoe UI", 9F);
             btnSend.ForeColor = Color.White;
-            btnSend.Location = new Point(444, 8);
+            btnSend.Location = new Point(343, 8);
             btnSend.Margin = new Padding(2);
             btnSend.Name = "btnSend";
             btnSend.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            btnSend.Size = new Size(63, 31);
+            btnSend.Size = new Size(63, 47);
             btnSend.TabIndex = 2;
             btnSend.Text = "Gửi";
             // 
@@ -189,18 +180,18 @@
             btnAttach.FillColor = Color.FromArgb(128, 128, 255);
             btnAttach.Font = new Font("Segoe UI", 9F);
             btnAttach.ForeColor = Color.White;
-            btnAttach.Location = new Point(507, 8);
+            btnAttach.Location = new Point(406, 8);
             btnAttach.Margin = new Padding(2);
             btnAttach.Name = "btnAttach";
             btnAttach.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            btnAttach.Size = new Size(39, 31);
+            btnAttach.Size = new Size(39, 47);
             btnAttach.TabIndex = 1;
             btnAttach.Text = "📎";
             // 
             // txtInput
             // 
             txtInput.AutoRoundedCorners = true;
-            txtInput.BorderRadius = 14;
+            txtInput.BorderRadius = 22;
             txtInput.CustomizableEdges = customizableEdges10;
             txtInput.DefaultText = "";
             txtInput.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -217,7 +208,7 @@
             txtInput.PlaceholderText = "Nhập tin nhắn...";
             txtInput.SelectedText = "";
             txtInput.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            txtInput.Size = new Size(538, 31);
+            txtInput.Size = new Size(437, 47);
             txtInput.TabIndex = 0;
             // 
             // flpMessages
@@ -230,9 +221,19 @@
             flpMessages.Margin = new Padding(2);
             flpMessages.Name = "flpMessages";
             flpMessages.Padding = new Padding(11);
-            flpMessages.Size = new Size(554, 450);
+            flpMessages.Size = new Size(453, 450);
             flpMessages.TabIndex = 1;
             flpMessages.WrapContents = false;
+            // 
+            // Message_panel
+            // 
+            Message_panel.AutoScroll = true;
+            Message_panel.BorderStyle = BorderStyle.FixedSingle;
+            Message_panel.Dock = DockStyle.Left;
+            Message_panel.Location = new Point(0, 0);
+            Message_panel.Name = "Message_panel";
+            Message_panel.Size = new Size(347, 450);
+            Message_panel.TabIndex = 0;
             // 
             // f_Message
             // 
@@ -252,8 +253,6 @@
         }
 
         #endregion
-
-        private Panel Message_panel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel pnlHeader;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
@@ -264,5 +263,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAttach;
         private Guna.UI2.WinForms.Guna2CirclePictureBox picAvatar;
         private Guna.UI2.WinForms.Guna2Panel pnlStatusDot;
+        private Panel Message_panel;
     }
 }
