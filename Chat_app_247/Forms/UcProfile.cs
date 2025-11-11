@@ -92,7 +92,7 @@ namespace Chat_app_247.Forms
                     ["Gender"] = _current.Gender,
                     ["DateOfBirth"] = _current.DateOfBirth,// FireSharp sẽ serialize DateTime
                     ["Bio"] = _current.Bio
-         
+
                 };
 
                 await _client.UpdateAsync($"Users/{_uid}", updates);
