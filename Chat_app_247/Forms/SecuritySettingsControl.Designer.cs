@@ -63,7 +63,7 @@
             // 
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 346F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 519F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(txtname, 1, 2);
             tableLayoutPanel1.Controls.Add(txtConfirmPassword, 1, 5);
@@ -82,18 +82,17 @@
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(16);
+            tableLayoutPanel1.Padding = new Padding(24, 24, 24, 24);
             tableLayoutPanel1.RowCount = 7;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 123F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
-            tableLayoutPanel1.Size = new Size(1024, 443);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 184F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 74F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 114F));
+            tableLayoutPanel1.Size = new Size(1536, 664);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // txtname
@@ -107,13 +106,14 @@
             txtname.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtname.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtname.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtname.Location = new Point(366, 194);
-            txtname.Margin = new Padding(4, 6, 4, 6);
+            txtname.Location = new Point(549, 291);
+            txtname.Margin = new Padding(6, 9, 6, 9);
             txtname.Name = "txtname";
             txtname.PlaceholderText = "";
+            txtname.ReadOnly = true;
             txtname.SelectedText = "";
             txtname.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtname.Size = new Size(638, 34);
+            txtname.Size = new Size(957, 51);
             txtname.TabIndex = 13;
             // 
             // txtConfirmPassword
@@ -127,13 +127,13 @@
             txtConfirmPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtConfirmPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtConfirmPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtConfirmPassword.Location = new Point(366, 334);
-            txtConfirmPassword.Margin = new Padding(4, 6, 4, 6);
+            txtConfirmPassword.Location = new Point(549, 501);
+            txtConfirmPassword.Margin = new Padding(6, 9, 6, 9);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PlaceholderText = "";
             txtConfirmPassword.SelectedText = "";
             txtConfirmPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtConfirmPassword.Size = new Size(638, 36);
+            txtConfirmPassword.Size = new Size(957, 54);
             txtConfirmPassword.TabIndex = 11;
             // 
             // txtNewPassword
@@ -147,13 +147,13 @@
             txtNewPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNewPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtNewPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNewPassword.Location = new Point(366, 286);
-            txtNewPassword.Margin = new Padding(4, 6, 4, 6);
+            txtNewPassword.Location = new Point(549, 429);
+            txtNewPassword.Margin = new Padding(6, 9, 6, 9);
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.PlaceholderText = "";
             txtNewPassword.SelectedText = "";
             txtNewPassword.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtNewPassword.Size = new Size(638, 36);
+            txtNewPassword.Size = new Size(957, 54);
             txtNewPassword.TabIndex = 9;
             // 
             // guna2HtmlLabel2
@@ -161,10 +161,9 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             guna2HtmlLabel2.ForeColor = Color.Black;
-            guna2HtmlLabel2.Location = new Point(18, 141);
-            guna2HtmlLabel2.Margin = new Padding(2);
+            guna2HtmlLabel2.Location = new Point(27, 211);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(84, 43);
+            guna2HtmlLabel2.Size = new Size(116, 59);
             guna2HtmlLabel2.TabIndex = 1;
             guna2HtmlLabel2.Text = "Email";
             // 
@@ -180,14 +179,14 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(366, 145);
-            txtEmail.Margin = new Padding(4, 6, 4, 6);
+            txtEmail.Location = new Point(549, 217);
+            txtEmail.Margin = new Padding(6, 9, 6, 9);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "";
             txtEmail.ReadOnly = true;
             txtEmail.SelectedText = "";
             txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtEmail.Size = new Size(638, 37);
+            txtEmail.Size = new Size(957, 56);
             txtEmail.TabIndex = 5;
             // 
             // txtCurrentPassword
@@ -201,13 +200,13 @@
             txtCurrentPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCurrentPassword.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtCurrentPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCurrentPassword.Location = new Point(366, 240);
-            txtCurrentPassword.Margin = new Padding(4, 6, 4, 6);
+            txtCurrentPassword.Location = new Point(549, 360);
+            txtCurrentPassword.Margin = new Padding(6, 9, 6, 9);
             txtCurrentPassword.Name = "txtCurrentPassword";
             txtCurrentPassword.PlaceholderText = "";
             txtCurrentPassword.SelectedText = "";
             txtCurrentPassword.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtCurrentPassword.Size = new Size(638, 34);
+            txtCurrentPassword.Size = new Size(957, 51);
             txtCurrentPassword.TabIndex = 6;
             // 
             // guna2HtmlLabel4
@@ -215,8 +214,7 @@
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.ForeColor = Color.WhiteSmoke;
-            guna2HtmlLabel4.Location = new Point(18, 378);
-            guna2HtmlLabel4.Margin = new Padding(2);
+            guna2HtmlLabel4.Location = new Point(27, 567);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(3, 2);
             guna2HtmlLabel4.TabIndex = 3;
@@ -225,8 +223,7 @@
             // lblStatus
             // 
             lblStatus.BackColor = Color.Transparent;
-            lblStatus.Location = new Point(364, 18);
-            lblStatus.Margin = new Padding(2);
+            lblStatus.Location = new Point(546, 27);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(3, 2);
             lblStatus.TabIndex = 14;
@@ -240,10 +237,9 @@
             cbShowPassword.CheckedState.BorderThickness = 0;
             cbShowPassword.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             cbShowPassword.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cbShowPassword.Location = new Point(364, 378);
-            cbShowPassword.Margin = new Padding(2);
+            cbShowPassword.Location = new Point(546, 567);
             cbShowPassword.Name = "cbShowPassword";
-            cbShowPassword.Size = new Size(233, 42);
+            cbShowPassword.Size = new Size(309, 55);
             cbShowPassword.TabIndex = 12;
             cbShowPassword.Text = "Hiện mật khẩu";
             cbShowPassword.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -257,10 +253,9 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = Color.DimGray;
-            guna2HtmlLabel1.Location = new Point(18, 18);
-            guna2HtmlLabel1.Margin = new Padding(2);
+            guna2HtmlLabel1.Location = new Point(27, 27);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(315, 108);
+            guna2HtmlLabel1.Size = new Size(441, 151);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Bảo mật";
             // 
@@ -269,10 +264,9 @@
             guna2HtmlLabel7.BackColor = Color.Transparent;
             guna2HtmlLabel7.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             guna2HtmlLabel7.ForeColor = Color.Black;
-            guna2HtmlLabel7.Location = new Point(18, 330);
-            guna2HtmlLabel7.Margin = new Padding(2);
+            guna2HtmlLabel7.Location = new Point(27, 495);
             guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(273, 43);
+            guna2HtmlLabel7.Size = new Size(382, 59);
             guna2HtmlLabel7.TabIndex = 10;
             guna2HtmlLabel7.Text = "Confirm Password";
             // 
@@ -281,10 +275,9 @@
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             guna2HtmlLabel6.ForeColor = Color.Black;
-            guna2HtmlLabel6.Location = new Point(18, 282);
-            guna2HtmlLabel6.Margin = new Padding(2);
+            guna2HtmlLabel6.Location = new Point(27, 423);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(218, 43);
+            guna2HtmlLabel6.Size = new Size(307, 59);
             guna2HtmlLabel6.TabIndex = 8;
             guna2HtmlLabel6.Text = "New Password";
             // 
@@ -293,10 +286,9 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             guna2HtmlLabel3.ForeColor = Color.Black;
-            guna2HtmlLabel3.Location = new Point(18, 236);
-            guna2HtmlLabel3.Margin = new Padding(2);
+            guna2HtmlLabel3.Location = new Point(27, 354);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(144, 43);
+            guna2HtmlLabel3.Size = new Size(202, 59);
             guna2HtmlLabel3.TabIndex = 2;
             guna2HtmlLabel3.Text = "Password";
             // 
@@ -305,10 +297,9 @@
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             guna2HtmlLabel5.ForeColor = Color.Black;
-            guna2HtmlLabel5.Location = new Point(18, 190);
-            guna2HtmlLabel5.Margin = new Padding(2);
+            guna2HtmlLabel5.Location = new Point(27, 285);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(90, 43);
+            guna2HtmlLabel5.Size = new Size(125, 59);
             guna2HtmlLabel5.TabIndex = 4;
             guna2HtmlLabel5.Text = "Name";
             // 
@@ -322,25 +313,23 @@
             btnSave.FillColor = Color.MediumSlateBlue;
             btnSave.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.Black;
-            btnSave.Location = new Point(366, 474);
-            btnSave.Margin = new Padding(2);
+            btnSave.Location = new Point(549, 711);
             btnSave.Name = "btnSave";
             btnSave.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnSave.Size = new Size(227, 79);
+            btnSave.Size = new Size(340, 118);
             btnSave.TabIndex = 0;
             btnSave.Text = "Lưu thay đổi";
             btnSave.Click += btnSave_Click;
             // 
             // SecuritySettingsControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
             Controls.Add(btnSave);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(2);
             Name = "SecuritySettingsControl";
-            Size = new Size(1024, 631);
+            Size = new Size(1536, 946);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
