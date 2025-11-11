@@ -1,4 +1,9 @@
 ﻿using Chat_app_247.Config;
+using Firebase.Auth;
+using Firebase.Auth.Providers;
+using Firebase.Auth.Repository;
+using FireSharp.Config;
+using FireSharp.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,10 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Firebase.Auth;
-using Firebase.Auth.Providers;
-using FireSharp.Config;
-using FireSharp.Interfaces;
+using Firebase.Auth.Repository;
 namespace Chat_app_247
 {
     public partial class Dang_nhap : Form
@@ -62,7 +64,10 @@ namespace Chat_app_247
                         new EmailProvider()
                     },
                     AuthDomain = FirebaseConfigFile.AuthDomain,
+                    // Lưu token đăng nhập
+                    UserRepository = new FileUserRepository("FirebaseAuth"),
                 };
+              
                 // Tạo FirebaseAuthClient và đăng nhập
                 var authProvider = new FirebaseAuthClient(config);
                 var authResult = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
@@ -74,8 +79,9 @@ namespace Chat_app_247
                     // Sau khi đăng nhập thành công, chuyển sang form chính
                     var user = authResult.User;
                     this.Hide();
-                    f_Dashboard dashboard = new f_Dashboard(user, idToken);
+                    f_Dashboard dashboard = new f_Dashboard(user, idToken, authProvider);
                     dashboard.ShowDialog();
+                    this.Close();
                 }
             }
             catch (FirebaseAuthException ex)
@@ -89,5 +95,47 @@ namespace Chat_app_247
             }
         }
 
+        private async void Dang_nhap_Load(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu có saved token, tự động đăng nhập
+            await CheckAutoLogin();
+        }
+        private async Task CheckAutoLogin()
+        {
+            try
+            {
+                var config = new FirebaseAuthConfig
+                {
+                    ApiKey = FirebaseConfigFile.WebApi,
+                    Providers = new FirebaseAuthProvider[]
+                    {
+                new EmailProvider()
+                    },
+                    AuthDomain = FirebaseConfigFile.AuthDomain,
+                    // Lưu token đăng nhập
+                    UserRepository = new FileUserRepository("FirebaseAuth"),
+                };
+
+                var authProvider = new FirebaseAuthClient(config);
+
+                // Kiểm tra xem có user đã đăng nhập từ trước không
+                if (authProvider.User != null)
+                {
+                    // Có auto-login token, chuyển thẳng đến dashboard
+                    var user = authProvider.User;
+                    var idToken = await user.GetIdTokenAsync();
+
+                    this.Hide();
+                    f_Dashboard dashboard = new f_Dashboard(user, idToken, authProvider);
+                    dashboard.ShowDialog(); 
+                    this.Close(); 
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu auto-login fail, hiển thị form đăng nhập bình thường
+                
+            }
+        }
     }
 }

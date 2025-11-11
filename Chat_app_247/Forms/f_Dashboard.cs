@@ -1,7 +1,8 @@
-﻿using Chat_app_247.Class;
+﻿using MyUser = Chat_app_247.Class.User;
 using Chat_app_247.Config;
 using Chat_app_247.Forms;
 using Chat_app_247.Services;
+using Firebase.Auth;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
@@ -16,22 +17,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using Chat_app_247.Services;
 namespace Chat_app_247
 {
 
     public partial class f_Dashboard : Form
     {
         // cho User hiện tại và FirebaseClient
-        private User currentUser;
+        private MyUser currentUser;
         private IFirebaseClient firebaseClient;
         private string userId = "";
+        private FirebaseAuthClient auth_Pro;
         // CurrentBtn để lưu trữ nút hiện tại được chọn
         // LeftBorderBtn để tạo viền bên trái cho nút hiện tại
         private IconButton CurrentBtn;
         private Panel LeftBorderBtn;
 
-        public f_Dashboard(Firebase.Auth.User user, string idToken)
+        public f_Dashboard(Firebase.Auth.User user, string idToken, FirebaseAuthClient authProvider)
         {
             InitializeComponent();
             sub_Setting_panel.Visible = false;
@@ -41,32 +42,52 @@ namespace Chat_app_247
             Panel_menu.Controls.Add(LeftBorderBtn);
 
             userId = user.Uid;
+            auth_Pro = authProvider;
             // Gán thông tin người dùng hiện tại
             InitializeFirebase();
             // Tạo đối tượng User từ thông tin Firebase Auth
             LoadUserDataFromDatabase(user);
         }
-        // Mục đích hàm f_Dashboard_FormClosing để cập nhật trạng thái ngoại tuyến khi đóng form Dashboard
-        private async void f_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        // Đảm bảo đưa Trạng thái của user về offline
+        private async Task IsOffline() 
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất và đóng ứng dụng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (firebaseClient != null && !string.IsNullOrEmpty(userId))
             {
-                if (firebaseClient != null && currentUser != null)
+                try
                 {
                     // Cập nhật trạng thái ngoại tuyến của người dùng và thời gian lần hoạt động cuối cùng
                     bool isOnline = false;
                     var updates = new Dictionary<string, object>
-                    {
-                        { "IsOnline", isOnline },
-                        { "LastSeenTimestamp", DateTimeOffset.UtcNow.ToUnixTimeSeconds() }
-                    };
+            {
+                { "IsOnline", isOnline },
+                { "LastSeenTimestamp", DateTimeOffset.UtcNow.ToUnixTimeSeconds() }
+            };
                     await firebaseClient.UpdateAsync($"Users/{userId}", updates);
                 }
-                Application.Exit(); // Đóng ứng dụng
+                catch (Exception ex)
+                {
+                    
+                }
+            }
+        }
+        // Mục đích hàm f_Dashboard_FormClosing để cập nhật trạng thái ngoại tuyến khi đóng form Dashboard
+        private async void f_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Nếu form đang ẩn (đang logout) thì không hiển thị confirm
+            if (!this.Visible)
+            {
+                return;
+            }
+
+            if (MessageBox.Show("Bạn có chắc chắn muốn đóng ứng dụng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                await IsOffline();
+                await Task.Delay(500);
+                Application.Exit();
             }
             else
             {
-                e.Cancel = true; // Hủy đóng form nếu người dùng chọn "No"
+                e.Cancel = true;
             }
         }
         // Mục đích hàm InitializeFirebase để khởi tạo kết nối FirebaseDatabase
@@ -85,7 +106,7 @@ namespace Chat_app_247
                     // Lấy dữ liệu người dùng từ Firebase Realtime Database tại UID cụ thể
                     FirebaseResponse response = await firebaseClient.GetAsync($"Users/{userId}");
                     // Gán dữ liệu người dùng vào đối tượng UserData
-                    var userData = response.ResultAs<User>();
+                    var userData = response.ResultAs<MyUser>();
                     currentUser = userData;
                     // Cập nhật trạng thái trực tuyến của người dùng và thời gian lần hoạt động cuối cùng
                     bool isOnline = true;
@@ -106,7 +127,7 @@ namespace Chat_app_247
             }
         }
         // Mục đích hàm UpDateDataToDashBoard để cập nhật dữ liệu người dùng lên giao diện Dashboard
-        private void UpDateDataToDashBoard(User user)
+        private void UpDateDataToDashBoard(MyUser user)
         {
             Label_Name.Text = user.DisplayName;
             // Tải ảnh đại diện từ URL (nếu có)
@@ -318,11 +339,28 @@ namespace Chat_app_247
         {
             ActivateButton(sender, RGBColors.color8);
             Label_Small_Form.Text = "Đăng Xuất";
-          
-            Application.Exit();
-            
-        }
 
+            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    IsOffline();
+                    await Task.Delay(100);
+                    // Cho token đăng nhập hết hạn
+                    auth_Pro.SignOut();
+                    // Đóng form và quay về đăng nhập
+                    this.Hide();
+                    Dang_nhap loginForm = new Dang_nhap();
+                    loginForm.ShowDialog();
+
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi khi đăng xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
         // Sự kiện khi nhấn nút Bell_button (Xử lý thông báo)
         private void Bell_button_Click(object sender, EventArgs e)
         {
