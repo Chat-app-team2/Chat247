@@ -64,13 +64,13 @@
             pnlBase.Dock = DockStyle.Fill;
             pnlBase.FillColor = Color.White;
             pnlBase.Location = new Point(0, 0);
-            pnlBase.Margin = new Padding(0, 0, 0, 10);
+            pnlBase.Margin = new Padding(0, 0, 0, 7);
             pnlBase.Name = "pnlBase";
-            pnlBase.Padding = new Padding(10, 8, 10, 8);
+            pnlBase.Padding = new Padding(7, 5, 7, 5);
             pnlBase.ShadowDecoration.CustomizableEdges = customizableEdges9;
             pnlBase.ShadowDecoration.Depth = 5;
             pnlBase.ShadowDecoration.Enabled = true;
-            pnlBase.Size = new Size(800, 90);
+            pnlBase.Size = new Size(533, 60);
             pnlBase.TabIndex = 0;
             // 
             // pnlDot
@@ -78,11 +78,12 @@
             pnlDot.BorderRadius = 5;
             pnlDot.CustomizableEdges = customizableEdges1;
             pnlDot.FillColor = Color.LimeGreen;
-            pnlDot.Location = new Point(89, 65);
+            pnlDot.Location = new Point(59, 43);
+            pnlDot.Margin = new Padding(2, 2, 2, 2);
             pnlDot.Name = "pnlDot";
             pnlDot.RightToLeft = RightToLeft.Yes;
             pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlDot.Size = new Size(10, 10);
+            pnlDot.Size = new Size(7, 7);
             pnlDot.TabIndex = 6;
             // 
             // lblName
@@ -90,10 +91,11 @@
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.FromArgb(30, 30, 30);
-            lblName.Location = new Point(125, 24);
-            lblName.MaximumSize = new Size(500, 0);
+            lblName.Location = new Point(83, 16);
+            lblName.Margin = new Padding(2, 0, 2, 0);
+            lblName.MaximumSize = new Size(333, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(86, 37);
+            lblName.Size = new Size(61, 25);
             lblName.TabIndex = 1;
             lblName.Text = "label1";
             // 
@@ -113,10 +115,11 @@
             btnMore.HoverState.FillColor = SystemColors.ButtonFace;
             btnMore.Image = Properties.Resources._3_cham;
             btnMore.ImageSize = new Size(30, 30);
-            btnMore.Location = new Point(730, 19);
+            btnMore.Location = new Point(487, 13);
+            btnMore.Margin = new Padding(2, 2, 2, 2);
             btnMore.Name = "btnMore";
             btnMore.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnMore.Size = new Size(57, 50);
+            btnMore.Size = new Size(38, 33);
             btnMore.TabIndex = 5;
             btnMore.Click += btnMore_Click;
             // 
@@ -132,10 +135,11 @@
             btnChat.FillColor = Color.FromArgb(104, 33, 122);
             btnChat.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChat.ForeColor = Color.White;
-            btnChat.Location = new Point(602, 19);
+            btnChat.Location = new Point(401, 13);
+            btnChat.Margin = new Padding(2, 2, 2, 2);
             btnChat.Name = "btnChat";
             btnChat.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnChat.Size = new Size(122, 56);
+            btnChat.Size = new Size(81, 37);
             btnChat.TabIndex = 4;
             btnChat.Text = "Chat";
             // 
@@ -143,11 +147,12 @@
             // 
             picAvatar.Image = Properties.Resources.Logo_Real;
             picAvatar.ImageRotate = 0F;
-            picAvatar.Location = new Point(15, 10);
+            picAvatar.Location = new Point(10, 7);
+            picAvatar.Margin = new Padding(2, 2, 2, 2);
             picAvatar.Name = "picAvatar";
             picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges7;
             picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            picAvatar.Size = new Size(70, 70);
+            picAvatar.Size = new Size(47, 47);
             picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
             picAvatar.TabIndex = 0;
             picAvatar.TabStop = false;
@@ -166,28 +171,29 @@
             menuMore.RenderStyle.SelectionForeColor = Color.White;
             menuMore.RenderStyle.SeparatorColor = Color.Gainsboro;
             menuMore.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            menuMore.Size = new Size(225, 76);
+            menuMore.Size = new Size(177, 52);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 36);
+            toolStripMenuItem1.Size = new Size(176, 24);
             toolStripMenuItem1.Text = "Xem thông tin ";
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(224, 36);
+            toolStripMenuItem2.Size = new Size(176, 24);
             toolStripMenuItem2.Text = "Xóa bạn";
             // 
             // FriendItem
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             Controls.Add(pnlBase);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FriendItem";
-            Size = new Size(800, 90);
+            Size = new Size(533, 60);
             pnlBase.ResumeLayout(false);
             pnlBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
