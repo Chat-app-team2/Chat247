@@ -62,8 +62,7 @@ namespace Chat_app_247
                     "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Thông báo thành công và nhắc kiểm tra email xác minh
 
-                // TODO: chuyển sang form đăng nhập hoặc mở dashboard
-                new Dang_nhap().Show(); this.Hide();
+                this.DialogResult = DialogResult.OK;   // đóng form đăng ký và trả về OK cho form gọi
             }
             catch (Exception ex)
             {
