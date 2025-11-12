@@ -61,6 +61,7 @@
             uc_Request_Panel.ShadowDecoration.CustomizableEdges = customizableEdges7;
             uc_Request_Panel.Size = new Size(815, 100);
             uc_Request_Panel.TabIndex = 1;
+            uc_Request_Panel.Paint += uc_Request_Panel_Paint;
             // 
             // guna2Button2
             // 
@@ -75,14 +76,15 @@
             guna2Button2.FillColor = Color.SteelBlue;
             guna2Button2.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.Black;
-            guna2Button2.Location = new Point(707, 27);
-            guna2Button2.Margin = new Padding(2, 2, 2, 2);
+            guna2Button2.Location = new Point(607, 27);
+            guna2Button2.Margin = new Padding(2);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button2.ShadowDecoration.Enabled = true;
             guna2Button2.Size = new Size(82, 56);
             guna2Button2.TabIndex = 17;
             guna2Button2.Text = "Thêm Bạn";
+            guna2Button2.Click += guna2Button2_Click_1;
             // 
             // guna2Button1
             // 
@@ -97,8 +99,8 @@
             guna2Button1.FillColor = SystemColors.MenuBar;
             guna2Button1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.Black;
-            guna2Button1.Location = new Point(592, 27);
-            guna2Button1.Margin = new Padding(2, 2, 2, 2);
+            guna2Button1.Location = new Point(492, 27);
+            guna2Button1.Margin = new Padding(2);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Button1.ShadowDecoration.Enabled = true;
@@ -133,7 +135,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(uc_Request_Panel);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "addfriend";
             Size = new Size(815, 100);
             uc_Request_Panel.ResumeLayout(false);

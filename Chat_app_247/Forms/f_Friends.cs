@@ -8,17 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Firebase;
+using FireSharp;
+using FireSharp.Interfaces;
+using Chat_app_247.Class;
 
 namespace Chat_app_247
 {
     public partial class f_Friends : Form
     {
+        private readonly IFirebaseClient _firebaseClient;
+
+        private readonly string _userId = "";
+
+        List<User> users = new List<User>();
         //Biến cấp lớp lưu toàn bộ danh sách mock (để còn lọc/tải lại).
         private List<string> _allFriends = new();
-        public f_Friends()
+        public f_Friends(IFirebaseClient firebaseClient, string userId)
         {
             InitializeComponent();
-
+            _firebaseClient = firebaseClient;
+            _userId = userId;
             // Render sau khi form đã show (khi đó có kích thước thật)
             this.Shown += (s, e) => LoadFriends();
         }
@@ -32,6 +42,10 @@ namespace Chat_app_247
 
         private void LoadFriends()
         {
+            if (_firebaseClient != null)
+            {
+
+            }
             _allFriends = new List<string>
             {
                 "Nguyen Van A","Tran Thi B","Le Van C","Pham Thi D",
@@ -59,7 +73,10 @@ namespace Chat_app_247
             friendsPanel.ResumeLayout();
         }
 
-       
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -49,7 +49,7 @@ namespace Chat_app_247
             LoadUserDataFromDatabase(user);
         }
         // Đảm bảo đưa Trạng thái của user về offline
-        private async Task IsOffline() 
+        private async Task IsOffline()
         {
             if (firebaseClient != null && !string.IsNullOrEmpty(userId))
             {
@@ -66,7 +66,7 @@ namespace Chat_app_247
                 }
                 catch (Exception ex)
                 {
-                    
+
                 }
             }
         }
@@ -255,7 +255,7 @@ namespace Chat_app_247
         private void List_Friends_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            f_Friends f_listFriends = new f_Friends();
+            f_Friends f_listFriends = new f_Friends(firebaseClient,userId);
             f_listFriends.Text = "Danh Sách Bạn Bè";
             OpenSmallForm(f_listFriends);
         }
@@ -294,7 +294,7 @@ namespace Chat_app_247
 
             if (_ucProfile == null)
             {
-                _ucProfile = new UcProfile(firebaseClient, userId)  
+                _ucProfile = new UcProfile(firebaseClient, userId)
                 {
                     Dock = DockStyle.Fill
                 };
@@ -365,6 +365,11 @@ namespace Chat_app_247
         private void Bell_button_Click(object sender, EventArgs e)
         {
             List_Thong_Bao.Show(Bell_button, new Point(0, Bell_button.Height));
+        }
+
+        private void f_Dashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
