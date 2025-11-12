@@ -54,10 +54,11 @@
             cardFriends.Dock = DockStyle.Fill;
             cardFriends.FillColor = Color.White;
             cardFriends.Location = new Point(0, 0);
+            cardFriends.Margin = new Padding(2, 2, 2, 2);
             cardFriends.Name = "cardFriends";
             cardFriends.ShadowDecoration.CustomizableEdges = customizableEdges8;
             cardFriends.ShadowDecoration.Enabled = true;
-            cardFriends.Size = new Size(1654, 802);
+            cardFriends.Size = new Size(1103, 535);
             cardFriends.TabIndex = 3;
             // 
             // friendsPanel
@@ -65,10 +66,11 @@
             friendsPanel.AutoScroll = true;
             friendsPanel.CustomizableEdges = customizableEdges1;
             friendsPanel.Dock = DockStyle.Fill;
-            friendsPanel.Location = new Point(0, 78);
+            friendsPanel.Location = new Point(0, 52);
+            friendsPanel.Margin = new Padding(2, 2, 2, 2);
             friendsPanel.Name = "friendsPanel";
             friendsPanel.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            friendsPanel.Size = new Size(1654, 724);
+            friendsPanel.Size = new Size(1103, 483);
             friendsPanel.TabIndex = 1;
             // 
             // guna2CustomGradientPanel1
@@ -77,9 +79,10 @@
             guna2CustomGradientPanel1.CustomizableEdges = customizableEdges5;
             guna2CustomGradientPanel1.Dock = DockStyle.Top;
             guna2CustomGradientPanel1.Location = new Point(0, 0);
+            guna2CustomGradientPanel1.Margin = new Padding(2, 2, 2, 2);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2CustomGradientPanel1.Size = new Size(1654, 78);
+            guna2CustomGradientPanel1.Size = new Size(1103, 52);
             guna2CustomGradientPanel1.TabIndex = 0;
             // 
             // txtSearch
@@ -98,21 +101,23 @@
             txtSearch.IconLeft = Properties.Resources.Screenshot_2025_10_29_233643;
             txtSearch.IconLeftSize = new Size(50, 50);
             txtSearch.Location = new Point(0, 0);
-            txtSearch.Margin = new Padding(6, 7, 6, 7);
+            txtSearch.Margin = new Padding(4, 5, 4, 5);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Tìm kiếm bạn bè ...";
             txtSearch.SelectedText = "";
             txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtSearch.Size = new Size(1654, 78);
+            txtSearch.Size = new Size(1103, 52);
             txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // f_Friends
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1654, 802);
+            ClientSize = new Size(1103, 535);
             Controls.Add(cardFriends);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "f_Friends";
             Text = "Friends";
             cardFriends.ResumeLayout(false);

@@ -1,7 +1,10 @@
 ﻿using Chat_app_247.Class;
+using Chat_app_247.Forms;
+using Chat_app_247.Services;
 using Firebase;
 using FireSharp;
 using FireSharp.Interfaces;
+using FireSharp.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,15 +14,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Chat_app_247.Services;
 namespace Chat_app_247
 {
     public partial class f_Invite : Form
     {
         private User currentUser;
-        public f_Invite(IFirebaseClient firebaseClient,string userid)
+
+        private IFirebaseClient _firebaseClient;
+
+        private string _userId;
+        public f_Invite(IFirebaseClient firebaseClient, string userid)
         {
             InitializeComponent();
+            _firebaseClient = firebaseClient;
+            _userId = userid;
             // Hiện ra các bạn bè đã gửi lời mời kết bạn
             LoadInviteList(firebaseClient, userid);
             // Hiện ra các lời mời mà bạn đã gửi
@@ -72,10 +80,10 @@ namespace Chat_app_247
         // Lấy FriendRequestReceivedIds và load ra
         private async void LoadInviteList(IFirebaseClient firebaseClient, string userid)
         {
-            List<string>  FriendID = await GetFriendReceivedIDList(firebaseClient, userid);
+            List<string> FriendID = await GetFriendReceivedIDList(firebaseClient, userid);
 
             Received_Panel.Controls.Clear();
-            if (FriendID.Count > 0) 
+            if (FriendID.Count > 0)
                 foreach (var id in FriendID)
                 {
                     Forms.uc_FriendRequest friendRequestControl = new Forms.uc_FriendRequest(currentUser.UserId);
@@ -92,13 +100,13 @@ namespace Chat_app_247
 
             Sent_Panel.Controls.Clear();
             if (sentRequestNames.Count > 0)
-            foreach (var name in sentRequestNames)
-            {
-                Forms.uc_SentRequest sentRequestControl = new Forms.uc_SentRequest();
-                sentRequestControl.SetName(name);
-                sentRequestControl.Dock = DockStyle.Top;
-                Sent_Panel.Controls.Add(sentRequestControl);
-            }
+                foreach (var name in sentRequestNames)
+                {
+                    Forms.uc_SentRequest sentRequestControl = new Forms.uc_SentRequest();
+                    sentRequestControl.SetName(name);
+                    sentRequestControl.Dock = DockStyle.Top;
+                    Sent_Panel.Controls.Add(sentRequestControl);
+                }
         }
         private void LoadNotifyList(IFirebaseClient firebaseClient, string userid)
         {
@@ -121,6 +129,71 @@ namespace Chat_app_247
                 refuseControl.Dock = DockStyle.Top;
                 Notification_Panel.Controls.Add(refuseControl);
             }
+        }
+
+        private void f_Invite_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btn_tim_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim();
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                panel_addfriend.Controls.Clear();
+                MessageBox.Show("Vui lòng nhập tên hoặc email để tìm kiếm.");
+                return;
+            }
+            try
+            {
+                FirebaseResponse response = await _firebaseClient.GetAsync("Users");
+                var allUsers = response.ResultAs<Dictionary<string, User>>();
+                if (allUsers == null)
+                {
+                    MessageBox.Show("Không tìm thấy người dùng nào.");
+                    return;
+                }
+                var results = allUsers.Values
+                    .Where(u => u != null &&
+                                u.UserId != _userId && // Bỏ qua chính mình
+                                (
+                                    (u.DisplayName != null && u.DisplayName.ToLower().Contains(searchText)) ||
+                                    (u.Email != null && u.Email.ToLower().Contains(searchText))
+                                ))
+                    .ToList();
+                DisplaySearchResults(results);
+
+                if (results.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy người dùng nào.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
+            }
+        }
+
+        // Hàm trợ giúp để hiển thị kết quả
+        private void DisplaySearchResults(List<User> users)
+        {
+            panel_addfriend.Controls.Clear();
+            panel_addfriend.SuspendLayout();
+
+            string currentUserId = _userId; 
+
+            foreach (var user in users)
+            {
+                addfriend userCard = new addfriend();
+                userCard.SetData(user, currentUserId, _firebaseClient);
+
+                userCard.Dock = DockStyle.Top;
+                panel_addfriend.Controls.Add(userCard);
+                userCard.BringToFront(); // Đảm bảo UC mới nhất ở trên cùng
+            }
+
+            panel_addfriend.ResumeLayout(); // Bật lại layout
         }
     }
 }
