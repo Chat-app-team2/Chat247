@@ -15,6 +15,32 @@ namespace Chat_app_247
         public f_Message()
         {
             InitializeComponent();
+            LoadFirend();
+        }
+        private void LoadFirend()
+        {
+            List<string> Names = new List<string>
+            {
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+                "Bui anh van",
+            };
+            Message_panel.Controls.Clear();
+            foreach (string name in Names)
+            {
+                Forms.UcMessUser messUser = new Forms.UcMessUser();
+                messUser.Name = name;
+                messUser.Dock = DockStyle.Top;
+                Message_panel.Controls.Add(messUser);
+            }
         }
     }
 }

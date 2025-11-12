@@ -38,10 +38,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBase = new Guna.UI2.WinForms.Guna2Panel();
+            Full_button = new Guna.UI2.WinForms.Guna2Button();
+            Delete_Friend_button = new Guna.UI2.WinForms.Guna2Button();
             pnlDot = new Guna.UI2.WinForms.Guna2Panel();
             lblName = new Label();
-            btnMore = new Guna.UI2.WinForms.Guna2Button();
-            btnChat = new Guna.UI2.WinForms.Guna2Button();
             picAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             menuMore = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
@@ -54,15 +54,17 @@
             // pnlBase
             // 
             pnlBase.BackColor = Color.Transparent;
-            pnlBase.BorderRadius = 12;
+            pnlBase.BorderColor = SystemColors.Highlight;
+            pnlBase.BorderRadius = 9;
+            pnlBase.BorderThickness = 3;
+            pnlBase.Controls.Add(Full_button);
+            pnlBase.Controls.Add(Delete_Friend_button);
             pnlBase.Controls.Add(pnlDot);
             pnlBase.Controls.Add(lblName);
-            pnlBase.Controls.Add(btnMore);
-            pnlBase.Controls.Add(btnChat);
             pnlBase.Controls.Add(picAvatar);
             pnlBase.CustomizableEdges = customizableEdges8;
             pnlBase.Dock = DockStyle.Fill;
-            pnlBase.FillColor = Color.White;
+            pnlBase.FillColor = Color.WhiteSmoke;
             pnlBase.Location = new Point(0, 0);
             pnlBase.Margin = new Padding(0, 0, 0, 7);
             pnlBase.Name = "pnlBase";
@@ -70,19 +72,63 @@
             pnlBase.ShadowDecoration.CustomizableEdges = customizableEdges9;
             pnlBase.ShadowDecoration.Depth = 5;
             pnlBase.ShadowDecoration.Enabled = true;
-            pnlBase.Size = new Size(533, 60);
+            pnlBase.Size = new Size(895, 69);
             pnlBase.TabIndex = 0;
+            // 
+            // Full_button
+            // 
+            Full_button.BackColor = Color.Transparent;
+            Full_button.BorderRadius = 10;
+            Full_button.Cursor = Cursors.Hand;
+            Full_button.CustomizableEdges = customizableEdges1;
+            Full_button.DisabledState.BorderColor = Color.DarkGray;
+            Full_button.DisabledState.CustomBorderColor = Color.DarkGray;
+            Full_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            Full_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Full_button.FillColor = SystemColors.MenuBar;
+            Full_button.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Full_button.ForeColor = Color.Black;
+            Full_button.Location = new Point(641, 11);
+            Full_button.Margin = new Padding(2);
+            Full_button.Name = "Full_button";
+            Full_button.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            Full_button.ShadowDecoration.Enabled = true;
+            Full_button.Size = new Size(95, 48);
+            Full_button.TabIndex = 18;
+            Full_button.Text = "Xem Thêm";
+            // 
+            // Delete_Friend_button
+            // 
+            Delete_Friend_button.BackColor = Color.Transparent;
+            Delete_Friend_button.BorderRadius = 10;
+            Delete_Friend_button.Cursor = Cursors.Hand;
+            Delete_Friend_button.CustomizableEdges = customizableEdges3;
+            Delete_Friend_button.DisabledState.BorderColor = Color.DarkGray;
+            Delete_Friend_button.DisabledState.CustomBorderColor = Color.DarkGray;
+            Delete_Friend_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            Delete_Friend_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Delete_Friend_button.FillColor = Color.FromArgb(231, 76, 80);
+            Delete_Friend_button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Delete_Friend_button.ForeColor = Color.White;
+            Delete_Friend_button.Location = new Point(770, 10);
+            Delete_Friend_button.Margin = new Padding(2);
+            Delete_Friend_button.Name = "Delete_Friend_button";
+            Delete_Friend_button.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Delete_Friend_button.ShadowDecoration.Enabled = true;
+            Delete_Friend_button.Size = new Size(95, 48);
+            Delete_Friend_button.TabIndex = 17;
+            Delete_Friend_button.Text = "Xóa Bạn";
             // 
             // pnlDot
             // 
             pnlDot.BorderRadius = 5;
-            pnlDot.CustomizableEdges = customizableEdges1;
+            pnlDot.CustomizableEdges = customizableEdges5;
             pnlDot.FillColor = Color.LimeGreen;
             pnlDot.Location = new Point(59, 43);
-            pnlDot.Margin = new Padding(2, 2, 2, 2);
+            pnlDot.Margin = new Padding(2);
             pnlDot.Name = "pnlDot";
             pnlDot.RightToLeft = RightToLeft.Yes;
-            pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pnlDot.Size = new Size(7, 7);
             pnlDot.TabIndex = 6;
             // 
@@ -99,56 +145,12 @@
             lblName.TabIndex = 1;
             lblName.Text = "label1";
             // 
-            // btnMore
-            // 
-            btnMore.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMore.BorderRadius = 8;
-            btnMore.Cursor = Cursors.Hand;
-            btnMore.CustomizableEdges = customizableEdges3;
-            btnMore.DisabledState.BorderColor = Color.DarkGray;
-            btnMore.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnMore.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnMore.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnMore.FillColor = Color.Transparent;
-            btnMore.Font = new Font("Segoe UI", 14.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMore.ForeColor = Color.Gray;
-            btnMore.HoverState.FillColor = SystemColors.ButtonFace;
-            btnMore.Image = Properties.Resources._3_cham;
-            btnMore.ImageSize = new Size(30, 30);
-            btnMore.Location = new Point(487, 13);
-            btnMore.Margin = new Padding(2, 2, 2, 2);
-            btnMore.Name = "btnMore";
-            btnMore.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnMore.Size = new Size(38, 33);
-            btnMore.TabIndex = 5;
-            btnMore.Click += btnMore_Click;
-            // 
-            // btnChat
-            // 
-            btnChat.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnChat.BorderRadius = 8;
-            btnChat.CustomizableEdges = customizableEdges5;
-            btnChat.DisabledState.BorderColor = Color.DarkGray;
-            btnChat.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnChat.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnChat.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnChat.FillColor = Color.FromArgb(104, 33, 122);
-            btnChat.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnChat.ForeColor = Color.White;
-            btnChat.Location = new Point(401, 13);
-            btnChat.Margin = new Padding(2, 2, 2, 2);
-            btnChat.Name = "btnChat";
-            btnChat.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnChat.Size = new Size(81, 37);
-            btnChat.TabIndex = 4;
-            btnChat.Text = "Chat";
-            // 
             // picAvatar
             // 
             picAvatar.Image = Properties.Resources.Logo_Real;
             picAvatar.ImageRotate = 0F;
             picAvatar.Location = new Point(10, 7);
-            picAvatar.Margin = new Padding(2, 2, 2, 2);
+            picAvatar.Margin = new Padding(2);
             picAvatar.Name = "picAvatar";
             picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges7;
             picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -191,9 +193,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             Controls.Add(pnlBase);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FriendItem";
-            Size = new Size(533, 60);
+            Size = new Size(895, 69);
             pnlBase.ResumeLayout(false);
             pnlBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
@@ -206,11 +208,11 @@
         private Guna.UI2.WinForms.Guna2Panel pnlBase;
         private Label lblName;
         private Guna.UI2.WinForms.Guna2CirclePictureBox picAvatar;
-        private Guna.UI2.WinForms.Guna2Button btnChat;
-        private Guna.UI2.WinForms.Guna2Button btnMore;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip menuMore;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
         private Guna.UI2.WinForms.Guna2Panel pnlDot;
+        private Guna.UI2.WinForms.Guna2Button Full_button;
+        private Guna.UI2.WinForms.Guna2Button Delete_Friend_button;
     }
 }

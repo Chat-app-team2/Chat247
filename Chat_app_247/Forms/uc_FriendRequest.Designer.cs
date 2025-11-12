@@ -49,10 +49,10 @@
             // 
             // uc_Request_Panel
             // 
-            uc_Request_Panel.BackColor = Color.FromArgb(44, 62, 80);
-            uc_Request_Panel.BorderColor = SystemColors.AppWorkspace;
-            uc_Request_Panel.BorderRadius = 2;
-            uc_Request_Panel.BorderThickness = 2;
+            uc_Request_Panel.BackColor = Color.WhiteSmoke;
+            uc_Request_Panel.BorderColor = SystemColors.Highlight;
+            uc_Request_Panel.BorderRadius = 9;
+            uc_Request_Panel.BorderThickness = 4;
             uc_Request_Panel.Controls.Add(Full_button);
             uc_Request_Panel.Controls.Add(Refuse_button);
             uc_Request_Panel.Controls.Add(Accept_button);
@@ -78,7 +78,7 @@
             Full_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             Full_button.FillColor = SystemColors.MenuBar;
             Full_button.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Full_button.ForeColor = Color.DimGray;
+            Full_button.ForeColor = Color.Black;
             Full_button.Location = new Point(607, 32);
             Full_button.Margin = new Padding(2);
             Full_button.Name = "Full_button";
@@ -101,7 +101,7 @@
             Refuse_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             Refuse_button.FillColor = Color.FromArgb(231, 76, 80);
             Refuse_button.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Refuse_button.ForeColor = Color.White;
+            Refuse_button.ForeColor = Color.Black;
             Refuse_button.Location = new Point(449, 32);
             Refuse_button.Margin = new Padding(2);
             Refuse_button.Name = "Refuse_button";
@@ -109,7 +109,7 @@
             Refuse_button.ShadowDecoration.Enabled = true;
             Refuse_button.Size = new Size(122, 56);
             Refuse_button.TabIndex = 15;
-            Refuse_button.Text = "Chấp Nhận";
+            Refuse_button.Text = "Từ Chối";
             Refuse_button.Click += Refuse_button_Click;
             // 
             // Accept_button
@@ -124,7 +124,7 @@
             Accept_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             Accept_button.FillColor = Color.FromArgb(26, 188, 156);
             Accept_button.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Accept_button.ForeColor = Color.White;
+            Accept_button.ForeColor = Color.Black;
             Accept_button.Location = new Point(305, 31);
             Accept_button.Margin = new Padding(2);
             Accept_button.Name = "Accept_button";
@@ -139,7 +139,7 @@
             // 
             Name_Label.BackColor = Color.Transparent;
             Name_Label.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Name_Label.ForeColor = SystemColors.Info;
+            Name_Label.ForeColor = SystemColors.Desktop;
             Name_Label.Location = new Point(98, 41);
             Name_Label.Name = "Name_Label";
             Name_Label.Size = new Size(75, 33);
@@ -148,6 +148,7 @@
             // 
             // Avartar_Picture
             // 
+            Avartar_Picture.FillColor = Color.Black;
             Avartar_Picture.ImageRotate = 0F;
             Avartar_Picture.Location = new Point(22, 27);
             Avartar_Picture.Name = "Avartar_Picture";

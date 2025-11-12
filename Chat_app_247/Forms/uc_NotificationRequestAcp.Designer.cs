@@ -42,10 +42,10 @@
             // 
             // uc_Notifi_acp_Panel
             // 
-            uc_Notifi_acp_Panel.BackColor = Color.FromArgb(44, 62, 80);
-            uc_Notifi_acp_Panel.BorderColor = SystemColors.AppWorkspace;
-            uc_Notifi_acp_Panel.BorderRadius = 2;
-            uc_Notifi_acp_Panel.BorderThickness = 2;
+            uc_Notifi_acp_Panel.BackColor = Color.WhiteSmoke;
+            uc_Notifi_acp_Panel.BorderColor = SystemColors.Highlight;
+            uc_Notifi_acp_Panel.BorderRadius = 9;
+            uc_Notifi_acp_Panel.BorderThickness = 4;
             uc_Notifi_acp_Panel.Controls.Add(Bell_button);
             uc_Notifi_acp_Panel.Controls.Add(Label_text_accept);
             uc_Notifi_acp_Panel.Controls.Add(Name_Label);

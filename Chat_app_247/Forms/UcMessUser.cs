@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace Chat_app_247.Forms
 {
-    public partial class FriendItem : UserControl
+    public partial class UcMessUser : UserControl
     {
-        public FriendItem()
+        public UcMessUser()
         {
             InitializeComponent();
+            this.AutoSize = false;           
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
         }
-        // thiết lập method sửa tên
-        public void setname(string name)
+        public void SetData(string name)
         {
-            lblName.Text= name;
+            lblName.Text = name;
         }
     }
 }
