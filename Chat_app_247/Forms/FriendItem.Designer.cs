@@ -118,6 +118,7 @@
             Delete_Friend_button.Size = new Size(95, 48);
             Delete_Friend_button.TabIndex = 17;
             Delete_Friend_button.Text = "Xóa Bạn";
+            Delete_Friend_button.Click += Delete_Friend_button_Click;
             // 
             // pnlDot
             // 
