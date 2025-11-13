@@ -12,6 +12,7 @@ using Firebase;
 using FireSharp;
 using FireSharp.Interfaces;
 using Chat_app_247.Class;
+using FireSharp.Response;
 
 namespace Chat_app_247
 {
@@ -21,9 +22,6 @@ namespace Chat_app_247
 
         private readonly string _userId = "";
 
-        List<User> users = new List<User>();
-        //Biến cấp lớp lưu toàn bộ danh sách mock (để còn lọc/tải lại).
-        private List<string> _allFriends = new();
         public f_Friends(IFirebaseClient firebaseClient, string userId)
         {
             InitializeComponent();
@@ -37,43 +35,72 @@ namespace Chat_app_247
         {
 
         }
-
-        // nạp dữ liệu tạm thời , tạo danh sách tạm thời 
-
-        private void LoadFriends()
+        private async void LoadFriends()
         {
-            if (_firebaseClient != null)
-            {
+            if (_firebaseClient == null || string.IsNullOrEmpty(_userId)) return;
 
-            }
-            _allFriends = new List<string>
-            {
-                "Nguyen Van A","Tran Thi B","Le Van C","Pham Thi D",
-                "Do Van E","Hoang Thi F","Vu Van G","Tran Thi H",
-                "Bui Van I","Pham Thi K","Le Van L","Nguyen Thi M"
-            };
-
-            RenderFriends(_allFriends);
-        }
-        // hiển thị giao diện 
-        private void RenderFriends(IEnumerable<string> names)
-        {
-            friendsPanel.SuspendLayout();
+            // Xóa danh sách cũ trước khi tải
             friendsPanel.Controls.Clear();
 
-            foreach (var name in names)
+            try
             {
-                var item = new FriendItem();
-                item.setname(name);        // gán tên vào label trong frienditem
-                item.Dock = DockStyle.Top; // xếp dọc  từ trên xuống 
-                friendsPanel.Controls.Add(item);
-                item.BringToFront();       // đưa item mới lên trên cùng 
-            }
+                FirebaseResponse res = await _firebaseClient.GetAsync($"Users/{_userId}/FriendIds");
 
-            friendsPanel.ResumeLayout();
+                if (res.Body == "null")
+                {
+                    return;
+                }
+
+                var friendIds = res.ResultAs<List<string>>();
+                if (friendIds == null || friendIds.Count == 0)
+                {
+                    return;
+                }
+
+
+                friendsPanel.SuspendLayout();
+
+                foreach (var friendId in friendIds)
+                {
+                    // Lấy thông tin của từng người bạn
+                    FirebaseResponse friendRes = await _firebaseClient.GetAsync($"Users/{friendId}");
+                    var friendUser = friendRes.ResultAs<User>();
+
+                    if (friendUser != null)
+                    {
+                        FriendItem friendItem = new FriendItem();
+
+                        friendItem.Dock = DockStyle.Top;
+
+                        // SetData
+                        friendItem.SetData(friendUser, _userId, _firebaseClient);
+
+                        friendsPanel.Controls.Add(friendItem);
+                        friendItem.BringToFront();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách bạn bè: " + ex.Message);
+            }
+            finally
+            {
+                friendsPanel.ResumeLayout();
+            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void friendsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void f_Friends_Load(object sender, EventArgs e)
         {
 
         }
