@@ -34,10 +34,7 @@ namespace Chat_app_247.Forms
             lblName.Text = _targetUser.DisplayName ?? "(Không có tên)";
 
             // Hiển thị trạng thái Online/Offline
-            if (pnlDot != null) // Kiểm tra xem panel status có tồn tại không
-            {
-                pnlDot.FillColor = _targetUser.IsOnline ? Color.LimeGreen : Color.Gray;
-            }
+            UpdateStatus(_targetUser.IsOnline);
 
             // Tải ảnh đại diện bất đồng bộ
             if (picAvatar != null && !string.IsNullOrEmpty(_targetUser.ProfilePictureUrl))
@@ -58,42 +55,13 @@ namespace Chat_app_247.Forms
                     picAvatar.Image = null;
                 }
             }
-
-            StartStatusListener();
         }
 
-        private async void StartStatusListener()
+        public void UpdateStatus(bool isOnline)
         {
-            // Kiểm tra client và user hợp lệ
-            if (_client == null || _targetUser == null) return;
-
-            try
+            if (pnlDot != null)
             {
-                // Tạo một bộ lắng nghe vĩnh viễn cho node 'IsOnline' của user này
-                await _client.OnAsync($"Users/{_targetUser.UserId}/IsOnline", (sender, args, context) =>
-                {
-
-                    if (bool.TryParse(args.Data, out bool isOnline))
-                    {
-                        // CẬP NHẬT GIAO DIỆN (UI)
-                        // Đảm bảo cập nhật trên luồng UI
-
-                        if (this.IsHandleCreated) // Kiểm tra xem control đã được tạo chưa
-                        {
-                            this.BeginInvoke(new Action(() =>
-                            {
-                                if (pnlDot != null)
-                                {
-                                    pnlDot.FillColor = isOnline ? Color.LimeGreen : Color.Gray;
-                                }
-                            }));
-                        }
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Lỗi khi lắng nghe status của {_targetUser.DisplayName}: {ex.Message}");
+                pnlDot.FillColor = isOnline ? Color.LimeGreen : Color.Gray;
             }
         }
     }
