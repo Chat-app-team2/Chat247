@@ -100,6 +100,26 @@ namespace Chat_app_247.Forms
             FirebaseResponse f_response_f = await firebaseclient_f.GetAsync($"Users/{friendUserId}");
             var friendUserData = f_response_f.ResultAs<User>();
 
+
+            // Kiểm tra và khởi tạo các List nếu chúng bị null
+            if (currentUserData.FriendRequestReceivedIds == null)
+            {
+                currentUserData.FriendRequestReceivedIds = new List<string>();
+            }
+            if (currentUserData.FriendIds == null)
+            {
+                currentUserData.FriendIds = new List<string>(); 
+            }
+
+            if (friendUserData.FriendRequestSentIds == null)
+            {
+                friendUserData.FriendRequestSentIds = new List<string>();
+            }
+            if (friendUserData.FriendIds == null)
+            {
+                friendUserData.FriendIds = new List<string>();
+            }
+
             // Cập nhật cho current user: xóa và thêm
             currentUserData.FriendRequestReceivedIds?.Remove(friendUserId);
             currentUserData.FriendIds.Add(friendUserId);
