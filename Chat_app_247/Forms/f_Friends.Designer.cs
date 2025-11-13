@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             cardFriends = new Guna.UI2.WinForms.Guna2Panel();
             friendsPanel = new Guna.UI2.WinForms.Guna2Panel();
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -50,13 +50,13 @@
             cardFriends.BorderRadius = 12;
             cardFriends.Controls.Add(friendsPanel);
             cardFriends.Controls.Add(guna2CustomGradientPanel1);
-            cardFriends.CustomizableEdges = customizableEdges7;
+            cardFriends.CustomizableEdges = customizableEdges15;
             cardFriends.Dock = DockStyle.Fill;
             cardFriends.FillColor = Color.White;
             cardFriends.Location = new Point(0, 0);
-            cardFriends.Margin = new Padding(2, 2, 2, 2);
+            cardFriends.Margin = new Padding(2);
             cardFriends.Name = "cardFriends";
-            cardFriends.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            cardFriends.ShadowDecoration.CustomizableEdges = customizableEdges16;
             cardFriends.ShadowDecoration.Enabled = true;
             cardFriends.Size = new Size(1103, 535);
             cardFriends.TabIndex = 3;
@@ -64,31 +64,32 @@
             // friendsPanel
             // 
             friendsPanel.AutoScroll = true;
-            friendsPanel.CustomizableEdges = customizableEdges1;
+            friendsPanel.CustomizableEdges = customizableEdges9;
             friendsPanel.Dock = DockStyle.Fill;
             friendsPanel.Location = new Point(0, 52);
-            friendsPanel.Margin = new Padding(2, 2, 2, 2);
+            friendsPanel.Margin = new Padding(2);
             friendsPanel.Name = "friendsPanel";
-            friendsPanel.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            friendsPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
             friendsPanel.Size = new Size(1103, 483);
             friendsPanel.TabIndex = 1;
+            friendsPanel.Paint += friendsPanel_Paint;
             // 
             // guna2CustomGradientPanel1
             // 
             guna2CustomGradientPanel1.Controls.Add(txtSearch);
-            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges5;
+            guna2CustomGradientPanel1.CustomizableEdges = customizableEdges13;
             guna2CustomGradientPanel1.Dock = DockStyle.Top;
             guna2CustomGradientPanel1.Location = new Point(0, 0);
-            guna2CustomGradientPanel1.Margin = new Padding(2, 2, 2, 2);
+            guna2CustomGradientPanel1.Margin = new Padding(2);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2CustomGradientPanel1.Size = new Size(1103, 52);
             guna2CustomGradientPanel1.TabIndex = 0;
             // 
             // txtSearch
             // 
             txtSearch.BackColor = Color.White;
-            txtSearch.CustomizableEdges = customizableEdges3;
+            txtSearch.CustomizableEdges = customizableEdges11;
             txtSearch.DefaultText = "";
             txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -105,7 +106,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Tìm kiếm bạn bè ...";
             txtSearch.SelectedText = "";
-            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtSearch.Size = new Size(1103, 52);
             txtSearch.TabIndex = 1;
             txtSearch.TextChanged += txtSearch_TextChanged;
@@ -117,9 +118,10 @@
             AutoScroll = true;
             ClientSize = new Size(1103, 535);
             Controls.Add(cardFriends);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "f_Friends";
             Text = "Friends";
+            Load += f_Friends_Load;
             cardFriends.ResumeLayout(false);
             guna2CustomGradientPanel1.ResumeLayout(false);
             ResumeLayout(false);

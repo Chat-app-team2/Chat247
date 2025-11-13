@@ -22,7 +22,6 @@ namespace Chat_app_247.Forms
         public addfriend()
         {
             InitializeComponent();
-            //guna2Button2.Click += guna2Button2_Click;
         }
 
         public async void SetData(User targetUser, string currentUserId, IFirebaseClient client)
