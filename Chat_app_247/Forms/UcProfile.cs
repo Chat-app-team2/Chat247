@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chat_app_247.Class;        
 using FireSharp.Interfaces;
+using Chat_app_247.Services;
 namespace Chat_app_247.Forms
 {
     public partial class UcProfile : UserControl
@@ -20,8 +21,6 @@ namespace Chat_app_247.Forms
         public UcProfile()
         {
             InitializeComponent();
-            // gán sự kiện cho nút lưu 
-            btnSave.Click += btnSave_Click;
             // khi hủy nạp lại dữ liệu từ DB , bỏ mọi thay đổi trên form 
             btnCancel.Click += async (_, __) => await LoadUserAsync();
             // nạp sẵn danh sách nếu combobox đang rỗng 
@@ -57,10 +56,11 @@ namespace Chat_app_247.Forms
             // Ảnh đại diện (nếu có URL hợp lệ trong DB)
             if (!string.IsNullOrWhiteSpace(_current.ProfilePictureUrl))
             {
-                try { picAvatar.Load(_current.ProfilePictureUrl); }
-                catch { picAvatar.Image = null; }// Nếu URL lỗi, bỏ ảnh
+                try { Avatar_pic.Load(_current.ProfilePictureUrl); }
+                catch { Avatar_pic.Image = null; }// Nếu URL lỗi, bỏ ảnh
             }
-            else picAvatar.Image = null;// Chưa có URL → clear ảnh
+            else Avatar_pic.Image = null;// Chưa có URL → clear ảnh
+            f_Dashboard.Instance.UpDateDataToDashBoard(_current);
 
         }
         // Nút Lưu:
@@ -137,6 +137,29 @@ namespace Chat_app_247.Forms
                 Cursor = old;
                 btnCancel.Enabled = true;
                 btnSave.Enabled = true;
+            }
+        }
+        private async void UpImage_button_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = dialog.FileName;
+                string imageURL = new CloudinaryService().UploadImage(filePath); 
+                if (imageURL != null)
+                {
+                    // Luu URL vao database
+                    var updates = new Dictionary<string, object>
+                    {
+                        {"ProfilePictureUrl", imageURL}
+                    };
+                    await _client.UpdateAsync($"Users/{_uid}", updates);
+                    // Hien thi anh URL tu cloudinary
+                    await LoadUserAsync();
+                    // Hien thi messagebox
+                    MessageBox.Show("Chọn avatar mới thành công!");
+                }
             }
         }
     }

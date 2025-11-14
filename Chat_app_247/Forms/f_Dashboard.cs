@@ -22,6 +22,8 @@ namespace Chat_app_247
 
     public partial class f_Dashboard : Form
     {
+        // muc tieu de goi tu ham phu
+        public static f_Dashboard Instance;
         // cho User hiện tại và FirebaseClient
         private MyUser currentUser;
         private IFirebaseClient firebaseClient;
@@ -41,6 +43,7 @@ namespace Chat_app_247
             LeftBorderBtn.Size = new Size(7, 60);
             Panel_menu.Controls.Add(LeftBorderBtn);
 
+            Instance = this;
             userId = user.Uid;
             auth_Pro = authProvider;
             // Gán thông tin người dùng hiện tại
@@ -58,10 +61,10 @@ namespace Chat_app_247
                     // Cập nhật trạng thái ngoại tuyến của người dùng và thời gian lần hoạt động cuối cùng
                     bool isOnline = false;
                     var updates = new Dictionary<string, object>
-            {
-                { "IsOnline", isOnline },
-                { "LastSeenTimestamp", DateTimeOffset.UtcNow.ToUnixTimeSeconds() }
-            };
+                {
+                    { "IsOnline", isOnline },
+                    { "LastSeenTimestamp", DateTimeOffset.UtcNow.ToUnixTimeSeconds() }
+                };
                     await firebaseClient.UpdateAsync($"Users/{userId}", updates);
                 }
                 catch (Exception ex)
@@ -127,7 +130,7 @@ namespace Chat_app_247
             }
         }
         // Mục đích hàm UpDateDataToDashBoard để cập nhật dữ liệu người dùng lên giao diện Dashboard
-        private void UpDateDataToDashBoard(MyUser user)
+        public void UpDateDataToDashBoard(MyUser user)
         {
             Label_Name.Text = user.DisplayName;
             // Tải ảnh đại diện từ URL (nếu có)
@@ -135,12 +138,7 @@ namespace Chat_app_247
             {
                 try
                 {
-                    System.Net.WebRequest request = System.Net.WebRequest.Create(user.ProfilePictureUrl);
-                    System.Net.WebResponse response = request.GetResponse();
-                    System.IO.Stream responseStream = response.GetResponseStream();
-                    Bitmap bitmap = new Bitmap(responseStream);
-                    Avartar_Picture.Image = bitmap;
-                    responseStream.Dispose();
+                    Avartar_Picture.Load(user.ProfilePictureUrl);
                 }
                 catch (Exception ex)
                 {
