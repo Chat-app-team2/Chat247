@@ -28,241 +28,265 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            pnlHeader = new Guna.UI2.WinForms.Guna2Panel();
-            pnlStatusDot = new Guna.UI2.WinForms.Guna2Panel();
-            picAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            pnlComposer = new Guna.UI2.WinForms.Guna2Panel();
-            btnSend = new Guna.UI2.WinForms.Guna2Button();
-            btnAttach = new Guna.UI2.WinForms.Guna2Button();
-            txtInput = new Guna.UI2.WinForms.Guna2TextBox();
-            flpMessages = new FlowLayoutPanel();
+            Mess_panel = new Panel();
+            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            label1 = new Label();
+            guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Message_panel = new Panel();
-            guna2Panel1.SuspendLayout();
-            pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
-            pnlComposer.SuspendLayout();
+            Panel_button = new Panel();
+            Group_button = new FontAwesome.Sharp.IconButton();
+            Mess_panel.SuspendLayout();
+            guna2Panel4.SuspendLayout();
+            guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
+            Panel_button.SuspendLayout();
             SuspendLayout();
             // 
-            // guna2Panel1
+            // Mess_panel
             // 
-            guna2Panel1.Controls.Add(pnlHeader);
-            guna2Panel1.Controls.Add(pnlComposer);
-            guna2Panel1.Controls.Add(flpMessages);
-            guna2Panel1.CustomizableEdges = customizableEdges14;
-            guna2Panel1.Dock = DockStyle.Fill;
-            guna2Panel1.FillColor = Color.White;
-            guna2Panel1.Location = new Point(347, 0);
-            guna2Panel1.Margin = new Padding(2);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2Panel1.Size = new Size(453, 450);
-            guna2Panel1.TabIndex = 1;
+            Mess_panel.AutoScroll = true;
+            Mess_panel.BorderStyle = BorderStyle.FixedSingle;
+            Mess_panel.Controls.Add(guna2Panel4);
+            Mess_panel.Controls.Add(guna2Panel2);
+            Mess_panel.Dock = DockStyle.Right;
+            Mess_panel.Location = new Point(201, 0);
+            Mess_panel.Name = "Mess_panel";
+            Mess_panel.Size = new Size(599, 450);
+            Mess_panel.TabIndex = 0;
             // 
-            // pnlHeader
+            // guna2Panel4
             // 
-            pnlHeader.BorderRadius = 8;
-            pnlHeader.Controls.Add(pnlStatusDot);
-            pnlHeader.Controls.Add(picAvatar);
-            pnlHeader.Controls.Add(lblTitle);
-            pnlHeader.CustomizableEdges = customizableEdges4;
-            pnlHeader.Dock = DockStyle.Top;
-            pnlHeader.FillColor = Color.White;
-            pnlHeader.Location = new Point(0, 0);
-            pnlHeader.Margin = new Padding(2);
-            pnlHeader.Name = "pnlHeader";
-            pnlHeader.Padding = new Padding(11, 7, 11, 7);
-            pnlHeader.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            pnlHeader.Size = new Size(453, 69);
-            pnlHeader.TabIndex = 0;
+            guna2Panel4.Controls.Add(guna2Button1);
+            guna2Panel4.Controls.Add(guna2Button2);
+            guna2Panel4.Controls.Add(guna2TextBox1);
+            guna2Panel4.CustomizableEdges = customizableEdges7;
+            guna2Panel4.Dock = DockStyle.Bottom;
+            guna2Panel4.FillColor = Color.White;
+            guna2Panel4.Location = new Point(0, 385);
+            guna2Panel4.Margin = new Padding(2);
+            guna2Panel4.Name = "guna2Panel4";
+            guna2Panel4.Padding = new Padding(8);
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Panel4.Size = new Size(597, 63);
+            guna2Panel4.TabIndex = 3;
             // 
-            // pnlStatusDot
+            // guna2Button1
             // 
-            pnlStatusDot.BorderColor = Color.White;
-            pnlStatusDot.BorderRadius = 6;
-            pnlStatusDot.BorderThickness = 2;
-            pnlStatusDot.CustomizableEdges = customizableEdges1;
-            pnlStatusDot.FillColor = Color.LimeGreen;
-            pnlStatusDot.Location = new Point(41, 35);
-            pnlStatusDot.Margin = new Padding(2);
-            pnlStatusDot.Name = "pnlStatusDot";
-            pnlStatusDot.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlStatusDot.Size = new Size(8, 8);
-            pnlStatusDot.TabIndex = 2;
+            guna2Button1.AutoRoundedCorners = true;
+            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.Dock = DockStyle.Right;
+            guna2Button1.FillColor = Color.FromArgb(0, 120, 212);
+            guna2Button1.Font = new Font("Segoe UI", 9F);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(487, 8);
+            guna2Button1.Margin = new Padding(2);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.Size = new Size(63, 47);
+            guna2Button1.TabIndex = 2;
+            guna2Button1.Text = "Gửi";
             // 
-            // picAvatar
+            // guna2Button2
             // 
-            picAvatar.Dock = DockStyle.Left;
-            picAvatar.Image = Properties.Resources.Logo_Real;
-            picAvatar.ImageRotate = 0F;
-            picAvatar.Location = new Point(11, 7);
-            picAvatar.Margin = new Padding(2);
-            picAvatar.Name = "picAvatar";
-            picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            picAvatar.Size = new Size(27, 55);
-            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
-            picAvatar.TabIndex = 1;
-            picAvatar.TabStop = false;
+            guna2Button2.AutoRoundedCorners = true;
+            guna2Button2.CustomizableEdges = customizableEdges3;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.Dock = DockStyle.Right;
+            guna2Button2.FillColor = Color.FromArgb(128, 128, 255);
+            guna2Button2.Font = new Font("Segoe UI", 9F);
+            guna2Button2.ForeColor = Color.White;
+            guna2Button2.Location = new Point(550, 8);
+            guna2Button2.Margin = new Padding(2);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button2.Size = new Size(39, 47);
+            guna2Button2.TabIndex = 1;
+            guna2Button2.Text = "📎";
             // 
-            // lblTitle
+            // guna2TextBox1
             // 
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(69, 12);
-            lblTitle.Margin = new Padding(2);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(162, 27);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "guna2HtmlLabel1";
+            guna2TextBox1.AutoRoundedCorners = true;
+            guna2TextBox1.BorderRadius = 22;
+            guna2TextBox1.CustomizableEdges = customizableEdges5;
+            guna2TextBox1.DefaultText = "";
+            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2TextBox1.Location = new Point(8, 8);
+            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
+            guna2TextBox1.Name = "guna2TextBox1";
+            guna2TextBox1.PlaceholderText = "Nhập tin nhắn...";
+            guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2TextBox1.Size = new Size(437, 47);
+            guna2TextBox1.TabIndex = 0;
             // 
-            // pnlComposer
+            // guna2Panel2
             // 
-            pnlComposer.Controls.Add(btnSend);
-            pnlComposer.Controls.Add(btnAttach);
-            pnlComposer.Controls.Add(txtInput);
-            pnlComposer.CustomizableEdges = customizableEdges12;
-            pnlComposer.Dock = DockStyle.Bottom;
-            pnlComposer.FillColor = Color.White;
-            pnlComposer.Location = new Point(0, 387);
-            pnlComposer.Margin = new Padding(2);
-            pnlComposer.Name = "pnlComposer";
-            pnlComposer.Padding = new Padding(8);
-            pnlComposer.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            pnlComposer.Size = new Size(453, 63);
-            pnlComposer.TabIndex = 2;
+            guna2Panel2.BorderRadius = 8;
+            guna2Panel2.Controls.Add(label1);
+            guna2Panel2.Controls.Add(guna2CirclePictureBox1);
+            guna2Panel2.Controls.Add(guna2Panel3);
+            guna2Panel2.Controls.Add(guna2HtmlLabel1);
+            guna2Panel2.CustomizableEdges = customizableEdges12;
+            guna2Panel2.Dock = DockStyle.Top;
+            guna2Panel2.FillColor = Color.White;
+            guna2Panel2.Location = new Point(0, 0);
+            guna2Panel2.Margin = new Padding(2);
+            guna2Panel2.Name = "guna2Panel2";
+            guna2Panel2.Padding = new Padding(11, 7, 11, 7);
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2Panel2.Size = new Size(597, 68);
+            guna2Panel2.TabIndex = 1;
             // 
-            // btnSend
+            // label1
             // 
-            btnSend.AutoRoundedCorners = true;
-            btnSend.CustomizableEdges = customizableEdges6;
-            btnSend.DisabledState.BorderColor = Color.DarkGray;
-            btnSend.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnSend.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnSend.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSend.Dock = DockStyle.Right;
-            btnSend.FillColor = Color.FromArgb(0, 120, 212);
-            btnSend.Font = new Font("Segoe UI", 9F);
-            btnSend.ForeColor = Color.White;
-            btnSend.Location = new Point(343, 8);
-            btnSend.Margin = new Padding(2);
-            btnSend.Name = "btnSend";
-            btnSend.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            btnSend.Size = new Size(63, 47);
-            btnSend.TabIndex = 2;
-            btnSend.Text = "Gửi";
+            label1.AutoSize = true;
+            label1.Location = new Point(86, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(137, 20);
+            label1.TabIndex = 4;
+            label1.Text = "Hoạt động lần cuối";
             // 
-            // btnAttach
+            // guna2CirclePictureBox1
             // 
-            btnAttach.AutoRoundedCorners = true;
-            btnAttach.CustomizableEdges = customizableEdges8;
-            btnAttach.DisabledState.BorderColor = Color.DarkGray;
-            btnAttach.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnAttach.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnAttach.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAttach.Dock = DockStyle.Right;
-            btnAttach.FillColor = Color.FromArgb(128, 128, 255);
-            btnAttach.Font = new Font("Segoe UI", 9F);
-            btnAttach.ForeColor = Color.White;
-            btnAttach.Location = new Point(406, 8);
-            btnAttach.Margin = new Padding(2);
-            btnAttach.Name = "btnAttach";
-            btnAttach.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            btnAttach.Size = new Size(39, 47);
-            btnAttach.TabIndex = 1;
-            btnAttach.Text = "📎";
+            guna2CirclePictureBox1.ImageRotate = 0F;
+            guna2CirclePictureBox1.Location = new Point(10, 12);
+            guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CirclePictureBox1.Size = new Size(40, 40);
+            guna2CirclePictureBox1.TabIndex = 3;
+            guna2CirclePictureBox1.TabStop = false;
             // 
-            // txtInput
+            // guna2Panel3
             // 
-            txtInput.AutoRoundedCorners = true;
-            txtInput.BorderRadius = 22;
-            txtInput.CustomizableEdges = customizableEdges10;
-            txtInput.DefaultText = "";
-            txtInput.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtInput.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtInput.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtInput.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtInput.Dock = DockStyle.Fill;
-            txtInput.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtInput.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtInput.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtInput.Location = new Point(8, 8);
-            txtInput.Margin = new Padding(3, 4, 3, 4);
-            txtInput.Name = "txtInput";
-            txtInput.PlaceholderText = "Nhập tin nhắn...";
-            txtInput.SelectedText = "";
-            txtInput.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            txtInput.Size = new Size(437, 47);
-            txtInput.TabIndex = 0;
+            guna2Panel3.BorderColor = Color.White;
+            guna2Panel3.BorderRadius = 6;
+            guna2Panel3.BorderThickness = 2;
+            guna2Panel3.CustomizableEdges = customizableEdges10;
+            guna2Panel3.FillColor = Color.LimeGreen;
+            guna2Panel3.Location = new Point(53, 42);
+            guna2Panel3.Margin = new Padding(2);
+            guna2Panel3.Name = "guna2Panel3";
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            guna2Panel3.Size = new Size(8, 8);
+            guna2Panel3.TabIndex = 2;
             // 
-            // flpMessages
+            // guna2HtmlLabel1
             // 
-            flpMessages.AutoScroll = true;
-            flpMessages.BackColor = Color.FromArgb(246, 246, 247);
-            flpMessages.Dock = DockStyle.Fill;
-            flpMessages.FlowDirection = FlowDirection.TopDown;
-            flpMessages.Location = new Point(0, 0);
-            flpMessages.Margin = new Padding(2);
-            flpMessages.Name = "flpMessages";
-            flpMessages.Padding = new Padding(11);
-            flpMessages.Size = new Size(453, 450);
-            flpMessages.TabIndex = 1;
-            flpMessages.WrapContents = false;
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Location = new Point(79, 7);
+            guna2HtmlLabel1.Margin = new Padding(2);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(162, 27);
+            guna2HtmlLabel1.TabIndex = 0;
+            guna2HtmlLabel1.Text = "guna2HtmlLabel1";
             // 
             // Message_panel
             // 
             Message_panel.AutoScroll = true;
             Message_panel.BorderStyle = BorderStyle.FixedSingle;
-            Message_panel.Dock = DockStyle.Left;
-            Message_panel.Location = new Point(0, 0);
+            Message_panel.Dock = DockStyle.Bottom;
+            Message_panel.Location = new Point(0, -150);
             Message_panel.Name = "Message_panel";
-            Message_panel.Size = new Size(347, 450);
-            Message_panel.TabIndex = 0;
+            Message_panel.Size = new Size(201, 600);
+            Message_panel.TabIndex = 1;
+            // 
+            // Panel_button
+            // 
+            Panel_button.Controls.Add(Group_button);
+            Panel_button.Dock = DockStyle.Top;
+            Panel_button.Location = new Point(0, 0);
+            Panel_button.Name = "Panel_button";
+            Panel_button.Size = new Size(201, 35);
+            Panel_button.TabIndex = 2;
+            // 
+            // Group_button
+            // 
+            Group_button.BackColor = SystemColors.Control;
+            Group_button.Dock = DockStyle.Fill;
+            Group_button.FlatAppearance.BorderColor = Color.Black;
+            Group_button.FlatAppearance.BorderSize = 3;
+            Group_button.FlatStyle = FlatStyle.Flat;
+            Group_button.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            Group_button.ForeColor = SystemColors.ActiveCaptionText;
+            Group_button.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
+            Group_button.IconColor = Color.Black;
+            Group_button.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            Group_button.IconSize = 40;
+            Group_button.ImageAlign = ContentAlignment.MiddleRight;
+            Group_button.Location = new Point(0, 0);
+            Group_button.Name = "Group_button";
+            Group_button.Size = new Size(201, 35);
+            Group_button.TabIndex = 0;
+            Group_button.Text = "Tạo nhóm";
+            Group_button.TextAlign = ContentAlignment.MiddleLeft;
+            Group_button.UseVisualStyleBackColor = false;
             // 
             // f_Message
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(guna2Panel1);
+            Controls.Add(Panel_button);
             Controls.Add(Message_panel);
+            Controls.Add(Mess_panel);
             Name = "f_Message";
             Text = "Message";
-            guna2Panel1.ResumeLayout(false);
-            pnlHeader.ResumeLayout(false);
-            pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
-            pnlComposer.ResumeLayout(false);
+            Mess_panel.ResumeLayout(false);
+            guna2Panel4.ResumeLayout(false);
+            guna2Panel2.ResumeLayout(false);
+            guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
+            Panel_button.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel pnlHeader;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
-        private FlowLayoutPanel flpMessages;
-        private Guna.UI2.WinForms.Guna2Panel pnlComposer;
-        private Guna.UI2.WinForms.Guna2TextBox txtInput;
-        private Guna.UI2.WinForms.Guna2Button btnSend;
-        private Guna.UI2.WinForms.Guna2Button btnAttach;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox picAvatar;
-        private Guna.UI2.WinForms.Guna2Panel pnlStatusDot;
+        private Panel Mess_panel;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Panel Message_panel;
+        private Panel Panel_button;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private FontAwesome.Sharp.IconButton Group_button;
     }
 }

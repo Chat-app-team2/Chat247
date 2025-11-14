@@ -250,14 +250,15 @@
             // 
             // panel_addfriend
             // 
+            panel_addfriend.AutoScroll = true;
             panel_addfriend.CustomizableEdges = customizableEdges7;
-            panel_addfriend.Dock = DockStyle.Fill;
+            panel_addfriend.Dock = DockStyle.Bottom;
             panel_addfriend.FillColor = Color.LightCyan;
-            panel_addfriend.Location = new Point(2, 2);
+            panel_addfriend.Location = new Point(2, -42);
             panel_addfriend.Margin = new Padding(2);
             panel_addfriend.Name = "panel_addfriend";
             panel_addfriend.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            panel_addfriend.Size = new Size(911, 523);
+            panel_addfriend.Size = new Size(911, 567);
             panel_addfriend.TabIndex = 0;
             // 
             // f_Invite
