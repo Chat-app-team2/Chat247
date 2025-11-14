@@ -37,12 +37,7 @@ namespace Chat_app_247.Forms
             {
                 try
                 {
-                    System.Net.WebRequest request = System.Net.WebRequest.Create(FriendUser.ProfilePictureUrl);
-                    System.Net.WebResponse response = request.GetResponse();
-                    System.IO.Stream responseStream = response.GetResponseStream();
-                    Bitmap bitmap = new Bitmap(responseStream);
-                    Avartar_Picture.Image = bitmap;
-                    responseStream.Dispose();
+                    Avartar_Picture.Load(FriendUser.ProfilePictureUrl);
                 }
                 catch (Exception ex)
                 {

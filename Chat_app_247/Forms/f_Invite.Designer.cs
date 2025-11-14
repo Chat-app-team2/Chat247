@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             uitab = new Guna.UI2.WinForms.Guna2TabControl();
             Received_tab = new TabPage();
             Received_Panel = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -91,6 +91,7 @@
             uitab.TabIndex = 0;
             uitab.TabMenuBackColor = Color.FromArgb(33, 42, 57);
             uitab.Tag = "";
+            uitab.SelectedIndexChanged += uitab_SelectedIndexChanged;
             // 
             // Received_tab
             // 
@@ -196,19 +197,19 @@
             // 
             guna2Panel1.Controls.Add(btn_tim);
             guna2Panel1.Controls.Add(txtSearch);
-            guna2Panel1.CustomizableEdges = customizableEdges5;
+            guna2Panel1.CustomizableEdges = customizableEdges21;
             guna2Panel1.Dock = DockStyle.Top;
             guna2Panel1.Location = new Point(2, 2);
             guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2Panel1.Size = new Size(911, 56);
             guna2Panel1.TabIndex = 1;
             // 
             // btn_tim
             // 
             btn_tim.BackColor = Color.MediumTurquoise;
-            btn_tim.CustomizableEdges = customizableEdges1;
+            btn_tim.CustomizableEdges = customizableEdges17;
             btn_tim.DisabledState.BorderColor = Color.DarkGray;
             btn_tim.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_tim.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -219,7 +220,7 @@
             btn_tim.Location = new Point(619, -2);
             btn_tim.Margin = new Padding(2);
             btn_tim.Name = "btn_tim";
-            btn_tim.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_tim.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btn_tim.Size = new Size(126, 56);
             btn_tim.TabIndex = 3;
             btn_tim.Text = "Tìm";
@@ -228,7 +229,7 @@
             // txtSearch
             // 
             txtSearch.BackColor = Color.White;
-            txtSearch.CustomizableEdges = customizableEdges3;
+            txtSearch.CustomizableEdges = customizableEdges19;
             txtSearch.DefaultText = "";
             txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -244,20 +245,20 @@
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "Tìm kiếm bạn bè ...";
             txtSearch.SelectedText = "";
-            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtSearch.Size = new Size(613, 54);
             txtSearch.TabIndex = 2;
             // 
             // panel_addfriend
             // 
             panel_addfriend.AutoScroll = true;
-            panel_addfriend.CustomizableEdges = customizableEdges7;
+            panel_addfriend.CustomizableEdges = customizableEdges23;
             panel_addfriend.Dock = DockStyle.Bottom;
             panel_addfriend.FillColor = Color.LightCyan;
             panel_addfriend.Location = new Point(2, -42);
             panel_addfriend.Margin = new Padding(2);
             panel_addfriend.Name = "panel_addfriend";
-            panel_addfriend.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            panel_addfriend.ShadowDecoration.CustomizableEdges = customizableEdges24;
             panel_addfriend.Size = new Size(911, 567);
             panel_addfriend.TabIndex = 0;
             // 

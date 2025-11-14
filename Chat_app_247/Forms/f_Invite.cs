@@ -96,14 +96,14 @@ namespace Chat_app_247
         // Lấy FriendRequestSentIds và load ra
         private async void LoadSentRequestList(IFirebaseClient firebaseClient, string userid)
         {
-            List<string> sentRequestNames = await GetFriendRequestSentIdsList(firebaseClient, userid);
+            List<string> sentRequestIDs = await GetFriendRequestSentIdsList(firebaseClient, userid);
 
             Sent_Panel.Controls.Clear();
-            if (sentRequestNames.Count > 0)
-                foreach (var name in sentRequestNames)
+            if (sentRequestIDs.Count > 0)
+                foreach (var id in sentRequestIDs)
                 {
-                    Forms.uc_SentRequest sentRequestControl = new Forms.uc_SentRequest();
-                    sentRequestControl.SetName(name);
+                    Forms.uc_SentRequest sentRequestControl = new Forms.uc_SentRequest(currentUser.UserId);
+                    sentRequestControl.SetData(id);
                     sentRequestControl.Dock = DockStyle.Top;
                     Sent_Panel.Controls.Add(sentRequestControl);
                 }
@@ -181,7 +181,7 @@ namespace Chat_app_247
             panel_addfriend.Controls.Clear();
             panel_addfriend.SuspendLayout();
 
-            string currentUserId = _userId; 
+            string currentUserId = _userId;
 
             foreach (var user in users)
             {
@@ -194,6 +194,23 @@ namespace Chat_app_247
             }
 
             panel_addfriend.ResumeLayout(); // Bật lại layout
+        }
+
+        private void uitab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Khi chuyển tab thì tự động load lại dữ liệu
+            if (uitab.SelectedTab == Received_tab) 
+            {
+               LoadInviteList(_firebaseClient, _userId);
+            }
+            else if (uitab.SelectedTab == Sent_tab) 
+            {
+                LoadSentRequestList(_firebaseClient, _userId);
+            }
+            else if (uitab.SelectedTab == Notification_tab) 
+            {
+                LoadNotifyList(_firebaseClient, _userId);
+            }
         }
     }
 }

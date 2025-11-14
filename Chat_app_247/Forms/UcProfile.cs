@@ -141,25 +141,39 @@ namespace Chat_app_247.Forms
         }
         private async void UpImage_button_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
-            if (dialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                string filePath = dialog.FileName;
-                string imageURL = new CloudinaryService().UploadImage(filePath); 
-                if (imageURL != null)
+                UpImage_button.Enabled = false;
+                UpImage_button.Text = "Đang Tải Ảnh...";
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Luu URL vao database
-                    var updates = new Dictionary<string, object>
+                    string filePath = dialog.FileName;
+                    string imageURL = new CloudinaryService().UploadImage(filePath);
+                    if (imageURL != null)
+                    {
+                        // Luu URL vao database
+                        var updates = new Dictionary<string, object>
                     {
                         {"ProfilePictureUrl", imageURL}
                     };
-                    await _client.UpdateAsync($"Users/{_uid}", updates);
-                    // Hien thi anh URL tu cloudinary
-                    await LoadUserAsync();
-                    // Hien thi messagebox
-                    MessageBox.Show("Chọn avatar mới thành công!");
+                        await _client.UpdateAsync($"Users/{_uid}", updates);
+                        // Hien thi anh URL tu cloudinary
+                        await LoadUserAsync();
+                        // Hien thi messagebox
+                        MessageBox.Show("Chọn avatar mới thành công!");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                UpImage_button.Enabled = true;
+                UpImage_button.Text = "Tải ảnh...";
             }
         }
     }

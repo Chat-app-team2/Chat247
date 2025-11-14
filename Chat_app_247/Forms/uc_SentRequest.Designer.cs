@@ -46,10 +46,10 @@
             // 
             // uc_Sent_Panel
             // 
-            uc_Sent_Panel.BackColor = Color.FromArgb(44, 62, 80);
-            uc_Sent_Panel.BorderColor = SystemColors.AppWorkspace;
-            uc_Sent_Panel.BorderRadius = 2;
-            uc_Sent_Panel.BorderThickness = 2;
+            uc_Sent_Panel.BackColor = Color.WhiteSmoke;
+            uc_Sent_Panel.BorderColor = SystemColors.Highlight;
+            uc_Sent_Panel.BorderRadius = 9;
+            uc_Sent_Panel.BorderThickness = 4;
             uc_Sent_Panel.Controls.Add(Full_button);
             uc_Sent_Panel.Controls.Add(DeleteRequest_button);
             uc_Sent_Panel.Controls.Add(Name_Label);
@@ -74,7 +74,7 @@
             Full_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             Full_button.FillColor = SystemColors.MenuBar;
             Full_button.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Full_button.ForeColor = Color.DimGray;
+            Full_button.ForeColor = Color.Black;
             Full_button.Location = new Point(598, 31);
             Full_button.Margin = new Padding(2);
             Full_button.Name = "Full_button";
@@ -105,13 +105,14 @@
             DeleteRequest_button.Size = new Size(150, 56);
             DeleteRequest_button.TabIndex = 15;
             DeleteRequest_button.Text = "Xóa Lời Mời";
+            DeleteRequest_button.Click += DeleteRequest_button_Click;
             // 
             // Name_Label
             // 
             Name_Label.BackColor = Color.Transparent;
             Name_Label.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Name_Label.ForeColor = SystemColors.Info;
-            Name_Label.Location = new Point(98, 41);
+            Name_Label.ForeColor = SystemColors.Desktop;
+            Name_Label.Location = new Point(113, 41);
             Name_Label.Name = "Name_Label";
             Name_Label.Size = new Size(75, 33);
             Name_Label.TabIndex = 1;
@@ -119,12 +120,15 @@
             // 
             // Avartar_Picture
             // 
+            Avartar_Picture.BackColor = Color.Transparent;
+            Avartar_Picture.FillColor = Color.Black;
             Avartar_Picture.ImageRotate = 0F;
-            Avartar_Picture.Location = new Point(22, 27);
+            Avartar_Picture.Location = new Point(30, 27);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges5;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             Avartar_Picture.Size = new Size(60, 60);
+            Avartar_Picture.SizeMode = PictureBoxSizeMode.Zoom;
             Avartar_Picture.TabIndex = 0;
             Avartar_Picture.TabStop = false;
             // 
