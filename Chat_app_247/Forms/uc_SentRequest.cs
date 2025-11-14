@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Chat_app_247.Class;
+using Chat_app_247.Services;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,18 +11,102 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Chat_app_247.Forms
 {
     public partial class uc_SentRequest : UserControl
     {
-        public uc_SentRequest()
+        private User FriendUser;
+        private string useridMain;
+        public uc_SentRequest(string userid_main)
         {
             InitializeComponent();
+            useridMain = userid_main;
         }
-        public void SetName(string name)
+        public async void SetData(string userid)
         {
-            Name_Label.Text = name;
+            var fireclient = new CreateObjectConnectDatabase();
+            IFirebaseClient firebaseclient = fireclient.InitializeFirebase();
+            FirebaseResponse f_response = await firebaseclient.GetAsync($"Users/{userid}");
+            var userData = f_response.ResultAs<User>();
+            FriendUser = userData;
+            Name_Label.Text = FriendUser.DisplayName;
+            if (!string.IsNullOrEmpty(FriendUser.ProfilePictureUrl))
+            {
+                try
+                {
+                    Avartar_Picture.Load(FriendUser.ProfilePictureUrl);
+                }
+                catch (Exception ex)
+                {
+                    Avartar_Picture.Image = null;
+                }
+            }
+        }
+
+        private async void DeleteRequest_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteRequest_button.Enabled = false;
+                DeleteRequest_button.Text = "Đang Xử Lý";
+                string friend_id = FriendUser.UserId;
+
+                bool success = await DeleteRequest(useridMain, friend_id);
+
+                if (success)
+                {
+                    MessageBox.Show("Đã xóa lời mời kết bạn từ bản thân", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                    this.Parent?.Controls.Remove(this);
+                }
+                else
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi xóa lời mời!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+            finally
+            {
+                DeleteRequest_button.Enabled = true;
+                DeleteRequest_button.Text = "Xóa Lời Mời";
+            }
+        }
+        private async Task<bool> DeleteRequest(string currentUserId, string friendUserId)
+        {
+            // Lấy current user
+            var fireclient = new CreateObjectConnectDatabase();
+            IFirebaseClient firebaseclient = fireclient.InitializeFirebase();
+            FirebaseResponse f_response = await firebaseclient.GetAsync($"Users/{currentUserId}");
+            var currentUserData = f_response.ResultAs<User>();
+
+            // Lấy friend user
+            var fireclient_f = new CreateObjectConnectDatabase();
+            IFirebaseClient firebaseclient_f = fireclient_f.InitializeFirebase();
+            FirebaseResponse f_response_f = await firebaseclient_f.GetAsync($"Users/{friendUserId}");
+            var friendUserData = f_response_f.ResultAs<User>();
+
+            // Kiểm tra và khởi tạo các List nếu chúng bị null
+            if (currentUserData.FriendRequestSentIds == null)
+            {
+                currentUserData.FriendRequestSentIds = new List<string>();
+            }
+            if (friendUserData.FriendRequestReceivedIds == null)
+            {
+                friendUserData.FriendRequestReceivedIds = new List<string>();
+            }
+
+            // Xử lý xóa lời mời từ mình và xóa lời kết bạn đã gửi tới bạn bè
+            currentUserData.FriendRequestSentIds?.Remove(friendUserId);
+            friendUserData.FriendRequestReceivedIds?.Remove(currentUserId);
+            // Update len Firebase
+            await firebaseclient.SetAsync($"Users/{currentUserId}", currentUserData);
+            await firebaseclient_f.SetAsync($"Users/{friendUserId}", friendUserData);
+
+            return true;
         }
     }
 }
