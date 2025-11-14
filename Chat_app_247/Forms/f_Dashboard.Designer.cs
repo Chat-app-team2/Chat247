@@ -311,6 +311,7 @@
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges1;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             Avartar_Picture.Size = new Size(50, 50);
+            Avartar_Picture.SizeMode = PictureBoxSizeMode.Zoom;
             Avartar_Picture.TabIndex = 6;
             Avartar_Picture.TabStop = false;
             // 

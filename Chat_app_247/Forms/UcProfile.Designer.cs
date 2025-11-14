@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -49,15 +49,15 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             panelButtons = new Guna.UI2.WinForms.Guna2Panel();
             btnCancel = new Guna.UI2.WinForms.Guna2Button();
             btnSave = new Guna.UI2.WinForms.Guna2Button();
             tlpMain = new TableLayoutPanel();
             flowAvatar = new FlowLayoutPanel();
-            picAvatar = new Guna.UI2.WinForms.Guna2PictureBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            panel1 = new Panel();
+            UpImage_button = new Guna.UI2.WinForms.Guna2Button();
+            Avatar_pic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -72,7 +72,7 @@
             panelButtons.SuspendLayout();
             tlpMain.SuspendLayout();
             flowAvatar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Avatar_pic).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -80,20 +80,20 @@
             guna2Panel1.BackColor = Color.SteelBlue;
             guna2Panel1.Controls.Add(panelButtons);
             guna2Panel1.Controls.Add(tlpMain);
-            guna2Panel1.CustomizableEdges = customizableEdges21;
+            guna2Panel1.CustomizableEdges = customizableEdges20;
             guna2Panel1.Dock = DockStyle.Fill;
             guna2Panel1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Panel1.Location = new Point(0, 0);
             guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.Padding = new Padding(11);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges21;
             guna2Panel1.Size = new Size(1110, 666);
             guna2Panel1.TabIndex = 0;
             // 
             // panelButtons
             // 
-            panelButtons.BackColor = SystemColors.ActiveCaption;
+            panelButtons.BackColor = Color.Gainsboro;
             panelButtons.Controls.Add(btnCancel);
             panelButtons.Controls.Add(btnSave);
             panelButtons.CustomizableEdges = customizableEdges5;
@@ -129,13 +129,14 @@
             // btnSave
             // 
             btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSave.BackColor = Color.SandyBrown;
             btnSave.BorderColor = SystemColors.Control;
             btnSave.CustomizableEdges = customizableEdges3;
             btnSave.DisabledState.BorderColor = Color.DarkGray;
             btnSave.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnSave.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSave.FillColor = SystemColors.Menu;
+            btnSave.FillColor = Color.DarkSalmon;
             btnSave.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.Black;
             btnSave.Location = new Point(362, 10);
@@ -151,7 +152,7 @@
             // 
             tlpMain.AutoScroll = true;
             tlpMain.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tlpMain.BackColor = SystemColors.ActiveCaption;
+            tlpMain.BackColor = Color.Gainsboro;
             tlpMain.ColumnCount = 2;
             tlpMain.ColumnStyles.Add(new ColumnStyle());
             tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -186,8 +187,9 @@
             // flowAvatar
             // 
             flowAvatar.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            flowAvatar.Controls.Add(picAvatar);
-            flowAvatar.Controls.Add(guna2Button1);
+            flowAvatar.Controls.Add(panel1);
+            flowAvatar.Controls.Add(UpImage_button);
+            flowAvatar.Controls.Add(Avatar_pic);
             flowAvatar.Location = new Point(147, 7);
             flowAvatar.Margin = new Padding(0, 0, 0, 5);
             flowAvatar.Name = "flowAvatar";
@@ -195,40 +197,45 @@
             flowAvatar.TabIndex = 0;
             flowAvatar.WrapContents = false;
             // 
-            // picAvatar
+            // panel1
             // 
-            picAvatar.BackColor = SystemColors.ActiveCaption;
-            picAvatar.CustomizableEdges = customizableEdges7;
-            picAvatar.FillColor = SystemColors.ActiveCaption;
-            picAvatar.ImageRotate = 0F;
-            picAvatar.Location = new Point(2, 2);
-            picAvatar.Margin = new Padding(2);
-            picAvatar.Name = "picAvatar";
-            picAvatar.Padding = new Padding(0, 0, 5, 0);
-            picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            picAvatar.Size = new Size(108, 87);
-            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
-            picAvatar.TabIndex = 0;
-            picAvatar.TabStop = false;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(103, 80);
+            panel1.TabIndex = 3;
             // 
-            // guna2Button1
+            // UpImage_button
             // 
-            guna2Button1.BackColor = SystemColors.ActiveBorder;
-            guna2Button1.CustomizableEdges = customizableEdges9;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.BlueViolet;
-            guna2Button1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(114, 2);
-            guna2Button1.Margin = new Padding(2);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Button1.Size = new Size(396, 88);
-            guna2Button1.TabIndex = 1;
-            guna2Button1.Text = "Tải ảnh…";
+            UpImage_button.BackColor = SystemColors.ActiveBorder;
+            UpImage_button.CustomizableEdges = customizableEdges7;
+            UpImage_button.DisabledState.BorderColor = Color.DarkGray;
+            UpImage_button.DisabledState.CustomBorderColor = Color.DarkGray;
+            UpImage_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            UpImage_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            UpImage_button.FillColor = SystemColors.ActiveCaption;
+            UpImage_button.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            UpImage_button.ForeColor = Color.Black;
+            UpImage_button.Location = new Point(111, 2);
+            UpImage_button.Margin = new Padding(2);
+            UpImage_button.Name = "UpImage_button";
+            UpImage_button.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            UpImage_button.Size = new Size(175, 88);
+            UpImage_button.TabIndex = 1;
+            UpImage_button.Text = "Tải ảnh…";
+            UpImage_button.Click += UpImage_button_Click;
+            // 
+            // Avatar_pic
+            // 
+            Avatar_pic.FillColor = Color.Gray;
+            Avatar_pic.ImageRotate = 0F;
+            Avatar_pic.Location = new Point(291, 3);
+            Avatar_pic.Name = "Avatar_pic";
+            Avatar_pic.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            Avatar_pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            Avatar_pic.Size = new Size(80, 80);
+            Avatar_pic.SizeMode = PictureBoxSizeMode.Zoom;
+            Avatar_pic.TabIndex = 2;
+            Avatar_pic.TabStop = false;
             // 
             // guna2HtmlLabel2
             // 
@@ -268,7 +275,7 @@
             dtpDob.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             dtpDob.BackColor = SystemColors.Window;
             dtpDob.Checked = true;
-            dtpDob.CustomizableEdges = customizableEdges11;
+            dtpDob.CustomizableEdges = customizableEdges10;
             dtpDob.FillColor = Color.Azure;
             dtpDob.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpDob.ForeColor = Color.Black;
@@ -278,7 +285,7 @@
             dtpDob.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpDob.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpDob.Name = "dtpDob";
-            dtpDob.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            dtpDob.ShadowDecoration.CustomizableEdges = customizableEdges11;
             dtpDob.Size = new Size(932, 38);
             dtpDob.TabIndex = 11;
             dtpDob.Value = new DateTime(2025, 11, 9, 15, 0, 47, 243);
@@ -298,7 +305,7 @@
             // 
             txtinfor.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txtinfor.BackColor = SystemColors.ActiveCaption;
-            txtinfor.CustomizableEdges = customizableEdges13;
+            txtinfor.CustomizableEdges = customizableEdges12;
             txtinfor.DefaultText = "";
             txtinfor.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtinfor.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -315,7 +322,7 @@
             txtinfor.PlaceholderText = "";
             txtinfor.ScrollBars = ScrollBars.Vertical;
             txtinfor.SelectedText = "";
-            txtinfor.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtinfor.ShadowDecoration.CustomizableEdges = customizableEdges13;
             txtinfor.Size = new Size(924, 191);
             txtinfor.TabIndex = 12;
             // 
@@ -334,7 +341,7 @@
             // 
             txtFullName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txtFullName.BackColor = SystemColors.ActiveCaption;
-            txtFullName.CustomizableEdges = customizableEdges15;
+            txtFullName.CustomizableEdges = customizableEdges14;
             txtFullName.DefaultText = "";
             txtFullName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtFullName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -349,7 +356,7 @@
             txtFullName.Name = "txtFullName";
             txtFullName.PlaceholderText = "";
             txtFullName.SelectedText = "";
-            txtFullName.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtFullName.ShadowDecoration.CustomizableEdges = customizableEdges15;
             txtFullName.Size = new Size(924, 32);
             txtFullName.TabIndex = 7;
             // 
@@ -357,7 +364,7 @@
             // 
             txtEmail.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txtEmail.BackColor = SystemColors.ActiveCaption;
-            txtEmail.CustomizableEdges = customizableEdges17;
+            txtEmail.CustomizableEdges = customizableEdges16;
             txtEmail.DefaultText = "";
             txtEmail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtEmail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -372,7 +379,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "";
             txtEmail.SelectedText = "";
-            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges17;
             txtEmail.Size = new Size(924, 31);
             txtEmail.TabIndex = 8;
             // 
@@ -380,7 +387,7 @@
             // 
             cboGender.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             cboGender.BackColor = SystemColors.ActiveCaption;
-            cboGender.CustomizableEdges = customizableEdges19;
+            cboGender.CustomizableEdges = customizableEdges18;
             cboGender.DrawMode = DrawMode.OwnerDrawFixed;
             cboGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cboGender.FillColor = Color.Azure;
@@ -393,7 +400,7 @@
             cboGender.Location = new Point(149, 203);
             cboGender.Margin = new Padding(2);
             cboGender.Name = "cboGender";
-            cboGender.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            cboGender.ShadowDecoration.CustomizableEdges = customizableEdges19;
             cboGender.Size = new Size(932, 36);
             cboGender.TabIndex = 10;
             // 
@@ -410,7 +417,7 @@
             tlpMain.ResumeLayout(false);
             tlpMain.PerformLayout();
             flowAvatar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Avatar_pic).EndInit();
             ResumeLayout(false);
         }
 
@@ -419,7 +426,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private TableLayoutPanel tlpMain;
         private FlowLayoutPanel flowAvatar;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
@@ -433,6 +439,8 @@
         private Guna.UI2.WinForms.Guna2Panel panelButtons;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnSave;
-        private Guna.UI2.WinForms.Guna2PictureBox picAvatar;
+        private Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button UpImage_button;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox Avatar_pic;
     }
 }

@@ -66,7 +66,7 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel1.BackColor = SystemColors.ActiveCaption;
+            tableLayoutPanel1.BackColor = Color.Gainsboro;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 243F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -230,11 +230,13 @@
             // cbShowPassword
             // 
             cbShowPassword.AutoSize = true;
+            cbShowPassword.BackColor = Color.Gainsboro;
             cbShowPassword.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
             cbShowPassword.CheckedState.BorderRadius = 0;
             cbShowPassword.CheckedState.BorderThickness = 0;
             cbShowPassword.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             cbShowPassword.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbShowPassword.ForeColor = SystemColors.ActiveCaptionText;
             cbShowPassword.Location = new Point(261, 381);
             cbShowPassword.Margin = new Padding(2);
             cbShowPassword.Name = "cbShowPassword";
@@ -245,6 +247,7 @@
             cbShowPassword.UncheckedState.BorderRadius = 0;
             cbShowPassword.UncheckedState.BorderThickness = 0;
             cbShowPassword.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            cbShowPassword.UseVisualStyleBackColor = false;
             cbShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
             // 
             // guna2HtmlLabel7
