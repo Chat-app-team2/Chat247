@@ -110,7 +110,6 @@
             Full_button.Size = new Size(142, 72);
             Full_button.TabIndex = 18;
             Full_button.Text = "Xem Thêm";
-            Full_button.Click += Full_button_Click;
             // 
             // Delete_Friend_button
             // 
