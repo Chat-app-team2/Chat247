@@ -56,7 +56,7 @@ namespace Chat_app_247.Forms
                 if (success)
                 {
                     MessageBox.Show("Đã xóa lời mời kết bạn từ bản thân", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
+
                     this.Parent?.Controls.Remove(this);
                 }
                 else
@@ -107,6 +107,41 @@ namespace Chat_app_247.Forms
             await firebaseclient_f.SetAsync($"Users/{friendUserId}", friendUserData);
 
             return true;
+        }
+
+        private void Full_button_Click(object sender, EventArgs e)
+        {
+            if (FriendUser == null)
+            {
+                MessageBox.Show("Không có thông tin người dùng!",
+                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string gioiTinhText = string.IsNullOrWhiteSpace(FriendUser.Gender)
+                                    ? "Chưa cập nhật"
+                                    : FriendUser.Gender;
+
+            string ngaySinhText = FriendUser.DateOfBirth.HasValue
+                                    ? FriendUser.DateOfBirth.Value.ToString("dd/MM/yyyy")
+                                    : "Chưa cập nhật";
+
+            string bioText = string.IsNullOrWhiteSpace(FriendUser.Bio)
+                                ? "Chưa có giới thiệu"
+                                : FriendUser.Bio;
+
+            var sb = new StringBuilder();
+            sb.AppendLine("Thông tin người dùng:\n");
+            sb.AppendLine($"Họ tên: {FriendUser.DisplayName ?? "Chưa đặt tên"}");
+            sb.AppendLine($"Email: {FriendUser.Email ?? "Chưa có email"}");
+            sb.AppendLine($"Giới tính: {gioiTinhText}");
+            sb.AppendLine($"Ngày sinh: {ngaySinhText}");
+            sb.AppendLine($"Giới thiệu: {bioText}");
+
+            MessageBox.Show(sb.ToString(),
+                            "Thông tin người dùng",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
         }
     }
 }

@@ -37,7 +37,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             uc_Request_Panel = new Guna.UI2.WinForms.Guna2Panel();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btn_xemthem = new Guna.UI2.WinForms.Guna2Button();
             Name_Label = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Avartar_Picture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             uc_Request_Panel.SuspendLayout();
@@ -51,17 +51,17 @@
             uc_Request_Panel.BorderRadius = 2;
             uc_Request_Panel.BorderThickness = 2;
             uc_Request_Panel.Controls.Add(guna2Button2);
-            uc_Request_Panel.Controls.Add(guna2Button1);
+            uc_Request_Panel.Controls.Add(btn_xemthem);
             uc_Request_Panel.Controls.Add(Name_Label);
             uc_Request_Panel.Controls.Add(Avartar_Picture);
             uc_Request_Panel.CustomizableEdges = customizableEdges6;
             uc_Request_Panel.Dock = DockStyle.Fill;
             uc_Request_Panel.Location = new Point(0, 0);
+            uc_Request_Panel.Margin = new Padding(4);
             uc_Request_Panel.Name = "uc_Request_Panel";
             uc_Request_Panel.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            uc_Request_Panel.Size = new Size(815, 100);
+            uc_Request_Panel.Size = new Size(1222, 150);
             uc_Request_Panel.TabIndex = 1;
-            uc_Request_Panel.Paint += uc_Request_Panel_Paint;
             // 
             // guna2Button2
             // 
@@ -76,68 +76,68 @@
             guna2Button2.FillColor = Color.SteelBlue;
             guna2Button2.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.Black;
-            guna2Button2.Location = new Point(607, 27);
-            guna2Button2.Margin = new Padding(2);
+            guna2Button2.Location = new Point(999, 40);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button2.ShadowDecoration.Enabled = true;
-            guna2Button2.Size = new Size(82, 56);
+            guna2Button2.Size = new Size(123, 84);
             guna2Button2.TabIndex = 17;
             guna2Button2.Text = "Thêm Bạn";
             guna2Button2.Click += guna2Button2_Click_1;
             // 
-            // guna2Button1
+            // btn_xemthem
             // 
-            guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.BorderRadius = 10;
-            guna2Button1.Cursor = Cursors.Hand;
-            guna2Button1.CustomizableEdges = customizableEdges3;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = SystemColors.MenuBar;
-            guna2Button1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.Black;
-            guna2Button1.Location = new Point(492, 27);
-            guna2Button1.Margin = new Padding(2);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button1.ShadowDecoration.Enabled = true;
-            guna2Button1.Size = new Size(82, 56);
-            guna2Button1.TabIndex = 16;
-            guna2Button1.Text = "Xem Thêm";
+            btn_xemthem.BackColor = Color.Transparent;
+            btn_xemthem.BorderRadius = 10;
+            btn_xemthem.Cursor = Cursors.Hand;
+            btn_xemthem.CustomizableEdges = customizableEdges3;
+            btn_xemthem.DisabledState.BorderColor = Color.DarkGray;
+            btn_xemthem.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_xemthem.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_xemthem.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_xemthem.FillColor = SystemColors.MenuBar;
+            btn_xemthem.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_xemthem.ForeColor = Color.Black;
+            btn_xemthem.Location = new Point(787, 40);
+            btn_xemthem.Name = "btn_xemthem";
+            btn_xemthem.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_xemthem.ShadowDecoration.Enabled = true;
+            btn_xemthem.Size = new Size(123, 84);
+            btn_xemthem.TabIndex = 16;
+            btn_xemthem.Text = "Xem Thêm";
+            btn_xemthem.Click += btn_xemthem_Click;
             // 
             // Name_Label
             // 
             Name_Label.BackColor = Color.Transparent;
             Name_Label.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name_Label.ForeColor = SystemColors.Info;
-            Name_Label.Location = new Point(98, 41);
+            Name_Label.Location = new Point(147, 62);
+            Name_Label.Margin = new Padding(4);
             Name_Label.Name = "Name_Label";
-            Name_Label.Size = new Size(75, 33);
+            Name_Label.Size = new Size(105, 46);
             Name_Label.TabIndex = 1;
             Name_Label.Text = "Name";
             // 
             // Avartar_Picture
             // 
             Avartar_Picture.ImageRotate = 0F;
-            Avartar_Picture.Location = new Point(22, 27);
+            Avartar_Picture.Location = new Point(33, 40);
+            Avartar_Picture.Margin = new Padding(4);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges5;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            Avartar_Picture.Size = new Size(60, 60);
+            Avartar_Picture.Size = new Size(90, 90);
             Avartar_Picture.TabIndex = 0;
             Avartar_Picture.TabStop = false;
             // 
             // addfriend
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(uc_Request_Panel);
-            Margin = new Padding(2);
             Name = "addfriend";
-            Size = new Size(815, 100);
+            Size = new Size(1222, 150);
             uc_Request_Panel.ResumeLayout(false);
             uc_Request_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Avartar_Picture).EndInit();
@@ -147,7 +147,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel uc_Request_Panel;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btn_xemthem;
         private Guna.UI2.WinForms.Guna2HtmlLabel Name_Label;
         private Guna.UI2.WinForms.Guna2CirclePictureBox Avartar_Picture;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
