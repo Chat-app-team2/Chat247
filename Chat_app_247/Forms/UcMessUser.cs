@@ -15,7 +15,7 @@ namespace Chat_app_247.Forms
         public UcMessUser()
         {
             InitializeComponent();
-            this.AutoSize = false;           
+            this.AutoSize = false;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
         }
         public void SetData(string name)

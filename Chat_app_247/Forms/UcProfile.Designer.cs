@@ -36,9 +36,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -72,6 +72,7 @@
             panelButtons.SuspendLayout();
             tlpMain.SuspendLayout();
             flowAvatar.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Avatar_pic).BeginInit();
             SuspendLayout();
             // 
@@ -84,11 +85,10 @@
             guna2Panel1.Dock = DockStyle.Fill;
             guna2Panel1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Panel1.Location = new Point(0, 0);
-            guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.Padding = new Padding(11);
+            guna2Panel1.Padding = new Padding(16, 16, 16, 16);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges21;
-            guna2Panel1.Size = new Size(1110, 666);
+            guna2Panel1.Size = new Size(1665, 999);
             guna2Panel1.TabIndex = 0;
             // 
             // panelButtons
@@ -98,12 +98,11 @@
             panelButtons.Controls.Add(btnSave);
             panelButtons.CustomizableEdges = customizableEdges5;
             panelButtons.Dock = DockStyle.Bottom;
-            panelButtons.Location = new Point(11, 562);
-            panelButtons.Margin = new Padding(2);
+            panelButtons.Location = new Point(16, 843);
             panelButtons.Name = "panelButtons";
-            panelButtons.Padding = new Padding(8);
+            panelButtons.Padding = new Padding(12, 12, 12, 12);
             panelButtons.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            panelButtons.Size = new Size(1088, 93);
+            panelButtons.Size = new Size(1633, 140);
             panelButtons.TabIndex = 1;
             // 
             // btnCancel
@@ -117,11 +116,10 @@
             btnCancel.FillColor = SystemColors.ButtonShadow;
             btnCancel.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.Black;
-            btnCancel.Location = new Point(746, 10);
-            btnCancel.Margin = new Padding(2);
+            btnCancel.Location = new Point(1120, 15);
             btnCancel.Name = "btnCancel";
             btnCancel.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnCancel.Size = new Size(172, 73);
+            btnCancel.Size = new Size(258, 110);
             btnCancel.TabIndex = 1;
             btnCancel.Text = "Hủy";
             btnCancel.Click += btnCancel_Click;
@@ -139,11 +137,10 @@
             btnSave.FillColor = Color.DarkSalmon;
             btnSave.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.Black;
-            btnSave.Location = new Point(362, 10);
-            btnSave.Margin = new Padding(2);
+            btnSave.Location = new Point(544, 15);
             btnSave.Name = "btnSave";
             btnSave.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnSave.Size = new Size(172, 73);
+            btnSave.Size = new Size(258, 110);
             btnSave.TabIndex = 0;
             btnSave.Text = "Lưu";
             btnSave.Click += btnSave_Click;
@@ -169,19 +166,18 @@
             tlpMain.Controls.Add(cboGender, 1, 3);
             tlpMain.Dock = DockStyle.Top;
             tlpMain.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            tlpMain.Location = new Point(11, 11);
-            tlpMain.Margin = new Padding(2);
+            tlpMain.Location = new Point(16, 16);
             tlpMain.Name = "tlpMain";
-            tlpMain.Padding = new Padding(5);
+            tlpMain.Padding = new Padding(8, 8, 8, 8);
             tlpMain.RowCount = 6;
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 67.5F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 32.5F));
-            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
-            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
-            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 207F));
-            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
-            tlpMain.Size = new Size(1088, 506);
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 68F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 74F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 310F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 93F));
+            tlpMain.Size = new Size(1633, 759);
             tlpMain.TabIndex = 0;
             // 
             // flowAvatar
@@ -189,25 +185,26 @@
             flowAvatar.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             flowAvatar.Controls.Add(panel1);
             flowAvatar.Controls.Add(UpImage_button);
-            flowAvatar.Controls.Add(Avatar_pic);
-            flowAvatar.Location = new Point(147, 7);
-            flowAvatar.Margin = new Padding(0, 0, 0, 5);
+            flowAvatar.Location = new Point(208, 11);
+            flowAvatar.Margin = new Padding(0, 0, 0, 8);
             flowAvatar.Name = "flowAvatar";
-            flowAvatar.Size = new Size(936, 89);
+            flowAvatar.Size = new Size(1417, 134);
             flowAvatar.TabIndex = 0;
             flowAvatar.WrapContents = false;
             // 
             // panel1
             // 
-            panel1.Location = new Point(3, 3);
+            panel1.Controls.Add(Avatar_pic);
+            panel1.Location = new Point(4, 4);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(103, 80);
+            panel1.Size = new Size(154, 120);
             panel1.TabIndex = 3;
             // 
             // UpImage_button
             // 
             UpImage_button.BackColor = SystemColors.ActiveBorder;
-            UpImage_button.CustomizableEdges = customizableEdges7;
+            UpImage_button.CustomizableEdges = customizableEdges8;
             UpImage_button.DisabledState.BorderColor = Color.DarkGray;
             UpImage_button.DisabledState.CustomBorderColor = Color.DarkGray;
             UpImage_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -215,11 +212,10 @@
             UpImage_button.FillColor = SystemColors.ActiveCaption;
             UpImage_button.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             UpImage_button.ForeColor = Color.Black;
-            UpImage_button.Location = new Point(111, 2);
-            UpImage_button.Margin = new Padding(2);
+            UpImage_button.Location = new Point(165, 3);
             UpImage_button.Name = "UpImage_button";
-            UpImage_button.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            UpImage_button.Size = new Size(175, 88);
+            UpImage_button.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            UpImage_button.Size = new Size(262, 132);
             UpImage_button.TabIndex = 1;
             UpImage_button.Text = "Tải ảnh…";
             UpImage_button.Click += UpImage_button_Click;
@@ -228,11 +224,12 @@
             // 
             Avatar_pic.FillColor = Color.Gray;
             Avatar_pic.ImageRotate = 0F;
-            Avatar_pic.Location = new Point(291, 3);
+            Avatar_pic.Location = new Point(20, 0);
+            Avatar_pic.Margin = new Padding(4, 4, 4, 4);
             Avatar_pic.Name = "Avatar_pic";
-            Avatar_pic.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            Avatar_pic.ShadowDecoration.CustomizableEdges = customizableEdges7;
             Avatar_pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            Avatar_pic.Size = new Size(80, 80);
+            Avatar_pic.Size = new Size(120, 120);
             Avatar_pic.SizeMode = PictureBoxSizeMode.Zoom;
             Avatar_pic.TabIndex = 2;
             Avatar_pic.TabStop = false;
@@ -241,10 +238,9 @@
             // 
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold);
-            guna2HtmlLabel2.Location = new Point(7, 154);
-            guna2HtmlLabel2.Margin = new Padding(2);
+            guna2HtmlLabel2.Location = new Point(11, 231);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(75, 39);
+            guna2HtmlLabel2.Size = new Size(105, 53);
             guna2HtmlLabel2.TabIndex = 2;
             guna2HtmlLabel2.Text = "Email";
             // 
@@ -252,10 +248,9 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(7, 201);
-            guna2HtmlLabel4.Margin = new Padding(2);
+            guna2HtmlLabel4.Location = new Point(11, 301);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(117, 39);
+            guna2HtmlLabel4.Size = new Size(165, 53);
             guna2HtmlLabel4.TabIndex = 4;
             guna2HtmlLabel4.Text = "Giới tính";
             // 
@@ -263,10 +258,9 @@
             // 
             guna2HtmlLabel5.BackColor = Color.Transparent;
             guna2HtmlLabel5.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold);
-            guna2HtmlLabel5.Location = new Point(7, 246);
-            guna2HtmlLabel5.Margin = new Padding(2);
+            guna2HtmlLabel5.Location = new Point(11, 369);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(136, 39);
+            guna2HtmlLabel5.Size = new Size(189, 53);
             guna2HtmlLabel5.TabIndex = 5;
             guna2HtmlLabel5.Text = "Ngày sinh";
             // 
@@ -280,13 +274,12 @@
             dtpDob.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpDob.ForeColor = Color.Black;
             dtpDob.Format = DateTimePickerFormat.Short;
-            dtpDob.Location = new Point(149, 249);
-            dtpDob.Margin = new Padding(2);
+            dtpDob.Location = new Point(211, 374);
             dtpDob.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpDob.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpDob.Name = "dtpDob";
             dtpDob.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            dtpDob.Size = new Size(932, 38);
+            dtpDob.Size = new Size(1411, 57);
             dtpDob.TabIndex = 11;
             dtpDob.Value = new DateTime(2025, 11, 9, 15, 0, 47, 243);
             // 
@@ -294,10 +287,9 @@
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold);
-            guna2HtmlLabel6.Location = new Point(7, 295);
-            guna2HtmlLabel6.Margin = new Padding(2);
+            guna2HtmlLabel6.Location = new Point(11, 443);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            guna2HtmlLabel6.Size = new Size(138, 39);
+            guna2HtmlLabel6.Size = new Size(194, 53);
             guna2HtmlLabel6.TabIndex = 6;
             guna2HtmlLabel6.Text = "Giới Thiệu\r\n";
             // 
@@ -315,25 +307,24 @@
             txtinfor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtinfor.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtinfor.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtinfor.Location = new Point(153, 301);
-            txtinfor.Margin = new Padding(6, 8, 6, 8);
+            txtinfor.Location = new Point(217, 452);
+            txtinfor.Margin = new Padding(9, 12, 9, 12);
             txtinfor.Multiline = true;
             txtinfor.Name = "txtinfor";
             txtinfor.PlaceholderText = "";
             txtinfor.ScrollBars = ScrollBars.Vertical;
             txtinfor.SelectedText = "";
             txtinfor.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            txtinfor.Size = new Size(924, 191);
+            txtinfor.Size = new Size(1399, 286);
             txtinfor.TabIndex = 12;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(7, 106);
-            guna2HtmlLabel1.Margin = new Padding(2);
+            guna2HtmlLabel1.Location = new Point(11, 160);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(93, 39);
+            guna2HtmlLabel1.Size = new Size(129, 53);
             guna2HtmlLabel1.TabIndex = 1;
             guna2HtmlLabel1.Text = "Họ tên";
             // 
@@ -351,13 +342,13 @@
             txtFullName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtFullName.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtFullName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFullName.Location = new Point(153, 112);
-            txtFullName.Margin = new Padding(6, 8, 6, 8);
+            txtFullName.Location = new Point(217, 169);
+            txtFullName.Margin = new Padding(9, 12, 9, 12);
             txtFullName.Name = "txtFullName";
             txtFullName.PlaceholderText = "";
             txtFullName.SelectedText = "";
             txtFullName.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            txtFullName.Size = new Size(924, 32);
+            txtFullName.Size = new Size(1399, 47);
             txtFullName.TabIndex = 7;
             // 
             // txtEmail
@@ -374,13 +365,13 @@
             txtEmail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtEmail.Font = new Font("Segoe UI", 13.8F, FontStyle.Italic);
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(153, 160);
-            txtEmail.Margin = new Padding(6, 8, 6, 8);
+            txtEmail.Location = new Point(217, 240);
+            txtEmail.Margin = new Padding(9, 12, 9, 12);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "";
             txtEmail.SelectedText = "";
             txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            txtEmail.Size = new Size(924, 31);
+            txtEmail.Size = new Size(1399, 46);
             txtEmail.TabIndex = 8;
             // 
             // cboGender
@@ -397,26 +388,25 @@
             cboGender.ForeColor = Color.FromArgb(68, 88, 112);
             cboGender.ItemHeight = 30;
             cboGender.Items.AddRange(new object[] { "Nam", "Nữ" });
-            cboGender.Location = new Point(149, 203);
-            cboGender.Margin = new Padding(2);
+            cboGender.Location = new Point(211, 314);
             cboGender.Name = "cboGender";
             cboGender.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            cboGender.Size = new Size(932, 36);
+            cboGender.Size = new Size(1411, 36);
             cboGender.TabIndex = 10;
             // 
             // UcProfile
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(guna2Panel1);
-            Margin = new Padding(2);
             Name = "UcProfile";
-            Size = new Size(1110, 666);
+            Size = new Size(1665, 999);
             guna2Panel1.ResumeLayout(false);
             panelButtons.ResumeLayout(false);
             tlpMain.ResumeLayout(false);
             tlpMain.PerformLayout();
             flowAvatar.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Avatar_pic).EndInit();
             ResumeLayout(false);
         }
