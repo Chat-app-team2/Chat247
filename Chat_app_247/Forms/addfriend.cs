@@ -11,8 +11,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;   
-using System.Text;
 
 namespace Chat_app_247.Forms
 {
@@ -145,43 +143,9 @@ namespace Chat_app_247.Forms
             }
         }
 
-        private void btn_xemthem_Click(object sender, EventArgs e)
+        private void uc_Request_Panel_Paint(object sender, PaintEventArgs e)
         {
-            if (_targetUser == null)
-            {
-                MessageBox.Show("Không có thông tin người dùng!",
-                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            // ----- Giới tính -----
-            string gioiTinhText = string.IsNullOrWhiteSpace(_targetUser.Gender)
-                                    ? "Chưa cập nhật"
-                                    : _targetUser.Gender;
-
-            // ----- Ngày sinh  -----
-            string ngaySinhText = _targetUser.DateOfBirth.HasValue
-                                    ? _targetUser.DateOfBirth.Value.ToString("dd/MM/yyyy")
-                                    : "Chưa cập nhật";
-
-            // ----- Giới thiệu -----
-            string bioText = string.IsNullOrWhiteSpace(_targetUser.Bio)
-                                ? "Chưa có giới thiệu"
-                                : _targetUser.Bio;
-
-            // ----- Ghép thông tin giống 
-            var sb = new StringBuilder();
-            sb.AppendLine("Thông tin người dùng:\n");
-            sb.AppendLine($"Họ tên: {_targetUser.DisplayName ?? "Chưa đặt tên"}");
-            sb.AppendLine($"Email: {_targetUser.Email ?? "Chưa có email"}");
-            sb.AppendLine($"Giới tính: {gioiTinhText}");
-            sb.AppendLine($"Ngày sinh: {ngaySinhText}");
-            sb.AppendLine($"Giới thiệu: {bioText}");
-
-            MessageBox.Show(sb.ToString(),
-                            "Thông tin người dùng",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
         }
     }
 }

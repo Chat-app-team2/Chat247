@@ -33,8 +33,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Button_Chat = new Guna.UI2.WinForms.Guna2Button();
@@ -42,7 +40,6 @@
             Status_panel = new Guna.UI2.WinForms.Guna2Panel();
             lblName = new Label();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            btn_xemthem = new Guna.UI2.WinForms.Guna2Button();
             Last_Message = new Label();
             ((System.ComponentModel.ISupportInitialize)Avt_pic).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -60,10 +57,10 @@
             Button_Chat.FillColor = Color.FromArgb(104, 33, 122);
             Button_Chat.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Button_Chat.ForeColor = Color.White;
-            Button_Chat.Location = new Point(399, 15);
+            Button_Chat.Location = new Point(442, 16);
             Button_Chat.Name = "Button_Chat";
             Button_Chat.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            Button_Chat.Size = new Size(107, 68);
+            Button_Chat.Size = new Size(122, 56);
             Button_Chat.TabIndex = 7;
             Button_Chat.Text = "Chat";
             // 
@@ -73,7 +70,7 @@
             Avt_pic.ImageRotate = 0F;
             Avt_pic.InitialImage = null;
             Avt_pic.Location = new Point(30, 15);
-            Avt_pic.Margin = new Padding(4);
+            Avt_pic.Margin = new Padding(4, 4, 4, 4);
             Avt_pic.Name = "Avt_pic";
             Avt_pic.ShadowDecoration.CustomizableEdges = customizableEdges3;
             Avt_pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -112,41 +109,20 @@
             guna2Panel2.BorderColor = Color.Blue;
             guna2Panel2.BorderRadius = 8;
             guna2Panel2.BorderThickness = 2;
-            guna2Panel2.Controls.Add(btn_xemthem);
             guna2Panel2.Controls.Add(Last_Message);
             guna2Panel2.Controls.Add(Avt_pic);
             guna2Panel2.Controls.Add(Button_Chat);
             guna2Panel2.Controls.Add(Status_panel);
             guna2Panel2.Controls.Add(lblName);
-            guna2Panel2.CustomizableEdges = customizableEdges8;
+            guna2Panel2.CustomizableEdges = customizableEdges6;
             guna2Panel2.Dock = DockStyle.Fill;
             guna2Panel2.ForeColor = Color.WhiteSmoke;
             guna2Panel2.Location = new Point(0, 0);
-            guna2Panel2.Margin = new Padding(4);
+            guna2Panel2.Margin = new Padding(4, 4, 4, 4);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges7;
             guna2Panel2.Size = new Size(588, 116);
             guna2Panel2.TabIndex = 12;
-            // 
-            // btn_xemthem
-            // 
-            btn_xemthem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btn_xemthem.BorderRadius = 8;
-            btn_xemthem.CustomizableEdges = customizableEdges6;
-            btn_xemthem.DisabledState.BorderColor = Color.DarkGray;
-            btn_xemthem.DisabledState.CustomBorderColor = Color.DarkGray;
-            btn_xemthem.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btn_xemthem.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btn_xemthem.FillColor = Color.FromArgb(104, 33, 122);
-            btn_xemthem.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_xemthem.ForeColor = Color.White;
-            btn_xemthem.Location = new Point(512, 38);
-            btn_xemthem.Name = "btn_xemthem";
-            btn_xemthem.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            btn_xemthem.Size = new Size(61, 36);
-            btn_xemthem.TabIndex = 13;
-            btn_xemthem.Text = "...";
-            btn_xemthem.Click += btn_xemthem_Click;
             // 
             // Last_Message
             // 
@@ -165,7 +141,7 @@
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(guna2Panel2);
-            Margin = new Padding(4);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "UcMessUser";
             Size = new Size(588, 116);
             ((System.ComponentModel.ISupportInitialize)Avt_pic).EndInit();
@@ -181,6 +157,5 @@
         private Label lblName;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Label Last_Message;
-        private Guna.UI2.WinForms.Guna2Button btn_xemthem;
     }
 }
