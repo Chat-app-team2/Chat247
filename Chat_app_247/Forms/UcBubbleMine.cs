@@ -16,5 +16,13 @@ namespace Chat_app_247.Forms
         {
             InitializeComponent();
         }
+        public void SetText(string text)
+        {
+            lblText.Text = text;
+        }
+        public string GetText()
+        {
+            return lblText.Text;
+        }
     }
 }
