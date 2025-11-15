@@ -57,11 +57,10 @@
             Button_Chat.FillColor = Color.FromArgb(104, 33, 122);
             Button_Chat.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Button_Chat.ForeColor = Color.White;
-            Button_Chat.Location = new Point(295, 11);
-            Button_Chat.Margin = new Padding(2);
+            Button_Chat.Location = new Point(442, 16);
             Button_Chat.Name = "Button_Chat";
             Button_Chat.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            Button_Chat.Size = new Size(81, 37);
+            Button_Chat.Size = new Size(122, 56);
             Button_Chat.TabIndex = 7;
             Button_Chat.Text = "Chat";
             // 
@@ -70,11 +69,12 @@
             Avt_pic.Image = Properties.Resources.Logo_Real;
             Avt_pic.ImageRotate = 0F;
             Avt_pic.InitialImage = null;
-            Avt_pic.Location = new Point(20, 10);
+            Avt_pic.Location = new Point(30, 15);
+            Avt_pic.Margin = new Padding(4, 4, 4, 4);
             Avt_pic.Name = "Avt_pic";
             Avt_pic.ShadowDecoration.CustomizableEdges = customizableEdges3;
             Avt_pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            Avt_pic.Size = new Size(40, 40);
+            Avt_pic.Size = new Size(60, 60);
             Avt_pic.SizeMode = PictureBoxSizeMode.Zoom;
             Avt_pic.TabIndex = 11;
             Avt_pic.TabStop = false;
@@ -84,12 +84,11 @@
             Status_panel.BorderRadius = 5;
             Status_panel.CustomizableEdges = customizableEdges4;
             Status_panel.FillColor = Color.LimeGreen;
-            Status_panel.Location = new Point(65, 43);
-            Status_panel.Margin = new Padding(2);
+            Status_panel.Location = new Point(98, 64);
             Status_panel.Name = "Status_panel";
             Status_panel.RightToLeft = RightToLeft.Yes;
             Status_panel.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            Status_panel.Size = new Size(7, 7);
+            Status_panel.Size = new Size(10, 10);
             Status_panel.TabIndex = 10;
             // 
             // lblName
@@ -97,11 +96,10 @@
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.FromArgb(30, 30, 30);
-            lblName.Location = new Point(78, 10);
-            lblName.Margin = new Padding(2, 0, 2, 0);
-            lblName.MaximumSize = new Size(333, 0);
+            lblName.Location = new Point(117, 15);
+            lblName.MaximumSize = new Size(500, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(61, 25);
+            lblName.Size = new Size(86, 37);
             lblName.TabIndex = 9;
             lblName.Text = "label1";
             // 
@@ -120,9 +118,10 @@
             guna2Panel2.Dock = DockStyle.Fill;
             guna2Panel2.ForeColor = Color.WhiteSmoke;
             guna2Panel2.Location = new Point(0, 0);
+            guna2Panel2.Margin = new Padding(4, 4, 4, 4);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            guna2Panel2.Size = new Size(392, 77);
+            guna2Panel2.Size = new Size(588, 116);
             guna2Panel2.TabIndex = 12;
             // 
             // Last_Message
@@ -130,21 +129,21 @@
             Last_Message.AutoSize = true;
             Last_Message.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Last_Message.ForeColor = Color.FromArgb(30, 30, 30);
-            Last_Message.Location = new Point(78, 43);
-            Last_Message.Margin = new Padding(2, 0, 2, 0);
-            Last_Message.MaximumSize = new Size(333, 0);
+            Last_Message.Location = new Point(117, 64);
+            Last_Message.MaximumSize = new Size(500, 0);
             Last_Message.Name = "Last_Message";
-            Last_Message.Size = new Size(126, 25);
+            Last_Message.Size = new Size(180, 37);
             Last_Message.TabIndex = 12;
             Last_Message.Text = "Last Message";
             // 
             // UcMessUser
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(guna2Panel2);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "UcMessUser";
-            Size = new Size(392, 77);
+            Size = new Size(588, 116);
             ((System.ComponentModel.ISupportInitialize)Avt_pic).EndInit();
             guna2Panel2.ResumeLayout(false);
             guna2Panel2.PerformLayout();

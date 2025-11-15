@@ -38,16 +38,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBase = new Guna.UI2.WinForms.Guna2Panel();
+            pic_avta = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             Full_button = new Guna.UI2.WinForms.Guna2Button();
             Delete_Friend_button = new Guna.UI2.WinForms.Guna2Button();
             pnlDot = new Guna.UI2.WinForms.Guna2Panel();
             lblName = new Label();
-            picAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             menuMore = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             pnlBase.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_avta).BeginInit();
             menuMore.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,30 +57,45 @@
             pnlBase.BorderColor = SystemColors.Highlight;
             pnlBase.BorderRadius = 9;
             pnlBase.BorderThickness = 3;
+            pnlBase.Controls.Add(pic_avta);
             pnlBase.Controls.Add(Full_button);
             pnlBase.Controls.Add(Delete_Friend_button);
             pnlBase.Controls.Add(pnlDot);
             pnlBase.Controls.Add(lblName);
-            pnlBase.Controls.Add(picAvatar);
             pnlBase.CustomizableEdges = customizableEdges8;
             pnlBase.Dock = DockStyle.Fill;
             pnlBase.FillColor = Color.WhiteSmoke;
             pnlBase.Location = new Point(0, 0);
-            pnlBase.Margin = new Padding(0, 0, 0, 7);
+            pnlBase.Margin = new Padding(0, 0, 0, 10);
             pnlBase.Name = "pnlBase";
-            pnlBase.Padding = new Padding(7, 5, 7, 5);
+            pnlBase.Padding = new Padding(10, 8, 10, 8);
             pnlBase.ShadowDecoration.CustomizableEdges = customizableEdges9;
             pnlBase.ShadowDecoration.Depth = 5;
             pnlBase.ShadowDecoration.Enabled = true;
-            pnlBase.Size = new Size(895, 69);
+            pnlBase.Size = new Size(1342, 104);
             pnlBase.TabIndex = 0;
+            // 
+            // pic_avta
+            // 
+            pic_avta.BackColor = Color.Transparent;
+            pic_avta.FillColor = Color.Black;
+            pic_avta.ImageRotate = 0F;
+            pic_avta.Location = new Point(4, 0);
+            pic_avta.Margin = new Padding(4);
+            pic_avta.Name = "pic_avta";
+            pic_avta.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            pic_avta.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            pic_avta.Size = new Size(94, 100);
+            pic_avta.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_avta.TabIndex = 19;
+            pic_avta.TabStop = false;
             // 
             // Full_button
             // 
             Full_button.BackColor = Color.Transparent;
             Full_button.BorderRadius = 10;
             Full_button.Cursor = Cursors.Hand;
-            Full_button.CustomizableEdges = customizableEdges1;
+            Full_button.CustomizableEdges = customizableEdges2;
             Full_button.DisabledState.BorderColor = Color.DarkGray;
             Full_button.DisabledState.CustomBorderColor = Color.DarkGray;
             Full_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -88,12 +103,11 @@
             Full_button.FillColor = SystemColors.MenuBar;
             Full_button.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Full_button.ForeColor = Color.Black;
-            Full_button.Location = new Point(641, 11);
-            Full_button.Margin = new Padding(2);
+            Full_button.Location = new Point(962, 16);
             Full_button.Name = "Full_button";
-            Full_button.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            Full_button.ShadowDecoration.CustomizableEdges = customizableEdges3;
             Full_button.ShadowDecoration.Enabled = true;
-            Full_button.Size = new Size(95, 48);
+            Full_button.Size = new Size(142, 72);
             Full_button.TabIndex = 18;
             Full_button.Text = "Xem Thêm";
             // 
@@ -102,7 +116,7 @@
             Delete_Friend_button.BackColor = Color.Transparent;
             Delete_Friend_button.BorderRadius = 10;
             Delete_Friend_button.Cursor = Cursors.Hand;
-            Delete_Friend_button.CustomizableEdges = customizableEdges3;
+            Delete_Friend_button.CustomizableEdges = customizableEdges4;
             Delete_Friend_button.DisabledState.BorderColor = Color.DarkGray;
             Delete_Friend_button.DisabledState.CustomBorderColor = Color.DarkGray;
             Delete_Friend_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -110,12 +124,11 @@
             Delete_Friend_button.FillColor = Color.FromArgb(231, 76, 80);
             Delete_Friend_button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Delete_Friend_button.ForeColor = Color.White;
-            Delete_Friend_button.Location = new Point(770, 10);
-            Delete_Friend_button.Margin = new Padding(2);
+            Delete_Friend_button.Location = new Point(1155, 15);
             Delete_Friend_button.Name = "Delete_Friend_button";
-            Delete_Friend_button.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Delete_Friend_button.ShadowDecoration.CustomizableEdges = customizableEdges5;
             Delete_Friend_button.ShadowDecoration.Enabled = true;
-            Delete_Friend_button.Size = new Size(95, 48);
+            Delete_Friend_button.Size = new Size(142, 72);
             Delete_Friend_button.TabIndex = 17;
             Delete_Friend_button.Text = "Xóa Bạn";
             Delete_Friend_button.Click += Delete_Friend_button_Click;
@@ -123,14 +136,13 @@
             // pnlDot
             // 
             pnlDot.BorderRadius = 5;
-            pnlDot.CustomizableEdges = customizableEdges5;
+            pnlDot.CustomizableEdges = customizableEdges6;
             pnlDot.FillColor = Color.LimeGreen;
-            pnlDot.Location = new Point(59, 43);
-            pnlDot.Margin = new Padding(2);
+            pnlDot.Location = new Point(105, 77);
             pnlDot.Name = "pnlDot";
             pnlDot.RightToLeft = RightToLeft.Yes;
-            pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            pnlDot.Size = new Size(7, 7);
+            pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            pnlDot.Size = new Size(10, 10);
             pnlDot.TabIndex = 6;
             // 
             // lblName
@@ -138,27 +150,12 @@
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.FromArgb(30, 30, 30);
-            lblName.Location = new Point(83, 16);
-            lblName.Margin = new Padding(2, 0, 2, 0);
-            lblName.MaximumSize = new Size(333, 0);
+            lblName.Location = new Point(141, 16);
+            lblName.MaximumSize = new Size(500, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(61, 25);
+            lblName.Size = new Size(86, 37);
             lblName.TabIndex = 1;
             lblName.Text = "label1";
-            // 
-            // picAvatar
-            // 
-            picAvatar.Image = Properties.Resources.Logo_Real;
-            picAvatar.ImageRotate = 0F;
-            picAvatar.Location = new Point(10, 7);
-            picAvatar.Margin = new Padding(2);
-            picAvatar.Name = "picAvatar";
-            picAvatar.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            picAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            picAvatar.Size = new Size(47, 47);
-            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
-            picAvatar.TabIndex = 0;
-            picAvatar.TabStop = false;
             // 
             // menuMore
             // 
@@ -174,32 +171,31 @@
             menuMore.RenderStyle.SelectionForeColor = Color.White;
             menuMore.RenderStyle.SeparatorColor = Color.Gainsboro;
             menuMore.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            menuMore.Size = new Size(177, 52);
+            menuMore.Size = new Size(225, 76);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(176, 24);
+            toolStripMenuItem1.Size = new Size(224, 36);
             toolStripMenuItem1.Text = "Xem thông tin ";
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(176, 24);
+            toolStripMenuItem2.Size = new Size(224, 36);
             toolStripMenuItem2.Text = "Xóa bạn";
             // 
             // FriendItem
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             Controls.Add(pnlBase);
-            Margin = new Padding(2);
             Name = "FriendItem";
-            Size = new Size(895, 69);
+            Size = new Size(1342, 104);
             pnlBase.ResumeLayout(false);
             pnlBase.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_avta).EndInit();
             menuMore.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -208,12 +204,12 @@
 
         private Guna.UI2.WinForms.Guna2Panel pnlBase;
         private Label lblName;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox picAvatar;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip menuMore;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
         private Guna.UI2.WinForms.Guna2Panel pnlDot;
         private Guna.UI2.WinForms.Guna2Button Full_button;
         private Guna.UI2.WinForms.Guna2Button Delete_Friend_button;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pic_avta;
     }
 }

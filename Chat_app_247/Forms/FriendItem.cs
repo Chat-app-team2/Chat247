@@ -38,7 +38,7 @@ namespace Chat_app_247.Forms
             UpdateStatus(_targetUser.IsOnline);
 
             // Tải ảnh đại diện bất đồng bộ
-            if (picAvatar != null && !string.IsNullOrEmpty(_targetUser.ProfilePictureUrl))
+            if (pic_avta != null && !string.IsNullOrEmpty(_targetUser.ProfilePictureUrl))
             {
                 try
                 {
@@ -47,13 +47,13 @@ namespace Chat_app_247.Forms
                         byte[] bytes = await wc.DownloadDataTaskAsync(new Uri(_targetUser.ProfilePictureUrl));
                         using (MemoryStream ms = new MemoryStream(bytes))
                         {
-                            picAvatar.Image = Image.FromStream(ms);
+                            pic_avta.Image = Image.FromStream(ms);
                         }
                     }
                 }
                 catch (Exception)
                 {
-                    picAvatar.Image = null;
+                    pic_avta.Image = null;
                 }
             }
         }
@@ -81,7 +81,7 @@ namespace Chat_app_247.Forms
 
             if (confirm == DialogResult.No)
             {
-                return; 
+                return;
             }
 
             this.Enabled = false;
@@ -115,13 +115,18 @@ namespace Chat_app_247.Forms
                 {
                     panel.Controls.Remove(this);
                 }
-                this.Dispose(); 
+                this.Dispose();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi hủy kết bạn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Enabled = true;
             }
+        }
+
+        private void pnlBase_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
