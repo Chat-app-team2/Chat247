@@ -262,7 +262,7 @@ namespace Chat_app_247
         private void Message_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            f_Message f_message = new f_Message();
+            f_Message f_message = new f_Message(firebaseClient, userId);
             f_message.Text = "Tin Nhắn";
             OpenSmallForm(f_message);
         }
