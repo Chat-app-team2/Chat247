@@ -54,9 +54,8 @@
             txt_mess = new Guna.UI2.WinForms.Guna2TextBox();
             pnl_information = new Guna.UI2.WinForms.Guna2Panel();
             btn_call = new Guna.UI2.WinForms.Guna2Button();
-            label1 = new Label();
-            guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            pic_ava = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            status = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Message_panel = new Panel();
             Panel_button = new Panel();
@@ -64,7 +63,7 @@
             Mess_panel.SuspendLayout();
             pnl_mess.SuspendLayout();
             pnl_information.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_ava).BeginInit();
             Panel_button.SuspendLayout();
             SuspendLayout();
             // 
@@ -196,9 +195,8 @@
             // 
             pnl_information.BorderRadius = 8;
             pnl_information.Controls.Add(btn_call);
-            pnl_information.Controls.Add(label1);
-            pnl_information.Controls.Add(guna2CirclePictureBox1);
-            pnl_information.Controls.Add(guna2Panel3);
+            pnl_information.Controls.Add(pic_ava);
+            pnl_information.Controls.Add(status);
             pnl_information.Controls.Add(guna2HtmlLabel1);
             pnl_information.CustomizableEdges = customizableEdges16;
             pnl_information.Dock = DockStyle.Top;
@@ -210,6 +208,7 @@
             pnl_information.ShadowDecoration.CustomizableEdges = customizableEdges17;
             pnl_information.Size = new Size(597, 68);
             pnl_information.TabIndex = 1;
+            pnl_information.Paint += pnl_information_Paint;
             // 
             // btn_call
             // 
@@ -231,39 +230,31 @@
             btn_call.TabIndex = 6;
             btn_call.Text = "📞";
             // 
-            // label1
+            // pic_ava
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(86, 38);
-            label1.Name = "label1";
-            label1.Size = new Size(137, 20);
-            label1.TabIndex = 4;
-            label1.Text = "Hoạt động lần cuối";
+            pic_ava.ImageRotate = 0F;
+            pic_ava.InitialImage = Properties.Resources.Logo_Real;
+            pic_ava.Location = new Point(10, 12);
+            pic_ava.Name = "pic_ava";
+            pic_ava.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            pic_ava.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            pic_ava.Size = new Size(40, 40);
+            pic_ava.TabIndex = 3;
+            pic_ava.TabStop = false;
             // 
-            // guna2CirclePictureBox1
+            // status
             // 
-            guna2CirclePictureBox1.ImageRotate = 0F;
-            guna2CirclePictureBox1.Location = new Point(10, 12);
-            guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CirclePictureBox1.Size = new Size(40, 40);
-            guna2CirclePictureBox1.TabIndex = 3;
-            guna2CirclePictureBox1.TabStop = false;
-            // 
-            // guna2Panel3
-            // 
-            guna2Panel3.BorderColor = Color.White;
-            guna2Panel3.BorderRadius = 6;
-            guna2Panel3.BorderThickness = 2;
-            guna2Panel3.CustomizableEdges = customizableEdges14;
-            guna2Panel3.FillColor = Color.LimeGreen;
-            guna2Panel3.Location = new Point(53, 42);
-            guna2Panel3.Margin = new Padding(2);
-            guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2Panel3.Size = new Size(8, 8);
-            guna2Panel3.TabIndex = 2;
+            status.BorderColor = Color.White;
+            status.BorderRadius = 6;
+            status.BorderThickness = 2;
+            status.CustomizableEdges = customizableEdges14;
+            status.FillColor = Color.LimeGreen;
+            status.Location = new Point(53, 42);
+            status.Margin = new Padding(2);
+            status.Name = "status";
+            status.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            status.Size = new Size(8, 8);
+            status.TabIndex = 2;
             // 
             // guna2HtmlLabel1
             // 
@@ -332,7 +323,7 @@
             pnl_mess.ResumeLayout(false);
             pnl_information.ResumeLayout(false);
             pnl_information.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_ava).EndInit();
             Panel_button.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -344,12 +335,11 @@
         private Guna.UI2.WinForms.Guna2Button btn_sendfile;
         private Guna.UI2.WinForms.Guna2TextBox txt_mess;
         private Guna.UI2.WinForms.Guna2Panel pnl_information;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2Panel status;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Panel Message_panel;
         private Panel Panel_button;
-        private Label label1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pic_ava;
         private FontAwesome.Sharp.IconButton Group_button;
         private Guna.UI2.WinForms.Guna2Button btn_voice;
         private Guna.UI2.WinForms.Guna2Button btn_call;

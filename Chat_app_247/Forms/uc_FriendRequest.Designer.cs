@@ -150,6 +150,7 @@
             // 
             Avartar_Picture.FillColor = Color.Black;
             Avartar_Picture.ImageRotate = 0F;
+            Avartar_Picture.InitialImage = Properties.Resources.Logo_Real;
             Avartar_Picture.Location = new Point(22, 27);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges7;

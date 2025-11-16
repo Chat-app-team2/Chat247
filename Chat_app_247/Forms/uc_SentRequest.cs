@@ -30,11 +30,12 @@ namespace Chat_app_247.Forms
             var userData = f_response.ResultAs<User>();
             FriendUser = userData;
             Name_Label.Text = FriendUser.DisplayName;
+            await Task.Delay(5000);
             if (!string.IsNullOrEmpty(FriendUser.ProfilePictureUrl))
             {
                 try
                 {
-                    Avartar_Picture.Load(FriendUser.ProfilePictureUrl);
+                    Avartar_Picture.LoadAsync(FriendUser.ProfilePictureUrl);
                 }
                 catch (Exception ex)
                 {
