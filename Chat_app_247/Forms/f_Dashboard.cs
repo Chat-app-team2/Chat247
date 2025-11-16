@@ -130,7 +130,7 @@ namespace Chat_app_247
             }
         }
         // Mục đích hàm UpDateDataToDashBoard để cập nhật dữ liệu người dùng lên giao diện Dashboard
-        public void UpDateDataToDashBoard(MyUser user)
+        public async void UpDateDataToDashBoard(MyUser user)
         {
             Label_Name.Text = user.DisplayName;
             // Tải ảnh đại diện từ URL (nếu có)
@@ -138,7 +138,7 @@ namespace Chat_app_247
             {
                 try
                 {
-                    Avartar_Picture.Load(user.ProfilePictureUrl);
+                    Avartar_Picture.LoadAsync(user.ProfilePictureUrl);
                 }
                 catch (Exception ex)
                 {
