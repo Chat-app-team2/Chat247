@@ -96,13 +96,16 @@
             // 
             // Avartar_Picture
             // 
-            Avartar_Picture.FillColor = Color.Black;
+            Avartar_Picture.FillColor = Color.Silver;
+            Avartar_Picture.Image = Properties.Resources.Logo_Real;
             Avartar_Picture.ImageRotate = 0F;
+            Avartar_Picture.InitialImage = Properties.Resources.Logo_Real;
             Avartar_Picture.Location = new Point(26, 29);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges1;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             Avartar_Picture.Size = new Size(60, 60);
+            Avartar_Picture.SizeMode = PictureBoxSizeMode.Zoom;
             Avartar_Picture.TabIndex = 0;
             Avartar_Picture.TabStop = false;
             // 
