@@ -83,6 +83,7 @@
             // flpMessages
             // 
             flpMessages.AutoScroll = true;
+            flpMessages.BorderStyle = BorderStyle.FixedSingle;
             flpMessages.Dock = DockStyle.Fill;
             flpMessages.FlowDirection = FlowDirection.TopDown;
             flpMessages.Location = new Point(0, 68);
@@ -93,6 +94,8 @@
             // 
             // pnl_mess
             // 
+            pnl_mess.BorderColor = Color.Black;
+            pnl_mess.BorderThickness = 2;
             pnl_mess.Controls.Add(btn_voice);
             pnl_mess.Controls.Add(btn_send);
             pnl_mess.Controls.Add(btn_sendfile);
@@ -193,7 +196,9 @@
             // 
             // pnl_information
             // 
+            pnl_information.BorderColor = SystemColors.ActiveCaption;
             pnl_information.BorderRadius = 8;
+            pnl_information.BorderThickness = 4;
             pnl_information.Controls.Add(btn_call);
             pnl_information.Controls.Add(pic_ava);
             pnl_information.Controls.Add(status);
@@ -208,7 +213,6 @@
             pnl_information.ShadowDecoration.CustomizableEdges = customizableEdges17;
             pnl_information.Size = new Size(597, 68);
             pnl_information.TabIndex = 1;
-            pnl_information.Paint += pnl_information_Paint;
             // 
             // btn_call
             // 
@@ -232,13 +236,16 @@
             // 
             // pic_ava
             // 
+            pic_ava.ErrorImage = Properties.Resources.Logo_Real;
+            pic_ava.Image = Properties.Resources.Logo_Real;
             pic_ava.ImageRotate = 0F;
             pic_ava.InitialImage = Properties.Resources.Logo_Real;
-            pic_ava.Location = new Point(10, 12);
+            pic_ava.Location = new Point(25, 10);
             pic_ava.Name = "pic_ava";
             pic_ava.ShadowDecoration.CustomizableEdges = customizableEdges13;
             pic_ava.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            pic_ava.Size = new Size(40, 40);
+            pic_ava.Size = new Size(50, 50);
+            pic_ava.SizeMode = PictureBoxSizeMode.Zoom;
             pic_ava.TabIndex = 3;
             pic_ava.TabStop = false;
             // 
@@ -260,12 +267,13 @@
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(79, 7);
+            guna2HtmlLabel1.ForeColor = SystemColors.ActiveCaptionText;
+            guna2HtmlLabel1.Location = new Point(89, 7);
             guna2HtmlLabel1.Margin = new Padding(2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(162, 27);
+            guna2HtmlLabel1.Size = new Size(55, 27);
             guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Text = "Name";
             // 
             // Message_panel
             // 

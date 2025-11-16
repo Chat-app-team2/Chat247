@@ -279,10 +279,5 @@ namespace Chat_app_247
                 _isSending = false;
             }
         }
-
-        private void pnl_information_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

@@ -148,7 +148,8 @@
             // 
             // Avartar_Picture
             // 
-            Avartar_Picture.FillColor = Color.Black;
+            Avartar_Picture.FillColor = Color.Silver;
+            Avartar_Picture.Image = Properties.Resources.Logo_Real;
             Avartar_Picture.ImageRotate = 0F;
             Avartar_Picture.InitialImage = Properties.Resources.Logo_Real;
             Avartar_Picture.Location = new Point(22, 27);

@@ -121,12 +121,14 @@
             // 
             // Avartar_Picture
             // 
+            Avartar_Picture.Image = Properties.Resources.Logo_Real;
             Avartar_Picture.ImageRotate = 0F;
-            Avartar_Picture.Location = new Point(22, 27);
+            Avartar_Picture.Location = new Point(22, 24);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges5;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             Avartar_Picture.Size = new Size(60, 60);
+            Avartar_Picture.SizeMode = PictureBoxSizeMode.Zoom;
             Avartar_Picture.TabIndex = 0;
             Avartar_Picture.TabStop = false;
             // 

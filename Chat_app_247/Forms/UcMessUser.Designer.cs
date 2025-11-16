@@ -58,7 +58,7 @@
             Button_Chat.Font = new Font("Segoe UI Semibold", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Button_Chat.ForeColor = Color.White;
             Button_Chat.Location = new Point(295, 11);
-            Button_Chat.Margin = new Padding(2, 2, 2, 2);
+            Button_Chat.Margin = new Padding(2);
             Button_Chat.Name = "Button_Chat";
             Button_Chat.ShadowDecoration.CustomizableEdges = customizableEdges2;
             Button_Chat.Size = new Size(81, 37);
@@ -71,11 +71,11 @@
             Avt_pic.Image = Properties.Resources.Logo_Real;
             Avt_pic.ImageRotate = 0F;
             Avt_pic.InitialImage = null;
-            Avt_pic.Location = new Point(20, 10);
+            Avt_pic.Location = new Point(14, 14);
             Avt_pic.Name = "Avt_pic";
             Avt_pic.ShadowDecoration.CustomizableEdges = customizableEdges3;
             Avt_pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            Avt_pic.Size = new Size(40, 40);
+            Avt_pic.Size = new Size(45, 45);
             Avt_pic.SizeMode = PictureBoxSizeMode.Zoom;
             Avt_pic.TabIndex = 11;
             Avt_pic.TabStop = false;
@@ -85,8 +85,8 @@
             Status_panel.BorderRadius = 5;
             Status_panel.CustomizableEdges = customizableEdges4;
             Status_panel.FillColor = Color.LimeGreen;
-            Status_panel.Location = new Point(65, 43);
-            Status_panel.Margin = new Padding(2, 2, 2, 2);
+            Status_panel.Location = new Point(65, 47);
+            Status_panel.Margin = new Padding(2);
             Status_panel.Name = "Status_panel";
             Status_panel.RightToLeft = RightToLeft.Yes;
             Status_panel.ShadowDecoration.CustomizableEdges = customizableEdges5;

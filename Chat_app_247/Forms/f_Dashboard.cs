@@ -85,12 +85,10 @@ namespace Chat_app_247
             if (MessageBox.Show("Bạn có chắc chắn muốn đóng ứng dụng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 await IsOffline();
-                await Task.Delay(500);
                 Application.Exit();
             }
             else
             {
-                e.Cancel = true;
             }
         }
         // Mục đích hàm InitializeFirebase để khởi tạo kết nối FirebaseDatabase
