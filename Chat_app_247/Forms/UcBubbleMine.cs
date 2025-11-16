@@ -16,10 +16,16 @@ namespace Chat_app_247.Forms
         {
             InitializeComponent();
         }
-        public void SetText(string text)
+        public void SetMessage(string text, string avt, string name)
         {
             lblText.Text = text;
+            lb_name.Text= name;
+            if (!string.IsNullOrEmpty(avt))
+            {
+                pic_avt.LoadAsync(avt);
+            }
         }
+
         public string GetText()
         {
             return lblText.Text;

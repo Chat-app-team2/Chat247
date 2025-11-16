@@ -145,25 +145,50 @@ namespace Chat_app_247
         }
 
         // Thêm bong bóng chat 
-        private void AddBubble(Models.Message message)
+        private async void AddBubble(Models.Message message)
         {
+            bool isMyMessage = (message.SenderId == _userId);
+
+            // Tạo panel container với AutoSize
+            Panel messageContainer = new Panel();
+            messageContainer.Width = flpMessages.Width - 25;
+            messageContainer.AutoSize = true; 
+            messageContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            messageContainer.BackColor = Color.Transparent;
+            messageContainer.Margin = new Padding(0, 5, 0, 5);
+
             UserControl bubble;
 
-            if (message.SenderId == _userId)
+            if (isMyMessage)
             {
+                FirebaseResponse res = await _client.GetAsync($"Users/{_userId}");
+                User data = res.ResultAs<User>();
+                string myName = data.DisplayName;
+                string UrlAvt = data.ProfilePictureUrl;
                 var ucMine = new UcBubbleMine();
-                ucMine.SetText(message.Content);
+                ucMine.SetMessage(message.Content, UrlAvt, myName);
                 bubble = ucMine;
+
+                bubble.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+                bubble.Location = new Point(messageContainer.Width - bubble.Width - 10, 5);
             }
             else
             {
+                FirebaseResponse res = await _client.GetAsync($"Users/{message.SenderId}");
+                User data = res.ResultAs<User>();
+                string OtName = data.DisplayName;
+                string OtUrlAvt = data.ProfilePictureUrl;
                 var ucOther = new UcBubbleOther();
-                ucOther.SetText(message.Content);
+                ucOther.SetMessage(message.Content, OtUrlAvt, OtName);
                 bubble = ucOther;
+
+                bubble.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                bubble.Location = new Point(0, 5);
             }
 
-            flpMessages.Controls.Add(bubble);
-            flpMessages.ScrollControlIntoView(bubble);
+            messageContainer.Controls.Add(bubble);
+            flpMessages.Controls.Add(messageContainer);
+            flpMessages.ScrollControlIntoView(messageContainer);
         }
 
 
