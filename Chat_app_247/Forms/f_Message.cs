@@ -1,18 +1,18 @@
-﻿using Chat_app_247.Forms;
+﻿using Chat_app_247.Class;
+using Chat_app_247.Config;
+using Chat_app_247.Forms;
+using Chat_app_247.Models;
+using Firebase.Database;
+using Firebase.Database.Query;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Newtonsoft.Json; 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Windows.Forms;
-using Chat_app_247.Class;
-using Chat_app_247.Models;
-using Chat_app_247.Config;
-using Firebase.Database;
-using Firebase.Database.Query;
 using System.Reactive.Linq;
-using Newtonsoft.Json; 
+using System.Windows.Forms;
 
 namespace Chat_app_247
 {
@@ -24,6 +24,8 @@ namespace Chat_app_247
         private FirebaseClient _realtimeClient; // Client mới cho Observable
         private IDisposable _messageSubscription; // Biến này để hủy listener
         private long _lastMessageTimestamp = 0; // Dùng để lọc tin nhắn
+        private bool _isLoadingMessages = false; // Chặn duplicate khi TẢI chat
+        private bool _isSending = false;
 
         // Constructor
         public f_Message(IFirebaseClient client, string userId)
@@ -91,21 +93,55 @@ namespace Chat_app_247
         }
 
         // Xử lý khi nhấn nút "Chat" từ danh sách bạn bè
-        private void UcFriend_OnChatClicked(object sender, User friend)
+        private async void UcFriend_OnChatClicked(object sender, User friend)
         {
-            // Hủy listener tin nhắn cũ
-            _messageSubscription?.Dispose();
+            if (_isLoadingMessages) return;
+            _isLoadingMessages = true;
 
-            // Hiển thị thông tin
-            pnl_information.Visible = true;
-            pnl_mess.Visible = true;
-            guna2HtmlLabel1.Text = friend.DisplayName;
+            try
+            {
+                // Hủy listener tin nhắn cũ
+                _messageSubscription?.Dispose();
 
-            // Lấy ID phòng
-            _currentConversationId = GetConversationId(_userId, friend.UserId);
+                // Hiển thị thông tin
+                pnl_information.Visible = true;
+                pnl_mess.Visible = true;
+                guna2HtmlLabel1.Text = friend.DisplayName;
 
-            // Bắt đầu lắng nghe tin nhắn cho phòng mới
-            ListenForNewMessages(_currentConversationId);
+                status.FillColor = friend.IsOnline ? Color.LimeGreen : Color.Gray;
+
+                if (!string.IsNullOrEmpty(friend.ProfilePictureUrl))
+                {
+                    try
+                    {
+                        using (var client = new HttpClient()) // Thêm System.Net.Http
+                        {
+                            var data = await client.GetByteArrayAsync(friend.ProfilePictureUrl);
+                            using (var ms = new MemoryStream(data)) // Thêm System.IO
+                            {
+                                pic_ava.Image = Image.FromStream(ms);
+                            }
+                        }
+                    }
+                    catch { pic_ava.Image = null; }
+                }
+                else { pic_ava.Image = null; }
+
+                // Lấy ID phòng
+                _currentConversationId = GetConversationId(_userId, friend.UserId);
+
+                // Bắt đầu lắng nghe 
+                await ListenForNewMessages(_currentConversationId);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Lỗi khi mở chat: {ex.Message}");
+            }
+            finally
+            {
+                // Tải xong, tắt cờ
+                _isLoadingMessages = false;
+            }
         }
 
         // Thêm bong bóng chat 
@@ -134,9 +170,9 @@ namespace Chat_app_247
         /// <summary>
         /// Tải lịch sử chat và lắng nghe tin nhắn mới bằng AsObservable.
         /// </summary>
-        private async void ListenForNewMessages(string conversationId)
+        private async Task ListenForNewMessages(string conversationId)
         {
-            // Dọn dẹp UI và mốc thời gian
+            // 1. Dọn dẹp UI và mốc thời gian
             flpMessages.Controls.Clear();
             _lastMessageTimestamp = 0;
 
@@ -145,18 +181,15 @@ namespace Chat_app_247
                 .Child(conversationId)
                 .Child("Messages");
 
-            // tải lịch sử chat (Dùng GetAsync của FireSharp 1 LẦN)
+            // 2. Tải lịch sử chat (Dùng GetAsync của FireSharp 1 LẦN)
             try
             {
-                // Dùng client FireSharp cũ để GET 1 lần
                 var path = $"Conversations/{conversationId}/Messages";
                 FirebaseResponse existingMessagesRes = await _client.GetAsync(path);
 
                 if (existingMessagesRes.Body != "null" && !string.IsNullOrEmpty(existingMessagesRes.Body))
                 {
-                    // Dùng Newtonsoft.Json để Deserialize (FirebaseDatabase.net dùng)
                     var allMessages = JsonConvert.DeserializeObject<Dictionary<string, Models.Message>>(existingMessagesRes.Body);
-
                     if (allMessages != null && allMessages.Any())
                     {
                         var sortedMessages = allMessages.Values
@@ -173,33 +206,27 @@ namespace Chat_app_247
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Lỗi tải lịch sử chat (hoặc DB rỗng/hỏng): {ex.Message}");
+                Debug.WriteLine($"Lỗi tải lịch sử chat: {ex.Message}");
             }
 
-            // add listener cho tin nhắn mới
+            // 3. Add listener cho tin nhắn MỚI
             _messageSubscription = messageNode
-                .AsObservable<Models.Message>() // Lắng nghe các object Message
+                .AsObservable<Models.Message>()
                 .Subscribe(
-                    e => // OnNext 
+                    e =>
                     {
-                        // Chỉ xử lý tin nhắn mới (Insert) và mới hơn mốc thời gian
                         if (e.Object != null &&
                             e.EventType == Firebase.Database.Streaming.FirebaseEventType.InsertOrUpdate &&
                             e.Object.Timestamp > _lastMessageTimestamp)
                         {
                             _lastMessageTimestamp = e.Object.Timestamp;
-
-                            // Cập nhật UI trên luồng chính
                             this.Invoke((MethodInvoker)delegate
                             {
                                 AddBubble(e.Object);
                             });
                         }
                     },
-                    ex => // OnError 
-                    {
-                        Debug.WriteLine($"Lỗi listener: {ex.Message}");
-                    }
+                    ex => { Debug.WriteLine($"Lỗi listener: {ex.Message}"); }
                 );
         }
 
@@ -209,6 +236,8 @@ namespace Chat_app_247
         /// </summary>
         private async void btn_send_Click(object sender, EventArgs e)
         {
+            if (_isSending) return;
+
             string content = txt_mess.Text.Trim();
             if (string.IsNullOrEmpty(content) || string.IsNullOrEmpty(_currentConversationId))
             {
@@ -217,7 +246,8 @@ namespace Chat_app_247
 
             try
             {
-                // Tạo đối tượng Message
+                _isSending = true;
+
                 var newMessage = new Chat_app_247.Models.Message
                 {
                     SenderId = _userId,
@@ -229,24 +259,30 @@ namespace Chat_app_247
                     ReadBy = new Dictionary<string, long>()
                 };
 
-                // Push tin nhắn mới (dùng PostAsync của FirebaseDatabase.net)
                 await _realtimeClient
                     .Child("Conversations")
                     .Child(_currentConversationId)
                     .Child("Messages")
-                    .PostAsync(newMessage); // Tự động serialize bằng Newtonsoft.Json
+                    .PostAsync(newMessage);
 
-                // Cập nhật "LastMessage" (FireSharp)
                 var lastMsgPath = $"Conversations/{_currentConversationId}/LastMessage";
                 await _client.SetAsync(lastMsgPath, newMessage);
 
-                // Xóa text box
                 txt_mess.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi gửi tin nhắn: {ex.Message}");
             }
+            finally
+            {
+                _isSending = false;
+            }
+        }
+
+        private void pnl_information_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

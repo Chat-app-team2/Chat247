@@ -37,7 +37,7 @@ namespace Chat_app_247.Forms
             {
                 try
                 {
-                    Avartar_Picture.Load(FriendUser.ProfilePictureUrl);
+                    Avartar_Picture.LoadAsync(FriendUser.ProfilePictureUrl);
                 }
                 catch (Exception ex)
                 {

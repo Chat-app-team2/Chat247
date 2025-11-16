@@ -17,6 +17,8 @@ namespace Chat_app_247.Forms
 {
     public partial class FriendItem : UserControl
     {
+
+        private static readonly HttpClient httpClient = new HttpClient();
         private User _targetUser;
         private string _currentUserId;
         private IFirebaseClient _client;
@@ -42,13 +44,11 @@ namespace Chat_app_247.Forms
             {
                 try
                 {
-                    using (WebClient wc = new WebClient())
+                    byte[] bytes = await httpClient.GetByteArrayAsync(_targetUser.ProfilePictureUrl);
+
+                    using (MemoryStream ms = new MemoryStream(bytes))
                     {
-                        byte[] bytes = await wc.DownloadDataTaskAsync(new Uri(_targetUser.ProfilePictureUrl));
-                        using (MemoryStream ms = new MemoryStream(bytes))
-                        {
-                            pic_avta.Image = Image.FromStream(ms);
-                        }
+                        pic_avta.Image = Image.FromStream(ms);
                     }
                 }
                 catch (Exception)
