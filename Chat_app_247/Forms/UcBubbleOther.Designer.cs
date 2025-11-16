@@ -32,9 +32,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             lblText = new Guna.UI2.WinForms.Guna2TextBox();
+            pic_avt = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            lb_name = new Label();
             guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_avt).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -42,15 +46,16 @@
             guna2Panel1.AutoRoundedCorners = true;
             guna2Panel1.AutoSize = true;
             guna2Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            guna2Panel1.BorderRadius = 34;
+            guna2Panel1.BorderRadius = 23;
             guna2Panel1.Controls.Add(lblText);
             guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.FillColor = Color.White;
-            guna2Panel1.Location = new Point(51, 47);
+            guna2Panel1.Location = new Point(41, 31);
+            guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.Padding = new Padding(12, 8, 12, 8);
+            guna2Panel1.Padding = new Padding(8, 5, 8, 5);
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Panel1.Size = new Size(489, 71);
+            guna2Panel1.Size = new Size(325, 48);
             guna2Panel1.TabIndex = 0;
             // 
             // lblText
@@ -66,29 +71,57 @@
             lblText.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblText.ForeColor = Color.Black;
             lblText.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            lblText.Location = new Point(17, 14);
-            lblText.Margin = new Padding(5, 6, 5, 6);
-            lblText.MaximumSize = new Size(455, 0);
+            lblText.Location = new Point(11, 9);
+            lblText.Margin = new Padding(3, 4, 3, 4);
+            lblText.MaximumSize = new Size(303, 0);
             lblText.Name = "lblText";
             lblText.PlaceholderText = "";
+            lblText.ReadOnly = true;
             lblText.SelectedText = "";
             lblText.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            lblText.Size = new Size(455, 43);
+            lblText.Size = new Size(303, 30);
             lblText.TabIndex = 0;
+            // 
+            // pic_avt
+            // 
+            pic_avt.Image = Properties.Resources.Logo_Real;
+            pic_avt.ImageRotate = 0F;
+            pic_avt.Location = new Point(0, 34);
+            pic_avt.Name = "pic_avt";
+            pic_avt.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            pic_avt.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            pic_avt.Size = new Size(40, 40);
+            pic_avt.SizeMode = PictureBoxSizeMode.Zoom;
+            pic_avt.TabIndex = 3;
+            pic_avt.TabStop = false;
+            // 
+            // lb_name
+            // 
+            lb_name.AutoSize = true;
+            lb_name.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_name.ForeColor = SystemColors.ActiveCaption;
+            lb_name.Location = new Point(41, 5);
+            lb_name.Name = "lb_name";
+            lb_name.Size = new Size(56, 23);
+            lb_name.TabIndex = 4;
+            lb_name.Text = "Name";
             // 
             // UcBubbleOther
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.Transparent;
+            Controls.Add(lb_name);
+            Controls.Add(pic_avt);
             Controls.Add(guna2Panel1);
-            Margin = new Padding(0, 2, 64, 8);
+            Margin = new Padding(0, 1, 43, 5);
             Name = "UcBubbleOther";
-            Size = new Size(543, 121);
+            Size = new Size(368, 81);
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_avt).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -97,5 +130,7 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2TextBox lblText;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pic_avt;
+        private Label lb_name;
     }
 }
