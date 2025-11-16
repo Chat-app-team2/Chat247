@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Forms;
+using static Guna.UI2.Native.WinApi;
 
 namespace Chat_app_247
 {
@@ -145,14 +146,14 @@ namespace Chat_app_247
         }
 
         // Thêm bong bóng chat 
-        private async void AddBubble(Models.Message message)
+        private async void AddBubble(string messageId, Models.Message message)
         {
             bool isMyMessage = (message.SenderId == _userId);
 
-            // Tạo panel container với AutoSize
+            // Tạo container giống code 2
             Panel messageContainer = new Panel();
             messageContainer.Width = flpMessages.Width - 25;
-            messageContainer.AutoSize = true; 
+            messageContainer.AutoSize = true;
             messageContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             messageContainer.BackColor = Color.Transparent;
             messageContainer.Margin = new Padding(0, 5, 0, 5);
@@ -161,12 +162,9 @@ namespace Chat_app_247
 
             if (isMyMessage)
             {
-                FirebaseResponse res = await _client.GetAsync($"Users/{_userId}");
-                User data = res.ResultAs<User>();
-                string myName = data.DisplayName;
-                string UrlAvt = data.ProfilePictureUrl;
                 var ucMine = new UcBubbleMine();
-                ucMine.SetMessage(message.Content, UrlAvt, myName);
+                // BindMessage: để có thể react/sửa/xóa dựa vào messageId + conversationId
+                ucMine.BindMessage(message, _currentConversationId, messageId, _userId, _client);
                 bubble = ucMine;
 
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -174,12 +172,8 @@ namespace Chat_app_247
             }
             else
             {
-                FirebaseResponse res = await _client.GetAsync($"Users/{message.SenderId}");
-                User data = res.ResultAs<User>();
-                string OtName = data.DisplayName;
-                string OtUrlAvt = data.ProfilePictureUrl;
                 var ucOther = new UcBubbleOther();
-                ucOther.SetMessage(message.Content, OtUrlAvt, OtName);
+                ucOther.BindMessage(message, _currentConversationId, messageId, _userId, _client);
                 bubble = ucOther;
 
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -214,18 +208,21 @@ namespace Chat_app_247
 
                 if (existingMessagesRes.Body != "null" && !string.IsNullOrEmpty(existingMessagesRes.Body))
                 {
+                    // Deserialize thành Dictionary để lấy được cả key (messageId)
                     var allMessages = JsonConvert.DeserializeObject<Dictionary<string, Models.Message>>(existingMessagesRes.Body);
                     if (allMessages != null && allMessages.Any())
                     {
-                        var sortedMessages = allMessages.Values
-                            .OrderBy(m => m.Timestamp)
-                            .ToList();
+                        var sorted = allMessages
+                            .OrderBy(kv => kv.Value.Timestamp); // kv.Key = messageId
 
-                        foreach (var msg in sortedMessages)
+                        foreach (var kv in sorted)
                         {
-                            AddBubble(msg);
+                            string messageId = kv.Key;
+                            var msg = kv.Value;
+
+                            AddBubble(messageId, msg);
+                            _lastMessageTimestamp = msg.Timestamp;
                         }
-                        _lastMessageTimestamp = sortedMessages.Last().Timestamp;
                     }
                 }
             }
@@ -245,9 +242,11 @@ namespace Chat_app_247
                             e.Object.Timestamp > _lastMessageTimestamp)
                         {
                             _lastMessageTimestamp = e.Object.Timestamp;
+                            string messageId = e.Key;   // key Firebase
+
                             this.Invoke((MethodInvoker)delegate
                             {
-                                AddBubble(e.Object);
+                                AddBubble(messageId, e.Object);
                             });
                         }
                     },
