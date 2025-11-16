@@ -31,7 +31,6 @@ namespace Chat_app_247.Models
 
         // Key: UserId của người đã đọc, Value: Timestamp lúc đọc
         public Dictionary<string, long> ReadBy { get; set; }
-        //  REACTIONS
-        public Dictionary<string, List<string>> Reactions { get; set; }
+       
     }
 }
