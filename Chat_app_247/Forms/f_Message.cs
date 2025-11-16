@@ -2,18 +2,24 @@
 using Chat_app_247.Config;
 using Chat_app_247.Forms;
 using Chat_app_247.Models;
+
 using Firebase.Database;
 using Firebase.Database.Query;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-using Newtonsoft.Json; 
+
+using Newtonsoft.Json;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Guna.UI2.Native.WinApi;
 
 namespace Chat_app_247
 {
@@ -22,10 +28,20 @@ namespace Chat_app_247
         private IFirebaseClient _client;
         private string _userId;
         private string _currentConversationId;
-        private FirebaseClient _realtimeClient; // Client mới cho Observable
-        private IDisposable _messageSubscription; // Biến này để hủy listener
-        private long _lastMessageTimestamp = 0; // Dùng để lọc tin nhắn
-        private bool _isLoadingMessages = false; // Chặn duplicate khi TẢI chat
+
+        // Client mới cho Observable (FirebaseDatabase.net)
+        private FirebaseClient _realtimeClient;
+
+        // Biến này để hủy listener
+        private IDisposable _messageSubscription;
+
+        // Dùng để lọc tin nhắn
+        private long _lastMessageTimestamp = 0;
+
+        // Chặn duplicate khi TẢI chat
+        private bool _isLoadingMessages = false;
+
+        // Cờ chặn double-click gửi
         private bool _isSending = false;
 
         // Constructor
@@ -33,43 +49,47 @@ namespace Chat_app_247
         {
             InitializeComponent();
 
-            // Client FireSharp 
+            // Gán vào field (KHÔNG tạo biến local mới)
             _client = client;
             _userId = userId;
 
-            // Client FirebaseDatabase.net 
+            // Client FirebaseDatabase.net
             _realtimeClient = new FirebaseClient(FirebaseConfigFile.DatabaseURL);
 
             // Cài đặt UI
             pnl_information.Visible = false;
             pnl_mess.Visible = false;
 
-            // Gắn sự kiện
-            this.Load += (s, e) => LoadFriendsListAsync();
+            // Gắn sự kiện load form
+            this.Load += async (s, e) => await LoadFriendsListAsync();
         }
 
-
-        // Dùng FireSharp để tải danh sách bạn bè 
-        private async void LoadFriendsListAsync()
+        // Dùng FireSharp để tải danh sách bạn bè
+        private async Task LoadFriendsListAsync()
         {
             if (_client == null || string.IsNullOrEmpty(_userId)) return;
+
             try
             {
                 FirebaseResponse res = await _client.GetAsync($"Users/{_userId}/FriendIds");
                 var friendIds = res.ResultAs<List<string>>();
+
                 if (friendIds == null || friendIds.Count == 0) return;
 
                 Message_panel.Controls.Clear();
+
                 foreach (var friendId in friendIds)
                 {
                     FirebaseResponse friendRes = await _client.GetAsync($"Users/{friendId}");
                     var friendUser = friendRes.ResultAs<User>();
+
                     if (friendUser != null)
                     {
                         UcMessUser ucFriend = new UcMessUser();
                         ucFriend.Dock = DockStyle.Top;
                         ucFriend.SetData(friendUser);
                         ucFriend.OnChatClicked += UcFriend_OnChatClicked; // Nối sự kiện
+
                         Message_panel.Controls.Add(ucFriend);
                     }
                 }
@@ -83,7 +103,7 @@ namespace Chat_app_247
         // Hàm helper để tạo ID phòng chat
         private string GetConversationId(string uid1, string uid2)
         {
-            if (string.Compare(uid1, uid2) < 0)
+            if (string.Compare(uid1, uid2, StringComparison.Ordinal) < 0)
             {
                 return $"{uid1}_{uid2}";
             }
@@ -107,31 +127,37 @@ namespace Chat_app_247
                 // Hiển thị thông tin
                 pnl_information.Visible = true;
                 pnl_mess.Visible = true;
-                guna2HtmlLabel1.Text = friend.DisplayName;
 
+                guna2HtmlLabel1.Text = friend.DisplayName;
                 status.FillColor = friend.IsOnline ? Color.LimeGreen : Color.Gray;
 
                 if (!string.IsNullOrEmpty(friend.ProfilePictureUrl))
                 {
                     try
                     {
-                        using (var client = new HttpClient()) // Thêm System.Net.Http
+                        using (var httpClient = new HttpClient())
                         {
-                            var data = await client.GetByteArrayAsync(friend.ProfilePictureUrl);
-                            using (var ms = new MemoryStream(data)) // Thêm System.IO
+                            var data = await httpClient.GetByteArrayAsync(friend.ProfilePictureUrl);
+                            using (var ms = new MemoryStream(data))
                             {
                                 pic_ava.Image = Image.FromStream(ms);
                             }
                         }
                     }
-                    catch { pic_ava.Image = null; }
+                    catch
+                    {
+                        pic_ava.Image = null;
+                    }
                 }
-                else { pic_ava.Image = null; }
+                else
+                {
+                    pic_ava.Image = null;
+                }
 
                 // Lấy ID phòng
                 _currentConversationId = GetConversationId(_userId, friend.UserId);
 
-                // Bắt đầu lắng nghe 
+                // Bắt đầu lắng nghe
                 await ListenForNewMessages(_currentConversationId);
             }
             catch (Exception ex)
@@ -145,26 +171,33 @@ namespace Chat_app_247
             }
         }
 
-        // Thêm bong bóng chat 
-        private async void AddBubble(string messageId, Models.Message message)
+        // Thêm bong bóng chat
+        private async void AddBubble(Models.Message message)
         {
             bool isMyMessage = (message.SenderId == _userId);
 
-            // Tạo container giống code 2
-            Panel messageContainer = new Panel();
-            messageContainer.Width = flpMessages.Width - 25;
-            messageContainer.AutoSize = true;
-            messageContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            messageContainer.BackColor = Color.Transparent;
-            messageContainer.Margin = new Padding(0, 5, 0, 5);
+            // Tạo panel container với AutoSize
+            Panel messageContainer = new Panel
+            {
+                Width = flpMessages.Width - 25,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                BackColor = Color.Transparent,
+                Margin = new Padding(0, 5, 0, 5)
+            };
 
             UserControl bubble;
 
             if (isMyMessage)
             {
+                FirebaseResponse res = await _client.GetAsync($"Users/{_userId}");
+                User data = res.ResultAs<User>();
+
+                string myName = data.DisplayName;
+                string urlAvt = data.ProfilePictureUrl;
+
                 var ucMine = new UcBubbleMine();
-                // BindMessage: để có thể react/sửa/xóa dựa vào messageId + conversationId
-                ucMine.BindMessage(message, _currentConversationId, messageId, _userId, _client);
+                ucMine.SetMessage(message.Content, urlAvt, myName);
                 bubble = ucMine;
 
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -172,8 +205,14 @@ namespace Chat_app_247
             }
             else
             {
+                FirebaseResponse res = await _client.GetAsync($"Users/{message.SenderId}");
+                User data = res.ResultAs<User>();
+
+                string otName = data.DisplayName;
+                string otUrlAvt = data.ProfilePictureUrl;
+
                 var ucOther = new UcBubbleOther();
-                ucOther.BindMessage(message, _currentConversationId, messageId, _userId, _client);
+                ucOther.SetMessage(message.Content, otUrlAvt, otName);
                 bubble = ucOther;
 
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -184,7 +223,6 @@ namespace Chat_app_247
             flpMessages.Controls.Add(messageContainer);
             flpMessages.ScrollControlIntoView(messageContainer);
         }
-
 
         /// <summary>
         /// Tải lịch sử chat và lắng nghe tin nhắn mới bằng AsObservable.
@@ -206,23 +244,24 @@ namespace Chat_app_247
                 var path = $"Conversations/{conversationId}/Messages";
                 FirebaseResponse existingMessagesRes = await _client.GetAsync(path);
 
-                if (existingMessagesRes.Body != "null" && !string.IsNullOrEmpty(existingMessagesRes.Body))
+                if (existingMessagesRes.Body != "null" &&
+                    !string.IsNullOrEmpty(existingMessagesRes.Body))
                 {
-                    // Deserialize thành Dictionary để lấy được cả key (messageId)
-                    var allMessages = JsonConvert.DeserializeObject<Dictionary<string, Models.Message>>(existingMessagesRes.Body);
+                    var allMessages =
+                        JsonConvert.DeserializeObject<Dictionary<string, Models.Message>>(existingMessagesRes.Body);
+
                     if (allMessages != null && allMessages.Any())
                     {
-                        var sorted = allMessages
-                            .OrderBy(kv => kv.Value.Timestamp); // kv.Key = messageId
+                        var sortedMessages = allMessages.Values
+                            .OrderBy(m => m.Timestamp)
+                            .ToList();
 
-                        foreach (var kv in sorted)
+                        foreach (var msg in sortedMessages)
                         {
-                            string messageId = kv.Key;
-                            var msg = kv.Value;
-
-                            AddBubble(messageId, msg);
-                            _lastMessageTimestamp = msg.Timestamp;
+                            AddBubble(msg);
                         }
+
+                        _lastMessageTimestamp = sortedMessages.Last().Timestamp;
                     }
                 }
             }
@@ -242,18 +281,18 @@ namespace Chat_app_247
                             e.Object.Timestamp > _lastMessageTimestamp)
                         {
                             _lastMessageTimestamp = e.Object.Timestamp;
-                            string messageId = e.Key;   // key Firebase
 
                             this.Invoke((MethodInvoker)delegate
                             {
-                                AddBubble(messageId, e.Object);
+                                AddBubble(e.Object);
                             });
                         }
                     },
-                    ex => { Debug.WriteLine($"Lỗi listener: {ex.Message}"); }
-                );
+                    ex =>
+                    {
+                        Debug.WriteLine($"Lỗi listener: {ex.Message}");
+                    });
         }
-
 
         /// <summary>
         /// Gửi tin nhắn mới (Dùng PostAsync của FirebaseDatabase.net)
@@ -263,6 +302,7 @@ namespace Chat_app_247
             if (_isSending) return;
 
             string content = txt_mess.Text.Trim();
+
             if (string.IsNullOrEmpty(content) || string.IsNullOrEmpty(_currentConversationId))
             {
                 return;
@@ -283,12 +323,14 @@ namespace Chat_app_247
                     ReadBy = new Dictionary<string, long>()
                 };
 
+                // Lưu tin nhắn vào Realtime Database
                 await _realtimeClient
                     .Child("Conversations")
                     .Child(_currentConversationId)
                     .Child("Messages")
                     .PostAsync(newMessage);
 
+                // Cập nhật LastMessage cho cuộc trò chuyện
                 var lastMsgPath = $"Conversations/{_currentConversationId}/LastMessage";
                 await _client.SetAsync(lastMsgPath, newMessage);
 
