@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Chat_app_247.Class;
+using System.Reactive;
 namespace Chat_app_247.Forms
 {
     public partial class uc_FriendRequest : UserControl
@@ -57,6 +58,11 @@ namespace Chat_app_247.Forms
 
                 string friend_id = FriendUser.UserId;
 
+                if (FriendUser.Notifications == null)
+                {
+                    FriendUser.Notifications = new Dictionary<string, bool>();
+                }
+
                 bool success = await AcceptFriendRequest(useridMain, friend_id);
 
                 if (success)
@@ -77,6 +83,7 @@ namespace Chat_app_247.Forms
             {
                 Accept_button.Enabled = true;
                 Accept_button.Text = "Chấp nhận";
+
             }
         }
 
@@ -122,6 +129,12 @@ namespace Chat_app_247.Forms
             // Cập nhật cho friend user: xóa và thêm
             friendUserData.FriendRequestSentIds?.Remove(currentUserId);
             friendUserData.FriendIds.Add(currentUserId);
+            // Cập nhật thông báo
+            if (friendUserData.Notifications == null)
+            {
+                friendUserData.Notifications = new Dictionary<string, bool>();
+            }
+            friendUserData.Notifications[currentUserId] = true;
 
             // Updata lên Firebase
             await firebaseclient.SetAsync($"Users/{currentUserId}", currentUserData);
@@ -181,6 +194,12 @@ namespace Chat_app_247.Forms
 
             // Friend user: xóa khỏi danh sách đã gửi
             friendUserData.FriendRequestSentIds.Remove(currentUserId);
+            // Thêm thông báo từ chối
+            if (friendUserData.Notifications == null)
+            {
+                friendUserData.Notifications = new Dictionary<string, bool>();
+            }
+            friendUserData.Notifications[currentUserId] = false;
 
             // Update lên Firebase
             await firebaseclient.SetAsync($"Users/{currentUserId}", currentUserData);
