@@ -108,26 +108,42 @@ namespace Chat_app_247
                     Sent_Panel.Controls.Add(sentRequestControl);
                 }
         }
-        private void LoadNotifyList(IFirebaseClient firebaseClient, string userid)
+        // Lấy NotifyList trong User 
+        private async void LoadNotifyList(IFirebaseClient firebaseClient, string userid)
         {
-            List<string> notifyNames = new List<string>
+            try
             {
-                "Pham Thi I",
-                "Tran Van J",
-                "Nguyen Thi K"
-            };
-            Notification_Panel.Controls.Clear();
-            foreach (var name in notifyNames)
+                var database = await firebaseClient.GetAsync($"Users/{userid}");
+                var userdata = database.ResultAs<User>();
+                currentUser = userdata;
+                Dictionary<string, bool> notifyNames = currentUser?.Notifications ?? new Dictionary<string, bool>();
+                Notification_Panel.Controls.Clear();
+                foreach (var name in notifyNames)
+                {
+                    if (name.Value == true) // Chấp nhận
+                    {
+                        Forms.uc_NotificationRequestAcp notifyControl = new Forms.uc_NotificationRequestAcp();
+                        notifyControl.SetData(name.Key);
+                        notifyControl.Dock = DockStyle.Top;
+                        Notification_Panel.Controls.Add(notifyControl);
+                    }
+                    else // Từ chối
+                    {
+                        Forms.uc_NotificationRequestRefuse notifyControl = new Forms.uc_NotificationRequestRefuse();
+                        notifyControl.SetData(name.Key);
+                        notifyControl.Dock = DockStyle.Top;
+                        Notification_Panel.Controls.Add(notifyControl);
+                    }
+                }
+                if (currentUser.Notifications != null)
+                {
+                    currentUser.Notifications.Clear();
+                    await firebaseClient.SetAsync($"Users/{userid}", currentUser);
+                }
+            }
+            catch (Exception ex)
             {
-                Forms.uc_NotificationRequestAcp notifyControl = new Forms.uc_NotificationRequestAcp();
-                Forms.uc_NotificationRequestRefuse refuseControl = new Forms.uc_NotificationRequestRefuse();
-                notifyControl.SetName(name);
-                notifyControl.Dock = DockStyle.Top;
-                Notification_Panel.Controls.Add(notifyControl);
-
-                refuseControl.SetName(name);
-                refuseControl.Dock = DockStyle.Top;
-                Notification_Panel.Controls.Add(refuseControl);
+                // Xử lý lỗi nếu cần
             }
         }
 

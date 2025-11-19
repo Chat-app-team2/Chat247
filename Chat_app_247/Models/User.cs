@@ -41,5 +41,7 @@ namespace Chat_app_247.Class
 
         // Danh sách ID của những người mình đã gửi lời mời kết bạn
         public List<string> FriendRequestSentIds { get; set; }
+        // Danh sách thông báo sau khi người đã chấp nhận hoặc từ chối lời mời
+        public Dictionary<string, bool> Notifications { get; set; }
     }
 }
