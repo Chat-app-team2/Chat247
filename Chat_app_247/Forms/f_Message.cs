@@ -62,6 +62,7 @@ namespace Chat_app_247
 
             // Gắn sự kiện load form
             this.Load += async (s, e) => await LoadFriendsListAsync();
+
         }
 
         // Dùng FireSharp để tải danh sách bạn bè
@@ -343,6 +344,54 @@ namespace Chat_app_247
             finally
             {
                 _isSending = false;
+            }
+        }
+
+
+        private void btn_sendfile_Click(object sender, EventArgs e)
+        {
+            flpEmoji.Visible = !flpEmoji.Visible;   // bấm 1 lần hiện, bấm nữa ẩn
+            flpEmoji.BringToFront();               // kéo panel emoji lên trên nếu bị che
+        }
+
+        private void f_Message_Load_1(object sender, EventArgs e)
+        {
+            InitEmojiPanel();
+        }
+        private void InitEmojiPanel()
+        {
+            string[] emojis =
+            {
+        "😀", "😁", "😂", "🤣", "😊", "😍", "😎",
+        "😢", "😡", "👍", "🙏", "❤", "🎉"
+    };
+
+            flpEmoji.Controls.Clear();
+
+            foreach (var emo in emojis)
+            {
+                var btn = new Button();
+                btn.Text = emo;
+                btn.Width = 35;
+                btn.Height = 35;
+                btn.Font = new Font("Segoe UI Emoji", 14);
+                btn.Margin = new Padding(3);
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.Click += EmojiButton_Click;
+
+                flpEmoji.Controls.Add(btn);
+            }
+        }
+
+        // Khi bấm vào 1 emoji
+        private void EmojiButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                int pos = txt_mess.SelectionStart;
+                txt_mess.Text = txt_mess.Text.Insert(pos, btn.Text);
+                txt_mess.SelectionStart = pos + btn.Text.Length;
+                txt_mess.Focus();
             }
         }
     }
