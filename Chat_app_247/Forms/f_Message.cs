@@ -44,6 +44,7 @@ namespace Chat_app_247
         // Cờ chặn double-click gửi
         private bool _isSending = false;
 
+        private UcEmojiPicker _emojiPicker;
         // Constructor
         public f_Message(IFirebaseClient client, string userId)
         {
@@ -59,7 +60,17 @@ namespace Chat_app_247
             // Cài đặt UI
             pnl_information.Visible = false;
             pnl_mess.Visible = false;
+            // ====== TẠO UC EMOJI PICKER ======
+            _emojiPicker = new UcEmojiPicker();
+            _emojiPicker.Visible = false;             // ban đầu ẩn
+            _emojiPicker.Dock = DockStyle.Top;        // NẰM TRÊN THANH GÕ
+            _emojiPicker.OnEmojiSelected += EmojiPicker_OnEmojiSelected;
 
+            // Thêm vào panel chứa THANH GÕ (panel có txt_mess, nút Gửi, nút emoji)
+            pnl_mess.Controls.Add(_emojiPicker);      // <--- THAY bằng tên panel thật
+            pnl_mess.Controls.SetChildIndex(_emojiPicker, 0); // UC ở trên, thanh gõ ở dưới
+                                                              // BẮT SỰ KIỆN TEXTBOX
+         
             // Gắn sự kiện load form
             this.Load += async (s, e) => await LoadFriendsListAsync();
 
@@ -308,7 +319,8 @@ namespace Chat_app_247
             {
                 return;
             }
-
+            // CHỮ TRƯỚC – EMOJI SAU
+            content = ReorderTextAndEmoji(content);
             try
             {
                 _isSending = true;
@@ -350,49 +362,68 @@ namespace Chat_app_247
 
         private void btn_sendfile_Click(object sender, EventArgs e)
         {
-            flpEmoji.Visible = !flpEmoji.Visible;   // bấm 1 lần hiện, bấm nữa ẩn
-            flpEmoji.BringToFront();               // kéo panel emoji lên trên nếu bị che
+            _emojiPicker.Visible = !_emojiPicker.Visible;
+            _emojiPicker.BringToFront();
         }
+        //Hàm nhận emoji từ UC
+        private void EmojiPicker_OnEmojiSelected(string emoji)
+        {
 
+            txt_mess.Focus();
+
+            if (string.IsNullOrWhiteSpace(txt_mess.Text))
+            {
+                // Nếu chưa có gì, chỉ gửi emoji thôi
+                txt_mess.Text = emoji;
+            }
+            else
+            {
+                // Nếu đã có text, luôn thêm emoji sau cùng, có 1 khoảng trắng
+                txt_mess.Text = txt_mess.Text.TrimEnd() + " " + emoji;
+            }
+
+            txt_mess.SelectionStart = txt_mess.TextLength;  // caret về cuối
+        }
+        // Đưa phần chữ (chữ/số) ra trước, phần emoji/ký tự đặc biệt ở đầu ra sau
+        private string ReorderTextAndEmoji(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return input;
+
+            input = input.Trim();
+
+            // Tìm vị trí ký tự chữ/số đầu tiên (kể cả tiếng Việt)
+            int firstTextIndex = -1;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (char.IsLetterOrDigit(input[i]))
+                {
+                    firstTextIndex = i;
+                    break;
+                }
+            }
+
+            // Không có chữ => toàn emoji / ký tự đặc biệt => giữ nguyên
+            if (firstTextIndex <= 0)
+                return input;
+
+            string leading = input.Substring(0, firstTextIndex).Trim();   // đoạn đầu (emoji)
+            string textPart = input.Substring(firstTextIndex).Trim();     // đoạn chữ
+
+            if (string.IsNullOrEmpty(leading) || string.IsNullOrEmpty(textPart))
+                return input;
+
+            // chữ trước, emoji sau
+            return textPart + " " + leading;
+        }
         private void f_Message_Load_1(object sender, EventArgs e)
         {
-            InitEmojiPanel();
+            
         }
-        private void InitEmojiPanel()
-        {
-            string[] emojis =
-            {
-        "😀", "😁", "😂", "🤣", "😊", "😍", "😎",
-        "😢", "😡", "👍", "🙏", "❤", "🎉"
+       
     };
 
-            flpEmoji.Controls.Clear();
+  }
 
-            foreach (var emo in emojis)
-            {
-                var btn = new Button();
-                btn.Text = emo;
-                btn.Width = 35;
-                btn.Height = 35;
-                btn.Font = new Font("Segoe UI Emoji", 14);
-                btn.Margin = new Padding(3);
-                btn.FlatStyle = FlatStyle.Flat;
-                btn.Click += EmojiButton_Click;
-
-                flpEmoji.Controls.Add(btn);
-            }
-        }
-
-        // Khi bấm vào 1 emoji
-        private void EmojiButton_Click(object sender, EventArgs e)
-        {
-            if (sender is Button btn)
-            {
-                int pos = txt_mess.SelectionStart;
-                txt_mess.Text = txt_mess.Text.Insert(pos, btn.Text);
-                txt_mess.SelectionStart = pos + btn.Text.Length;
-                txt_mess.Focus();
-            }
-        }
-    }
-}
+        
+       
