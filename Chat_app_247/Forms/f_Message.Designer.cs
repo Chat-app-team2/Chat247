@@ -48,7 +48,6 @@
             Mess_panel = new Panel();
             flpMessages = new FlowLayoutPanel();
             pnl_mess = new Guna.UI2.WinForms.Guna2Panel();
-            flpEmoji = new FlowLayoutPanel();
             btn_voice = new Guna.UI2.WinForms.Guna2Button();
             btn_send = new Guna.UI2.WinForms.Guna2Button();
             btn_sendfile = new Guna.UI2.WinForms.Guna2Button();
@@ -91,7 +90,7 @@
             flpMessages.Location = new Point(0, 102);
             flpMessages.Margin = new Padding(4);
             flpMessages.Name = "flpMessages";
-            flpMessages.Size = new Size(896, 455);
+            flpMessages.Size = new Size(896, 453);
             flpMessages.TabIndex = 4;
             flpMessages.WrapContents = false;
             // 
@@ -99,7 +98,6 @@
             // 
             pnl_mess.BorderColor = Color.Black;
             pnl_mess.BorderThickness = 2;
-            pnl_mess.Controls.Add(flpEmoji);
             pnl_mess.Controls.Add(btn_voice);
             pnl_mess.Controls.Add(btn_send);
             pnl_mess.Controls.Add(btn_sendfile);
@@ -107,22 +105,12 @@
             pnl_mess.CustomizableEdges = customizableEdges9;
             pnl_mess.Dock = DockStyle.Bottom;
             pnl_mess.FillColor = Color.White;
-            pnl_mess.Location = new Point(0, 557);
+            pnl_mess.Location = new Point(0, 555);
             pnl_mess.Name = "pnl_mess";
             pnl_mess.Padding = new Padding(12);
             pnl_mess.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            pnl_mess.Size = new Size(896, 116);
+            pnl_mess.Size = new Size(896, 118);
             pnl_mess.TabIndex = 3;
-            // 
-            // flpEmoji
-            // 
-            flpEmoji.AutoScroll = true;
-            flpEmoji.Dock = DockStyle.Top;
-            flpEmoji.Location = new Point(70, 12);
-            flpEmoji.Name = "flpEmoji";
-            flpEmoji.Size = new Size(642, 43);
-            flpEmoji.TabIndex = 4;
-            flpEmoji.Visible = false;
             // 
             // btn_voice
             // 
@@ -139,7 +127,7 @@
             btn_voice.Location = new Point(12, 12);
             btn_voice.Name = "btn_voice";
             btn_voice.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btn_voice.Size = new Size(58, 92);
+            btn_voice.Size = new Size(58, 94);
             btn_voice.TabIndex = 3;
             btn_voice.Text = "🎙";
             // 
@@ -158,7 +146,7 @@
             btn_send.Location = new Point(712, 12);
             btn_send.Name = "btn_send";
             btn_send.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btn_send.Size = new Size(114, 92);
+            btn_send.Size = new Size(114, 94);
             btn_send.TabIndex = 2;
             btn_send.Text = "Gửi";
             btn_send.Click += btn_send_Click;
@@ -178,7 +166,7 @@
             btn_sendfile.Location = new Point(826, 12);
             btn_sendfile.Name = "btn_sendfile";
             btn_sendfile.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btn_sendfile.Size = new Size(58, 92);
+            btn_sendfile.Size = new Size(58, 94);
             btn_sendfile.TabIndex = 1;
             btn_sendfile.Text = "😊";
             btn_sendfile.Click += btn_sendfile_Click;
@@ -186,7 +174,7 @@
             // txt_mess
             // 
             txt_mess.AutoRoundedCorners = true;
-            txt_mess.BorderRadius = 29;
+            txt_mess.BorderRadius = 40;
             txt_mess.CustomizableEdges = customizableEdges7;
             txt_mess.DefaultText = "";
             txt_mess.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -196,13 +184,13 @@
             txt_mess.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txt_mess.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txt_mess.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txt_mess.Location = new Point(80, 50);
+            txt_mess.Location = new Point(80, 18);
             txt_mess.Margin = new Padding(4, 6, 4, 6);
             txt_mess.Name = "txt_mess";
             txt_mess.PlaceholderText = "Nhập tin nhắn...";
             txt_mess.SelectedText = "";
             txt_mess.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txt_mess.Size = new Size(630, 60);
+            txt_mess.Size = new Size(630, 82);
             txt_mess.TabIndex = 0;
             // 
             // pnl_information
@@ -365,6 +353,5 @@
         private Guna.UI2.WinForms.Guna2Button btn_voice;
         private Guna.UI2.WinForms.Guna2Button btn_call;
         private FlowLayoutPanel flpMessages;
-        private FlowLayoutPanel flpEmoji;
     }
 }
