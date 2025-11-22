@@ -44,7 +44,15 @@ namespace Chat_app_247
 
         // Cờ chặn double-click gửi
         private bool _isSending = false;
+        // Chat hiện tại là nhóm hay cá nhân
+        private bool _isCurrentGroupChat = false;
 
+        // Nếu là chat cá nhân
+        private User _currentFriendUser;
+
+        // Nếu là chat nhóm
+        private string _currentGroupName;
+        private string _currentGroupImageUrl;
         private UcEmojiPicker _emojiPicker;
         // Constructor
         public f_Message(IFirebaseClient client, string userId)
@@ -182,9 +190,21 @@ namespace Chat_app_247
 
             try
             {
+                // ===== đánh dấu đang chat cá nhân =====
+                _isCurrentGroupChat = false;
+                _currentFriendUser = friend;
+                _currentGroupName = null;
+                _currentGroupImageUrl = null;
                 // Hủy listener tin nhắn cũ
                 _messageSubscription?.Dispose();
+                // ẨN MÀN TẠO NHÓM nếu đang mở
+                pnlCreateGroup.Visible = false;
 
+                // Ẩn panel thông tin (nếu đang mở)
+                pnlInfo.Visible = false;
+                pnlInfo.Controls.Clear();
+                //  dọn luôn control bên trong
+                pnlCreateGroup.Controls.Clear();
                 // Hiển thị thông tin
                 pnl_information.Visible = true;
                 pnl_mess.Visible = true;
@@ -478,7 +498,7 @@ namespace Chat_app_247
             uc.CurrentUserId = _userId;
             uc.IdToken = "";
 
-            uc.LoadFriends(_friends); 
+            uc.LoadFriends(_friends);
 
             // Khi tạo nhóm xong:
             uc.GroupCreated += (convId, groupName, groupImageUrl) =>
@@ -503,8 +523,22 @@ namespace Chat_app_247
             pnlCreateGroup.BringToFront();
         }
         private async void OpenGroupConversation(string conversationId, string groupName, string groupImageUrl)
-        {// Hủy listener cũ
+        {
+            // ===== đánh dấu đang chat NHÓM =====
+            _isCurrentGroupChat = true;
+            _currentFriendUser = null;
+            _currentGroupName = groupName;
+            _currentGroupImageUrl = groupImageUrl;
+
+            // Hủy listener cũ
             _messageSubscription?.Dispose();
+
+            // ẨN MÀN TẠO NHÓM nếu đang mở
+            pnlCreateGroup.Visible = false;
+            pnlCreateGroup.Controls.Clear();
+            // Ẩn panel thông tin (nếu đang mở)
+            pnlInfo.Visible = false;
+            pnlInfo.Controls.Clear();
 
             // Hiển thị khu vực chat
             pnl_information.Visible = true;
@@ -546,10 +580,13 @@ namespace Chat_app_247
         }
         private void AddGroupItemToList(string conversationId, string groupName, string groupImageUrl)
         {
-            var ucGroup = new UcGroupItem();
+            var ucGroup = new UcMessUser();
             ucGroup.Dock = DockStyle.Top;
-            ucGroup.SetData(conversationId, groupName, groupImageUrl);
 
+            // DÙNG HÀM MỚI CHO NHÓM
+            ucGroup.SetGroupData(conversationId, groupName, groupImageUrl);
+
+            // Bấm Chat -> mở chat nhóm
             ucGroup.OnGroupChatClicked += (convId, name, imgUrl) =>
             {
                 OpenGroupConversation(convId, name, imgUrl);
@@ -560,9 +597,67 @@ namespace Chat_app_247
             Message_panel.Controls.SetChildIndex(ucGroup, 0);
         }
 
-    }
+        private async void btnMore_Click(object sender, EventArgs e)
+        {
+            // Nếu chưa mở cuộc chat nào thì thôi
+            if (string.IsNullOrEmpty(_currentConversationId))
+                return;
 
+            // Dọn panel info
+            pnlInfo.Controls.Clear();
+
+            // Hiện panel info, ẩn khung chat
+            pnlInfo.Visible = true;
+            flpMessages.Visible = false;
+            pnl_mess.Visible = false;
+
+            if (_isCurrentGroupChat)
+            {
+                // ==== THÔNG TIN NHÓM ====
+                var ucGroupInfo = new UC_ThongTinNhom();
+                ucGroupInfo.Dock = DockStyle.Fill;
+
+                // Truyền client + conversationId cho UC, để nó tự đọc Firebase
+                ucGroupInfo.FirebaseClient = _client;
+                ucGroupInfo.ConversationId = _currentConversationId;
+
+                // Đăng ký sự kiện Đóng
+                ucGroupInfo.OnCloseRequested += HideInfoPanel;
+
+                // Gọi load từ Firebase
+                await ucGroupInfo.LoadDataAsync();
+
+                pnlInfo.Controls.Add(ucGroupInfo);
+            }
+            else
+            {
+                // ==== THÔNG TIN CÁ NHÂN ====
+                if (_currentFriendUser == null) return;
+
+                var ucUserInfo = new UC_ThongTinCaNhan();
+                ucUserInfo.Dock = DockStyle.Fill;
+
+                ucUserInfo.FirebaseClient = _client;
+                ucUserInfo.UserId = _currentFriendUser.UserId;
+
+                ucUserInfo.OnCloseRequested += HideInfoPanel;
+
+                await ucUserInfo.LoadDataAsync();
+
+                pnlInfo.Controls.Add(ucUserInfo);
+            }
+        }
+            // Hàm dùng chung để ẩn panel info và quay lại màn chat
+            private void HideInfoPanel()
+            {
+            pnlInfo.Visible = false;
+            flpMessages.Visible = true;
+            pnl_mess.Visible = true;
+             }
+    }
 }
+
+
 
         
        

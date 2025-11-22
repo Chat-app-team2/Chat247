@@ -20,7 +20,9 @@ namespace Chat_app_247.Forms
     public partial class UC_TaoNhom : UserControl
     {
 
-      
+
+        private static readonly HttpClient _http = new HttpClient();
+
         private string _avatarLocalPath = "";
 
         // từ FirebaseAuthService 
@@ -30,6 +32,11 @@ namespace Chat_app_247.Forms
         private readonly FirebaseDatabaseService _dbService = new FirebaseDatabaseService();
         private readonly CloudinaryService _cloudService = new CloudinaryService();
         private List<User> _friends = new List<User>();
+
+        // ImageList cho 2 ListView
+        private readonly ImageList _imageListTatCa = new ImageList();
+        private readonly ImageList _imageListThanhVien = new ImageList();
+
         // Event báo cho form cha khi tạo nhóm thành công
         public event Action<string, string, string> GroupCreated;
         public UC_TaoNhom()
@@ -37,7 +44,16 @@ namespace Chat_app_247.Forms
             InitializeComponent();
             btnChonAnh.Click += btnChonAnh_Click;
             btnTaoNhom.Click += btnTaoNhom_Click;
+
+            // ===== CẤU HÌNH IMAGELIST =====
+            _imageListTatCa.ImageSize = new Size(32, 32);
+            _imageListTatCa.ColorDepth = ColorDepth.Depth32Bit;
+            // gắn sự kiện double-click
             lstTatCaUser.DoubleClick += lstTatCaUser_DoubleClick;
+
+            _imageListThanhVien.ImageSize = new Size(32, 32);
+            _imageListThanhVien.ColorDepth = ColorDepth.Depth32Bit;
+            // gắn sự kiện double-click
             lstThanhVienChon.DoubleClick += lstThanhVienChon_DoubleClick;
         }
         // Xử lý nút Chọn ảnh
@@ -55,15 +71,46 @@ namespace Chat_app_247.Forms
             }
         }
         // Nhận danh sách bạn bè từ form cha và hiển thị lên lstTatCaUser
-        public void LoadFriends(List<User> friends)
+        public async void LoadFriends(List<User> friends)
         {
             _friends = friends ?? new List<User>();
 
             lstTatCaUser.Items.Clear();
+            _imageListTatCa.Images.Clear();
+
             foreach (var u in _friends)
             {
-                lstTatCaUser.Items.Add(u);   // User.ToString() sẽ hiển thị DisplayName
+                int imgIndex = -1;
+
+                // Tải avatar nếu có
+                if (!string.IsNullOrEmpty(u.ProfilePictureUrl))
+                {
+                    try
+                    {
+                        var bytes = await _http.GetByteArrayAsync(u.ProfilePictureUrl);
+                        using (var ms = new MemoryStream(bytes))
+                        {
+                            var avatar = Image.FromStream(ms);
+                            _imageListTatCa.Images.Add(avatar);
+                            imgIndex = _imageListTatCa.Images.Count - 1;
+                        }
+                    }
+                    catch
+                    {
+                        // bỏ qua lỗi ảnh
+                    }
+                }
+
+                var item = new ListViewItem(u.DisplayName ?? "(Không tên)");
+                item.Tag = u;                // lưu cả User để dùng sau
+                if (imgIndex >= 0)
+                    item.ImageIndex = imgIndex;
+
+                lstTatCaUser.Items.Add(item);
             }
+
+            if (lstTatCaUser.Columns.Count > 0)
+                lstTatCaUser.Columns[0].Width = -2;   // auto fit
         }
         // Xử lý nút Tạo nhóm
         private async void btnTaoNhom_Click(object sender, EventArgs e)
@@ -88,11 +135,16 @@ namespace Chat_app_247.Forms
                 return;
             }
 
-            // 1. Lấy danh sách uid thành viên
+            // 1. Lấy danh sách uid thành viên từ ListView bên phải
             var participantIds = lstThanhVienChon.Items
-                .Cast<User>()                // Chat_app_247.Models.User
-                .Select(u => u.UserId)
+                .Cast<ListViewItem>()
+                .Select(it => (it.Tag as User)?.UserId)
+                .Where(id => !string.IsNullOrEmpty(id))
                 .ToList();
+
+            // Đảm bảo chủ nhóm (CurrentUserId) có trong danh sách
+            if (!participantIds.Contains(CurrentUserId))
+                participantIds.Add(CurrentUserId);
 
             // 2. Upload ảnh nhóm lên Cloudinary (nếu người dùng chọn ảnh)
             string groupImageUrl = null;
@@ -123,28 +175,46 @@ namespace Chat_app_247.Forms
             {
                 MessageBox.Show("Lỗi khi tạo nhóm: " + ex.Message);
             }
-
         }
         // Double-click bạn bè bên trái để thêm vào danh sách thành viên
         private void lstTatCaUser_DoubleClick(object sender, EventArgs e)
         {
-            if (lstTatCaUser.SelectedItem is User u)
+            if (lstTatCaUser.SelectedItems.Count == 0) return;
+
+            var item = lstTatCaUser.SelectedItems[0];
+            if (item.Tag is User u)
             {
                 // tránh trùng
-                bool exists = lstThanhVienChon.Items.Cast<User>().Any(x => x.UserId == u.UserId);
-                if (!exists)
+                bool exists = lstThanhVienChon.Items.Cast<ListViewItem>()
+                    .Any(x => x.Tag is User u2 && u2.UserId == u.UserId);
+
+                if (exists) return;
+
+                int imgIndex = -1;
+                if (item.ImageIndex >= 0)
                 {
-                    lstThanhVienChon.Items.Add(u);
+                    // copy avatar sang ImageList bên phải
+                    var img = _imageListTatCa.Images[item.ImageIndex];
+                    _imageListThanhVien.Images.Add(img);
+                    imgIndex = _imageListThanhVien.Images.Count - 1;
                 }
+
+                var newItem = new ListViewItem(item.Text);
+                newItem.Tag = u;
+                if (imgIndex >= 0)
+                    newItem.ImageIndex = imgIndex;
+
+                lstThanhVienChon.Items.Add(newItem);
+
+                if (lstThanhVienChon.Columns.Count > 0)
+                    lstThanhVienChon.Columns[0].Width = -2;
             }
         }
         // Double-click thành viên bên phải để bỏ ra
         private void lstThanhVienChon_DoubleClick(object sender, EventArgs e)
         {
-            if (lstThanhVienChon.SelectedItem != null)
-            {
-                lstThanhVienChon.Items.Remove(lstThanhVienChon.SelectedItem);
-            }
+            if (lstThanhVienChon.SelectedItems.Count == 0) return;
+            lstThanhVienChon.Items.Remove(lstThanhVienChon.SelectedItems[0]);
         }
     }
 }
