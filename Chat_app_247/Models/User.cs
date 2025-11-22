@@ -43,5 +43,10 @@ namespace Chat_app_247.Class
         public List<string> FriendRequestSentIds { get; set; }
         // Danh sách thông báo sau khi người đã chấp nhận hoặc từ chối lời mời
         public Dictionary<string, bool> Notifications { get; set; }
+        public override string ToString()
+        {
+            // để ListBox hiển thị tên người dùng
+            return !string.IsNullOrEmpty(DisplayName) ? DisplayName : Email;
+        }
     }
 }

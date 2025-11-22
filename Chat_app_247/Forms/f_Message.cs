@@ -28,6 +28,7 @@ namespace Chat_app_247
         private IFirebaseClient _client;
         private string _userId;
         private string _currentConversationId;
+        private List<User> _friends = new List<User>();
 
         // Client mới cho Observable (FirebaseDatabase.net)
         private FirebaseClient _realtimeClient;
@@ -70,9 +71,13 @@ namespace Chat_app_247
             pnl_mess.Controls.Add(_emojiPicker);      // <--- THAY bằng tên panel thật
             pnl_mess.Controls.SetChildIndex(_emojiPicker, 0); // UC ở trên, thanh gõ ở dưới
                                                               // BẮT SỰ KIỆN TEXTBOX
-         
+
             // Gắn sự kiện load form
-            this.Load += async (s, e) => await LoadFriendsListAsync();
+            this.Load += async (s, e) =>
+            {
+                await LoadFriendsListAsync();        // load bạn bè
+                await LoadGroupConversationsAsync(); // load các nhóm mình đang tham gia
+            };
 
         }
 
@@ -89,6 +94,7 @@ namespace Chat_app_247
                 if (friendIds == null || friendIds.Count == 0) return;
 
                 Message_panel.Controls.Clear();
+                _friends.Clear();
 
                 foreach (var friendId in friendIds)
                 {
@@ -97,6 +103,8 @@ namespace Chat_app_247
 
                     if (friendUser != null)
                     {
+                        // Lưu vào list bạn bè để dùng cho tạo nhóm
+                        _friends.Add(friendUser);
                         UcMessUser ucFriend = new UcMessUser();
                         ucFriend.Dock = DockStyle.Top;
                         ucFriend.SetData(friendUser);
@@ -109,6 +117,47 @@ namespace Chat_app_247
             catch (Exception ex)
             {
                 Debug.WriteLine($"Lỗi tải danh sách bạn bè: {ex.Message}");
+            }
+        }
+        // Dùng FireSharp để tải danh sách GROUP mà mình là thành viên
+        private async Task LoadGroupConversationsAsync()
+        {
+            try
+            {
+                // Lấy hết Conversations từ Firebase
+                FirebaseResponse res = await _client.GetAsync("Conversations");
+
+                if (res.Body == "null" || string.IsNullOrEmpty(res.Body))
+                    return;
+
+                // Parse JSON sang Dictionary<string, Conversation>
+                var allConversations =
+                    JsonConvert.DeserializeObject<Dictionary<string, Conversation>>(res.Body);
+
+                if (allConversations == null) return;
+
+                foreach (var kvp in allConversations)
+                {
+                    var conv = kvp.Value;
+
+                    // chỉ lấy các cuộc chat nhóm mà mình là thành viên
+                    if (conv != null &&
+                        conv.IsGroupChat &&
+                        conv.ParticipantIds != null &&
+                        conv.ParticipantIds.Contains(_userId))
+                    {
+                        // ConversationId có thể null => dùng key Firebase
+                        string convId = !string.IsNullOrEmpty(conv.ConversationId)
+                                        ? conv.ConversationId
+                                        : kvp.Key;
+
+                        AddGroupItemToList(convId, conv.GroupName, conv.GroupImageUrl);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Lỗi tải danh sách nhóm: {ex.Message}");
             }
         }
 
@@ -418,12 +467,102 @@ namespace Chat_app_247
         }
         private void f_Message_Load_1(object sender, EventArgs e)
         {
-            
-        }
-       
-    };
 
-  }
+        }
+
+        private void Group_button_Click(object sender, EventArgs e)
+        {
+            var uc = new UC_TaoNhom();
+            uc.Dock = DockStyle.Fill;
+
+            uc.CurrentUserId = _userId;
+            uc.IdToken = "";
+
+            uc.LoadFriends(_friends); 
+
+            // Khi tạo nhóm xong:
+            uc.GroupCreated += (convId, groupName, groupImageUrl) =>
+            {
+                // Ẩn màn tạo nhóm
+                pnlCreateGroup.Visible = false;
+
+                // Thêm UC đại diện cho nhóm vào list bên trái
+                AddGroupItemToList(convId, groupName, groupImageUrl);
+
+                // Mở luôn phòng chat nhóm
+                OpenGroupConversation(convId, groupName, groupImageUrl);
+            };
+
+            // Ẩn chat, hiện panel tạo nhóm
+            pnl_information.Visible = false;
+            pnl_mess.Visible = false;
+
+            pnlCreateGroup.Controls.Clear();
+            pnlCreateGroup.Controls.Add(uc);
+            pnlCreateGroup.Visible = true;
+            pnlCreateGroup.BringToFront();
+        }
+        private async void OpenGroupConversation(string conversationId, string groupName, string groupImageUrl)
+        {// Hủy listener cũ
+            _messageSubscription?.Dispose();
+
+            // Hiển thị khu vực chat
+            pnl_information.Visible = true;
+            pnl_mess.Visible = true;
+
+            // tiêu đề = tên nhóm
+            guna2HtmlLabel1.Text = groupName;
+
+            // Nhóm không có trạng thái online -> xám
+            status.FillColor = Color.Gray;
+
+            // ảnh nhóm
+            if (!string.IsNullOrEmpty(groupImageUrl))
+            {
+                try
+                {
+                    using (var http = new HttpClient())
+                    {
+                        var data = await http.GetByteArrayAsync(groupImageUrl);
+                        using (var ms = new MemoryStream(data))
+                        {
+                            pic_ava.Image = Image.FromStream(ms);
+                        }
+                    }
+                }
+                catch
+                {
+                    pic_ava.Image = null;
+                }
+            }
+            else
+            {
+                pic_ava.Image = null;
+            }
+
+            _currentConversationId = conversationId;
+
+            await ListenForNewMessages(_currentConversationId);
+        }
+        private void AddGroupItemToList(string conversationId, string groupName, string groupImageUrl)
+        {
+            var ucGroup = new UcGroupItem();
+            ucGroup.Dock = DockStyle.Top;
+            ucGroup.SetData(conversationId, groupName, groupImageUrl);
+
+            ucGroup.OnGroupChatClicked += (convId, name, imgUrl) =>
+            {
+                OpenGroupConversation(convId, name, imgUrl);
+            };
+
+            // thêm vào trên cùng
+            Message_panel.Controls.Add(ucGroup);
+            Message_panel.Controls.SetChildIndex(ucGroup, 0);
+        }
+
+    }
+
+}
 
         
        
