@@ -37,17 +37,19 @@
             flpEmoji.Dock = DockStyle.Fill;
             flpEmoji.Font = new Font("Segoe UI Emoji", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             flpEmoji.Location = new Point(0, 0);
+            flpEmoji.Margin = new Padding(2);
             flpEmoji.Name = "flpEmoji";
-            flpEmoji.Size = new Size(865, 150);
+            flpEmoji.Size = new Size(454, 59);
             flpEmoji.TabIndex = 0;
             // 
             // UcEmojiPicker
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(flpEmoji);
+            Margin = new Padding(2);
             Name = "UcEmojiPicker";
-            Size = new Size(865, 150);
+            Size = new Size(454, 59);
             ResumeLayout(false);
         }
 
