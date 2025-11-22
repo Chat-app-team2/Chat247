@@ -34,9 +34,9 @@ namespace Chat_app_247.Forms
             {
                 var btn = new Button();
                 btn.Text = emo;
-                btn.Width = 45;
-                btn.Height = 45;
-                btn.Font = new Font("Segoe UI Emoji", 20, FontStyle.Bold);
+                btn.Width = 50;
+                btn.Height = 50;
+                btn.Font = new Font("Segoe UI Emoji", 15, FontStyle.Bold);
                 btn.BackColor = Color.White;
                 btn.ForeColor = Color.Black;
                 btn.FlatStyle = FlatStyle.Flat;
