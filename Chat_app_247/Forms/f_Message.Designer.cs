@@ -28,34 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Mess_panel = new Panel();
-            flpMessages = new FlowLayoutPanel();
             pnlCreateGroup = new Guna.UI2.WinForms.Guna2Panel();
+            pnlInfo = new Guna.UI2.WinForms.Guna2Panel();
+            flpMessages = new FlowLayoutPanel();
             pnl_mess = new Guna.UI2.WinForms.Guna2Panel();
             btn_voice = new Guna.UI2.WinForms.Guna2Button();
             btn_send = new Guna.UI2.WinForms.Guna2Button();
             btn_sendfile = new Guna.UI2.WinForms.Guna2Button();
             txt_mess = new Guna.UI2.WinForms.Guna2TextBox();
             pnl_information = new Guna.UI2.WinForms.Guna2Panel();
+            btnMore = new Guna.UI2.WinForms.Guna2Button();
             btn_call = new Guna.UI2.WinForms.Guna2Button();
             pic_ava = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             status = new Guna.UI2.WinForms.Guna2Panel();
@@ -74,6 +80,7 @@
             // 
             Mess_panel.AutoScroll = true;
             Mess_panel.BorderStyle = BorderStyle.FixedSingle;
+            Mess_panel.Controls.Add(pnlInfo);
             Mess_panel.Controls.Add(pnlCreateGroup);
             Mess_panel.Controls.Add(flpMessages);
             Mess_panel.Controls.Add(pnl_mess);
@@ -84,6 +91,31 @@
             Mess_panel.Name = "Mess_panel";
             Mess_panel.Size = new Size(898, 675);
             Mess_panel.TabIndex = 0;
+            // 
+            // pnlCreateGroup
+            // 
+            pnlCreateGroup.BackColor = Color.Gray;
+            pnlCreateGroup.CustomizableEdges = customizableEdges3;
+            pnlCreateGroup.Dock = DockStyle.Fill;
+            pnlCreateGroup.FillColor = Color.Transparent;
+            pnlCreateGroup.Location = new Point(0, 102);
+            pnlCreateGroup.Name = "pnlCreateGroup";
+            pnlCreateGroup.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pnlCreateGroup.Size = new Size(896, 460);
+            pnlCreateGroup.TabIndex = 0;
+            pnlCreateGroup.Visible = false;
+            // 
+            // pnlInfo
+            // 
+            pnlInfo.BackColor = Color.WhiteSmoke;
+            pnlInfo.CustomizableEdges = customizableEdges1;
+            pnlInfo.Dock = DockStyle.Fill;
+            pnlInfo.Location = new Point(0, 102);
+            pnlInfo.Name = "pnlInfo";
+            pnlInfo.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pnlInfo.Size = new Size(896, 460);
+            pnlInfo.TabIndex = 5;
+            pnlInfo.Visible = false;
             // 
             // flpMessages
             // 
@@ -99,19 +131,6 @@
             flpMessages.TabIndex = 4;
             flpMessages.WrapContents = false;
             // 
-            // pnlCreateGroup
-            // 
-            pnlCreateGroup.BackColor = Color.Gray;
-            pnlCreateGroup.CustomizableEdges = customizableEdges1;
-            pnlCreateGroup.Dock = DockStyle.Fill;
-            pnlCreateGroup.FillColor = Color.Transparent;
-            pnlCreateGroup.Location = new Point(0, 102);
-            pnlCreateGroup.Name = "pnlCreateGroup";
-            pnlCreateGroup.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlCreateGroup.Size = new Size(896, 460);
-            pnlCreateGroup.TabIndex = 0;
-            pnlCreateGroup.Visible = false;
-            // 
             // pnl_mess
             // 
             pnl_mess.BorderColor = Color.Black;
@@ -120,20 +139,20 @@
             pnl_mess.Controls.Add(btn_send);
             pnl_mess.Controls.Add(btn_sendfile);
             pnl_mess.Controls.Add(txt_mess);
-            pnl_mess.CustomizableEdges = customizableEdges11;
+            pnl_mess.CustomizableEdges = customizableEdges13;
             pnl_mess.Dock = DockStyle.Bottom;
             pnl_mess.FillColor = Color.White;
             pnl_mess.Location = new Point(0, 562);
             pnl_mess.Name = "pnl_mess";
             pnl_mess.Padding = new Padding(12);
-            pnl_mess.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            pnl_mess.ShadowDecoration.CustomizableEdges = customizableEdges14;
             pnl_mess.Size = new Size(896, 111);
             pnl_mess.TabIndex = 3;
             // 
             // btn_voice
             // 
             btn_voice.AutoRoundedCorners = true;
-            btn_voice.CustomizableEdges = customizableEdges3;
+            btn_voice.CustomizableEdges = customizableEdges5;
             btn_voice.DisabledState.BorderColor = Color.DarkGray;
             btn_voice.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_voice.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -144,7 +163,7 @@
             btn_voice.ForeColor = Color.White;
             btn_voice.Location = new Point(12, 12);
             btn_voice.Name = "btn_voice";
-            btn_voice.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_voice.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btn_voice.Size = new Size(58, 87);
             btn_voice.TabIndex = 3;
             btn_voice.Text = "🎙";
@@ -152,7 +171,7 @@
             // btn_send
             // 
             btn_send.AutoRoundedCorners = true;
-            btn_send.CustomizableEdges = customizableEdges5;
+            btn_send.CustomizableEdges = customizableEdges7;
             btn_send.DisabledState.BorderColor = Color.DarkGray;
             btn_send.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_send.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -163,7 +182,7 @@
             btn_send.ForeColor = Color.White;
             btn_send.Location = new Point(712, 12);
             btn_send.Name = "btn_send";
-            btn_send.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btn_send.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btn_send.Size = new Size(114, 87);
             btn_send.TabIndex = 2;
             btn_send.Text = "Gửi";
@@ -172,7 +191,7 @@
             // btn_sendfile
             // 
             btn_sendfile.AutoRoundedCorners = true;
-            btn_sendfile.CustomizableEdges = customizableEdges7;
+            btn_sendfile.CustomizableEdges = customizableEdges9;
             btn_sendfile.DisabledState.BorderColor = Color.DarkGray;
             btn_sendfile.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_sendfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -183,7 +202,7 @@
             btn_sendfile.ForeColor = Color.White;
             btn_sendfile.Location = new Point(826, 12);
             btn_sendfile.Name = "btn_sendfile";
-            btn_sendfile.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btn_sendfile.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btn_sendfile.Size = new Size(58, 87);
             btn_sendfile.TabIndex = 1;
             btn_sendfile.Text = "😊";
@@ -193,7 +212,7 @@
             // 
             txt_mess.AutoRoundedCorners = true;
             txt_mess.BorderRadius = 42;
-            txt_mess.CustomizableEdges = customizableEdges9;
+            txt_mess.CustomizableEdges = customizableEdges11;
             txt_mess.DefaultText = "";
             txt_mess.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txt_mess.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -208,7 +227,7 @@
             txt_mess.Name = "txt_mess";
             txt_mess.PlaceholderText = "Nhập tin nhắn...";
             txt_mess.SelectedText = "";
-            txt_mess.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txt_mess.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txt_mess.Size = new Size(622, 86);
             txt_mess.TabIndex = 0;
             // 
@@ -217,35 +236,56 @@
             pnl_information.BorderColor = SystemColors.ActiveCaption;
             pnl_information.BorderRadius = 8;
             pnl_information.BorderThickness = 4;
+            pnl_information.Controls.Add(btnMore);
             pnl_information.Controls.Add(btn_call);
             pnl_information.Controls.Add(pic_ava);
             pnl_information.Controls.Add(status);
             pnl_information.Controls.Add(guna2HtmlLabel1);
-            pnl_information.CustomizableEdges = customizableEdges18;
+            pnl_information.CustomizableEdges = customizableEdges22;
             pnl_information.Dock = DockStyle.Top;
             pnl_information.FillColor = Color.White;
             pnl_information.Location = new Point(0, 0);
             pnl_information.Name = "pnl_information";
             pnl_information.Padding = new Padding(16, 10, 16, 10);
-            pnl_information.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            pnl_information.ShadowDecoration.CustomizableEdges = customizableEdges23;
             pnl_information.Size = new Size(896, 102);
             pnl_information.TabIndex = 1;
+            // 
+            // btnMore
+            // 
+            btnMore.BorderRadius = 40;
+            btnMore.CustomizableEdges = customizableEdges15;
+            btnMore.DisabledState.BorderColor = Color.DarkGray;
+            btnMore.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnMore.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnMore.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnMore.Dock = DockStyle.Right;
+            btnMore.FillColor = Color.FromArgb(114, 16, 84);
+            btnMore.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMore.ForeColor = Color.White;
+            btnMore.Location = new Point(638, 10);
+            btnMore.Name = "btnMore";
+            btnMore.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnMore.Size = new Size(128, 82);
+            btnMore.TabIndex = 7;
+            btnMore.Text = "⋯";
+            btnMore.Click += btnMore_Click;
             // 
             // btn_call
             // 
             btn_call.AutoRoundedCorners = true;
-            btn_call.CustomizableEdges = customizableEdges13;
+            btn_call.CustomizableEdges = customizableEdges17;
             btn_call.DisabledState.BorderColor = Color.DarkGray;
             btn_call.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_call.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btn_call.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btn_call.Dock = DockStyle.Right;
-            btn_call.FillColor = Color.FromArgb(0, 120, 212);
+            btn_call.FillColor = Color.FromArgb(114, 16, 84);
             btn_call.Font = new Font("Segoe UI", 9F);
             btn_call.ForeColor = Color.White;
             btn_call.Location = new Point(766, 10);
             btn_call.Name = "btn_call";
-            btn_call.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btn_call.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btn_call.Size = new Size(114, 82);
             btn_call.TabIndex = 6;
             btn_call.Text = "📞";
@@ -259,7 +299,7 @@
             pic_ava.Location = new Point(38, 15);
             pic_ava.Margin = new Padding(4);
             pic_ava.Name = "pic_ava";
-            pic_ava.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            pic_ava.ShadowDecoration.CustomizableEdges = customizableEdges19;
             pic_ava.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             pic_ava.Size = new Size(75, 75);
             pic_ava.SizeMode = PictureBoxSizeMode.Zoom;
@@ -271,11 +311,11 @@
             status.BorderColor = Color.White;
             status.BorderRadius = 6;
             status.BorderThickness = 2;
-            status.CustomizableEdges = customizableEdges16;
+            status.CustomizableEdges = customizableEdges20;
             status.FillColor = Color.LimeGreen;
             status.Location = new Point(80, 63);
             status.Name = "status";
-            status.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            status.ShadowDecoration.CustomizableEdges = customizableEdges21;
             status.Size = new Size(12, 12);
             status.TabIndex = 2;
             // 
@@ -374,5 +414,7 @@
         private Guna.UI2.WinForms.Guna2Button btn_call;
         private FlowLayoutPanel flpMessages;
         private Guna.UI2.WinForms.Guna2Panel pnlCreateGroup;
+        private Guna.UI2.WinForms.Guna2Panel pnlInfo;
+        private Guna.UI2.WinForms.Guna2Button btnMore;
     }
 }

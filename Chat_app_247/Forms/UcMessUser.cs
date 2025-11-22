@@ -18,9 +18,16 @@ namespace Chat_app_247.Forms
     {
         private static readonly HttpClient httpClient = new HttpClient();
         private User _friendUser; // Biến lưu thông tin người bạn này
+        // ==== THÊM CHO NHÓM ====
+        private bool _isGroup = false;
+        private string _conversationId;
+        private string _groupName;
+        private string _groupImageUrl;
 
         // Thêm sự kiện OnChatClicked
         public event EventHandler<User> OnChatClicked;
+        // Sự kiện cho chat nhóm 
+        public event Action<string, string, string> OnGroupChatClicked;
         public UcMessUser()
         {
             InitializeComponent();
@@ -29,6 +36,7 @@ namespace Chat_app_247.Forms
         }
         public async void SetData(User friend)
         {
+            _isGroup = false;          // đây là item bạn bè
             _friendUser = friend;
 
             lblName.Text = _friendUser.DisplayName ?? "(Không có tên)";
@@ -50,13 +58,54 @@ namespace Chat_app_247.Forms
                     Avt_pic.Image = null; // Hoặc ảnh mặc định
                 }
             }
+            else
+            {
+                Avt_pic.Image = null;
+            }
         }
 
+        public async void SetGroupData(string conversationId, string groupName, string groupImageUrl)
+        {
+            _isGroup = true;
+            _conversationId = conversationId;
+            _groupName = groupName;
+            _groupImageUrl = groupImageUrl;
+            _friendUser = null;        // không dùng User trong mode group
+
+            lblName.Text = groupName;
+            // nhóm không có online/offline -> để xám
+            Status_panel.FillColor = Color.Gray;
+
+            if (!string.IsNullOrEmpty(groupImageUrl))
+            {
+                try
+                {
+                    byte[] bytes = await httpClient.GetByteArrayAsync(groupImageUrl);
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        Avt_pic.Image = Image.FromStream(ms);
+                    }
+                }
+                catch
+                {
+                    Avt_pic.Image = null;
+                }
+            }
+            else
+            {
+                Avt_pic.Image = null; // hoặc icon mặc định cho group
+            }
+        }
         private void Button_Chat_Click(object sender, EventArgs e)
         {
-            if (_friendUser != null)
+            if (_isGroup)
             {
-                // Gửi thông tin của _friendUser về cho f_Message
+                // Item này là NHÓM
+                OnGroupChatClicked?.Invoke(_conversationId, _groupName, _groupImageUrl);
+            }
+            else if (_friendUser != null)
+            {
+                // Item này là BẠN 1-1
                 OnChatClicked?.Invoke(this, _friendUser);
             }
         }
