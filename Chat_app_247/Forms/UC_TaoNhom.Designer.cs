@@ -38,10 +38,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -53,14 +53,14 @@
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtMoTa = new Guna.UI2.WinForms.Guna2TextBox();
             PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            lstTatCaUser = new ListView();
-            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             lstThanhVienChon = new ListBox();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnTaoNhom = new Guna.UI2.WinForms.Guna2Button();
             btnHuy = new Guna.UI2.WinForms.Guna2Button();
+            lstTatCaUser = new ListBox();
             ((System.ComponentModel.ISupportInitialize)picAvatarNhom).BeginInit();
             PanelLeft.SuspendLayout();
             guna2Panel2.SuspendLayout();
@@ -166,27 +166,6 @@
             PanelLeft.Size = new Size(486, 382);
             PanelLeft.TabIndex = 6;
             // 
-            // guna2Panel2
-            // 
-            guna2Panel2.Controls.Add(lstThanhVienChon);
-            guna2Panel2.Controls.Add(guna2HtmlLabel4);
-            guna2Panel2.CustomizableEdges = customizableEdges13;
-            guna2Panel2.Location = new Point(490, 297);
-            guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel2.Size = new Size(523, 382);
-            guna2Panel2.TabIndex = 7;
-            // 
-            // guna2HtmlLabel3
-            // 
-            guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel3.Location = new Point(17, 16);
-            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(191, 33);
-            guna2HtmlLabel3.TabIndex = 8;
-            guna2HtmlLabel3.Text = "Danh sách bạn bè";
-            // 
             // txtSearch
             // 
             txtSearch.BackColor = Color.White;
@@ -210,14 +189,36 @@
             txtSearch.Size = new Size(486, 49);
             txtSearch.TabIndex = 9;
             // 
-            // lstTatCaUser
+            // guna2HtmlLabel3
             // 
-            lstTatCaUser.Dock = DockStyle.Bottom;
-            lstTatCaUser.Location = new Point(0, 120);
-            lstTatCaUser.Name = "lstTatCaUser";
-            lstTatCaUser.Size = new Size(486, 262);
-            lstTatCaUser.TabIndex = 10;
-            lstTatCaUser.UseCompatibleStateImageBehavior = false;
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel3.Location = new Point(17, 16);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(191, 33);
+            guna2HtmlLabel3.TabIndex = 8;
+            guna2HtmlLabel3.Text = "Danh sách bạn bè";
+            // 
+            // guna2Panel2
+            // 
+            guna2Panel2.Controls.Add(lstThanhVienChon);
+            guna2Panel2.Controls.Add(guna2HtmlLabel4);
+            guna2Panel2.CustomizableEdges = customizableEdges13;
+            guna2Panel2.Location = new Point(490, 300);
+            guna2Panel2.Name = "guna2Panel2";
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel2.Size = new Size(486, 382);
+            guna2Panel2.TabIndex = 7;
+            // 
+            // lstThanhVienChon
+            // 
+            lstThanhVienChon.Dock = DockStyle.Bottom;
+            lstThanhVienChon.FormattingEnabled = true;
+            lstThanhVienChon.ItemHeight = 30;
+            lstThanhVienChon.Location = new Point(0, 138);
+            lstThanhVienChon.Name = "lstThanhVienChon";
+            lstThanhVienChon.Size = new Size(486, 244);
+            lstThanhVienChon.TabIndex = 12;
             // 
             // guna2HtmlLabel4
             // 
@@ -228,16 +229,6 @@
             guna2HtmlLabel4.Size = new Size(213, 33);
             guna2HtmlLabel4.TabIndex = 11;
             guna2HtmlLabel4.Text = "Thành viên đã chọn";
-            // 
-            // lstThanhVienChon
-            // 
-            lstThanhVienChon.Dock = DockStyle.Bottom;
-            lstThanhVienChon.FormattingEnabled = true;
-            lstThanhVienChon.ItemHeight = 30;
-            lstThanhVienChon.Location = new Point(0, 138);
-            lstThanhVienChon.Name = "lstThanhVienChon";
-            lstThanhVienChon.Size = new Size(523, 244);
-            lstThanhVienChon.TabIndex = 12;
             // 
             // btnTaoNhom
             // 
@@ -272,6 +263,16 @@
             btnHuy.Size = new Size(288, 70);
             btnHuy.TabIndex = 9;
             btnHuy.Text = "Hủy";
+            // 
+            // lstTatCaUser
+            // 
+            lstTatCaUser.Dock = DockStyle.Bottom;
+            lstTatCaUser.FormattingEnabled = true;
+            lstTatCaUser.ItemHeight = 30;
+            lstTatCaUser.Location = new Point(0, 138);
+            lstTatCaUser.Name = "lstTatCaUser";
+            lstTatCaUser.Size = new Size(486, 244);
+            lstTatCaUser.TabIndex = 13;
             // 
             // UC_TaoNhom
             // 
@@ -310,10 +311,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private ListView lstTatCaUser;
         private ListBox lstThanhVienChon;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2Button btnTaoNhom;
         private Guna.UI2.WinForms.Guna2Button btnHuy;
+        private ListBox lstTatCaUser;
     }
 }
