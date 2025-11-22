@@ -48,9 +48,13 @@ namespace Chat_app_247.Forms
             // ===== CẤU HÌNH IMAGELIST =====
             _imageListTatCa.ImageSize = new Size(32, 32);
             _imageListTatCa.ColorDepth = ColorDepth.Depth32Bit;
+            // gắn sự kiện double-click
+            lstTatCaUser.DoubleClick += lstTatCaUser_DoubleClick;
 
             _imageListThanhVien.ImageSize = new Size(32, 32);
             _imageListThanhVien.ColorDepth = ColorDepth.Depth32Bit;
+            // gắn sự kiện double-click
+            lstThanhVienChon.DoubleClick += lstThanhVienChon_DoubleClick;
         }
         // Xử lý nút Chọn ảnh
         private void btnChonAnh_Click(object sender, EventArgs e)

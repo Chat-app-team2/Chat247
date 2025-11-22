@@ -57,12 +57,12 @@
             txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            lstThanhVienChon = new ListView();
+            columnHeader2 = new ColumnHeader();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnTaoNhom = new Guna.UI2.WinForms.Guna2Button();
             btnHuy = new Guna.UI2.WinForms.Guna2Button();
             txtMoTa = new RichTextBox();
-            lstThanhVienChon = new ListView();
-            columnHeader2 = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)picAvatarNhom).BeginInit();
             PanelLeft.SuspendLayout();
             guna2Panel2.SuspendLayout();
@@ -226,6 +226,25 @@
             guna2Panel2.Size = new Size(486, 382);
             guna2Panel2.TabIndex = 7;
             // 
+            // lstThanhVienChon
+            // 
+            lstThanhVienChon.BorderStyle = BorderStyle.FixedSingle;
+            lstThanhVienChon.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
+            lstThanhVienChon.FullRowSelect = true;
+            lstThanhVienChon.Location = new Point(3, 156);
+            lstThanhVienChon.MultiSelect = false;
+            lstThanhVienChon.Name = "lstThanhVienChon";
+            lstThanhVienChon.Size = new Size(483, 226);
+            lstThanhVienChon.SmallImageList = imageListMembers;
+            lstThanhVienChon.TabIndex = 12;
+            lstThanhVienChon.UseCompatibleStateImageBehavior = false;
+            lstThanhVienChon.View = View.Details;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Thành viên";
+            columnHeader2.Width = 480;
+            // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.AutoSize = false;
@@ -280,25 +299,6 @@
             txtMoTa.Size = new Size(453, 168);
             txtMoTa.TabIndex = 10;
             txtMoTa.Text = "";
-            // 
-            // lstThanhVienChon
-            // 
-            lstThanhVienChon.BorderStyle = BorderStyle.FixedSingle;
-            lstThanhVienChon.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
-            lstThanhVienChon.FullRowSelect = true;
-            lstThanhVienChon.Location = new Point(3, 156);
-            lstThanhVienChon.MultiSelect = false;
-            lstThanhVienChon.Name = "lstThanhVienChon";
-            lstThanhVienChon.Size = new Size(483, 226);
-            lstThanhVienChon.SmallImageList = imageListMembers;
-            lstThanhVienChon.TabIndex = 12;
-            lstThanhVienChon.UseCompatibleStateImageBehavior = false;
-            lstThanhVienChon.View = View.Details;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Thành viên";
-            columnHeader2.Width = 480;
             // 
             // UC_TaoNhom
             // 
