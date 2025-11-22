@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             lblText = new Guna.UI2.WinForms.Guna2TextBox();
             pic_avt = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -48,19 +48,19 @@
             guna2Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             guna2Panel1.BorderRadius = 23;
             guna2Panel1.Controls.Add(lblText);
-            guna2Panel1.CustomizableEdges = customizableEdges8;
+            guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.FillColor = Color.White;
-            guna2Panel1.Location = new Point(41, 23);
+            guna2Panel1.Location = new Point(51, 23);
             guna2Panel1.Margin = new Padding(2);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.Padding = new Padding(8, 5, 8, 5);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.Size = new Size(337, 48);
             guna2Panel1.TabIndex = 0;
             // 
             // lblText
             // 
-            lblText.CustomizableEdges = customizableEdges6;
+            lblText.CustomizableEdges = customizableEdges1;
             lblText.DefaultText = "";
             lblText.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             lblText.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -77,7 +77,7 @@
             lblText.PlaceholderText = "";
             lblText.ReadOnly = true;
             lblText.SelectedText = "";
-            lblText.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            lblText.ShadowDecoration.CustomizableEdges = customizableEdges2;
             lblText.Size = new Size(313, 26);
             lblText.TabIndex = 0;
             // 
@@ -85,9 +85,9 @@
             // 
             pic_avt.Image = Properties.Resources.Logo_Real;
             pic_avt.ImageRotate = 0F;
-            pic_avt.Location = new Point(-2, 25);
+            pic_avt.Location = new Point(4, 25);
             pic_avt.Name = "pic_avt";
-            pic_avt.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pic_avt.ShadowDecoration.CustomizableEdges = customizableEdges5;
             pic_avt.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             pic_avt.Size = new Size(40, 40);
             pic_avt.SizeMode = PictureBoxSizeMode.Zoom;
@@ -99,7 +99,7 @@
             lb_name.AutoSize = true;
             lb_name.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lb_name.ForeColor = SystemColors.ActiveCaptionText;
-            lb_name.Location = new Point(41, -2);
+            lb_name.Location = new Point(53, -2);
             lb_name.Name = "lb_name";
             lb_name.Size = new Size(56, 23);
             lb_name.TabIndex = 4;
@@ -117,7 +117,7 @@
             Controls.Add(guna2Panel1);
             Margin = new Padding(0, 1, 43, 5);
             Name = "UcBubbleOther";
-            Size = new Size(380, 73);
+            Size = new Size(390, 73);
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic_avt).EndInit();
             ResumeLayout(false);

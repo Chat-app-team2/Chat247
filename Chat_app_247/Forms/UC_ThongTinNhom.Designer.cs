@@ -61,39 +61,43 @@
             // 
             picAvatarNhom.CustomizableEdges = customizableEdges13;
             picAvatarNhom.ImageRotate = 0F;
-            picAvatarNhom.Location = new Point(37, 55);
+            picAvatarNhom.Location = new Point(25, 37);
+            picAvatarNhom.Margin = new Padding(2, 2, 2, 2);
             picAvatarNhom.Name = "picAvatarNhom";
             picAvatarNhom.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            picAvatarNhom.Size = new Size(262, 191);
+            picAvatarNhom.Size = new Size(175, 127);
             picAvatarNhom.TabIndex = 0;
             picAvatarNhom.TabStop = false;
             // 
             // lblTenNhom
             // 
             lblTenNhom.BackColor = Color.Transparent;
-            lblTenNhom.Location = new Point(632, 55);
+            lblTenNhom.Location = new Point(421, 37);
+            lblTenNhom.Margin = new Padding(2, 2, 2, 2);
             lblTenNhom.Name = "lblTenNhom";
-            lblTenNhom.Size = new Size(166, 32);
+            lblTenNhom.Size = new Size(39, 22);
             lblTenNhom.TabIndex = 1;
-            lblTenNhom.Text = "guna2HtmlLabel1";
+            lblTenNhom.Text = "None";
             // 
             // lblSoThanhVien
             // 
             lblSoThanhVien.BackColor = Color.Transparent;
-            lblSoThanhVien.Location = new Point(632, 119);
+            lblSoThanhVien.Location = new Point(421, 79);
+            lblSoThanhVien.Margin = new Padding(2, 2, 2, 2);
             lblSoThanhVien.Name = "lblSoThanhVien";
-            lblSoThanhVien.Size = new Size(166, 32);
+            lblSoThanhVien.Size = new Size(39, 22);
             lblSoThanhVien.TabIndex = 2;
-            lblSoThanhVien.Text = "guna2HtmlLabel1";
+            lblSoThanhVien.Text = "None";
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(362, 55);
+            guna2HtmlLabel1.Location = new Point(241, 37);
+            guna2HtmlLabel1.Margin = new Padding(2, 2, 2, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(140, 46);
+            guna2HtmlLabel1.Size = new Size(93, 31);
             guna2HtmlLabel1.TabIndex = 3;
             guna2HtmlLabel1.Text = "Tên nhóm ";
             // 
@@ -102,9 +106,10 @@
             guna2HtmlLabel2.AutoSize = false;
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.Location = new Point(362, 119);
+            guna2HtmlLabel2.Location = new Point(241, 79);
+            guna2HtmlLabel2.Margin = new Padding(2, 2, 2, 2);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(241, 53);
+            guna2HtmlLabel2.Size = new Size(161, 35);
             guna2HtmlLabel2.TabIndex = 4;
             guna2HtmlLabel2.Text = "Số Lượng Thành Viên ";
             // 
@@ -119,10 +124,11 @@
             btnSuaTen.FillColor = Color.FromArgb(104, 33, 122);
             btnSuaTen.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSuaTen.ForeColor = Color.White;
-            btnSuaTen.Location = new Point(37, 293);
+            btnSuaTen.Location = new Point(25, 195);
+            btnSuaTen.Margin = new Padding(2, 2, 2, 2);
             btnSuaTen.Name = "btnSuaTen";
             btnSuaTen.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnSuaTen.Size = new Size(288, 70);
+            btnSuaTen.Size = new Size(192, 47);
             btnSuaTen.TabIndex = 9;
             btnSuaTen.Text = "Sửa Tên ";
             // 
@@ -137,10 +143,11 @@
             btnBack.FillColor = Color.FromArgb(104, 33, 122);
             btnBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(28, 697);
+            btnBack.Location = new Point(19, 465);
+            btnBack.Margin = new Padding(2, 2, 2, 2);
             btnBack.Name = "btnBack";
             btnBack.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnBack.Size = new Size(288, 70);
+            btnBack.Size = new Size(192, 47);
             btnBack.TabIndex = 10;
             btnBack.Text = "Quay Lại ";
             btnBack.Click += btnBack_Click;
@@ -156,10 +163,11 @@
             btnThemThanhVien.FillColor = Color.FromArgb(104, 33, 122);
             btnThemThanhVien.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThemThanhVien.ForeColor = Color.White;
-            btnThemThanhVien.Location = new Point(37, 384);
+            btnThemThanhVien.Location = new Point(25, 256);
+            btnThemThanhVien.Margin = new Padding(2, 2, 2, 2);
             btnThemThanhVien.Name = "btnThemThanhVien";
             btnThemThanhVien.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnThemThanhVien.Size = new Size(288, 80);
+            btnThemThanhVien.Size = new Size(192, 53);
             btnThemThanhVien.TabIndex = 11;
             btnThemThanhVien.Text = "Thêm thành viên";
             // 
@@ -174,10 +182,11 @@
             btnGoi.FillColor = Color.FromArgb(0, 120, 212);
             btnGoi.Font = new Font("Segoe UI", 9F);
             btnGoi.ForeColor = Color.White;
-            btnGoi.Location = new Point(350, 697);
+            btnGoi.Location = new Point(233, 465);
+            btnGoi.Margin = new Padding(2, 2, 2, 2);
             btnGoi.Name = "btnGoi";
             btnGoi.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            btnGoi.Size = new Size(224, 70);
+            btnGoi.Size = new Size(149, 47);
             btnGoi.TabIndex = 12;
             btnGoi.Text = "📞";
             // 
@@ -192,10 +201,11 @@
             btnRoiNhom.FillColor = Color.FromArgb(104, 33, 122);
             btnRoiNhom.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRoiNhom.ForeColor = Color.White;
-            btnRoiNhom.Location = new Point(593, 688);
+            btnRoiNhom.Location = new Point(395, 459);
+            btnRoiNhom.Margin = new Padding(2, 2, 2, 2);
             btnRoiNhom.Name = "btnRoiNhom";
             btnRoiNhom.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            btnRoiNhom.Size = new Size(252, 79);
+            btnRoiNhom.Size = new Size(168, 53);
             btnRoiNhom.TabIndex = 13;
             btnRoiNhom.Text = "Rời nhóm";
             // 
@@ -204,9 +214,10 @@
             lvMembers.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             lvMembers.FullRowSelect = true;
             lvMembers.HeaderStyle = ColumnHeaderStyle.None;
-            lvMembers.Location = new Point(381, 293);
+            lvMembers.Location = new Point(254, 195);
+            lvMembers.Margin = new Padding(2, 2, 2, 2);
             lvMembers.Name = "lvMembers";
-            lvMembers.Size = new Size(464, 374);
+            lvMembers.Size = new Size(311, 251);
             lvMembers.SmallImageList = imageListMembers;
             lvMembers.TabIndex = 14;
             lvMembers.UseCompatibleStateImageBehavior = false;
@@ -225,7 +236,7 @@
             // 
             // UC_ThongTinNhom
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lvMembers);
             Controls.Add(btnRoiNhom);
@@ -238,8 +249,9 @@
             Controls.Add(lblSoThanhVien);
             Controls.Add(lblTenNhom);
             Controls.Add(picAvatarNhom);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UC_ThongTinNhom";
-            Size = new Size(896, 804);
+            Size = new Size(597, 536);
             ((System.ComponentModel.ISupportInitialize)picAvatarNhom).EndInit();
             ResumeLayout(false);
             PerformLayout();
