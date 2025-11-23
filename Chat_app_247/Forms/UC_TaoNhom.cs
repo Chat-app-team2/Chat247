@@ -55,6 +55,7 @@ namespace Chat_app_247.Forms
             _imageListThanhVien.ColorDepth = ColorDepth.Depth32Bit;
             // gắn sự kiện double-click
             lstThanhVienChon.DoubleClick += lstThanhVienChon_DoubleClick;
+            btnHuy.Click += btnHuy_Click;
         }
         // Xử lý nút Chọn ảnh
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -216,5 +217,13 @@ namespace Chat_app_247.Forms
             if (lstThanhVienChon.SelectedItems.Count == 0) return;
             lstThanhVienChon.Items.Remove(lstThanhVienChon.SelectedItems[0]);
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            // Báo cho form f_Message biết là user bấm Hủy
+            HuyTaoNhom?.Invoke();
+        }
+
+        public event Action HuyTaoNhom;
     }
 }

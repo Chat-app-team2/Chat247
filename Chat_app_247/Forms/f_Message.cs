@@ -513,6 +513,18 @@ namespace Chat_app_247
                 OpenGroupConversation(convId, groupName, groupImageUrl);
             };
 
+            // Khi bấm Hủy trên UC_TaoNhom  <-- ĐOẠN BẠN HỎI Ở ĐÂY
+            uc.HuyTaoNhom += () =>
+            {
+                // Ẩn màn tạo nhóm + dọn control
+                pnlCreateGroup.Visible = false;
+                pnlCreateGroup.Controls.Clear();
+
+                // Hiện lại khu vực chat
+                pnl_information.Visible = true;
+                pnl_mess.Visible = true;
+            };
+
             // Ẩn chat, hiện panel tạo nhóm
             pnl_information.Visible = false;
             pnl_mess.Visible = false;
