@@ -27,6 +27,9 @@ namespace Chat_app_247.Forms
         }
         public void SetMessage(string text, string avt, string name)
         {
+            pnlBubble.MaximumSize = new Size(450, 500); // ← Thêm chiều cao tối đa
+            lblText.MaximumSize = new Size(400, 400);   // ← Thêm chiều cao tối đa
+
             lblText.Text = text;
             lb_name.Text = name;
             if (!string.IsNullOrEmpty(avt))

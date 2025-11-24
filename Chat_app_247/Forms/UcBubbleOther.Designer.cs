@@ -28,58 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            lblText = new Guna.UI2.WinForms.Guna2TextBox();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            pnlBubble = new Guna.UI2.WinForms.Guna2Panel();
+            lblText = new Label();
             pic_avt = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             lb_name = new Label();
-            guna2Panel1.SuspendLayout();
+            pnlBubble.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_avt).BeginInit();
             SuspendLayout();
             // 
-            // guna2Panel1
+            // pnlBubble
             // 
-            guna2Panel1.AutoRoundedCorners = true;
-            guna2Panel1.AutoSize = true;
-            guna2Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            guna2Panel1.BorderRadius = 23;
-            guna2Panel1.Controls.Add(lblText);
-            guna2Panel1.CustomizableEdges = customizableEdges3;
-            guna2Panel1.FillColor = Color.White;
-            guna2Panel1.Location = new Point(51, 23);
-            guna2Panel1.Margin = new Padding(2);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.Padding = new Padding(8, 5, 8, 5);
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Panel1.Size = new Size(337, 48);
-            guna2Panel1.TabIndex = 0;
+            pnlBubble.AutoRoundedCorners = true;
+            pnlBubble.AutoSize = true;
+            pnlBubble.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlBubble.BorderRadius = 18;
+            pnlBubble.Controls.Add(lblText);
+            pnlBubble.CustomizableEdges = customizableEdges4;
+            pnlBubble.FillColor = Color.White;
+            pnlBubble.Location = new Point(50, 25);
+            pnlBubble.Margin = new Padding(2);
+            pnlBubble.Name = "pnlBubble";
+            pnlBubble.Padding = new Padding(8, 5, 8, 5);
+            pnlBubble.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            pnlBubble.Size = new Size(93, 38);
+            pnlBubble.TabIndex = 0;
             // 
             // lblText
             // 
-            lblText.CustomizableEdges = customizableEdges1;
-            lblText.DefaultText = "";
-            lblText.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            lblText.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            lblText.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            lblText.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            lblText.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            lblText.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblText.AutoSize = true;
+            lblText.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblText.ForeColor = Color.Black;
-            lblText.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            lblText.Location = new Point(13, 12);
-            lblText.Margin = new Padding(3, 5, 3, 5);
+            lblText.Location = new Point(14, 5);
             lblText.Name = "lblText";
-            lblText.PlaceholderForeColor = Color.Black;
-            lblText.PlaceholderText = "";
-            lblText.ReadOnly = true;
-            lblText.SelectedText = "";
-            lblText.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            lblText.Size = new Size(313, 26);
-            lblText.TabIndex = 0;
+            lblText.Size = new Size(68, 28);
+            lblText.TabIndex = 1;
+            lblText.Text = "lblText";
             // 
             // pic_avt
             // 
@@ -87,7 +73,7 @@
             pic_avt.ImageRotate = 0F;
             pic_avt.Location = new Point(4, 25);
             pic_avt.Name = "pic_avt";
-            pic_avt.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            pic_avt.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pic_avt.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             pic_avt.Size = new Size(40, 40);
             pic_avt.SizeMode = PictureBoxSizeMode.Zoom;
@@ -114,11 +100,12 @@
             BackColor = Color.Transparent;
             Controls.Add(lb_name);
             Controls.Add(pic_avt);
-            Controls.Add(guna2Panel1);
+            Controls.Add(pnlBubble);
             Margin = new Padding(0, 1, 43, 5);
             Name = "UcBubbleOther";
-            Size = new Size(390, 73);
-            guna2Panel1.ResumeLayout(false);
+            Size = new Size(145, 68);
+            pnlBubble.ResumeLayout(false);
+            pnlBubble.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic_avt).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -126,9 +113,9 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnlBubble;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pic_avt;
         private Label lb_name;
-        private Guna.UI2.WinForms.Guna2TextBox lblText;
+        private Label lblText;
     }
 }

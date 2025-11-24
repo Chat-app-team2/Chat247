@@ -29,7 +29,6 @@ namespace Chat_app_247.Forms
             };
 
             flpEmoji.Controls.Clear();
-
             foreach (var emo in emojis)
             {
                 var btn = new Button();
