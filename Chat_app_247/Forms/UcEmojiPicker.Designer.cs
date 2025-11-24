@@ -39,7 +39,7 @@
             flpEmoji.Location = new Point(0, 0);
             flpEmoji.Margin = new Padding(2);
             flpEmoji.Name = "flpEmoji";
-            flpEmoji.Size = new Size(454, 59);
+            flpEmoji.Size = new Size(346, 59);
             flpEmoji.TabIndex = 0;
             // 
             // UcEmojiPicker
@@ -49,7 +49,7 @@
             Controls.Add(flpEmoji);
             Margin = new Padding(2);
             Name = "UcEmojiPicker";
-            Size = new Size(454, 59);
+            Size = new Size(346, 59);
             ResumeLayout(false);
         }
 

@@ -89,6 +89,7 @@ namespace Chat_app_247
             }
             else
             {
+                e.Cancel = true;
             }
         }
         // Mục đích hàm InitializeFirebase để khởi tạo kết nối FirebaseDatabase
