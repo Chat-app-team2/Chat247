@@ -632,6 +632,7 @@ namespace Chat_app_247
                 // Truyền client + conversationId cho UC, để nó tự đọc Firebase
                 ucGroupInfo.FirebaseClient = _client;
                 ucGroupInfo.ConversationId = _currentConversationId;
+                ucGroupInfo.CurrentUserId = _userId;
 
                 // Đăng ký sự kiện Đóng
                 ucGroupInfo.OnCloseRequested += HideInfoPanel;
