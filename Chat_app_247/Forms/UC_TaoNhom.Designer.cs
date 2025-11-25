@@ -68,10 +68,11 @@
             picAvatarNhom.BorderRadius = 10;
             picAvatarNhom.CustomizableEdges = customizableEdges1;
             picAvatarNhom.ImageRotate = 0F;
-            picAvatarNhom.Location = new Point(27, 81);
+            picAvatarNhom.Location = new Point(18, 54);
+            picAvatarNhom.Margin = new Padding(2, 2, 2, 2);
             picAvatarNhom.Name = "picAvatarNhom";
             picAvatarNhom.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            picAvatarNhom.Size = new Size(288, 222);
+            picAvatarNhom.Size = new Size(192, 148);
             picAvatarNhom.TabIndex = 0;
             picAvatarNhom.TabStop = false;
             // 
@@ -86,10 +87,11 @@
             btnChonAnh.FillColor = Color.FromArgb(104, 33, 122);
             btnChonAnh.Font = new Font("Segoe UI", 9F);
             btnChonAnh.ForeColor = Color.White;
-            btnChonAnh.Location = new Point(96, 316);
+            btnChonAnh.Location = new Point(64, 211);
+            btnChonAnh.Margin = new Padding(2, 2, 2, 2);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnChonAnh.Size = new Size(136, 63);
+            btnChonAnh.Size = new Size(91, 42);
             btnChonAnh.TabIndex = 1;
             btnChonAnh.Text = "Chọn ảnh";
             // 
@@ -98,9 +100,10 @@
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(357, 81);
+            guna2HtmlLabel1.Location = new Point(238, 54);
+            guna2HtmlLabel1.Margin = new Padding(2, 2, 2, 2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(172, 44);
+            guna2HtmlLabel1.Size = new Size(115, 29);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Tên nhóm :";
             // 
@@ -116,13 +119,13 @@
             txtTenNhom.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenNhom.Font = new Font("Segoe UI", 9F);
             txtTenNhom.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenNhom.Location = new Point(507, 81);
-            txtTenNhom.Margin = new Padding(4, 6, 4, 6);
+            txtTenNhom.Location = new Point(338, 54);
+            txtTenNhom.Margin = new Padding(3, 4, 3, 4);
             txtTenNhom.Name = "txtTenNhom";
             txtTenNhom.PlaceholderText = "";
             txtTenNhom.SelectedText = "";
             txtTenNhom.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtTenNhom.Size = new Size(346, 44);
+            txtTenNhom.Size = new Size(231, 29);
             txtTenNhom.TabIndex = 3;
             // 
             // PanelLeft
@@ -131,10 +134,11 @@
             PanelLeft.Controls.Add(lstTatCaUser);
             PanelLeft.Controls.Add(guna2HtmlLabel3);
             PanelLeft.CustomizableEdges = customizableEdges7;
-            PanelLeft.Location = new Point(22, 429);
+            PanelLeft.Location = new Point(15, 286);
+            PanelLeft.Margin = new Padding(2, 2, 2, 2);
             PanelLeft.Name = "PanelLeft";
             PanelLeft.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            PanelLeft.Size = new Size(410, 284);
+            PanelLeft.Size = new Size(273, 189);
             PanelLeft.TabIndex = 6;
             // 
             // lstTatCaUser
@@ -142,10 +146,11 @@
             lstTatCaUser.BorderStyle = BorderStyle.FixedSingle;
             lstTatCaUser.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             lstTatCaUser.FullRowSelect = true;
-            lstTatCaUser.Location = new Point(3, 54);
+            lstTatCaUser.Location = new Point(2, 36);
+            lstTatCaUser.Margin = new Padding(2, 2, 2, 2);
             lstTatCaUser.MultiSelect = false;
             lstTatCaUser.Name = "lstTatCaUser";
-            lstTatCaUser.Size = new Size(402, 226);
+            lstTatCaUser.Size = new Size(269, 151);
             lstTatCaUser.SmallImageList = imageListMembers;
             lstTatCaUser.TabIndex = 10;
             lstTatCaUser.UseCompatibleStateImageBehavior = false;
@@ -167,9 +172,10 @@
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel3.Location = new Point(3, 10);
+            guna2HtmlLabel3.Location = new Point(2, 7);
+            guna2HtmlLabel3.Margin = new Padding(2, 2, 2, 2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            guna2HtmlLabel3.Size = new Size(290, 38);
+            guna2HtmlLabel3.Size = new Size(193, 25);
             guna2HtmlLabel3.TabIndex = 8;
             guna2HtmlLabel3.Text = "Danh sách bạn bè";
             // 
@@ -179,10 +185,11 @@
             guna2Panel2.Controls.Add(lstThanhVienChon);
             guna2Panel2.Controls.Add(guna2HtmlLabel4);
             guna2Panel2.CustomizableEdges = customizableEdges9;
-            guna2Panel2.Location = new Point(438, 429);
+            guna2Panel2.Location = new Point(292, 286);
+            guna2Panel2.Margin = new Padding(2, 2, 2, 2);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Panel2.Size = new Size(416, 284);
+            guna2Panel2.Size = new Size(277, 189);
             guna2Panel2.TabIndex = 7;
             // 
             // lstThanhVienChon
@@ -190,10 +197,11 @@
             lstThanhVienChon.BorderStyle = BorderStyle.FixedSingle;
             lstThanhVienChon.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
             lstThanhVienChon.FullRowSelect = true;
-            lstThanhVienChon.Location = new Point(8, 54);
+            lstThanhVienChon.Location = new Point(5, 36);
+            lstThanhVienChon.Margin = new Padding(2, 2, 2, 2);
             lstThanhVienChon.MultiSelect = false;
             lstThanhVienChon.Name = "lstThanhVienChon";
-            lstThanhVienChon.Size = new Size(407, 226);
+            lstThanhVienChon.Size = new Size(272, 151);
             lstThanhVienChon.SmallImageList = imageListMembers;
             lstThanhVienChon.TabIndex = 12;
             lstThanhVienChon.UseCompatibleStateImageBehavior = false;
@@ -209,9 +217,10 @@
             guna2HtmlLabel4.AutoSize = false;
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.Location = new Point(8, 6);
+            guna2HtmlLabel4.Location = new Point(5, 4);
+            guna2HtmlLabel4.Margin = new Padding(2, 2, 2, 2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(256, 42);
+            guna2HtmlLabel4.Size = new Size(171, 28);
             guna2HtmlLabel4.TabIndex = 11;
             guna2HtmlLabel4.Text = "Thành viên đã chọn";
             // 
@@ -226,10 +235,11 @@
             btnTaoNhom.FillColor = Color.FromArgb(104, 33, 122);
             btnTaoNhom.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTaoNhom.ForeColor = Color.White;
-            btnTaoNhom.Location = new Point(165, 730);
+            btnTaoNhom.Location = new Point(110, 487);
+            btnTaoNhom.Margin = new Padding(2, 2, 2, 2);
             btnTaoNhom.Name = "btnTaoNhom";
             btnTaoNhom.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            btnTaoNhom.Size = new Size(288, 70);
+            btnTaoNhom.Size = new Size(192, 47);
             btnTaoNhom.TabIndex = 8;
             btnTaoNhom.Text = "Tạo nhóm";
             // 
@@ -244,19 +254,20 @@
             btnHuy.FillColor = Color.Thistle;
             btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuy.ForeColor = Color.White;
-            btnHuy.Location = new Point(543, 730);
+            btnHuy.Location = new Point(362, 487);
+            btnHuy.Margin = new Padding(2, 2, 2, 2);
             btnHuy.Name = "btnHuy";
             btnHuy.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnHuy.Size = new Size(288, 70);
+            btnHuy.Size = new Size(192, 47);
             btnHuy.TabIndex = 9;
             btnHuy.Text = "Hủy";
             btnHuy.Click += btnHuy_Click;
             // 
             // UC_TaoNhom
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.AppWorkspace;
             BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(btnHuy);
             Controls.Add(btnTaoNhom);
@@ -266,8 +277,9 @@
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(btnChonAnh);
             Controls.Add(picAvatarNhom);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UC_TaoNhom";
-            Size = new Size(1006, 812);
+            Size = new Size(671, 541);
             ((System.ComponentModel.ISupportInitialize)picAvatarNhom).EndInit();
             PanelLeft.ResumeLayout(false);
             guna2Panel2.ResumeLayout(false);

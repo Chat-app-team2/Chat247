@@ -73,6 +73,7 @@
             // 
             lblTenNhom.BackColor = Color.Transparent;
             lblTenNhom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTenNhom.ForeColor = Color.Black;
             lblTenNhom.Location = new Point(371, 37);
             lblTenNhom.Margin = new Padding(2);
             lblTenNhom.Name = "lblTenNhom";
@@ -84,6 +85,7 @@
             // 
             lblSoThanhVien.BackColor = Color.Transparent;
             lblSoThanhVien.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSoThanhVien.ForeColor = Color.Black;
             lblSoThanhVien.Location = new Point(371, 104);
             lblSoThanhVien.Margin = new Padding(2);
             lblSoThanhVien.Name = "lblSoThanhVien";
@@ -173,6 +175,7 @@
             btnThemThanhVien.Size = new Size(192, 53);
             btnThemThanhVien.TabIndex = 11;
             btnThemThanhVien.Text = "Thêm thành viên";
+            btnThemThanhVien.Click += btnThemThanhVien_Click;
             // 
             // btnGoi
             // 

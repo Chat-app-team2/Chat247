@@ -46,10 +46,10 @@
             // 
             // uc_Request_Panel
             // 
-            uc_Request_Panel.BackColor = Color.FromArgb(44, 62, 80);
-            uc_Request_Panel.BorderColor = SystemColors.AppWorkspace;
-            uc_Request_Panel.BorderRadius = 2;
-            uc_Request_Panel.BorderThickness = 2;
+            uc_Request_Panel.BackColor = Color.LightGray;
+            uc_Request_Panel.BorderColor = SystemColors.Highlight;
+            uc_Request_Panel.BorderRadius = 9;
+            uc_Request_Panel.BorderThickness = 4;
             uc_Request_Panel.Controls.Add(guna2Button2);
             uc_Request_Panel.Controls.Add(guna2Button1);
             uc_Request_Panel.Controls.Add(Name_Label);
@@ -112,8 +112,8 @@
             // 
             Name_Label.BackColor = Color.Transparent;
             Name_Label.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Name_Label.ForeColor = SystemColors.Info;
-            Name_Label.Location = new Point(98, 41);
+            Name_Label.ForeColor = Color.Black;
+            Name_Label.Location = new Point(98, 37);
             Name_Label.Name = "Name_Label";
             Name_Label.Size = new Size(75, 33);
             Name_Label.TabIndex = 1;
@@ -123,7 +123,7 @@
             // 
             Avartar_Picture.Image = Properties.Resources.Logo_Real;
             Avartar_Picture.ImageRotate = 0F;
-            Avartar_Picture.Location = new Point(22, 24);
+            Avartar_Picture.Location = new Point(22, 20);
             Avartar_Picture.Name = "Avartar_Picture";
             Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges5;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
