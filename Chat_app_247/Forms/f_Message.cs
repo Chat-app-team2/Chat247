@@ -359,6 +359,14 @@ namespace Chat_app_247
                             .OrderBy(m => m.Timestamp)
                             .ToList();
 
+                        // Chỉ lấy 20 tin nhắn gần nhất
+                        int limit = 20;
+                        if (sortedMessages.Count > limit)
+                        {
+                     
+                            sortedMessages = sortedMessages.Skip(sortedMessages.Count - limit).ToList();
+                        }
+
                         foreach (var msg in sortedMessages)
                         {
                             await AddBubble(msg);
