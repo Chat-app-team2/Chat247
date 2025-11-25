@@ -151,7 +151,7 @@ namespace Chat_app_247.Forms
             string groupImageUrl = null;
             if (!string.IsNullOrEmpty(_avatarLocalPath))
             {
-                groupImageUrl = _cloudService.UploadImage(_avatarLocalPath);
+                groupImageUrl = _cloudService.UploadFile(_avatarLocalPath);
                 if (groupImageUrl == null)
                 {
                     MessageBox.Show("Upload ảnh nhóm thất bại. Bạn có thể thử lại hoặc tạo nhóm không có ảnh.");

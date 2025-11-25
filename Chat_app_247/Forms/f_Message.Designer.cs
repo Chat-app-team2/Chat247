@@ -100,7 +100,7 @@
             pnlInfo.CustomizableEdges = customizableEdges1;
             pnlInfo.Dock = DockStyle.Fill;
             pnlInfo.Location = new Point(0, 68);
-            pnlInfo.Margin = new Padding(2, 2, 2, 2);
+            pnlInfo.Margin = new Padding(2);
             pnlInfo.Name = "pnlInfo";
             pnlInfo.ShadowDecoration.CustomizableEdges = customizableEdges2;
             pnlInfo.Size = new Size(597, 306);
@@ -114,7 +114,7 @@
             pnlCreateGroup.Dock = DockStyle.Fill;
             pnlCreateGroup.FillColor = Color.Transparent;
             pnlCreateGroup.Location = new Point(0, 68);
-            pnlCreateGroup.Margin = new Padding(2, 2, 2, 2);
+            pnlCreateGroup.Margin = new Padding(2);
             pnlCreateGroup.Name = "pnlCreateGroup";
             pnlCreateGroup.ShadowDecoration.CustomizableEdges = customizableEdges4;
             pnlCreateGroup.Size = new Size(597, 306);
@@ -147,9 +147,9 @@
             pnl_mess.Dock = DockStyle.Bottom;
             pnl_mess.FillColor = Color.White;
             pnl_mess.Location = new Point(0, 374);
-            pnl_mess.Margin = new Padding(2, 2, 2, 2);
+            pnl_mess.Margin = new Padding(2);
             pnl_mess.Name = "pnl_mess";
-            pnl_mess.Padding = new Padding(8, 8, 8, 8);
+            pnl_mess.Padding = new Padding(8);
             pnl_mess.ShadowDecoration.CustomizableEdges = customizableEdges16;
             pnl_mess.Size = new Size(597, 74);
             pnl_mess.TabIndex = 3;
@@ -166,12 +166,13 @@
             btn_sendf.Font = new Font("Segoe UI", 9F);
             btn_sendf.ForeColor = Color.White;
             btn_sendf.Location = new Point(515, 4);
-            btn_sendf.Margin = new Padding(2, 2, 2, 2);
+            btn_sendf.Margin = new Padding(2);
             btn_sendf.Name = "btn_sendf";
             btn_sendf.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btn_sendf.Size = new Size(74, 33);
             btn_sendf.TabIndex = 4;
             btn_sendf.Text = "📎";
+            btn_sendf.Click += btn_sendf_Click;
             // 
             // btn_voice
             // 
@@ -186,7 +187,7 @@
             btn_voice.Font = new Font("Segoe UI", 9F);
             btn_voice.ForeColor = Color.White;
             btn_voice.Location = new Point(8, 8);
-            btn_voice.Margin = new Padding(2, 2, 2, 2);
+            btn_voice.Margin = new Padding(2);
             btn_voice.Name = "btn_voice";
             btn_voice.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btn_voice.Size = new Size(39, 58);
@@ -205,7 +206,7 @@
             btn_send.Font = new Font("Segoe UI", 9F);
             btn_send.ForeColor = Color.White;
             btn_send.Location = new Point(435, 10);
-            btn_send.Margin = new Padding(2, 2, 2, 2);
+            btn_send.Margin = new Padding(2);
             btn_send.Name = "btn_send";
             btn_send.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btn_send.Size = new Size(76, 58);
@@ -225,7 +226,7 @@
             btn_sendfile.Font = new Font("Segoe UI", 9F);
             btn_sendfile.ForeColor = Color.White;
             btn_sendfile.Location = new Point(515, 35);
-            btn_sendfile.Margin = new Padding(2, 2, 2, 2);
+            btn_sendfile.Margin = new Padding(2);
             btn_sendfile.Name = "btn_sendfile";
             btn_sendfile.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btn_sendfile.Size = new Size(74, 33);
@@ -270,7 +271,7 @@
             pnl_information.Dock = DockStyle.Top;
             pnl_information.FillColor = Color.White;
             pnl_information.Location = new Point(0, 0);
-            pnl_information.Margin = new Padding(2, 2, 2, 2);
+            pnl_information.Margin = new Padding(2);
             pnl_information.Name = "pnl_information";
             pnl_information.Padding = new Padding(11, 7, 11, 7);
             pnl_information.ShadowDecoration.CustomizableEdges = customizableEdges25;
@@ -290,7 +291,7 @@
             btnMore.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMore.ForeColor = Color.White;
             btnMore.Location = new Point(436, 7);
-            btnMore.Margin = new Padding(2, 2, 2, 2);
+            btnMore.Margin = new Padding(2);
             btnMore.Name = "btnMore";
             btnMore.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnMore.Size = new Size(74, 54);
@@ -311,7 +312,7 @@
             btn_call.Font = new Font("Segoe UI", 9F);
             btn_call.ForeColor = Color.White;
             btn_call.Location = new Point(510, 7);
-            btn_call.Margin = new Padding(2, 2, 2, 2);
+            btn_call.Margin = new Padding(2);
             btn_call.Name = "btn_call";
             btn_call.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btn_call.Size = new Size(76, 54);
@@ -341,7 +342,7 @@
             status.CustomizableEdges = customizableEdges22;
             status.FillColor = Color.LimeGreen;
             status.Location = new Point(53, 42);
-            status.Margin = new Padding(2, 2, 2, 2);
+            status.Margin = new Padding(2);
             status.Name = "status";
             status.ShadowDecoration.CustomizableEdges = customizableEdges23;
             status.Size = new Size(8, 8);
@@ -353,7 +354,7 @@
             guna2HtmlLabel1.Font = new Font("Segoe UI", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.ForeColor = SystemColors.ActiveCaptionText;
             guna2HtmlLabel1.Location = new Point(89, 7);
-            guna2HtmlLabel1.Margin = new Padding(2, 2, 2, 2);
+            guna2HtmlLabel1.Margin = new Padding(2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(55, 27);
             guna2HtmlLabel1.TabIndex = 0;

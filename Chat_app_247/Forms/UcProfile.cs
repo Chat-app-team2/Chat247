@@ -150,7 +150,7 @@ namespace Chat_app_247.Forms
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     string filePath = dialog.FileName;
-                    string imageURL = new CloudinaryService().UploadImage(filePath);
+                    string imageURL = new CloudinaryService().UploadFile(filePath);
                     if (imageURL != null)
                     {
                         // Luu URL vao database
