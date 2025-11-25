@@ -279,5 +279,68 @@ namespace Chat_app_247.Forms
         {
             RoiKhoiNhom();
         }
+        private async void btnThemThanhVien_Click(object sender, EventArgs e)
+        {
+            await ThemThanhVienVaoNhom();
+        }
+
+        private async Task ThemThanhVienVaoNhom()
+        {
+            if (FirebaseClient == null || string.IsNullOrEmpty(ConversationId) || string.IsNullOrEmpty(CurrentUserId))
+            {
+                MessageBox.Show("Lỗi kết nối!", "Thông báo",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                // Lấy thông tin conversation hiện tại
+                FirebaseResponse res = await FirebaseClient.GetAsync("Conversations/" + ConversationId);
+                var conv = res.ResultAs<Conversation>();
+                if (conv == null) return;
+
+                // Tạo và hiển thị Form thêm thành viên
+                using (var formThemThanhVien = new AddFriendsGroup())
+                {
+                    formThemThanhVien.FirebaseClient = FirebaseClient;
+                    formThemThanhVien.CurrentUserId = CurrentUserId;
+                    formThemThanhVien.ExistingMemberIds = conv.ParticipantIds;
+
+                    // Load danh sách bạn bè
+                    await formThemThanhVien.LoadFriendsAsync();
+
+                    if (formThemThanhVien.ShowDialog() == DialogResult.OK)
+                    {
+                        var selectedUserIds = formThemThanhVien.SelectedUserIds;
+                        if (selectedUserIds.Count > 0)
+                        {
+                            // Thêm từng user vào nhóm
+                            foreach (var userId in selectedUserIds)
+                            {
+                                if (!conv.ParticipantIds.Contains(userId))
+                                {
+                                    conv.ParticipantIds.Add(userId);
+                                }
+                            }
+
+                            // Cập nhật lên Firebase
+                            await FirebaseClient.SetAsync("Conversations/" + ConversationId, conv);
+
+                            // Cập nhật lại giao diện
+                            await LoadDataAsync();
+
+                            MessageBox.Show($"Đã thêm {selectedUserIds.Count} thành viên vào nhóm!", "Thành công",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm thành viên: " + ex.Message, "Lỗi",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
