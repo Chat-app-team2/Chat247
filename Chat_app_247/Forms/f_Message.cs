@@ -20,6 +20,7 @@ using System.Net.Http;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chat_app_247.Services;
 
 namespace Chat_app_247
 {
@@ -278,7 +279,7 @@ namespace Chat_app_247
                 string urlAvt = data.ProfilePictureUrl;
 
                 var ucMine = new UcBubbleMine();
-                ucMine.SetMessage(message.Content, urlAvt, myName);
+                ucMine.SetMessage(message, urlAvt, myName);
                 bubble = ucMine;
 
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -293,7 +294,7 @@ namespace Chat_app_247
                 string otUrlAvt = data.ProfilePictureUrl;
 
                 var ucOther = new UcBubbleOther();
-                ucOther.SetMessage(message.Content, otUrlAvt, otName);
+                ucOther.SetMessage(message, otUrlAvt, otName);
                 bubble = ucOther;
 
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -380,52 +381,13 @@ namespace Chat_app_247
         /// </summary>
         private async void btn_send_Click(object sender, EventArgs e)
         {
-            if (_isSending) return;
-
             string content = txt_mess.Text.Trim();
+            if (string.IsNullOrEmpty(content) || string.IsNullOrEmpty(_currentConversationId)) return;
 
-            if (string.IsNullOrEmpty(content) || string.IsNullOrEmpty(_currentConversationId))
-            {
-                return;
-            }
-            // CHỮ TRƯỚC – EMOJI SAU
             content = ReorderTextAndEmoji(content);
-            try
-            {
-                _isSending = true;
 
-                var newMessage = new Chat_app_247.Models.Message
-                {
-                    SenderId = _userId,
-                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
-                    MessageType = "Text",
-                    Content = content,
-                    FileUrl = "",
-                    FileName = "",
-                    ReadBy = new Dictionary<string, long>()
-                };
-
-                // Lưu tin nhắn vào Realtime Database
-                await _realtimeClient
-                    .Child("Conversations")
-                    .Child(_currentConversationId)
-                    .Child("Messages")
-                    .PostAsync(newMessage);
-
-                // Cập nhật LastMessage cho cuộc trò chuyện
-                var lastMsgPath = $"Conversations/{_currentConversationId}/LastMessage";
-                await _client.SetAsync(lastMsgPath, newMessage);
-
-                txt_mess.Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi gửi tin nhắn: {ex.Message}");
-            }
-            finally
-            {
-                _isSending = false;
-            }
+            // Gọi hàm chung đã tách ở trên
+            await SendMessageToFirebase("Text", content);
         }
 
 
@@ -660,13 +622,94 @@ namespace Chat_app_247
                 pnlInfo.Controls.Add(ucUserInfo);
             }
         }
-            // Hàm dùng chung để ẩn panel info và quay lại màn chat
-            private void HideInfoPanel()
-            {
+        // Hàm dùng chung để ẩn panel info và quay lại màn chat
+        private void HideInfoPanel()
+        {
             pnlInfo.Visible = false;
             flpMessages.Visible = true;
             pnl_mess.Visible = true;
-             }
+        }
+
+
+        private async void btn_sendf_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Chọn file hoặc ảnh";
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All Files|*.*";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = ofd.FileName;
+                    long fileSize = new FileInfo(filePath).Length;
+
+                    // Kiểm tra dung lượng
+                    if (fileSize > 10 * 1024 * 1024)
+                    {
+                        MessageBox.Show("File quá lớn! Vui lòng chọn file dưới 10MB.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Xác định loại tin nhắn
+                    string ext = Path.GetExtension(filePath).ToLower();
+                    string[] imgExts = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+                    string msgType = Array.Exists(imgExts, x => x == ext) ? "Image" : "File";
+
+                    // Upload lên Cloudinary
+                    CloudinaryService cloudinary = new CloudinaryService();
+                    string url = await Task.Run(() => cloudinary.UploadFile(filePath));
+
+                    if (string.IsNullOrEmpty(url))
+                    {
+                        MessageBox.Show("Lỗi upload file. Vui lòng thử lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Gửi tin nhắn lên Firebase
+                    await SendMessageToFirebase(msgType, url, Path.GetFileName(filePath));
+                }
+            }
+        }
+        private async Task SendMessageToFirebase(string type, string contentOrUrl, string fileName = "")
+        {
+            try
+            {
+                if (_isSending) return;
+                _isSending = true;
+
+                var newMessage = new Chat_app_247.Models.Message
+                {
+                    SenderId = _userId,
+                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+                    MessageType = type,
+                    Content = (type == "Text") ? contentOrUrl : "", // Nếu là file/ảnh thì Content để trống 
+                    FileUrl = (type != "Text") ? contentOrUrl : "",
+                    FileName = fileName,
+                    ReadBy = new Dictionary<string, long>()
+                };
+
+                // Gửi lên Firebase
+                await _realtimeClient
+                    .Child("Conversations")
+                    .Child(_currentConversationId)
+                    .Child("Messages")
+                    .PostAsync(newMessage);
+
+                // Cập nhật LastMessage
+                var lastMsgPath = $"Conversations/{_currentConversationId}/LastMessage";
+                await _client.SetAsync(lastMsgPath, newMessage);
+
+                if (type == "Text") txt_mess.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi gửi tin: {ex.Message}");
+            }
+            finally
+            {
+                _isSending = false;
+            }
+        }
     }
 }
 

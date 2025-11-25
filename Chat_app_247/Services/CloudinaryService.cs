@@ -22,16 +22,39 @@ namespace Chat_app_247.Services
             _cloudinary = new Cloudinary(account);
         }
 
-        public string UploadImage(string filePath)
+        public string UploadFile(string filePath)
         {
             try
             {
-                var result = _cloudinary.Upload(new ImageUploadParams()
-                {
-                    File = new FileDescription(filePath)
-                });
+                var fileInfo = new FileInfo(filePath);
+                string ext = fileInfo.Extension.ToLower();
 
-                return result.SecureUrl.ToString(); // Trả về URL từ Cloudinary
+                // đuôi file ảnh 
+                string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" };
+                bool isImage = Array.Exists(imageExtensions, e => e == ext);
+
+                RawUploadResult result;
+
+                if (isImage)
+                {
+                    // Upload ảnh
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(filePath)
+                    };
+                    result = _cloudinary.Upload(uploadParams);
+                }
+                else
+                {
+                    // Upload file
+                    var uploadParams = new RawUploadParams()
+                    {
+                        File = new FileDescription(filePath)
+                    };
+                    result = _cloudinary.Upload(uploadParams);
+                }
+
+                return result.SecureUrl.ToString();
             }
             catch (Exception)
             {
