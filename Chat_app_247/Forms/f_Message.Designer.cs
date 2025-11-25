@@ -413,6 +413,7 @@
             Controls.Add(Mess_panel);
             Name = "f_Message";
             Text = "Message";
+            FormClosing += f_Message_FormClosing;
             Load += f_Message_Load_1;
             Mess_panel.ResumeLayout(false);
             pnl_mess.ResumeLayout(false);
