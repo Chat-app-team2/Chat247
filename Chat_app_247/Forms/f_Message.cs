@@ -55,6 +55,9 @@ namespace Chat_app_247
         private string _currentGroupName;
         private string _currentGroupImageUrl;
         private UcEmojiPicker _emojiPicker;
+
+        //Bộ nhớ đệm thông tin user, tránh tải lại nhiều lần
+        private Dictionary<string, User> _userCache = new Dictionary<string, User>();
         // Constructor
         public f_Message(IFirebaseClient client, string userId)
         {
@@ -254,11 +257,11 @@ namespace Chat_app_247
         }
 
         // Thêm bong bóng chat
-        private async void AddBubble(Models.Message message)
+        private async Task AddBubble(Models.Message message)
         {
             bool isMyMessage = (message.SenderId == _userId);
 
-            // Tạo panel container với AutoSize
+            // Chuẩn bị container
             Panel messageContainer = new Panel
             {
                 Width = flpMessages.Width - 25,
@@ -270,37 +273,55 @@ namespace Chat_app_247
 
             UserControl bubble;
 
+            //  thông tin User
+            string targetUserId = isMyMessage ? _userId : message.SenderId;
+            User userParam = null;
+
+            if (_userCache.ContainsKey(targetUserId))
+            {
+                // Nếu đã có trong cache->Lấy luôn
+                userParam = _userCache[targetUserId];
+            }
+            else
+            {
+                // Nếu chưa có - Tải từ Firebase và lưu vào cache
+                try
+                {
+                    FirebaseResponse res = await _client.GetAsync($"Users/{targetUserId}");
+                    userParam = res.ResultAs<User>();
+                    if (userParam != null)
+                    {
+                        _userCache[targetUserId] = userParam;
+                    }
+                }
+                catch { }
+            }
+
+            // Nếu vẫn null thì tạo user tạm để không crash app
+            if (userParam == null) userParam = new User { DisplayName = "Unknown", ProfilePictureUrl = "" };
+
+            string displayName = userParam.DisplayName;
+            string displayAvt = userParam.ProfilePictureUrl;
+
+            // Tạo Bong bóng chat
             if (isMyMessage)
             {
-                FirebaseResponse res = await _client.GetAsync($"Users/{_userId}");
-                User data = res.ResultAs<User>();
-
-                string myName = data.DisplayName;
-                string urlAvt = data.ProfilePictureUrl;
-
                 var ucMine = new UcBubbleMine();
-                ucMine.SetMessage(message, urlAvt, myName);
+                ucMine.SetMessage(message, displayAvt, displayName);
                 bubble = ucMine;
-
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 bubble.Location = new Point(messageContainer.Width - bubble.Width - 10, 5);
             }
             else
             {
-                FirebaseResponse res = await _client.GetAsync($"Users/{message.SenderId}");
-                User data = res.ResultAs<User>();
-
-                string otName = data.DisplayName;
-                string otUrlAvt = data.ProfilePictureUrl;
-
                 var ucOther = new UcBubbleOther();
-                ucOther.SetMessage(message, otUrlAvt, otName);
+                ucOther.SetMessage(message, displayAvt, displayName);
                 bubble = ucOther;
-
                 bubble.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 bubble.Location = new Point(0, 5);
             }
 
+            // Add vào UI
             messageContainer.Controls.Add(bubble);
             flpMessages.Controls.Add(messageContainer);
             flpMessages.ScrollControlIntoView(messageContainer);
@@ -338,9 +359,17 @@ namespace Chat_app_247
                             .OrderBy(m => m.Timestamp)
                             .ToList();
 
+                        // Chỉ lấy 20 tin nhắn gần nhất
+                        int limit = 20;
+                        if (sortedMessages.Count > limit)
+                        {
+                     
+                            sortedMessages = sortedMessages.Skip(sortedMessages.Count - limit).ToList();
+                        }
+
                         foreach (var msg in sortedMessages)
                         {
-                            AddBubble(msg);
+                            await AddBubble(msg);
                         }
 
                         _lastMessageTimestamp = sortedMessages.Last().Timestamp;
@@ -364,9 +393,9 @@ namespace Chat_app_247
                         {
                             _lastMessageTimestamp = e.Object.Timestamp;
 
-                            this.Invoke((MethodInvoker)delegate
+                            this.Invoke((MethodInvoker) async delegate
                             {
-                                AddBubble(e.Object);
+                                await AddBubble(e.Object);
                             });
                         }
                     },
