@@ -77,8 +77,8 @@ namespace Chat_app_247
             pnl_mess.Visible = false;
             // ====== TẠO UC EMOJI PICKER ======
             _emojiPicker = new UcEmojiPicker();
-            _emojiPicker.Visible = false;             // ban đầu ẩn
-            _emojiPicker.Dock = DockStyle.Top;        // NẰM TRÊN THANH GÕ
+            _emojiPicker.Dock = DockStyle.Top;
+            _emojiPicker.Height = 0;
             _emojiPicker.OnEmojiSelected += EmojiPicker_OnEmojiSelected;
 
             // Thêm vào panel chứa THANH GÕ (panel có txt_mess, nút Gửi, nút emoji)
@@ -415,30 +415,33 @@ namespace Chat_app_247
             await SendMessageToFirebase("Text", content);
         }
 
-
+        private int emojiHeight = 250;
         private void btn_sendfile_Click(object sender, EventArgs e)
         {
-            _emojiPicker.Visible = !_emojiPicker.Visible;
+
+            if (_emojiPicker.Height == 0)
+                _emojiPicker.Height = emojiHeight;   // mở emoji
+            else
+                _emojiPicker.Height = 0;             // đóng emoji
+
             _emojiPicker.BringToFront();
         }
         //Hàm nhận emoji từ UC
         private void EmojiPicker_OnEmojiSelected(string emoji)
         {
 
+
             txt_mess.Focus();
 
             if (string.IsNullOrWhiteSpace(txt_mess.Text))
-            {
-                // Nếu chưa có gì, chỉ gửi emoji thôi
                 txt_mess.Text = emoji;
-            }
             else
-            {
-                // Nếu đã có text, luôn thêm emoji sau cùng, có 1 khoảng trắng
                 txt_mess.Text = txt_mess.Text.TrimEnd() + " " + emoji;
-            }
 
-            txt_mess.SelectionStart = txt_mess.TextLength;  // caret về cuối
+            txt_mess.SelectionStart = txt_mess.TextLength;
+
+            //  Thu gọn Emoji sau khi chọn
+            _emojiPicker.Height = 0;
         }
         // Đưa phần chữ (chữ/số) ra trước, phần emoji/ký tự đặc biệt ở đầu ra sau
         private string ReorderTextAndEmoji(string input)
