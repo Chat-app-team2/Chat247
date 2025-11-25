@@ -386,7 +386,6 @@ namespace Chat_app_247
 
             content = ReorderTextAndEmoji(content);
 
-            // Gọi hàm chung đã tách ở trên
             await SendMessageToFirebase("Text", content);
         }
 
@@ -676,13 +675,19 @@ namespace Chat_app_247
             {
                 if (_isSending) return;
                 _isSending = true;
+                string finalContent = contentOrUrl;
+
+                if (type == "Text")
+                {
+                    finalContent = Chat_app_247.Services.EncryptionService.Encrypt(contentOrUrl);
+                }
 
                 var newMessage = new Chat_app_247.Models.Message
                 {
                     SenderId = _userId,
                     Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
                     MessageType = type,
-                    Content = (type == "Text") ? contentOrUrl : "", // Nếu là file/ảnh thì Content để trống 
+                    Content = (type == "Text") ? finalContent : "", // Nếu là file/ảnh thì content để trống 
                     FileUrl = (type != "Text") ? contentOrUrl : "",
                     FileName = fileName,
                     ReadBy = new Dictionary<string, long>()

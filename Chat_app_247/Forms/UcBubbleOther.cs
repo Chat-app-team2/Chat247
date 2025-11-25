@@ -36,7 +36,8 @@ namespace Chat_app_247.Forms
 
             if (msg.MessageType == "Text")
             {
-                lblText.Text = msg.Content;
+                string decryptedText = Chat_app_247.Services.EncryptionService.Decrypt(msg.Content);
+                lblText.Text = decryptedText;
                 pnlBubble.Controls.Add(lblText);
                 pnlBubble.MaximumSize = new Size(450, 500);
                 lblText.MaximumSize = new Size(400, 400);
