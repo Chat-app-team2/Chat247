@@ -56,6 +56,8 @@ namespace Chat_app_247
         private string _currentGroupImageUrl;
         private UcEmojiPicker _emojiPicker;
 
+        private List<IDisposable> _lastMsgSubscriptions = new List<IDisposable>();
+
         //Bộ nhớ đệm thông tin user, tránh tải lại nhiều lần
         private Dictionary<string, User> _userCache = new Dictionary<string, User>();
         // Constructor
@@ -121,6 +123,9 @@ namespace Chat_app_247
                         ucFriend.Dock = DockStyle.Top;
                         ucFriend.SetData(friendUser);
                         ucFriend.OnChatClicked += UcFriend_OnChatClicked; // Nối sự kiện
+                        // Lắng nghe tin nhắn cuối
+                        string convId = GetConversationId(_userId, friendUser.UserId);
+                        ListenForLastMessage(convId, ucFriend);
 
                         Message_panel.Controls.Add(ucFriend);
                     }
@@ -359,14 +364,6 @@ namespace Chat_app_247
                             .OrderBy(m => m.Timestamp)
                             .ToList();
 
-                        // Chỉ lấy 20 tin nhắn gần nhất
-                        int limit = 20;
-                        if (sortedMessages.Count > limit)
-                        {
-                     
-                            sortedMessages = sortedMessages.Skip(sortedMessages.Count - limit).ToList();
-                        }
-
                         foreach (var msg in sortedMessages)
                         {
                             await AddBubble(msg);
@@ -393,7 +390,7 @@ namespace Chat_app_247
                         {
                             _lastMessageTimestamp = e.Object.Timestamp;
 
-                            this.Invoke((MethodInvoker) async delegate
+                            this.Invoke((MethodInvoker)async delegate
                             {
                                 await AddBubble(e.Object);
                             });
@@ -594,6 +591,8 @@ namespace Chat_app_247
                 OpenGroupConversation(convId, name, imgUrl);
             };
 
+            ListenForLastMessage(conversationId, ucGroup);
+
             // thêm vào trên cùng
             Message_panel.Controls.Add(ucGroup);
             Message_panel.Controls.SetChildIndex(ucGroup, 0);
@@ -743,6 +742,59 @@ namespace Chat_app_247
             {
                 _isSending = false;
             }
+        }
+
+        // Hàm helper lắng nghe tin nhắn cuối
+        private void ListenForLastMessage(string conversationId, UcMessUser uc)
+        {
+            var sub = _realtimeClient
+                .Child("Conversations")
+                .Child(conversationId)
+                .Child("LastMessage")
+                .AsObservable<object>() // Lắng nghe thuộc tính thay đổi
+                .Subscribe(d =>
+                {
+                    // Khi thuộc tính Timestamp thay đổi -> Có tin nhắn mới
+                    if (d.Key == "Timestamp")
+                    {
+                        this.Invoke((MethodInvoker)async delegate
+                        {
+                            await LoadAndShowLastMessage(conversationId, uc);
+                        });
+                    }
+                });
+
+            // Lưu vào list để quản lý
+            _lastMsgSubscriptions.Add(sub);
+        }
+
+        // Hàm con để tải trọn vẹn object Message và hiển thị
+        private async Task LoadAndShowLastMessage(string conversationId, UcMessUser uc)
+        {
+            try
+            {
+                var res = await _client.GetAsync($"Conversations/{conversationId}/LastMessage");
+                if (res.Body != "null")
+                {
+                    var msg = res.ResultAs<Models.Message>();
+                    uc.SetLastMessage(msg);
+                }
+            }
+            catch { }
+        }
+
+        private void f_Message_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Hủy tất cả các listener LastMessage
+            foreach (var sub in _lastMsgSubscriptions)
+            {
+                sub.Dispose();
+            }
+            _lastMsgSubscriptions.Clear();
+
+            // Hủy listener tin nhắn chat chính
+            _messageSubscription?.Dispose();
+
         }
     }
 }

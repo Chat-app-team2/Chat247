@@ -1,4 +1,5 @@
 ﻿using Chat_app_247.Class;
+using Chat_app_247.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Chat_app_247.Models;
 
 
 namespace Chat_app_247.Forms
@@ -64,6 +66,47 @@ namespace Chat_app_247.Forms
             }
         }
 
+        public void SetLastMessage(Models.Message msg)
+        {
+            if (msg == null)
+            {
+                Last_Message.Text = "";
+                return;
+            }
+
+            try
+            {
+                string contentDisplay = "";
+
+                if (msg.MessageType == "Text")
+                {
+                    contentDisplay = EncryptionService.Decrypt(msg.Content);
+                }
+                else if (msg.MessageType == "Image")
+                {
+                    contentDisplay = "[Hình ảnh]";
+                }
+                else if (msg.MessageType == "File")
+                {
+                    contentDisplay = "[Tệp tin] " + msg.FileName;
+                }
+                else
+                {
+                    contentDisplay = "Tin nhắn mới";
+                }
+
+                if (contentDisplay.Length > 30)
+                    contentDisplay = contentDisplay.Substring(0, 27) + "...";
+
+                Last_Message.Text = contentDisplay;
+
+            }
+            catch
+            {
+                Last_Message.Text = "Tin nhắn lỗi";
+            }
+        }
+
         public async void SetGroupData(string conversationId, string groupName, string groupImageUrl)
         {
             _isGroup = true;
@@ -108,6 +151,11 @@ namespace Chat_app_247.Forms
                 // Item này là BẠN 1-1
                 OnChatClicked?.Invoke(this, _friendUser);
             }
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
