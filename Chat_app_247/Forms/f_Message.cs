@@ -81,10 +81,8 @@ namespace Chat_app_247
             _emojiPicker.Height = 0;
             _emojiPicker.OnEmojiSelected += EmojiPicker_OnEmojiSelected;
 
-            // Thêm vào panel chứa THANH GÕ (panel có txt_mess, nút Gửi, nút emoji)
-            pnl_mess.Controls.Add(_emojiPicker);      // <--- THAY bằng tên panel thật
-            pnl_mess.Controls.SetChildIndex(_emojiPicker, 0); // UC ở trên, thanh gõ ở dưới
-                                                              // BẮT SỰ KIỆN TEXTBOX
+            pnlEmojiContainer.Controls.Add(_emojiPicker);
+            _emojiPicker.Dock = DockStyle.Fill;
 
             // Gắn sự kiện load form
             this.Load += async (s, e) =>
@@ -415,21 +413,22 @@ namespace Chat_app_247
             await SendMessageToFirebase("Text", content);
         }
 
-        private int emojiHeight = 250;
+        private int emojiPanelHeight = 100;
         private void btn_sendfile_Click(object sender, EventArgs e)
         {
 
-            if (_emojiPicker.Height == 0)
-                _emojiPicker.Height = emojiHeight;   // mở emoji
+            if (pnlEmojiContainer.Height == 0)
+            {
+                pnlEmojiContainer.Height = emojiPanelHeight;  // mở panel emoji
+            }
             else
-                _emojiPicker.Height = 0;             // đóng emoji
-
-            _emojiPicker.BringToFront();
+            {
+                pnlEmojiContainer.Height = 0;                 // đóng panel emoji
+            }
         }
         //Hàm nhận emoji từ UC
         private void EmojiPicker_OnEmojiSelected(string emoji)
         {
-
 
             txt_mess.Focus();
 
@@ -438,10 +437,10 @@ namespace Chat_app_247
             else
                 txt_mess.Text = txt_mess.Text.TrimEnd() + " " + emoji;
 
-            txt_mess.SelectionStart = txt_mess.TextLength;
+            txt_mess.SelectionStart = txt_mess.Text.Length;
 
-            //  Thu gọn Emoji sau khi chọn
-            _emojiPicker.Height = 0;
+            // đóng panel emoji
+            pnlEmojiContainer.Height = 0;
         }
         // Đưa phần chữ (chữ/số) ra trước, phần emoji/ký tự đặc biệt ở đầu ra sau
         private string ReorderTextAndEmoji(string input)
