@@ -798,6 +798,30 @@ namespace Chat_app_247
             _messageSubscription?.Dispose();
 
         }
+
+        private void btn_voice_Click(object sender, EventArgs e)
+        {
+            pnlRecorderContainer.Controls.Clear();
+
+            var recorder = new VoiceRecorderUC();
+            recorder.OnRecordCompleted = Recorder_Finished;
+
+            pnlRecorderContainer.Height = recorder.Height;  
+            pnlRecorderContainer.Controls.Add(recorder);
+        }
+        private void Recorder_Finished(string filePath)
+        {
+            // Thêm voice message vào flpMessages
+            var voiceUC = new VoiceMessageUC();
+            voiceUC.LoadAudio(filePath);
+
+            flpMessages.Controls.Add(voiceUC);
+
+            // đóng recorder panel
+            pnlRecorderContainer.Controls.Clear();
+            pnlRecorderContainer.Height = 0;
+        }
+
     }
 }
 
