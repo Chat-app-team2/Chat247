@@ -72,7 +72,7 @@
             btnStop.FillColor = Color.FromArgb(104, 33, 122);
             btnStop.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnStop.ForeColor = Color.White;
-            btnStop.Location = new Point(444, 16);
+            btnStop.Location = new Point(679, 16);
             btnStop.Name = "btnStop";
             btnStop.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnStop.Size = new Size(125, 87);
@@ -86,7 +86,7 @@
             guna2HtmlLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(162, 16);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(119, 33);
+            guna2HtmlLabel1.Size = new Size(166, 47);
             guna2HtmlLabel1.TabIndex = 20;
             guna2HtmlLabel1.Text = "Trạng thái:";
             // 
@@ -94,9 +94,9 @@
             // 
             lblStatus.BackColor = Color.Transparent;
             lblStatus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(301, 16);
+            lblStatus.Location = new Point(402, 23);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(50, 30);
+            lblStatus.Size = new Size(69, 40);
             lblStatus.TabIndex = 21;
             lblStatus.Text = "none";
             // 
@@ -104,9 +104,9 @@
             // 
             lblTimer.BackColor = Color.Transparent;
             lblTimer.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimer.Location = new Point(301, 55);
+            lblTimer.Location = new Point(402, 61);
             lblTimer.Name = "lblTimer";
-            lblTimer.Size = new Size(74, 39);
+            lblTimer.Size = new Size(101, 53);
             lblTimer.TabIndex = 22;
             lblTimer.Text = "00:00";
             // 
@@ -116,13 +116,13 @@
             guna2HtmlLabel4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.Location = new Point(162, 61);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(110, 33);
+            guna2HtmlLabel4.Size = new Size(153, 47);
             guna2HtmlLabel4.TabIndex = 23;
             guna2HtmlLabel4.Text = "Thời gian:";
             // 
             // VoiceRecorderUC
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             Controls.Add(guna2HtmlLabel4);
@@ -133,7 +133,7 @@
             Controls.Add(btnRecord);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Name = "VoiceRecorderUC";
-            Size = new Size(613, 128);
+            Size = new Size(884, 128);
             ResumeLayout(false);
             PerformLayout();
         }

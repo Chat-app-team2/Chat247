@@ -345,14 +345,31 @@ namespace Chat_app_247
                 Margin = new Padding(0, 5, 0, 5)
             };
 
-            // Tạo VoiceMessageUC
             var voiceUC = new VoiceMessageUC();
 
-            // Tạo file tạm từ URL Cloudinary
-            string localPath = await DownloadVoiceToTempFile(voiceMessage.VoiceUrl);
-            voiceUC.LoadAudio(localPath); // DÙNG LoadAudio  
+            // ===== Lấy tên người gửi =====
+            User senderUser;
 
-            // Căn trái/phải tùy người gửi
+            if (_userCache.ContainsKey(voiceMessage.SenderId))
+                senderUser = _userCache[voiceMessage.SenderId];
+            else
+            {
+                var res = await _client.GetAsync($"Users/{voiceMessage.SenderId}");
+                senderUser = res.ResultAs<User>();
+
+                if (senderUser != null)
+                    _userCache[voiceMessage.SenderId] = senderUser;
+                else
+                    senderUser = new User { DisplayName = "Unknown" };
+            }
+
+            voiceUC.SenderName = senderUser.DisplayName;
+
+            // Tải voice về file tạm
+            string localPath = await DownloadVoiceToTempFile(voiceMessage.VoiceUrl);
+            voiceUC.LoadAudio(localPath);
+
+            // Căn trái/phải
             if (isMyMessage)
             {
                 voiceUC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -865,16 +882,26 @@ namespace Chat_app_247
 
         private void btn_voice_Click(object sender, EventArgs e)
         {
+            // Nếu panel đã chứa VoiceRecorderUC -> tắt nó
+            if (pnlRecorderContainer.Controls.Count > 0 &&
+                pnlRecorderContainer.Controls[0] is VoiceRecorderUC)
+            {
+                pnlRecorderContainer.Controls.Clear();
+                pnlRecorderContainer.Height = 0;   // Thu nhỏ panel lại
+                return; // Dừng, không tạo recorder mới
+            }
+
+            // Chưa có recorder -> tạo mới
             pnlRecorderContainer.Controls.Clear();
 
             var recorder = new VoiceRecorderUC();
-            recorder._CurrentUserId = _userId;                    // ID người dùng hiện tại
-            recorder._CurrentConversationId = _currentConversationId; // ID phòng chat
-            recorder._IFirebaseClient = _client;                 // Firebase client
+            recorder._CurrentUserId = _userId;
+            recorder._CurrentConversationId = _currentConversationId;
+            recorder._IFirebaseClient = _client;
 
             recorder.OnRecordCompleted = Recorder_Finished;
 
-            pnlRecorderContainer.Height = recorder.Height;  
+            pnlRecorderContainer.Height = recorder.Height;
             pnlRecorderContainer.Controls.Add(recorder);
         }
         private void Recorder_Finished(string filePath)
