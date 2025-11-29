@@ -16,6 +16,11 @@ namespace Chat_app_247.Forms
         private WaveOutEvent outputDevice; //WaveInEvent → thu âm
         private AudioFileReader audioFile; // WaveFileWriter → ghi ra file WAV
         private System.Windows.Forms.Timer progressTimer;
+        public string SenderName
+        {
+            get => lbName.Text;
+            set => lbName.Text = value;
+        }
         public VoiceMessageUC()
         {
             InitializeComponent();
