@@ -50,10 +50,11 @@
             btnPlayPause.FillColor = Color.FromArgb(104, 33, 122);
             btnPlayPause.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPlayPause.ForeColor = Color.White;
-            btnPlayPause.Location = new Point(20, 10);
+            btnPlayPause.Location = new Point(13, 7);
+            btnPlayPause.Margin = new Padding(2, 2, 2, 2);
             btnPlayPause.Name = "btnPlayPause";
             btnPlayPause.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnPlayPause.Size = new Size(92, 68);
+            btnPlayPause.Size = new Size(61, 57);
             btnPlayPause.TabIndex = 17;
             btnPlayPause.Text = "▶";
             btnPlayPause.Click += btnPlayPause_Click;
@@ -61,10 +62,11 @@
             // progressBarAudio
             // 
             progressBarAudio.CustomizableEdges = customizableEdges3;
-            progressBarAudio.Location = new Point(118, 42);
+            progressBarAudio.Location = new Point(79, 28);
+            progressBarAudio.Margin = new Padding(2, 2, 2, 2);
             progressBarAudio.Name = "progressBarAudio";
             progressBarAudio.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            progressBarAudio.Size = new Size(525, 36);
+            progressBarAudio.Size = new Size(350, 24);
             progressBarAudio.TabIndex = 18;
             progressBarAudio.Text = "guna2ProgressBar1";
             progressBarAudio.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -72,32 +74,34 @@
             // lblDuration
             // 
             lblDuration.BackColor = Color.Transparent;
-            lblDuration.Location = new Point(118, 0);
+            lblDuration.Location = new Point(79, 0);
+            lblDuration.Margin = new Padding(2, 2, 2, 2);
             lblDuration.Name = "lblDuration";
-            lblDuration.Size = new Size(52, 32);
+            lblDuration.Size = new Size(38, 22);
             lblDuration.TabIndex = 19;
             lblDuration.Text = "00:00";
             // 
             // lbName
             // 
             lbName.AutoSize = true;
-            lbName.Location = new Point(482, 6);
-            lbName.Margin = new Padding(4, 0, 4, 0);
+            lbName.ForeColor = Color.Black;
+            lbName.Location = new Point(253, 2);
             lbName.Name = "lbName";
-            lbName.Size = new Size(118, 30);
+            lbName.Size = new Size(85, 20);
             lbName.TabIndex = 20;
             lbName.Text = "label_name";
             // 
             // VoiceMessageUC
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lbName);
             Controls.Add(lblDuration);
             Controls.Add(progressBarAudio);
             Controls.Add(btnPlayPause);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "VoiceMessageUC";
-            Size = new Size(660, 108);
+            Size = new Size(440, 75);
             ResumeLayout(false);
             PerformLayout();
         }
