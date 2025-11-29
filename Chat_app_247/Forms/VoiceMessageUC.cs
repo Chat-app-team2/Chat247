@@ -41,12 +41,28 @@ namespace Chat_app_247.Forms
             {
                 progressBarAudio.Value = 0;
                 progressTimer.Stop();
+                ResetAudioPosition();
             }
         }
         public void LoadAudio(string path)
         {
-            audioFile = new AudioFileReader(path);
-            lblDuration.Text = audioFile.TotalTime.ToString(@"mm\:ss");
+            if (audioFile != null)
+            {
+                audioFile.Dispose();
+                audioFile = null;
+            }
+
+            try
+            {
+                audioFile = new AudioFileReader(path);
+                lblDuration.Text = audioFile.TotalTime.ToString(@"mm\:ss");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khởi tạo AudioFile: {ex.Message}");
+                audioFile = null;
+                lblDuration.Text = "00:00";
+            }
         }
 
         private void btnPlayPause_Click(object sender, EventArgs e)
@@ -66,6 +82,14 @@ namespace Chat_app_247.Forms
             {
                 outputDevice.Play();
                 progressTimer.Start();
+            }
+        }
+        private void ResetAudioPosition()
+        {
+            if (audioFile != null)
+            {
+                audioFile.Position = 0; // Quay về đầu file
+                progressBarAudio.Value = 0;
             }
         }
     }

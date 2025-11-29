@@ -18,7 +18,7 @@ namespace Chat_app_247.Models
         public long Timestamp { get; set; }
 
         // Loại tin nhắn: Text, Image, File...
-        public string MessageType { get; set; } // "Text", "Image", "File"
+        public string MessageType { get; set; } // "Text", "Image", "File", "Voice"
 
         // Nội dung tin nhắn (nếu là MessageType.Text)
         public string Content { get; set; }
@@ -31,6 +31,11 @@ namespace Chat_app_247.Models
 
         // Key: UserId của người đã đọc, Value: Timestamp lúc đọc
         public Dictionary<string, long> ReadBy { get; set; }
-       
+
+        // Thuộc tính dành riêng cho tin nhắn giọng nói
+        public string VoiceUrl { get; set; }
+        public string VoiceFileName { get; set; }
+        public int VoiceDuration { get; set; }
+        public long FileSize { get; set; }
     }
 }

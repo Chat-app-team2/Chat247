@@ -31,7 +31,10 @@ namespace Chat_app_247.Services
 
                 // đuôi file ảnh 
                 string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" };
+                // đuôi file âm thanh
+                string[] audioExtensions = { ".wav", ".mp3", ".m4a", ".aac" };
                 bool isImage = Array.Exists(imageExtensions, e => e == ext);
+                bool isAudio = Array.Exists(audioExtensions, e => e == ext);
 
                 RawUploadResult result;
 
@@ -40,7 +43,18 @@ namespace Chat_app_247.Services
                     // Upload ảnh
                     var uploadParams = new ImageUploadParams()
                     {
-                        File = new FileDescription(filePath)
+                        File = new FileDescription(filePath),
+                        Folder = "chat_app247/images"
+                    };
+                    result = _cloudinary.Upload(uploadParams);
+                }
+                else if (isAudio)
+                {
+                    // Upload âm thanh
+                    var uploadParams = new VideoUploadParams()
+                    {
+                        File = new FileDescription(filePath),
+                        Folder = "chat_app247/voice_messages"
                     };
                     result = _cloudinary.Upload(uploadParams);
                 }
@@ -49,7 +63,8 @@ namespace Chat_app_247.Services
                     // Upload file
                     var uploadParams = new RawUploadParams()
                     {
-                        File = new FileDescription(filePath)
+                        File = new FileDescription(filePath),
+                        Folder = "chat_app247/files"
                     };
                     result = _cloudinary.Upload(uploadParams);
                 }
@@ -61,5 +76,6 @@ namespace Chat_app_247.Services
                 return null;
             }
         }
+
     }
 }
