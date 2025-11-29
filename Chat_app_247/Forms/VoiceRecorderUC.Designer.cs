@@ -52,10 +52,10 @@
             btnRecord.FillColor = Color.FromArgb(104, 33, 122);
             btnRecord.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRecord.ForeColor = Color.White;
-            btnRecord.Location = new Point(22, 46);
+            btnRecord.Location = new Point(15, 16);
             btnRecord.Name = "btnRecord";
             btnRecord.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnRecord.Size = new Size(170, 87);
+            btnRecord.Size = new Size(125, 87);
             btnRecord.TabIndex = 18;
             btnRecord.Text = "🎤";
             btnRecord.Click += btnRecord_Click;
@@ -72,10 +72,10 @@
             btnStop.FillColor = Color.FromArgb(104, 33, 122);
             btnStop.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnStop.ForeColor = Color.White;
-            btnStop.Location = new Point(302, 46);
+            btnStop.Location = new Point(444, 16);
             btnStop.Name = "btnStop";
             btnStop.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnStop.Size = new Size(170, 87);
+            btnStop.Size = new Size(125, 87);
             btnStop.TabIndex = 19;
             btnStop.Text = "⏹";
             btnStop.Click += btnStop_Click;
@@ -83,44 +83,46 @@
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(82, 197);
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Location = new Point(162, 16);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(110, 32);
+            guna2HtmlLabel1.Size = new Size(119, 33);
             guna2HtmlLabel1.TabIndex = 20;
             guna2HtmlLabel1.Text = "Trạng thái:";
             // 
             // lblStatus
             // 
             lblStatus.BackColor = Color.Transparent;
-            lblStatus.Location = new Point(251, 197);
+            lblStatus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.Location = new Point(301, 16);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(50, 32);
+            lblStatus.Size = new Size(50, 30);
             lblStatus.TabIndex = 21;
             lblStatus.Text = "none";
             // 
             // lblTimer
             // 
             lblTimer.BackColor = Color.Transparent;
-            lblTimer.Location = new Point(251, 257);
+            lblTimer.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTimer.Location = new Point(301, 55);
             lblTimer.Name = "lblTimer";
-            lblTimer.Size = new Size(52, 32);
+            lblTimer.Size = new Size(74, 39);
             lblTimer.TabIndex = 22;
             lblTimer.Text = "00:00";
             // 
             // guna2HtmlLabel4
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
-            guna2HtmlLabel4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            guna2HtmlLabel4.Location = new Point(82, 257);
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel4.Location = new Point(162, 61);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(102, 32);
+            guna2HtmlLabel4.Size = new Size(110, 33);
             guna2HtmlLabel4.TabIndex = 23;
             guna2HtmlLabel4.Text = "Thời gian:";
             // 
             // VoiceRecorderUC
             // 
-            AutoScaleDimensions = new SizeF(13F, 30F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             Controls.Add(guna2HtmlLabel4);
@@ -131,7 +133,7 @@
             Controls.Add(btnRecord);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Name = "VoiceRecorderUC";
-            Size = new Size(522, 364);
+            Size = new Size(613, 128);
             ResumeLayout(false);
             PerformLayout();
         }

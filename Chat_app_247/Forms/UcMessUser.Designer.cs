@@ -38,9 +38,9 @@
             Button_Chat = new Guna.UI2.WinForms.Guna2Button();
             Avt_pic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             Status_panel = new Guna.UI2.WinForms.Guna2Panel();
-            lblName = new Label();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             Last_Message = new Label();
+            lblName = new Label();
             ((System.ComponentModel.ISupportInitialize)Avt_pic).BeginInit();
             guna2Panel2.SuspendLayout();
             SuspendLayout();
@@ -93,19 +93,6 @@
             Status_panel.Size = new Size(7, 7);
             Status_panel.TabIndex = 10;
             // 
-            // lblName
-            // 
-            lblName.AutoSize = true;
-            lblName.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblName.ForeColor = Color.FromArgb(30, 30, 30);
-            lblName.Location = new Point(78, 10);
-            lblName.Margin = new Padding(2, 0, 2, 0);
-            lblName.MaximumSize = new Size(333, 0);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(61, 25);
-            lblName.TabIndex = 9;
-            lblName.Text = "label1";
-            // 
             // guna2Panel2
             // 
             guna2Panel2.BackColor = Color.WhiteSmoke;
@@ -129,7 +116,6 @@
             // 
             // Last_Message
             // 
-            Last_Message.AutoSize = true;
             Last_Message.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Last_Message.ForeColor = Color.FromArgb(30, 30, 30);
             Last_Message.Location = new Point(78, 43);
@@ -138,7 +124,20 @@
             Last_Message.Name = "Last_Message";
             Last_Message.Size = new Size(126, 25);
             Last_Message.TabIndex = 12;
-            Last_Message.Text = "Last Message";
+            Last_Message.Text = "None";
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblName.ForeColor = Color.FromArgb(30, 30, 30);
+            lblName.Location = new Point(65, 14);
+            lblName.Margin = new Padding(2, 0, 2, 0);
+            lblName.MaximumSize = new Size(333, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(53, 23);
+            lblName.TabIndex = 9;
+            lblName.Text = "label1";
             // 
             // UcMessUser
             // 
@@ -157,8 +156,8 @@
         private Guna.UI2.WinForms.Guna2Button Button_Chat;
         private Guna.UI2.WinForms.Guna2CirclePictureBox Avt_pic;
         private Guna.UI2.WinForms.Guna2Panel Status_panel;
-        private Label lblName;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Label Last_Message;
+        private Label lblName;
     }
 }

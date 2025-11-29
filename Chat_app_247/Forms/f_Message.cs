@@ -2,25 +2,23 @@
 using Chat_app_247.Config;
 using Chat_app_247.Forms;
 using Chat_app_247.Models;
-
+using Chat_app_247.Services;
 using Firebase.Database;
 using Firebase.Database.Query;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-
 using Newtonsoft.Json;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Chat_app_247.Services;
 
 namespace Chat_app_247
 {
@@ -262,6 +260,12 @@ namespace Chat_app_247
         // Thêm bong bóng chat
         private async Task AddBubble(Models.Message message)
         {
+            if (message.MessageType == "Voice")
+            {
+                await AddVoiceBubble(message);
+                return;
+            }
+
             bool isMyMessage = (message.SenderId == _userId);
 
             // Chuẩn bị container
@@ -328,6 +332,66 @@ namespace Chat_app_247
             messageContainer.Controls.Add(bubble);
             flpMessages.Controls.Add(messageContainer);
             flpMessages.ScrollControlIntoView(messageContainer);
+        }
+        private async Task AddVoiceBubble(Models.Message voiceMessage)
+        {
+            bool isMyMessage = (voiceMessage.SenderId == _userId);
+
+            // Chuẩn bị container
+            Panel messageContainer = new Panel
+            {
+                Width = flpMessages.Width - 25,
+                BackColor = Color.Transparent,
+                Margin = new Padding(0, 5, 0, 5)
+            };
+
+            // Tạo VoiceMessageUC
+            var voiceUC = new VoiceMessageUC();
+
+            // Tạo file tạm từ URL Cloudinary
+            string localPath = await DownloadVoiceToTempFile(voiceMessage.VoiceUrl);
+            voiceUC.LoadAudio(localPath); // DÙNG LoadAudio  
+
+            // Căn trái/phải tùy người gửi
+            if (isMyMessage)
+            {
+                voiceUC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+                voiceUC.Location = new Point(messageContainer.Width - voiceUC.Width - 10, 5);
+            }
+            else
+            {
+                voiceUC.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                voiceUC.Location = new Point(10, 5);
+            }
+
+            messageContainer.Controls.Add(voiceUC);
+            flpMessages.Controls.Add(messageContainer);
+            flpMessages.ScrollControlIntoView(messageContainer);
+        }
+
+        // TẢI VOICE VỀ FILE TẠM
+        private async Task<string> DownloadVoiceToTempFile(string voiceUrl)
+        {
+            try
+            {
+                string tempPath = Path.GetTempFileName() + ".wav";
+
+                using (WebClient webClient = new WebClient())
+                {
+                    // Bỏ qua SSL
+                    ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
+                    await webClient.DownloadFileTaskAsync(new Uri(voiceUrl), tempPath);
+                }
+
+                return tempPath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi tải voice: {ex.Message}");
+                return null;
+            }
         }
 
         /// <summary>
@@ -804,6 +868,10 @@ namespace Chat_app_247
             pnlRecorderContainer.Controls.Clear();
 
             var recorder = new VoiceRecorderUC();
+            recorder._CurrentUserId = _userId;                    // ID người dùng hiện tại
+            recorder._CurrentConversationId = _currentConversationId; // ID phòng chat
+            recorder._IFirebaseClient = _client;                 // Firebase client
+
             recorder.OnRecordCompleted = Recorder_Finished;
 
             pnlRecorderContainer.Height = recorder.Height;  
@@ -811,13 +879,14 @@ namespace Chat_app_247
         }
         private void Recorder_Finished(string filePath)
         {
-            // Thêm voice message vào flpMessages
-            var voiceUC = new VoiceMessageUC();
-            voiceUC.LoadAudio(filePath);
-
-            flpMessages.Controls.Add(voiceUC);
-
-            // đóng recorder panel
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+            }
+            catch { }
             pnlRecorderContainer.Controls.Clear();
             pnlRecorderContainer.Height = 0;
         }
