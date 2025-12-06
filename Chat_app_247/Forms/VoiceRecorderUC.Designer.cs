@@ -33,11 +33,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnRecord = new Guna.UI2.WinForms.Guna2Button();
-            btnStop = new Guna.UI2.WinForms.Guna2Button();
+            btn_voice_text = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblTimer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // btnRecord
@@ -50,41 +52,40 @@
             btnRecord.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnRecord.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnRecord.FillColor = Color.FromArgb(104, 33, 122);
-            btnRecord.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRecord.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRecord.ForeColor = Color.White;
-            btnRecord.Location = new Point(15, 16);
+            btnRecord.Location = new Point(26, 43);
             btnRecord.Name = "btnRecord";
             btnRecord.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnRecord.Size = new Size(125, 87);
+            btnRecord.Size = new Size(86, 54);
             btnRecord.TabIndex = 18;
             btnRecord.Text = "🎤";
             btnRecord.Click += btnRecord_Click;
             // 
-            // btnStop
+            // btn_voice_text
             // 
-            btnStop.BorderRadius = 15;
-            btnStop.Cursor = Cursors.Hand;
-            btnStop.CustomizableEdges = customizableEdges3;
-            btnStop.DisabledState.BorderColor = Color.DarkGray;
-            btnStop.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnStop.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnStop.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnStop.FillColor = Color.FromArgb(104, 33, 122);
-            btnStop.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnStop.ForeColor = Color.White;
-            btnStop.Location = new Point(453, 16);
-            btnStop.Name = "btnStop";
-            btnStop.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnStop.Size = new Size(125, 87);
-            btnStop.TabIndex = 19;
-            btnStop.Text = "⏹";
-            btnStop.Click += btnStop_Click;
+            btn_voice_text.BorderRadius = 15;
+            btn_voice_text.Cursor = Cursors.Hand;
+            btn_voice_text.CustomizableEdges = customizableEdges3;
+            btn_voice_text.DisabledState.BorderColor = Color.DarkGray;
+            btn_voice_text.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_voice_text.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_voice_text.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_voice_text.FillColor = Color.FromArgb(104, 33, 122);
+            btn_voice_text.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_voice_text.ForeColor = Color.White;
+            btn_voice_text.Location = new Point(445, 45);
+            btn_voice_text.Name = "btn_voice_text";
+            btn_voice_text.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_voice_text.Size = new Size(86, 54);
+            btn_voice_text.TabIndex = 19;
+            btn_voice_text.Text = "🎤";
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(162, 16);
+            guna2HtmlLabel1.Location = new Point(144, 19);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(119, 33);
             guna2HtmlLabel1.TabIndex = 20;
@@ -94,7 +95,7 @@
             // 
             lblStatus.BackColor = Color.Transparent;
             lblStatus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(300, 16);
+            lblStatus.Location = new Point(278, 19);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(50, 30);
             lblStatus.TabIndex = 21;
@@ -104,7 +105,7 @@
             // 
             lblTimer.BackColor = Color.Transparent;
             lblTimer.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimer.Location = new Point(300, 54);
+            lblTimer.Location = new Point(304, 55);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(74, 39);
             lblTimer.TabIndex = 22;
@@ -114,22 +115,46 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.Location = new Point(162, 61);
+            guna2HtmlLabel4.Location = new Point(144, 62);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(110, 33);
             guna2HtmlLabel4.TabIndex = 23;
             guna2HtmlLabel4.Text = "Thời gian:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(38, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 25);
+            label1.TabIndex = 24;
+            label1.Text = "Voice";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(430, 15);
+            label2.Name = "label2";
+            label2.Size = new Size(122, 25);
+            label2.TabIndex = 25;
+            label2.Text = "Voice -> text";
             // 
             // VoiceRecorderUC
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(guna2HtmlLabel4);
             Controls.Add(lblTimer);
             Controls.Add(lblStatus);
             Controls.Add(guna2HtmlLabel1);
-            Controls.Add(btnStop);
+            Controls.Add(btn_voice_text);
             Controls.Add(btnRecord);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             Name = "VoiceRecorderUC";
@@ -141,10 +166,12 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnRecord;
-        private Guna.UI2.WinForms.Guna2Button btnStop;
+        private Guna.UI2.WinForms.Guna2Button btn_voice_text;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblStatus;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTimer;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Label label1;
+        private Label label2;
     }
 }
