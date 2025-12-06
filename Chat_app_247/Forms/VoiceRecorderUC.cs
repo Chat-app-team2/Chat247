@@ -45,7 +45,17 @@ namespace Chat_app_247.Forms
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
-
+            if (waveSource == null) 
+            {
+                StartRecording();
+            }
+            else // Dừng ghi âm
+            {
+                StopRecording();
+            }
+        }
+        private void StartRecording()
+        {
             seconds = 0;
             lblTimer.Text = "00:00";
             lblTimer.ForeColor = Color.Black;
@@ -69,8 +79,15 @@ namespace Chat_app_247.Forms
             lblStatus.Text = "Đang ghi âm...";
             lblStatus.Font = new Font(lblStatus.Font, FontStyle.Italic);
             lblStatus.ForeColor = Color.Black;
-            btnRecord.Enabled = false;
-            btnStop.Enabled = true;
+
+            btnRecord.Text = "⏹";
+            
+        }
+        private void StopRecording()
+        {
+            btnStop_Click(this, EventArgs.Empty);
+
+            btnRecord.Text = "🎤";
         }
 
         private async void btnStop_Click(object sender, EventArgs e)
@@ -85,8 +102,6 @@ namespace Chat_app_247.Forms
             waveFile = null;
 
             lblStatus.Text = "Đã ghi xong!";
-            btnRecord.Enabled = true;
-            btnStop.Enabled = false;
             try
             {
                 var cloudianryService = new CloudinaryService();
