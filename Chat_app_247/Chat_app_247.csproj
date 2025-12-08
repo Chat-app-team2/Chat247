@@ -13,6 +13,7 @@
     <PackageReference Include="FirebaseAuthentication.net" Version="4.1.0" />
     <PackageReference Include="FirebaseDatabase.net" Version="5.0.0" />
     <PackageReference Include="FireSharp" Version="2.0.4" />
+    <PackageReference Include="Google.Cloud.Speech.V1" Version="3.9.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.7" />
   </ItemGroup>
 

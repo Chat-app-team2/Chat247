@@ -80,6 +80,7 @@
             btn_voice_text.Size = new Size(86, 54);
             btn_voice_text.TabIndex = 19;
             btn_voice_text.Text = "🎤";
+            btn_voice_text.Click += btn_voice_text_Click;
             // 
             // guna2HtmlLabel1
             // 
