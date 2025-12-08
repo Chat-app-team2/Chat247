@@ -231,11 +231,19 @@ namespace Chat_app_247.Forms
                     lblStatus.Text = "File lỗi/quá ngắn";
                     return;
                 }
+                string basePath = Application.StartupPath;
+                string jsonPath = Path.Combine(basePath, "gen-lang-client-0459749173-072b46e05118.json");
+
+                if (!File.Exists(jsonPath))
+                {
+                    MessageBox.Show("Không tìm thấy file cấu hình Google tại: " + jsonPath);
+                    return;
+                }
 
                 // Cấu hình Google Credentials
                 var builder = new SpeechClientBuilder
                 {
-                    CredentialsPath = @"C:\Users\makid\source\repos\Chat247\Chat_app_247\bin\Debug\net8.0-windows\gen-lang-client-0459749173-072b46e05118.json"
+                    CredentialsPath = jsonPath
                 };
                 var client = await builder.BuildAsync();
 
