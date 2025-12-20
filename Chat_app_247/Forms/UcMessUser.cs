@@ -90,6 +90,10 @@ namespace Chat_app_247.Forms
                 {
                     contentDisplay = "[Tệp tin] " + msg.FileName;
                 }
+                else if (msg.MessageType == "Voice")
+                {
+                    contentDisplay = "Voice";
+                }
                 else
                 {
                     contentDisplay = "Tin nhắn mới";

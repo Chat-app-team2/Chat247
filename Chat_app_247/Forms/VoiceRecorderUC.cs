@@ -232,7 +232,7 @@ namespace Chat_app_247.Forms
                     return;
                 }
                 string basePath = Application.StartupPath;
-                string jsonPath = Path.Combine(basePath, "gen-lang-client-0459749173-072b46e05118.json");
+                string jsonPath = Path.Combine(basePath, "gen-lang-client-0459749173-471fd04af8ac.json");
 
                 if (!File.Exists(jsonPath))
                 {
