@@ -837,17 +837,28 @@ namespace Chat_app_247
                 .AsObservable<object>() // Lắng nghe thuộc tính thay đổi
                 .Subscribe(d =>
                 {
-                    // Khi thuộc tính Timestamp thay đổi -> Có tin nhắn mới
                     if (d.Key == "Timestamp")
                     {
-                        this.Invoke((MethodInvoker)async delegate
+                        if (this.IsHandleCreated && !this.IsDisposed)
                         {
-                            await LoadAndShowLastMessage(conversationId, uc);
-                        });
+                            this.BeginInvoke(new Action(async () =>
+                            {
+                                try
+                                {
+                                    if (uc != null && !uc.IsDisposed)
+                                    {
+                                        await LoadAndShowLastMessage(conversationId, uc);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine($"Lỗi cập nhật tin nhắn cuối: {ex.Message}");
+                                }
+                            }));
+                        }
                     }
                 });
 
-            // Lưu vào list để quản lý
             _lastMsgSubscriptions.Add(sub);
         }
 
