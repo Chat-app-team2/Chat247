@@ -34,6 +34,8 @@ namespace Chat_app_247
         private IconButton CurrentBtn;
         private Panel LeftBorderBtn;
 
+        private bool _isActuallyClosing = false;
+
         public f_Dashboard(Firebase.Auth.User user, string idToken, FirebaseAuthClient authProvider)
         {
             InitializeComponent();
@@ -76,20 +78,31 @@ namespace Chat_app_247
         // Mục đích hàm f_Dashboard_FormClosing để cập nhật trạng thái ngoại tuyến khi đóng form Dashboard
         private async void f_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (_isActuallyClosing) return;
             // Nếu form đang ẩn (đang logout) thì không hiển thị confirm
             if (!this.Visible)
             {
                 return;
             }
 
+            e.Cancel = true;
+
             if (MessageBox.Show("Bạn có chắc chắn muốn đóng ứng dụng không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                await IsOffline();
-                Application.Exit();
-            }
-            else
-            {
-                e.Cancel = true;
+                try
+                {
+                    this.Enabled = false;
+
+                    await IsOffline();
+
+                    _isActuallyClosing = true;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    _isActuallyClosing = true;
+                    Application.Exit();
+                }
             }
         }
         // Mục đích hàm InitializeFirebase để khởi tạo kết nối FirebaseDatabase
@@ -341,7 +354,7 @@ namespace Chat_app_247
             {
                 try
                 {
-                    IsOffline();
+                    await IsOffline();
                     await Task.Delay(100);
                     // Cho token đăng nhập hết hạn
                     auth_Pro.SignOut();
@@ -350,6 +363,7 @@ namespace Chat_app_247
                     Dang_nhap loginForm = new Dang_nhap();
                     loginForm.ShowDialog();
 
+                    _isActuallyClosing = true;
                     this.Close();
                 }
                 catch
