@@ -339,6 +339,7 @@
             btn_call.Size = new Size(114, 82);
             btn_call.TabIndex = 6;
             btn_call.Text = "📞";
+            btn_call.Click += btn_call_Click;
             // 
             // pic_ava
             // 

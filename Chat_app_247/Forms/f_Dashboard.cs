@@ -265,7 +265,7 @@ namespace Chat_app_247
         private void List_Friends_button_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            f_Friends f_listFriends = new f_Friends(firebaseClient,userId);
+            f_Friends f_listFriends = new f_Friends(firebaseClient, userId);
             f_listFriends.Text = "Danh Sách Bạn Bè";
             OpenSmallForm(f_listFriends);
         }

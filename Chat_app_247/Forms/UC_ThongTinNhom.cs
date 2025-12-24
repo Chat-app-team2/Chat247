@@ -342,5 +342,11 @@ namespace Chat_app_247.Forms
                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnGoi_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng gọi nhóm chưa được hỗ trợ.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

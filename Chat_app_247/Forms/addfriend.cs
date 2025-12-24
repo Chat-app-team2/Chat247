@@ -15,7 +15,10 @@ using System.Windows.Forms;
 namespace Chat_app_247.Forms
 {
     public partial class addfriend : UserControl
+
     {
+        private User FriendUser;
+        private string useridMain;
         private User _targetUser;
         private string _currentUserId;
         private IFirebaseClient _client;
@@ -146,6 +149,17 @@ namespace Chat_app_247.Forms
         private void uc_Request_Panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (FriendUser != null)
+            {
+                string userInfo = $"Thông tin người dùng:\n\n" +
+                                    $"Tên hiển thị: {FriendUser.DisplayName ?? "Chưa đặt tên"}\n" +
+                                    $"Email: {FriendUser.Email ?? "Chưa có email"}\n";
+                MessageBox.Show(userInfo, "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

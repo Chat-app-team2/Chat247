@@ -129,7 +129,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.LightGray;
-            label5.Location = new Point(56, 309);
+            label5.Location = new Point(56, 303);
             label5.Name = "label5";
             label5.Size = new Size(63, 30);
             label5.TabIndex = 27;
@@ -139,7 +139,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.LightGray;
-            label4.Location = new Point(56, 223);
+            label4.Location = new Point(56, 212);
             label4.Name = "label4";
             label4.Size = new Size(69, 30);
             label4.TabIndex = 26;
@@ -220,7 +220,7 @@
             txtConfirmPassword.Font = new Font("Segoe UI", 9F);
             txtConfirmPassword.ForeColor = Color.White;
             txtConfirmPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtConfirmPassword.Location = new Point(56, 515);
+            txtConfirmPassword.Location = new Point(56, 518);
             txtConfirmPassword.Margin = new Padding(5, 6, 5, 6);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PasswordChar = '•';
@@ -246,7 +246,7 @@
             txtUsername.Font = new Font("Segoe UI", 9F);
             txtUsername.ForeColor = Color.White;
             txtUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtUsername.Location = new Point(56, 259);
+            txtUsername.Location = new Point(56, 252);
             txtUsername.Margin = new Padding(5, 6, 5, 6);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Enter your name";
@@ -310,7 +310,7 @@
             txtPassword.Font = new Font("Segoe UI", 9F);
             txtPassword.ForeColor = Color.White;
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(56, 421);
+            txtPassword.Location = new Point(55, 423);
             txtPassword.Margin = new Padding(5, 6, 5, 6);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '•';
@@ -336,7 +336,7 @@
             txtEmail.Font = new Font("Segoe UI", 9F);
             txtEmail.ForeColor = Color.White;
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(56, 345);
+            txtEmail.Location = new Point(54, 341);
             txtEmail.Margin = new Padding(5, 6, 5, 6);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Enter your email";

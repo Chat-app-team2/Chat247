@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             btnRecord = new Guna.UI2.WinForms.Guna2Button();
             btn_voice_text = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -46,7 +46,7 @@
             // 
             btnRecord.BorderRadius = 15;
             btnRecord.Cursor = Cursors.Hand;
-            btnRecord.CustomizableEdges = customizableEdges1;
+            btnRecord.CustomizableEdges = customizableEdges5;
             btnRecord.DisabledState.BorderColor = Color.DarkGray;
             btnRecord.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRecord.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -56,7 +56,7 @@
             btnRecord.ForeColor = Color.White;
             btnRecord.Location = new Point(26, 43);
             btnRecord.Name = "btnRecord";
-            btnRecord.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnRecord.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnRecord.Size = new Size(86, 54);
             btnRecord.TabIndex = 18;
             btnRecord.Text = "🎤";
@@ -66,7 +66,7 @@
             // 
             btn_voice_text.BorderRadius = 15;
             btn_voice_text.Cursor = Cursors.Hand;
-            btn_voice_text.CustomizableEdges = customizableEdges3;
+            btn_voice_text.CustomizableEdges = customizableEdges7;
             btn_voice_text.DisabledState.BorderColor = Color.DarkGray;
             btn_voice_text.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_voice_text.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -76,7 +76,7 @@
             btn_voice_text.ForeColor = Color.White;
             btn_voice_text.Location = new Point(445, 45);
             btn_voice_text.Name = "btn_voice_text";
-            btn_voice_text.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_voice_text.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btn_voice_text.Size = new Size(86, 54);
             btn_voice_text.TabIndex = 19;
             btn_voice_text.Text = "🎤";
@@ -88,7 +88,7 @@
             guna2HtmlLabel1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(144, 19);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(119, 33);
+            guna2HtmlLabel1.Size = new Size(166, 47);
             guna2HtmlLabel1.TabIndex = 20;
             guna2HtmlLabel1.Text = "Trạng thái:";
             // 
@@ -96,9 +96,9 @@
             // 
             lblStatus.BackColor = Color.Transparent;
             lblStatus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStatus.Location = new Point(278, 19);
+            lblStatus.Location = new Point(321, 15);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(50, 30);
+            lblStatus.Size = new Size(69, 40);
             lblStatus.TabIndex = 21;
             lblStatus.Text = "none";
             // 
@@ -106,9 +106,9 @@
             // 
             lblTimer.BackColor = Color.Transparent;
             lblTimer.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimer.Location = new Point(304, 55);
+            lblTimer.Location = new Point(316, 62);
             lblTimer.Name = "lblTimer";
-            lblTimer.Size = new Size(74, 39);
+            lblTimer.Size = new Size(101, 53);
             lblTimer.TabIndex = 22;
             lblTimer.Text = "00:00";
             // 
@@ -118,7 +118,7 @@
             guna2HtmlLabel4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.Location = new Point(144, 62);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            guna2HtmlLabel4.Size = new Size(110, 33);
+            guna2HtmlLabel4.Size = new Size(153, 47);
             guna2HtmlLabel4.TabIndex = 23;
             guna2HtmlLabel4.Text = "Thời gian:";
             // 
@@ -127,9 +127,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(38, 15);
+            label1.Location = new Point(33, 1);
             label1.Name = "label1";
-            label1.Size = new Size(58, 25);
+            label1.Size = new Size(79, 36);
             label1.TabIndex = 24;
             label1.Text = "Voice";
             // 
@@ -138,15 +138,15 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(430, 15);
+            label2.Location = new Point(424, 6);
             label2.Name = "label2";
-            label2.Size = new Size(122, 25);
+            label2.Size = new Size(170, 36);
             label2.TabIndex = 25;
             label2.Text = "Voice -> text";
             // 
             // VoiceRecorderUC
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
             Controls.Add(label2);
