@@ -69,7 +69,7 @@
             // Full_button
             // 
             Full_button.BackColor = Color.Transparent;
-            Full_button.BorderRadius = 10;
+            Full_button.BorderRadius = 5;
             Full_button.Cursor = Cursors.Hand;
             Full_button.CustomizableEdges = customizableEdges1;
             Full_button.DisabledState.BorderColor = Color.DarkGray;
@@ -92,7 +92,7 @@
             // Refuse_button
             // 
             Refuse_button.BackColor = Color.Transparent;
-            Refuse_button.BorderRadius = 10;
+            Refuse_button.BorderRadius = 5;
             Refuse_button.Cursor = Cursors.Hand;
             Refuse_button.CustomizableEdges = customizableEdges3;
             Refuse_button.DisabledState.BorderColor = Color.DarkGray;
@@ -115,7 +115,8 @@
             // Accept_button
             // 
             Accept_button.BackColor = Color.Transparent;
-            Accept_button.BorderRadius = 10;
+            Accept_button.BorderColor = Color.WhiteSmoke;
+            Accept_button.BorderRadius = 6;
             Accept_button.Cursor = Cursors.Hand;
             Accept_button.CustomizableEdges = customizableEdges5;
             Accept_button.DisabledState.BorderColor = Color.DarkGray;

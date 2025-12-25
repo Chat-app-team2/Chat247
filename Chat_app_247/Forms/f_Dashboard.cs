@@ -375,7 +375,6 @@ namespace Chat_app_247
         // Sự kiện khi nhấn nút Bell_button (Xử lý thông báo)
         private void Bell_button_Click(object sender, EventArgs e)
         {
-            List_Thong_Bao.Show(Bell_button, new Point(0, Bell_button.Height));
         }
 
         private void f_Dashboard_Load(object sender, EventArgs e)

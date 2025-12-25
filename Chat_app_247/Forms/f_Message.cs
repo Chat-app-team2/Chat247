@@ -929,6 +929,10 @@ namespace Chat_app_247
             pnlRecorderContainer.Height = 0;
         }
 
+        private void btn_call_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng gọi điện chưa được hỗ trợ trong phiên bản này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
 
