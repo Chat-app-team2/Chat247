@@ -65,11 +65,12 @@
             // 
             // picAvatarNhom
             // 
+            picAvatarNhom.BackColor = Color.BlueViolet;
             picAvatarNhom.BorderRadius = 10;
             picAvatarNhom.CustomizableEdges = customizableEdges1;
             picAvatarNhom.ImageRotate = 0F;
             picAvatarNhom.Location = new Point(18, 54);
-            picAvatarNhom.Margin = new Padding(2, 2, 2, 2);
+            picAvatarNhom.Margin = new Padding(2);
             picAvatarNhom.Name = "picAvatarNhom";
             picAvatarNhom.ShadowDecoration.CustomizableEdges = customizableEdges2;
             picAvatarNhom.Size = new Size(192, 148);
@@ -88,7 +89,7 @@
             btnChonAnh.Font = new Font("Segoe UI", 9F);
             btnChonAnh.ForeColor = Color.White;
             btnChonAnh.Location = new Point(64, 211);
-            btnChonAnh.Margin = new Padding(2, 2, 2, 2);
+            btnChonAnh.Margin = new Padding(2);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnChonAnh.Size = new Size(91, 42);
@@ -99,9 +100,9 @@
             // 
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel1.Location = new Point(238, 54);
-            guna2HtmlLabel1.Margin = new Padding(2, 2, 2, 2);
+            guna2HtmlLabel1.Margin = new Padding(2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(115, 29);
             guna2HtmlLabel1.TabIndex = 2;
@@ -117,15 +118,16 @@
             txtTenNhom.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtTenNhom.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtTenNhom.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenNhom.Font = new Font("Segoe UI", 9F);
+            txtTenNhom.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTenNhom.ForeColor = Color.Black;
             txtTenNhom.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTenNhom.Location = new Point(338, 54);
-            txtTenNhom.Margin = new Padding(3, 4, 3, 4);
+            txtTenNhom.Location = new Point(238, 90);
+            txtTenNhom.Margin = new Padding(4, 5, 4, 5);
             txtTenNhom.Name = "txtTenNhom";
             txtTenNhom.PlaceholderText = "";
             txtTenNhom.SelectedText = "";
             txtTenNhom.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtTenNhom.Size = new Size(231, 29);
+            txtTenNhom.Size = new Size(289, 36);
             txtTenNhom.TabIndex = 3;
             // 
             // PanelLeft
@@ -135,7 +137,7 @@
             PanelLeft.Controls.Add(guna2HtmlLabel3);
             PanelLeft.CustomizableEdges = customizableEdges7;
             PanelLeft.Location = new Point(15, 286);
-            PanelLeft.Margin = new Padding(2, 2, 2, 2);
+            PanelLeft.Margin = new Padding(2);
             PanelLeft.Name = "PanelLeft";
             PanelLeft.ShadowDecoration.CustomizableEdges = customizableEdges8;
             PanelLeft.Size = new Size(273, 189);
@@ -147,7 +149,7 @@
             lstTatCaUser.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             lstTatCaUser.FullRowSelect = true;
             lstTatCaUser.Location = new Point(2, 36);
-            lstTatCaUser.Margin = new Padding(2, 2, 2, 2);
+            lstTatCaUser.Margin = new Padding(2);
             lstTatCaUser.MultiSelect = false;
             lstTatCaUser.Name = "lstTatCaUser";
             lstTatCaUser.Size = new Size(269, 151);
@@ -173,7 +175,7 @@
             guna2HtmlLabel3.BackColor = Color.Transparent;
             guna2HtmlLabel3.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel3.Location = new Point(2, 7);
-            guna2HtmlLabel3.Margin = new Padding(2, 2, 2, 2);
+            guna2HtmlLabel3.Margin = new Padding(2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(193, 25);
             guna2HtmlLabel3.TabIndex = 8;
@@ -186,7 +188,7 @@
             guna2Panel2.Controls.Add(guna2HtmlLabel4);
             guna2Panel2.CustomizableEdges = customizableEdges9;
             guna2Panel2.Location = new Point(292, 286);
-            guna2Panel2.Margin = new Padding(2, 2, 2, 2);
+            guna2Panel2.Margin = new Padding(2);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel2.Size = new Size(277, 189);
@@ -198,7 +200,7 @@
             lstThanhVienChon.Columns.AddRange(new ColumnHeader[] { columnHeader2 });
             lstThanhVienChon.FullRowSelect = true;
             lstThanhVienChon.Location = new Point(5, 36);
-            lstThanhVienChon.Margin = new Padding(2, 2, 2, 2);
+            lstThanhVienChon.Margin = new Padding(2);
             lstThanhVienChon.MultiSelect = false;
             lstThanhVienChon.Name = "lstThanhVienChon";
             lstThanhVienChon.Size = new Size(272, 151);
@@ -218,7 +220,7 @@
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2HtmlLabel4.Location = new Point(5, 4);
-            guna2HtmlLabel4.Margin = new Padding(2, 2, 2, 2);
+            guna2HtmlLabel4.Margin = new Padding(2);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(171, 28);
             guna2HtmlLabel4.TabIndex = 11;
@@ -235,8 +237,8 @@
             btnTaoNhom.FillColor = Color.FromArgb(104, 33, 122);
             btnTaoNhom.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTaoNhom.ForeColor = Color.White;
-            btnTaoNhom.Location = new Point(110, 487);
-            btnTaoNhom.Margin = new Padding(2, 2, 2, 2);
+            btnTaoNhom.Location = new Point(19, 487);
+            btnTaoNhom.Margin = new Padding(2);
             btnTaoNhom.Name = "btnTaoNhom";
             btnTaoNhom.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnTaoNhom.Size = new Size(192, 47);
@@ -251,11 +253,11 @@
             btnHuy.DisabledState.CustomBorderColor = Color.DarkGray;
             btnHuy.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnHuy.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnHuy.FillColor = Color.Thistle;
+            btnHuy.FillColor = Color.FromArgb(104, 33, 122);
             btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuy.ForeColor = Color.White;
-            btnHuy.Location = new Point(362, 487);
-            btnHuy.Margin = new Padding(2, 2, 2, 2);
+            btnHuy.Location = new Point(370, 487);
+            btnHuy.Margin = new Padding(2);
             btnHuy.Name = "btnHuy";
             btnHuy.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnHuy.Size = new Size(192, 47);
@@ -267,7 +269,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
+            BackColor = Color.WhiteSmoke;
             BorderStyle = BorderStyle.Fixed3D;
             Controls.Add(btnHuy);
             Controls.Add(btnTaoNhom);
@@ -277,7 +279,7 @@
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(btnChonAnh);
             Controls.Add(picAvatarNhom);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "UC_TaoNhom";
             Size = new Size(671, 541);
             ((System.ComponentModel.ISupportInitialize)picAvatarNhom).EndInit();

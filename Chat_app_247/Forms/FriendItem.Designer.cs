@@ -66,13 +66,13 @@
             pnlBase.Dock = DockStyle.Fill;
             pnlBase.FillColor = Color.WhiteSmoke;
             pnlBase.Location = new Point(0, 0);
-            pnlBase.Margin = new Padding(0, 0, 0, 10);
+            pnlBase.Margin = new Padding(0, 0, 0, 7);
             pnlBase.Name = "pnlBase";
-            pnlBase.Padding = new Padding(10, 8, 10, 8);
+            pnlBase.Padding = new Padding(7, 5, 7, 5);
             pnlBase.ShadowDecoration.CustomizableEdges = customizableEdges9;
             pnlBase.ShadowDecoration.Depth = 5;
             pnlBase.ShadowDecoration.Enabled = true;
-            pnlBase.Size = new Size(1342, 104);
+            pnlBase.Size = new Size(895, 69);
             pnlBase.TabIndex = 0;
             // 
             // pic_avta
@@ -82,12 +82,11 @@
             pic_avta.Image = Properties.Resources.Logo_Real;
             pic_avta.ImageRotate = 0F;
             pic_avta.InitialImage = Properties.Resources.Logo_Real;
-            pic_avta.Location = new Point(21, 9);
-            pic_avta.Margin = new Padding(4, 4, 4, 4);
+            pic_avta.Location = new Point(14, 6);
             pic_avta.Name = "pic_avta";
             pic_avta.ShadowDecoration.CustomizableEdges = customizableEdges1;
             pic_avta.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            pic_avta.Size = new Size(87, 87);
+            pic_avta.Size = new Size(58, 58);
             pic_avta.SizeMode = PictureBoxSizeMode.Zoom;
             pic_avta.TabIndex = 19;
             pic_avta.TabStop = false;
@@ -95,7 +94,7 @@
             // Full_button
             // 
             Full_button.BackColor = Color.Transparent;
-            Full_button.BorderRadius = 10;
+            Full_button.BorderRadius = 5;
             Full_button.Cursor = Cursors.Hand;
             Full_button.CustomizableEdges = customizableEdges2;
             Full_button.DisabledState.BorderColor = Color.DarkGray;
@@ -105,11 +104,12 @@
             Full_button.FillColor = SystemColors.MenuBar;
             Full_button.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Full_button.ForeColor = Color.Black;
-            Full_button.Location = new Point(962, 16);
+            Full_button.Location = new Point(641, 11);
+            Full_button.Margin = new Padding(2, 2, 2, 2);
             Full_button.Name = "Full_button";
             Full_button.ShadowDecoration.CustomizableEdges = customizableEdges3;
             Full_button.ShadowDecoration.Enabled = true;
-            Full_button.Size = new Size(142, 72);
+            Full_button.Size = new Size(95, 48);
             Full_button.TabIndex = 18;
             Full_button.Text = "Xem Thêm";
             Full_button.Click += Full_button_Click;
@@ -117,7 +117,7 @@
             // Delete_Friend_button
             // 
             Delete_Friend_button.BackColor = Color.Transparent;
-            Delete_Friend_button.BorderRadius = 10;
+            Delete_Friend_button.BorderRadius = 5;
             Delete_Friend_button.Cursor = Cursors.Hand;
             Delete_Friend_button.CustomizableEdges = customizableEdges4;
             Delete_Friend_button.DisabledState.BorderColor = Color.DarkGray;
@@ -127,11 +127,12 @@
             Delete_Friend_button.FillColor = Color.FromArgb(231, 76, 80);
             Delete_Friend_button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Delete_Friend_button.ForeColor = Color.White;
-            Delete_Friend_button.Location = new Point(1155, 15);
+            Delete_Friend_button.Location = new Point(770, 10);
+            Delete_Friend_button.Margin = new Padding(2, 2, 2, 2);
             Delete_Friend_button.Name = "Delete_Friend_button";
             Delete_Friend_button.ShadowDecoration.CustomizableEdges = customizableEdges5;
             Delete_Friend_button.ShadowDecoration.Enabled = true;
-            Delete_Friend_button.Size = new Size(142, 72);
+            Delete_Friend_button.Size = new Size(95, 48);
             Delete_Friend_button.TabIndex = 17;
             Delete_Friend_button.Text = "Xóa Bạn";
             Delete_Friend_button.Click += Delete_Friend_button_Click;
@@ -141,11 +142,12 @@
             pnlDot.BorderRadius = 5;
             pnlDot.CustomizableEdges = customizableEdges6;
             pnlDot.FillColor = Color.LimeGreen;
-            pnlDot.Location = new Point(117, 76);
+            pnlDot.Location = new Point(78, 51);
+            pnlDot.Margin = new Padding(2, 2, 2, 2);
             pnlDot.Name = "pnlDot";
             pnlDot.RightToLeft = RightToLeft.Yes;
             pnlDot.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            pnlDot.Size = new Size(10, 10);
+            pnlDot.Size = new Size(7, 7);
             pnlDot.TabIndex = 6;
             // 
             // lblName
@@ -153,10 +155,11 @@
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI Semibold", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblName.ForeColor = Color.FromArgb(30, 30, 30);
-            lblName.Location = new Point(147, 20);
-            lblName.MaximumSize = new Size(500, 0);
+            lblName.Location = new Point(98, 13);
+            lblName.Margin = new Padding(2, 0, 2, 0);
+            lblName.MaximumSize = new Size(333, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(86, 37);
+            lblName.Size = new Size(61, 25);
             lblName.TabIndex = 1;
             lblName.Text = "label1";
             // 
@@ -174,28 +177,29 @@
             menuMore.RenderStyle.SelectionForeColor = Color.White;
             menuMore.RenderStyle.SeparatorColor = Color.Gainsboro;
             menuMore.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            menuMore.Size = new Size(225, 76);
+            menuMore.Size = new Size(177, 52);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 36);
+            toolStripMenuItem1.Size = new Size(176, 24);
             toolStripMenuItem1.Text = "Xem thông tin ";
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(224, 36);
+            toolStripMenuItem2.Size = new Size(176, 24);
             toolStripMenuItem2.Text = "Xóa bạn";
             // 
             // FriendItem
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             Controls.Add(pnlBase);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FriendItem";
-            Size = new Size(1342, 104);
+            Size = new Size(895, 69);
             pnlBase.ResumeLayout(false);
             pnlBase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic_avta).EndInit();

@@ -55,7 +55,7 @@
             // 
             // PanelAddFriend
             // 
-            PanelAddFriend.BackColor = SystemColors.ScrollBar;
+            PanelAddFriend.BackColor = Color.WhiteSmoke;
             PanelAddFriend.Controls.Add(btnHuy);
             PanelAddFriend.Controls.Add(btnThêm);
             PanelAddFriend.Controls.Add(guna2Panel2);
@@ -75,10 +75,10 @@
             btnHuy.DisabledState.CustomBorderColor = Color.DarkGray;
             btnHuy.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnHuy.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnHuy.FillColor = Color.Thistle;
+            btnHuy.FillColor = Color.FromArgb(104, 33, 122);
             btnHuy.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuy.ForeColor = Color.White;
-            btnHuy.Location = new Point(347, 292);
+            btnHuy.Location = new Point(340, 292);
             btnHuy.Margin = new Padding(2);
             btnHuy.Name = "btnHuy";
             btnHuy.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -98,7 +98,7 @@
             btnThêm.FillColor = Color.FromArgb(104, 33, 122);
             btnThêm.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThêm.ForeColor = Color.White;
-            btnThêm.Location = new Point(64, 292);
+            btnThêm.Location = new Point(53, 292);
             btnThêm.Margin = new Padding(2);
             btnThêm.Name = "btnThêm";
             btnThêm.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -109,6 +109,7 @@
             // 
             // guna2Panel2
             // 
+            guna2Panel2.BorderColor = Color.Black;
             guna2Panel2.BorderRadius = 30;
             guna2Panel2.Controls.Add(lstThanhVienChon);
             guna2Panel2.Controls.Add(guna2HtmlLabel4);
@@ -154,6 +155,7 @@
             // 
             // PanelLeft
             // 
+            PanelLeft.BorderColor = Color.Black;
             PanelLeft.BorderRadius = 30;
             PanelLeft.Controls.Add(lstTatCaUser);
             PanelLeft.Controls.Add(guna2HtmlLabel3);
@@ -214,7 +216,7 @@
             ClientSize = new Size(597, 393);
             Controls.Add(PanelAddFriend);
             Name = "AddFriendsGroup";
-            Text = "AddFriendsGroup";
+            Text = "Thêm vào nhóm";
             PanelAddFriend.ResumeLayout(false);
             PanelAddFriend.PerformLayout();
             guna2Panel2.ResumeLayout(false);

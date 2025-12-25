@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Panel_menu = new Panel();
             sub_Setting_panel = new Panel();
             Logout_button = new FontAwesome.Sharp.IconButton();
@@ -305,11 +305,12 @@
             // 
             // Avartar_Picture
             // 
+            Avartar_Picture.Image = Properties.Resources.Logo_Real;
             Avartar_Picture.ImageRotate = 0F;
             Avartar_Picture.InitialImage = Properties.Resources.Logo_Real;
             Avartar_Picture.Location = new Point(698, 11);
             Avartar_Picture.Name = "Avartar_Picture";
-            Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            Avartar_Picture.ShadowDecoration.CustomizableEdges = customizableEdges2;
             Avartar_Picture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             Avartar_Picture.Size = new Size(50, 50);
             Avartar_Picture.SizeMode = PictureBoxSizeMode.Zoom;
@@ -391,7 +392,7 @@
             // helloToolStripMenuItem
             // 
             helloToolStripMenuItem.Name = "helloToolStripMenuItem";
-            helloToolStripMenuItem.Size = new Size(111, 24);
+            helloToolStripMenuItem.Size = new Size(210, 24);
             helloToolStripMenuItem.Text = "hello";
             // 
             // List_Thong_Bao
@@ -412,7 +413,7 @@
             Controls.Add(Panel_menu);
             ForeColor = Color.Gainsboro;
             Name = "f_Dashboard";
-            Text = "f_Dashboard";
+            Text = "Dashboard";
             FormClosing += f_Dashboard_FormClosing;
             Load += f_Dashboard_Load;
             Panel_menu.ResumeLayout(false);

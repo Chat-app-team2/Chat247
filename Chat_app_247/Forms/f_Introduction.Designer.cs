@@ -51,7 +51,7 @@
             ClientSize = new Size(1026, 576);
             Controls.Add(pictureBox1);
             Name = "f_Introduction";
-            Text = "Introduction";
+            Text = "Giới thiệu app";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

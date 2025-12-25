@@ -46,7 +46,7 @@
             // 
             // uc_Request_Panel
             // 
-            uc_Request_Panel.BackColor = Color.LightGray;
+            uc_Request_Panel.BackColor = Color.Transparent;
             uc_Request_Panel.BorderColor = SystemColors.Highlight;
             uc_Request_Panel.BorderRadius = 9;
             uc_Request_Panel.BorderThickness = 4;
@@ -66,7 +66,7 @@
             // guna2Button2
             // 
             guna2Button2.BackColor = Color.Transparent;
-            guna2Button2.BorderRadius = 10;
+            guna2Button2.BorderRadius = 5;
             guna2Button2.Cursor = Cursors.Hand;
             guna2Button2.CustomizableEdges = customizableEdges1;
             guna2Button2.DisabledState.BorderColor = Color.DarkGray;
@@ -76,7 +76,7 @@
             guna2Button2.FillColor = Color.SteelBlue;
             guna2Button2.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button2.ForeColor = Color.Black;
-            guna2Button2.Location = new Point(607, 27);
+            guna2Button2.Location = new Point(607, 24);
             guna2Button2.Margin = new Padding(2);
             guna2Button2.Name = "guna2Button2";
             guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -89,7 +89,7 @@
             // guna2Button1
             // 
             guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.BorderRadius = 10;
+            guna2Button1.BorderRadius = 5;
             guna2Button1.Cursor = Cursors.Hand;
             guna2Button1.CustomizableEdges = customizableEdges3;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
@@ -99,7 +99,7 @@
             guna2Button1.FillColor = SystemColors.MenuBar;
             guna2Button1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.Black;
-            guna2Button1.Location = new Point(492, 27);
+            guna2Button1.Location = new Point(492, 24);
             guna2Button1.Margin = new Padding(2);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;

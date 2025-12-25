@@ -342,5 +342,10 @@ namespace Chat_app_247.Forms
                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnGoi_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng gọi điện chưa được hỗ trợ trong phiên bản này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

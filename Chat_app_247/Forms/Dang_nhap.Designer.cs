@@ -50,7 +50,6 @@
             linkLabel2 = new LinkLabel();
             btnLogin = new Guna.UI2.WinForms.Guna2Button();
             linkLabel1 = new LinkLabel();
-            chkRemember = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,7 +71,6 @@
             guna2PanelRight.Controls.Add(linkLabel2);
             guna2PanelRight.Controls.Add(btnLogin);
             guna2PanelRight.Controls.Add(linkLabel1);
-            guna2PanelRight.Controls.Add(chkRemember);
             guna2PanelRight.Controls.Add(guna2Button1);
             guna2PanelRight.Controls.Add(txtPassword);
             guna2PanelRight.Controls.Add(txtEmail);
@@ -135,7 +133,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.LightGray;
-            label1.Location = new Point(37, 242);
+            label1.Location = new Point(37, 232);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(70, 20);
@@ -146,7 +144,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.LightGray;
-            label4.Location = new Point(37, 169);
+            label4.Location = new Point(37, 167);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(46, 20);
@@ -195,7 +193,7 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Cursor = Cursors.Hand;
             linkLabel1.LinkColor = Color.SkyBlue;
-            linkLabel1.Location = new Point(169, 319);
+            linkLabel1.Location = new Point(41, 305);
             linkLabel1.Margin = new Padding(2, 0, 2, 0);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(125, 20);
@@ -203,25 +201,6 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Forgot Password?";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
-            // chkRemember
-            // 
-            chkRemember.AutoSize = true;
-            chkRemember.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            chkRemember.CheckedState.BorderRadius = 0;
-            chkRemember.CheckedState.BorderThickness = 0;
-            chkRemember.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            chkRemember.ForeColor = Color.White;
-            chkRemember.Location = new Point(41, 319);
-            chkRemember.Margin = new Padding(2);
-            chkRemember.Name = "chkRemember";
-            chkRemember.Size = new Size(129, 24);
-            chkRemember.TabIndex = 11;
-            chkRemember.Text = "Remember Me";
-            chkRemember.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            chkRemember.UncheckedState.BorderRadius = 0;
-            chkRemember.UncheckedState.BorderThickness = 0;
-            chkRemember.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
             // guna2Button1
             // 
@@ -257,7 +236,7 @@
             txtPassword.Font = new Font("Segoe UI", 9F);
             txtPassword.ForeColor = Color.White;
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(37, 276);
+            txtPassword.Location = new Point(37, 264);
             txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '•';
@@ -283,7 +262,7 @@
             txtEmail.Font = new Font("Segoe UI", 9F);
             txtEmail.ForeColor = Color.White;
             txtEmail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtEmail.Location = new Point(37, 203);
+            txtEmail.Location = new Point(37, 195);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Enter your email";
@@ -323,7 +302,7 @@
             Margin = new Padding(2);
             Name = "Dang_nhap";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dang_nhap";
+            Text = "Đăng nhập";
             Load += Dang_nhap_Load;
             guna2PanelRight.ResumeLayout(false);
             guna2PanelRight.PerformLayout();
@@ -342,7 +321,6 @@
         private LinkLabel linkLabel2;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private LinkLabel linkLabel1;
-        private Guna.UI2.WinForms.Guna2CheckBox chkRemember;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
