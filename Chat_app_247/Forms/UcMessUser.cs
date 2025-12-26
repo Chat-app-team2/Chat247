@@ -120,8 +120,8 @@ namespace Chat_app_247.Forms
             _friendUser = null;        // không dùng User trong mode group
 
             lblName.Text = groupName;
-            // nhóm không có online/offline -> để xám
-            Status_panel.FillColor = Color.Gray;
+            // nhóm không có online/offline -> để màu xanh 
+            Status_panel.FillColor = Color.Blue;
 
             if (!string.IsNullOrEmpty(groupImageUrl))
             {
