@@ -21,11 +21,25 @@ namespace Chat_app_247.Forms
     public partial class UcBubbleOther : UserControl
     {
 
-       
+        private ToolTip fileToolTip = new ToolTip();
         public UcBubbleOther()
         {
             InitializeComponent();
            
+        }
+
+        private string TruncateFileName(string fileName, int maxLength)
+        {
+            if (string.IsNullOrEmpty(fileName) || fileName.Length <= maxLength)
+                return fileName;
+
+            int extensionIndex = fileName.LastIndexOf('.');
+            string ext = (extensionIndex > 0) ? fileName.Substring(extensionIndex) : "";
+
+            int keepLength = maxLength - ext.Length - 3;
+            if (keepLength < 5) keepLength = 5;
+
+            return fileName.Substring(0, keepLength) + "..." + ext;
         }
         public void SetMessage(Models.Message msg, string avt, string name)
         {
@@ -56,7 +70,7 @@ namespace Chat_app_247.Forms
             else if (msg.MessageType == "File")
             {
                 LinkLabel lnk = new LinkLabel();
-                lnk.Text = $"📄 {msg.FileName}";
+                lnk.Text = $"📄 {TruncateFileName(msg.FileName, 35)}";
                 lnk.AutoSize = true;
                 lnk.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 lnk.LinkColor = Color.Blue;
@@ -64,6 +78,18 @@ namespace Chat_app_247.Forms
                     try { Process.Start(new ProcessStartInfo(msg.FileUrl) { UseShellExecute = true }); }
                     catch { MessageBox.Show("Không thể mở link tải."); }
                 };
+
+                fileToolTip.SetToolTip(lnk, msg.FileName);
+                fileToolTip.AutoPopDelay = 5000;
+                fileToolTip.InitialDelay = 500;
+                fileToolTip.ReshowDelay = 100;
+                fileToolTip.IsBalloon = true;
+
+                lnk.LinkClicked += (s, e) => {
+                    try { Process.Start(new ProcessStartInfo(msg.FileUrl) { UseShellExecute = true }); }
+                    catch { MessageBox.Show("Không thể mở link tải."); }
+                };
+
                 pnlBubble.Controls.Add(lnk);
                 pnlBubble.AutoSize = true;
             }
