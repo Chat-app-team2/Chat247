@@ -207,8 +207,9 @@ namespace Chat_app_247.Forms
                     if (!string.IsNullOrEmpty(_CurrentUserId) && !string.IsNullOrEmpty(_CurrentConversationId) && _IFirebaseClient != null)
                     {
                         await SaveVoiceToFirebase(voiceUrl);
-                        OnRecordCompleted?.Invoke(outputPath);
                         lblStatus.Text = "Đã gửi Voice!";
+                        MessageBox.Show("Đã gửi tin nhắn giọng nói!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OnRecordCompleted?.Invoke(outputPath);
                     }
                     else
                     {
@@ -283,6 +284,7 @@ namespace Chat_app_247.Forms
                         lblStatus.Text = "Đã gửi Text!";
                         MessageBox.Show("Nội dung: " + finalMessage, "Đã gửi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }));
+                    OnRecordCompleted?.Invoke(finalMessage);
                 }
             }
             catch (Exception ex)
