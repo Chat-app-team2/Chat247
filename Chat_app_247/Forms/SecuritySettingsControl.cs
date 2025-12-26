@@ -38,6 +38,7 @@ namespace Chat_app_247.Forms
         {
             // Reset trạng thái thông báo
             lblStatus.Text = "";
+            lblStatus.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblStatus.ForeColor = System.Drawing.Color.IndianRed;
             // 1) Kiểm tra dữ liệu đầu vào phía client (trước khi gọi API)
             string? error = ValidateInputs();

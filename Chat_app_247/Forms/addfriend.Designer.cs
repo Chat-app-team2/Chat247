@@ -37,7 +37,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             uc_Request_Panel = new Guna.UI2.WinForms.Guna2Panel();
             guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btn_xemthem = new Guna.UI2.WinForms.Guna2Button();
             Name_Label = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Avartar_Picture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             uc_Request_Panel.SuspendLayout();
@@ -51,7 +51,7 @@
             uc_Request_Panel.BorderRadius = 9;
             uc_Request_Panel.BorderThickness = 4;
             uc_Request_Panel.Controls.Add(guna2Button2);
-            uc_Request_Panel.Controls.Add(guna2Button1);
+            uc_Request_Panel.Controls.Add(btn_xemthem);
             uc_Request_Panel.Controls.Add(Name_Label);
             uc_Request_Panel.Controls.Add(Avartar_Picture);
             uc_Request_Panel.CustomizableEdges = customizableEdges6;
@@ -86,27 +86,28 @@
             guna2Button2.Text = "Thêm Bạn";
             guna2Button2.Click += guna2Button2_Click_1;
             // 
-            // guna2Button1
+            // btn_xemthem
             // 
-            guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.BorderRadius = 5;
-            guna2Button1.Cursor = Cursors.Hand;
-            guna2Button1.CustomizableEdges = customizableEdges3;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = SystemColors.MenuBar;
-            guna2Button1.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.Black;
-            guna2Button1.Location = new Point(492, 24);
-            guna2Button1.Margin = new Padding(2);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button1.ShadowDecoration.Enabled = true;
-            guna2Button1.Size = new Size(82, 56);
-            guna2Button1.TabIndex = 16;
-            guna2Button1.Text = "Xem Thêm";
+            btn_xemthem.BackColor = Color.Transparent;
+            btn_xemthem.BorderRadius = 5;
+            btn_xemthem.Cursor = Cursors.Hand;
+            btn_xemthem.CustomizableEdges = customizableEdges3;
+            btn_xemthem.DisabledState.BorderColor = Color.DarkGray;
+            btn_xemthem.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_xemthem.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_xemthem.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_xemthem.FillColor = SystemColors.MenuBar;
+            btn_xemthem.Font = new Font("Segoe UI", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_xemthem.ForeColor = Color.Black;
+            btn_xemthem.Location = new Point(492, 24);
+            btn_xemthem.Margin = new Padding(2);
+            btn_xemthem.Name = "btn_xemthem";
+            btn_xemthem.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_xemthem.ShadowDecoration.Enabled = true;
+            btn_xemthem.Size = new Size(82, 56);
+            btn_xemthem.TabIndex = 16;
+            btn_xemthem.Text = "Xem Thêm";
+            btn_xemthem.Click += btn_xemthem_Click;
             // 
             // Name_Label
             // 
@@ -149,7 +150,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel uc_Request_Panel;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btn_xemthem;
         private Guna.UI2.WinForms.Guna2HtmlLabel Name_Label;
         private Guna.UI2.WinForms.Guna2CirclePictureBox Avartar_Picture;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;

@@ -147,5 +147,33 @@ namespace Chat_app_247.Forms
         {
 
         }
+        private void btn_xemthem_Click(object sender, EventArgs e)
+        {
+            if (_targetUser == null)
+            {
+                MessageBox.Show("Không có thông tin người dùng!",
+                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Giới tính 
+            string gioiTinhText = string.IsNullOrWhiteSpace(_targetUser.Gender)
+                                    ? "Chưa cập nhật"
+                                    : _targetUser.Gender;
+            // Ngày sinh
+            string ngaySinhText = _targetUser.DateOfBirth.HasValue
+                           ? _targetUser.DateOfBirth.Value.ToString("dd/MM/yyyy")
+                           : "Chưa cập nhật";
+            var sb = new StringBuilder();
+            sb.AppendLine("Thông tin người dùng:\n==================");
+            sb.AppendLine($"Họ tên: {_targetUser.DisplayName ?? "Chưa đặt tên"}");
+            sb.AppendLine($"Giới tính: {gioiTinhText}");
+            sb.AppendLine($"Ngày sinh: {ngaySinhText}");
+            sb.AppendLine($"Giới thiệu:\n{_targetUser.Bio ?? "Chưa có giới thiệu"}");
+            sb.AppendLine("==================");
+            MessageBox.Show(sb.ToString(),
+                            "Thông tin người dùng",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+        }
     }
 }

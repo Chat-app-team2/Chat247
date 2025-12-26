@@ -49,7 +49,6 @@
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
@@ -57,6 +56,7 @@
             txtCurrentPassword = new Guna.UI2.WinForms.Guna2TextBox();
             txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            lblStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnSave = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             tableLayoutPanel1.SuspendLayout();
@@ -76,7 +76,6 @@
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel6, 0, 4);
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel3, 0, 3);
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel5, 0, 2);
-            tableLayoutPanel1.Controls.Add(lblStatus, 0, 0);
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel1, 1, 0);
             tableLayoutPanel1.Controls.Add(guna2HtmlLabel7, 0, 5);
             tableLayoutPanel1.Controls.Add(txtEmail, 1, 1);
@@ -84,20 +83,22 @@
             tableLayoutPanel1.Controls.Add(txtCurrentPassword, 1, 3);
             tableLayoutPanel1.Controls.Add(txtNewPassword, 1, 4);
             tableLayoutPanel1.Controls.Add(txtConfirmPassword, 1, 5);
+            tableLayoutPanel1.Controls.Add(lblStatus, 1, 7);
             tableLayoutPanel1.Font = new Font("Segoe UI Black", 18F, FontStyle.Bold);
             tableLayoutPanel1.ForeColor = SystemColors.ControlText;
             tableLayoutPanel1.Location = new Point(14, 12);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Padding = new Padding(16);
-            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 119F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 63F));
             tableLayoutPanel1.Size = new Size(889, 599);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -183,16 +184,6 @@
             guna2HtmlLabel5.Size = new Size(75, 37);
             guna2HtmlLabel5.TabIndex = 4;
             guna2HtmlLabel5.Text = "Name";
-            // 
-            // lblStatus
-            // 
-            lblStatus.BackColor = Color.Transparent;
-            lblStatus.Location = new Point(18, 18);
-            lblStatus.Margin = new Padding(2);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(3, 2);
-            lblStatus.TabIndex = 14;
-            lblStatus.Text = null;
             // 
             // guna2HtmlLabel1
             // 
@@ -325,6 +316,16 @@
             txtConfirmPassword.Size = new Size(607, 39);
             txtConfirmPassword.TabIndex = 19;
             // 
+            // lblStatus
+            // 
+            lblStatus.BackColor = Color.Transparent;
+            lblStatus.Location = new Point(258, 441);
+            lblStatus.Margin = new Padding(2);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(27, 22);
+            lblStatus.TabIndex = 14;
+            lblStatus.Text = null;
+            // 
             // btnSave
             // 
             btnSave.BackColor = Color.Gainsboro;
@@ -337,7 +338,7 @@
             btnSave.FillColor = Color.MediumSlateBlue;
             btnSave.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.Black;
-            btnSave.Location = new Point(371, 487);
+            btnSave.Location = new Point(355, 515);
             btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
             btnSave.ShadowDecoration.CustomizableEdges = customizableEdges12;
