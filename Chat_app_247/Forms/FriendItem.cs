@@ -149,12 +149,13 @@ namespace Chat_app_247.Forms
                            : "Chưa cập nhật";
 
             var sb = new StringBuilder();
-            sb.AppendLine("Thông tin người dùng:\n");
+            sb.AppendLine("Thông tin người dùng:\n==================");
             sb.AppendLine($"Họ tên: {_targetUser.DisplayName ?? "Chưa đặt tên"}");
             sb.AppendLine($"Email: {_targetUser.Email ?? "Chưa có email"}");
             sb.AppendLine($"Giới tính: {gioiTinhText}");
             sb.AppendLine($"Ngày sinh: {ngaySinhText}");
-            sb.AppendLine($"Giới thiệu: {_targetUser.Bio ?? "Chưa có giới thiệu"}");
+            sb.AppendLine($"Giới thiệu:\n{_targetUser.Bio ?? "Chưa có giới thiệu"}");
+            sb.AppendLine("==================");
 
             MessageBox.Show(sb.ToString(),
                             "Thông tin người dùng",

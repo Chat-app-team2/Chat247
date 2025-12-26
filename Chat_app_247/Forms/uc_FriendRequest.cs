@@ -213,10 +213,23 @@ namespace Chat_app_247.Forms
         {
             if (FriendUser != null)
             {
-                string userInfo = $"Thông tin người dùng:\n\n" +
-                                    $"Tên hiển thị: {FriendUser.DisplayName ?? "Chưa đặt tên"}\n" +
-                                    $"Email: {FriendUser.Email ?? "Chưa có email"}\n";
-                MessageBox.Show(userInfo, "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string gioiTinhText = string.IsNullOrWhiteSpace(FriendUser.Gender)
+                        ? "Chưa cập nhật"
+                        : FriendUser.Gender;
+                string ngaySinhText = FriendUser.DateOfBirth.HasValue
+                           ? FriendUser.DateOfBirth.Value.ToString("dd/MM/yyyy")
+                           : "Chưa cập nhật";
+                var sb = new StringBuilder();
+                sb.AppendLine("Thông tin người dùng:\n==================");
+                sb.AppendLine($"Họ tên: {FriendUser.DisplayName ?? "Chưa đặt tên"}");
+                sb.AppendLine($"Giới tính: {gioiTinhText}");
+                sb.AppendLine($"Ngày sinh: {ngaySinhText}");
+                sb.AppendLine($"Giới thiệu:\n{FriendUser.Bio ?? "Chưa có giới thiệu"}");
+                sb.AppendLine("==================");
+                MessageBox.Show(sb.ToString(),
+                                "Thông tin người dùng",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
             }
         }
     }

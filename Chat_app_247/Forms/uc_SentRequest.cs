@@ -132,13 +132,12 @@ namespace Chat_app_247.Forms
                                 : FriendUser.Bio;
 
             var sb = new StringBuilder();
-            sb.AppendLine("Thông tin người dùng:\n");
+            sb.AppendLine("Thông tin người dùng:\n==================");
             sb.AppendLine($"Họ tên: {FriendUser.DisplayName ?? "Chưa đặt tên"}");
-            sb.AppendLine($"Email: {FriendUser.Email ?? "Chưa có email"}");
             sb.AppendLine($"Giới tính: {gioiTinhText}");
             sb.AppendLine($"Ngày sinh: {ngaySinhText}");
-            sb.AppendLine($"Giới thiệu: {bioText}");
-
+            sb.AppendLine($"Giới thiệu:\n{bioText}");
+            sb.AppendLine("==================");
             MessageBox.Show(sb.ToString(),
                             "Thông tin người dùng",
                             MessageBoxButtons.OK,
