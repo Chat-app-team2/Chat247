@@ -48,13 +48,13 @@
             btnPlayPause.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnPlayPause.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnPlayPause.FillColor = Color.FromArgb(104, 33, 122);
-            btnPlayPause.Font = new Font("Segoe UI", 21.8571434F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPlayPause.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPlayPause.ForeColor = Color.White;
-            btnPlayPause.Location = new Point(13, 7);
-            btnPlayPause.Margin = new Padding(2, 2, 2, 2);
+            btnPlayPause.Location = new Point(9, 13);
+            btnPlayPause.Margin = new Padding(2);
             btnPlayPause.Name = "btnPlayPause";
             btnPlayPause.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnPlayPause.Size = new Size(61, 57);
+            btnPlayPause.Size = new Size(35, 35);
             btnPlayPause.TabIndex = 17;
             btnPlayPause.Text = "▶";
             btnPlayPause.Click += btnPlayPause_Click;
@@ -62,11 +62,11 @@
             // progressBarAudio
             // 
             progressBarAudio.CustomizableEdges = customizableEdges3;
-            progressBarAudio.Location = new Point(79, 28);
-            progressBarAudio.Margin = new Padding(2, 2, 2, 2);
+            progressBarAudio.Location = new Point(53, 26);
+            progressBarAudio.Margin = new Padding(2);
             progressBarAudio.Name = "progressBarAudio";
             progressBarAudio.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            progressBarAudio.Size = new Size(350, 24);
+            progressBarAudio.Size = new Size(216, 17);
             progressBarAudio.TabIndex = 18;
             progressBarAudio.Text = "guna2ProgressBar1";
             progressBarAudio.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -74,8 +74,8 @@
             // lblDuration
             // 
             lblDuration.BackColor = Color.Transparent;
-            lblDuration.Location = new Point(79, 0);
-            lblDuration.Margin = new Padding(2, 2, 2, 2);
+            lblDuration.Location = new Point(57, 3);
+            lblDuration.Margin = new Padding(2);
             lblDuration.Name = "lblDuration";
             lblDuration.Size = new Size(38, 22);
             lblDuration.TabIndex = 19;
@@ -85,7 +85,7 @@
             // 
             lbName.AutoSize = true;
             lbName.ForeColor = Color.Black;
-            lbName.Location = new Point(253, 2);
+            lbName.Location = new Point(133, 3);
             lbName.Name = "lbName";
             lbName.Size = new Size(85, 20);
             lbName.TabIndex = 20;
@@ -99,9 +99,9 @@
             Controls.Add(lblDuration);
             Controls.Add(progressBarAudio);
             Controls.Add(btnPlayPause);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "VoiceMessageUC";
-            Size = new Size(440, 75);
+            Size = new Size(274, 53);
             ResumeLayout(false);
             PerformLayout();
         }
