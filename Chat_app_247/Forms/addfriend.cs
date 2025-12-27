@@ -163,17 +163,13 @@ namespace Chat_app_247.Forms
             string ngaySinhText = _targetUser.DateOfBirth.HasValue
                            ? _targetUser.DateOfBirth.Value.ToString("dd/MM/yyyy")
                            : "Chưa cập nhật";
-            var sb = new StringBuilder();
-            sb.AppendLine("Thông tin người dùng:\n==================");
-            sb.AppendLine($"Họ tên: {_targetUser.DisplayName ?? "Chưa đặt tên"}");
-            sb.AppendLine($"Giới tính: {gioiTinhText}");
-            sb.AppendLine($"Ngày sinh: {ngaySinhText}");
-            sb.AppendLine($"Giới thiệu:\n{_targetUser.Bio ?? "Chưa có giới thiệu"}");
-            sb.AppendLine("==================");
-            MessageBox.Show(sb.ToString(),
-                            "Thông tin người dùng",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+            Form xemthem = new Xemthem(_targetUser.ProfilePictureUrl ?? string.Empty,
+                                            _targetUser.DisplayName ?? "Chưa đặt tên",
+                                            _targetUser.Email,
+                                            ngaySinhText,
+                                            gioiTinhText,
+                                            _targetUser.Bio ?? "Chưa có giới thiệu");
+            xemthem.ShowDialog();
         }
     }
 }

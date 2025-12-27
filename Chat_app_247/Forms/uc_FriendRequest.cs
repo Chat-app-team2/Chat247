@@ -219,17 +219,13 @@ namespace Chat_app_247.Forms
                 string ngaySinhText = FriendUser.DateOfBirth.HasValue
                            ? FriendUser.DateOfBirth.Value.ToString("dd/MM/yyyy")
                            : "Chưa cập nhật";
-                var sb = new StringBuilder();
-                sb.AppendLine("Thông tin người dùng:\n==================");
-                sb.AppendLine($"Họ tên: {FriendUser.DisplayName ?? "Chưa đặt tên"}");
-                sb.AppendLine($"Giới tính: {gioiTinhText}");
-                sb.AppendLine($"Ngày sinh: {ngaySinhText}");
-                sb.AppendLine($"Giới thiệu:\n{FriendUser.Bio ?? "Chưa có giới thiệu"}");
-                sb.AppendLine("==================");
-                MessageBox.Show(sb.ToString(),
-                                "Thông tin người dùng",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                Form xemthem = new Xemthem(FriendUser.ProfilePictureUrl,
+                    FriendUser.DisplayName,
+                    FriendUser.Email,
+                    ngaySinhText,
+                    gioiTinhText,
+                    FriendUser.Bio ?? "Chưa có giới thiệu");
+                xemthem.ShowDialog();
             }
         }
     }

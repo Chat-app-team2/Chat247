@@ -131,17 +131,13 @@ namespace Chat_app_247.Forms
                                 ? "Chưa có giới thiệu"
                                 : FriendUser.Bio;
 
-            var sb = new StringBuilder();
-            sb.AppendLine("Thông tin người dùng:\n==================");
-            sb.AppendLine($"Họ tên: {FriendUser.DisplayName ?? "Chưa đặt tên"}");
-            sb.AppendLine($"Giới tính: {gioiTinhText}");
-            sb.AppendLine($"Ngày sinh: {ngaySinhText}");
-            sb.AppendLine($"Giới thiệu:\n{bioText}");
-            sb.AppendLine("==================");
-            MessageBox.Show(sb.ToString(),
-                            "Thông tin người dùng",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+            Form xemthem = new Xemthem(FriendUser.ProfilePictureUrl,
+                                        FriendUser.DisplayName ?? "Chưa đặt tên",
+                                        FriendUser.Email,
+                                        ngaySinhText,
+                                        gioiTinhText,
+                                        bioText);
+            xemthem.ShowDialog();
         }
     }
 }
