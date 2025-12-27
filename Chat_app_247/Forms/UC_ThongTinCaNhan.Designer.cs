@@ -68,22 +68,22 @@
             // 
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(242, 63);
+            guna2HtmlLabel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            guna2HtmlLabel1.Location = new Point(235, 91);
             guna2HtmlLabel1.Margin = new Padding(2);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(65, 32);
+            guna2HtmlLabel1.Size = new Size(65, 30);
             guna2HtmlLabel1.TabIndex = 1;
-            guna2HtmlLabel1.Text = "Tên :";
+            guna2HtmlLabel1.Text = "Tên:";
             // 
             // lblTen
             // 
             lblTen.BackColor = Color.Transparent;
-            lblTen.Font = new Font("Segoe UI", 12F);
-            lblTen.Location = new Point(398, 63);
+            lblTen.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblTen.Location = new Point(299, 91);
             lblTen.Margin = new Padding(2);
             lblTen.Name = "lblTen";
-            lblTen.Size = new Size(51, 30);
+            lblTen.Size = new Size(54, 27);
             lblTen.TabIndex = 2;
             lblTen.Text = "None";
             // 
@@ -91,22 +91,22 @@
             // 
             guna2HtmlLabel3.AutoSize = false;
             guna2HtmlLabel3.BackColor = Color.Transparent;
-            guna2HtmlLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            guna2HtmlLabel3.Location = new Point(242, 105);
+            guna2HtmlLabel3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            guna2HtmlLabel3.Location = new Point(235, 149);
             guna2HtmlLabel3.Margin = new Padding(2);
             guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             guna2HtmlLabel3.Size = new Size(118, 33);
             guna2HtmlLabel3.TabIndex = 3;
-            guna2HtmlLabel3.Text = "Trạng Thái :";
+            guna2HtmlLabel3.Text = "Trạng Thái:";
             // 
             // lblTrangThai
             // 
             lblTrangThai.BackColor = Color.Transparent;
-            lblTrangThai.Font = new Font("Segoe UI", 12F);
-            lblTrangThai.Location = new Point(398, 105);
+            lblTrangThai.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblTrangThai.Location = new Point(357, 149);
             lblTrangThai.Margin = new Padding(2);
             lblTrangThai.Name = "lblTrangThai";
-            lblTrangThai.Size = new Size(51, 30);
+            lblTrangThai.Size = new Size(54, 27);
             lblTrangThai.TabIndex = 4;
             lblTrangThai.Text = "None";
             // 
@@ -114,8 +114,8 @@
             // 
             guna2HtmlLabel5.AutoSize = false;
             guna2HtmlLabel5.BackColor = Color.Transparent;
-            guna2HtmlLabel5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel5.Location = new Point(25, 196);
+            guna2HtmlLabel5.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
+            guna2HtmlLabel5.Location = new Point(24, 196);
             guna2HtmlLabel5.Margin = new Padding(2);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             guna2HtmlLabel5.Size = new Size(103, 28);
@@ -126,11 +126,11 @@
             // 
             guna2HtmlLabel8.AutoSize = false;
             guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel8.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             guna2HtmlLabel8.Location = new Point(25, 228);
             guna2HtmlLabel8.Margin = new Padding(2);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(73, 29);
+            guna2HtmlLabel8.Size = new Size(69, 29);
             guna2HtmlLabel8.TabIndex = 8;
             guna2HtmlLabel8.Text = "Email :";
             // 
@@ -138,7 +138,7 @@
             // 
             guna2HtmlLabel9.AutoSize = false;
             guna2HtmlLabel9.BackColor = Color.Transparent;
-            guna2HtmlLabel9.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            guna2HtmlLabel9.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             guna2HtmlLabel9.Location = new Point(25, 264);
             guna2HtmlLabel9.Margin = new Padding(2);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
@@ -149,22 +149,22 @@
             // lblNgaySinh
             // 
             lblNgaySinh.BackColor = Color.Transparent;
-            lblNgaySinh.Font = new Font("Segoe UI", 12F);
-            lblNgaySinh.Location = new Point(166, 267);
+            lblNgaySinh.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic);
+            lblNgaySinh.Location = new Point(147, 264);
             lblNgaySinh.Margin = new Padding(2);
             lblNgaySinh.Name = "lblNgaySinh";
-            lblNgaySinh.Size = new Size(51, 30);
+            lblNgaySinh.Size = new Size(54, 27);
             lblNgaySinh.TabIndex = 10;
             lblNgaySinh.Text = "None";
             // 
             // lblEmail
             // 
             lblEmail.BackColor = Color.Transparent;
-            lblEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmail.Location = new Point(132, 227);
+            lblEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic);
+            lblEmail.Location = new Point(98, 228);
             lblEmail.Margin = new Padding(2);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(51, 30);
+            lblEmail.Size = new Size(54, 27);
             lblEmail.TabIndex = 11;
             lblEmail.Text = "None";
             // 
@@ -172,7 +172,7 @@
             // 
             guna2HtmlLabel12.AutoSize = false;
             guna2HtmlLabel12.BackColor = Color.Transparent;
-            guna2HtmlLabel12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel12.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold);
             guna2HtmlLabel12.Location = new Point(25, 298);
             guna2HtmlLabel12.Margin = new Padding(2);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
@@ -191,6 +191,7 @@
             txtGioiThieu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtGioiThieu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGioiThieu.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtGioiThieu.ForeColor = SystemColors.ActiveCaptionText;
             txtGioiThieu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtGioiThieu.Location = new Point(25, 336);
             txtGioiThieu.Margin = new Padding(4);

@@ -148,7 +148,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Bisque;
+            BackColor = SystemColors.GradientInactiveCaption;
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(guna2HtmlLabel4);
